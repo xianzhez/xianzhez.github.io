@@ -1,0 +1,897 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,adb," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Android Debug Bridge
+XIANZHEZ: 关于ADB的工作方式简介其实看developer的介绍(https://developer.android.com/studio/command-line/adb.html#howadbworks)就足够了。本文基于developer上的介绍以及开发经验做一个简单的总结，用于备忘查阅。
+
+基本介绍Android Debug Bridge">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Debug Bridge">
+<meta property="og:url" content="http://yoursite.com/2016/07/26/ADB/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="Android Debug Bridge
+XIANZHEZ: 关于ADB的工作方式简介其实看developer的介绍(https://developer.android.com/studio/command-line/adb.html#howadbworks)就足够了。本文基于developer上的介绍以及开发经验做一个简单的总结，用于备忘查阅。
+
+基本介绍Android Debug Bridge">
+<meta property="og:updated_time" content="2016-07-27T12:57:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Debug Bridge">
+<meta name="twitter:description" content="Android Debug Bridge
+XIANZHEZ: 关于ADB的工作方式简介其实看developer的介绍(https://developer.android.com/studio/command-line/adb.html#howadbworks)就足够了。本文基于developer上的介绍以及开发经验做一个简单的总结，用于备忘查阅。
+
+基本介绍Android Debug Bridge">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/26/ADB/"/>
+
+  <title> Android Debug Bridge | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android Debug Bridge
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-26T00:00:00+08:00" content="2016-07-26">
+              2016-07-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Android-Debug-Bridge"><a href="#Android-Debug-Bridge" class="headerlink" title="Android Debug Bridge"></a>Android Debug Bridge</h1><blockquote>
+<p>XIANZHEZ: 关于ADB的工作方式简介其实看developer的介绍(<a href="https://developer.android.com/studio/command-line/adb.html#howadbworks" target="_blank" rel="external">https://developer.android.com/studio/command-line/adb.html#howadbworks</a>)就足够了。<br>本文基于developer上的介绍以及开发经验做一个简单的总结，用于备忘查阅。</p>
+</blockquote>
+<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>Android Debug Bridge(adb)是一个功能强大的命令行工具，可以用于连接Android设备或emulator。尤其是在Android开发过程中可以起到很大的帮助作用。Android Studio等IDE以及一些常用工具（如DDMS）都会用到adb。</p>
+<a id="more"></a>
+<p>adb是一个CS结构的程序，它包括三部分：</p>
+<ul>
+<li>Client: 用于发送命令。client运行在host上，即开发机上。实际上，使用adb命令时，就可以视为一个client。IDE、DDMS都可以视为一个client。</li>
+<li>Daemon：运行在Android设备中。Daemon作为后台线程运行于Android设备中。</li>
+<li>Server：运行在host上，用于管理client和daemon之间的通讯。</li>
+</ul>
+<h2 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h2><p>当开启一个client时， client会去检查是否有server线程在运行，如果没有，则开启server线程。当server开启后，server会绑定本地TCP端口5037，并监听所有client发往5037端口的所有命令。也就是说，所有的client都是通过5037端口和server进行通讯。</p>
+<p>Server会和所有连接的Android设备建立通讯连接。它会扫描 <strong>5555 ~ 5585</strong>之间所有的奇数端口（也就是说最多可以连接16台设备）。如果在奇数端口发现有daemon进程，则和该端口建立通讯。每台Android设备会同时占用两个端口，相邻的一奇一偶端口，偶数端口用于console的连接，奇数端口用于adb连接。如:</p>
+<ul>
+<li>Emulator 1, console: 5554</li>
+<li>Emulator 1, adb: 5555</li>
+<li>Emulator 2, console: 5556</li>
+<li>Emulator 2, adb: 5557</li>
+<li>...</li>
+</ul>
+<p>当运行emulator时我们可以看到默认的设备名称为5554等等。</p>
+<h2 id="使用ADB"><a href="#使用ADB" class="headerlink" title="使用ADB"></a>使用ADB</h2><p>使用adb时，首先要在Android设备上打开开发者选项中的USB debugging。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><blockquote>
+<p><code>adb [-d|-e|-s &lt;serialNumber&gt;] &lt;command&gt;</code></p>
+</blockquote>
+<p>如果只有一台android设备连接到host，则不需要指定serialNumber，否则就需要先使用<code>adb devices</code>查看当前已连接的设备，并通过<code>-s或-e或-s</code>指明需要建立通讯的设备。</p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><h4 id="Target-device"><a href="#Target-device" class="headerlink" title="Target device"></a>Target device</h4><p>一般<code>-s</code>会用的比较多</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-d</code></td>
+<td>Direct an adb command to the only attached USB device.</td>
+<td>Returns an error if more than one USB device is attached.</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>Direct an adb command to the only running emulator instance.</td>
+<td>Returns an error if more than one emulator instance is running.</td>
+</tr>
+<tr>
+<td><code>-s &lt;serialNumber&gt;</code></td>
+<td>Direct an adb command a specific emulator/device instance, referred to by its adb-assigned serial number (such as &quot;emulator-5556&quot;).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="General"><a href="#General" class="headerlink" title="General"></a>General</h4><p>一般只会用到<code>adb devices</code>。</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>devices</code></td>
+<td>Prints a list of all attached emulator/device instances.</td>
+</tr>
+<tr>
+<td><code>help</code></td>
+<td>Prints a list of supported adb commands.</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>Prints the adb version number.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h4><p>平常用的最多的就是<code>logcat</code>命令，<strong>在后面详细介绍</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>logcat [option] [filter-specs]</code></td>
+<td>Prints log data to the screen.</td>
+</tr>
+<tr>
+<td><code>bugreport</code></td>
+<td>Prints dumpsys, dumpstate, and logcat data to the screen, for the purposes of bug reporting.</td>
+</tr>
+<tr>
+<td><code>jdwp</code></td>
+<td>Prints a list of available JDWP processes on a given device.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h4><p>这些命令可以很方便地用于在host和device之间传输文件，安装apk。</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>install &lt;path-to-apk&gt;</code></td>
+<td>Pushes an Android application (specified as a full path to an .apk file) to an emulator/device.</td>
+</tr>
+<tr>
+<td><code>pull &lt;remote&gt; &lt;local&gt;</code></td>
+<td>Copies a specified file from an emulator/device instance to your development computer.</td>
+</tr>
+<tr>
+<td><code>push &lt;local&gt; &lt;remote&gt;</code></td>
+<td>Copies a specified file from your development computer to an emulator/device instance.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Ports-and-Networking"><a href="#Ports-and-Networking" class="headerlink" title="Ports and Networking"></a>Ports and Networking</h4><p>这部分用到较少，会在一些特殊的情境中使用，如模拟两台device之间的连接通讯。更多的可以去查阅官方文档。之前在做MultiDevice项目时用到过，使两台emulator进行互相通讯。</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>forward &lt;local&gt; &lt;remote&gt;</code></td>
+<td>Forwards socket connections from a specified local port to a specified remote port on the emulator/device instance.</td>
+<td>Port specifications can use these schemes: <code>tcp:&lt;portnum&gt;</code>, <code>local:&lt;UNIX domain socket name&gt;</code>, <code>dev:&lt;character device name&gt;</code>, <code>jdwp:&lt;pid&gt;</code></td>
+</tr>
+<tr>
+<td><code>ppp &lt;tty&gt; [parm]...</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="Scripting"><a href="#Scripting" class="headerlink" title="Scripting"></a>Scripting</h4><p>用到的较少。</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get-serialno</code></td>
+<td>Prints the adb instance serial number string.</td>
+</tr>
+<tr>
+<td><code>get-state</code></td>
+<td>Prints the adb state of an emulator/device instance.</td>
+</tr>
+<tr>
+<td><code>wait-for-device</code></td>
+<td>Blocks execution until the device is online — that is, until the instance state is device.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h4><p>用于启动和关闭server，当感觉adb工作不太正常时，可以尝试kill掉server，然后重启server。</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start-server</code></td>
+<td>Checks whether the adb server process is running and starts it, if not.</td>
+</tr>
+<tr>
+<td><code>kill-server</code></td>
+<td>Terminates the adb server process.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h4><p>这部分使用较多，也可以利用shell获取很多有用的信息，后面会简单介绍dumsys命令。更多的可以查阅<a href="https://developer.android.com/studio/command-line/shell.html#shellcommands" target="_blank" rel="external">adb shell命令介绍</a>。</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shell</code></td>
+<td>Starts a remote shell in the target emulator/device instance.</td>
+</tr>
+<tr>
+<td><code>shell [shellCommand]</code></td>
+<td>Issues a shell command in the target emulator/device instance and then exits the remote shell.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="实用命令简介"><a href="#实用命令简介" class="headerlink" title="实用命令简介"></a>实用命令简介</h2><h3 id="adb-logcat"><a href="#adb-logcat" class="headerlink" title="adb logcat"></a>adb logcat</h3><p>可以看到adb logcat的帮助介绍如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">Usage: logcat [options] [filterspecs]</div><div class="line">options include:</div><div class="line">  -s              Set default filter to silent.</div><div class="line">                  Like specifying filterspec &apos;*:s&apos;</div><div class="line">  -f &lt;filename&gt;   Log to file. Default to stdout</div><div class="line">  -r [&lt;kbytes&gt;]   Rotate log every kbytes. (16 if unspecified). Requires -f</div><div class="line">  -n &lt;count&gt;      Sets max number of rotated logs to &lt;count&gt;, default 4</div><div class="line">  -v &lt;format&gt;     Sets the log print format, where &lt;format&gt; is one of:</div><div class="line"></div><div class="line">                  brief process tag thread raw time threadtime long</div><div class="line"></div><div class="line">  -c              clear (flush) the entire log and exit</div><div class="line">  -d              dump the log and then exit (don&apos;t block)</div><div class="line">  -t &lt;count&gt;      print only the most recent &lt;count&gt; lines (implies -d)</div><div class="line">  -g              get the size of the log&apos;s ring buffer and exit</div><div class="line">  -b &lt;buffer&gt;     Request alternate ring buffer, &apos;main&apos;, &apos;system&apos;, &apos;radio&apos;</div><div class="line">                  or &apos;events&apos;. Multiple -b parameters are allowed and the</div><div class="line">                  results are interleaved. The default is -b main -b system.</div><div class="line">  -B              output the log in binary</div><div class="line">filterspecs are a series of </div><div class="line">  &lt;tag&gt;[:priority]</div><div class="line"></div><div class="line">where &lt;tag&gt; is a log component tag (or * for all) and priority is:</div><div class="line">  V    Verbose</div><div class="line">  D    Debug</div><div class="line">  I    Info</div><div class="line">  W    Warn</div><div class="line">  E    Error</div><div class="line">  F    Fatal</div><div class="line">  S    Silent (supress all output)</div><div class="line"></div><div class="line">&apos;*&apos; means &apos;*:d&apos; and &lt;tag&gt; by itself means &lt;tag&gt;:v</div><div class="line"></div><div class="line">If not specified on the commandline, filterspec is set from ANDROID_LOG_TAGS.</div><div class="line">If no filterspec is found, filter defaults to &apos;*:I&apos;</div><div class="line"></div><div class="line">If not specified with -v, format is set from ANDROID_PRINTF_LOG</div><div class="line">or defaults to &quot;brief&quot;</div></pre></td></tr></table></figure>
+<p>可能最有用的就是<code>-f</code>和<code>-v</code>，<code>-f</code>命令在shell中也可以用<code>&gt;</code>来代替（我更习惯这么做）。下面简单介绍下<code>-v</code>。</p>
+<p>可以看到介绍中写到，<code>-v</code>后可以接一个format，format可以是以下几种形式，其中<code>threadtime</code>较为有用：</p>
+<ul>
+<li>brief </li>
+<li>process </li>
+<li>tag </li>
+<li>thread </li>
+<li>raw </li>
+<li>time </li>
+<li>threadtime ：较为常用，可以打印log的时间和线程信息</li>
+<li>long</li>
+</ul>
+<h3 id="adb-shell-dumpsys"><a href="#adb-shell-dumpsys" class="headerlink" title="adb shell dumpsys"></a>adb shell dumpsys</h3><p>使用shell的<code>dumsys</code>命令可以获取很多信息。可以使用命令：</p>
+<blockquote>
+<p><code>adb shell dumpsys | grep &quot;DUMP OF SERVICE&quot;</code></p>
+</blockquote>
+<p>使用该命令可以列出dumsys可以获取的所有信息，大致形式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">... ...</div><div class="line">    DUMP OF SERVICE AtCmdFwd:  </div><div class="line">    DUMP OF SERVICE CustomFrequencyManagerService:  </div><div class="line">    DUMP OF SERVICE DirEncryptService:  </div><div class="line">    DUMP OF SERVICE Exynos.HWCService:  </div><div class="line">    DUMP OF SERVICE Exynos.IPService:  </div><div class="line">    DUMP OF SERVICE FMPlayer:  </div><div class="line">    DUMP OF SERVICE LEDService:  </div><div class="line">    DUMP OF SERVICE SecTVOutService:  </div><div class="line">    DUMP OF SERVICE SurfaceFlinger:  </div><div class="line">    DUMP OF SERVICE TvoutService_C:  </div><div class="line">    DUMP OF SERVICE accessibility:  </div><div class="line">    DUMP OF SERVICE account:  </div><div class="line">    DUMP OF SERVICE activity:  </div><div class="line">    DUMP OF SERVICE alarm:  </div><div class="line">    DUMP OF SERVICE android.security.keystore:  </div><div class="line">    DUMP OF SERVICE application_policy:  </div><div class="line">    DUMP OF SERVICE appops:  </div><div class="line">    DUMP OF SERVICE appwidget:  </div><div class="line">    DUMP OF SERVICE audio:  </div><div class="line">    DUMP OF SERVICE backup:  </div><div class="line">    DUMP OF SERVICE battery:  </div><div class="line">    DUMP OF SERVICE batteryinfo:  </div><div class="line">... ...</div></pre></td></tr></table></figure>
+<p>我们可以使用以下格式来获取我们想要的信息：</p>
+<blockquote>
+<p><code>adb shell dumsys [option]</code></p>
+</blockquote>
+<p>option可以是上面列出所有选项，也都可以在后面加<code>-h</code>查看帮助介绍，常用的一些选项有：</p>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>account</td>
+<td>显示accounts信息</td>
+</tr>
+<tr>
+<td>activity</td>
+<td>显示所有的activities的信息</td>
+</tr>
+<tr>
+<td>cpuinfo</td>
+<td>显示CPU信息</td>
+</tr>
+<tr>
+<td>window</td>
+<td>显示键盘，窗口和它们的关系</td>
+</tr>
+<tr>
+<td>wifi</td>
+<td>显示wifi信息</td>
+</tr>
+<tr>
+<td>batteryinfo $package_name</td>
+<td>电量信息及CPU 使用时长</td>
+</tr>
+<tr>
+<td>package packagename</td>
+<td>获取安装包信息</td>
+</tr>
+<tr>
+<td>usagestats</td>
+<td>每个界面启动的时间</td>
+</tr>
+<tr>
+<td>statusbar</td>
+<td>显示状态栏相关的信息</td>
+</tr>
+<tr>
+<td>meminfo</td>
+<td>内存信息（<code>meminfo $package_name or $pid</code> 使用程序的包名或者进程id显示内存信息)</td>
+</tr>
+<tr>
+<td>diskstats</td>
+<td>磁盘相关信息</td>
+</tr>
+<tr>
+<td>battery</td>
+<td>电池信息</td>
+</tr>
+<tr>
+<td>alarm</td>
+<td>显示Alarm信息</td>
+</tr>
+</tbody>
+</table>
+<p>尤其是activity、window、package、meminfo等这些较为常用，也可以给开发带来很多便利。比如，在想要查看刚刚在设备上启动的是哪一个activity以及它具体的名称，就可以很快的通过activity来获取栈信息，并且能查看到启动它的intent信息。会有很多便利。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/adb/" rel="tag">#adb</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/26/Effective_Java/" rel="next" title="Effective JAVA">
+                <i class="fa fa-chevron-left"></i> Effective JAVA
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Debug-Bridge"><span class="nav-number">1.</span> <span class="nav-text">Android Debug Bridge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本介绍"><span class="nav-number">1.1.</span> <span class="nav-text">基本介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作方式"><span class="nav-number">1.2.</span> <span class="nav-text">工作方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用ADB"><span class="nav-number">1.3.</span> <span class="nav-text">使用ADB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">1.3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令"><span class="nav-number">1.3.2.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Target-device"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">Target device</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#General"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">General</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debug"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">Debug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">Data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ports-and-Networking"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">Ports and Networking</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scripting"><span class="nav-number">1.3.2.6.</span> <span class="nav-text">Scripting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Server"><span class="nav-number">1.3.2.7.</span> <span class="nav-text">Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shell"><span class="nav-number">1.3.2.8.</span> <span class="nav-text">Shell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用命令简介"><span class="nav-number">1.4.</span> <span class="nav-text">实用命令简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#adb-logcat"><span class="nav-number">1.4.1.</span> <span class="nav-text">adb logcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#adb-shell-dumpsys"><span class="nav-number">1.4.2.</span> <span class="nav-text">adb shell dumpsys</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

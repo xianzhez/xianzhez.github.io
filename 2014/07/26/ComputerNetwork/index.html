@@ -1,0 +1,716 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CS Base," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1. 概述
+因特网的边缘部分和核心部分的作用，包含分组交换的概念。
+计算机网络的一些性能指标。
+计算机网络分层次的体系结构，包含协议和服务的概念。
+
+1.2 因特网概述1.2.1 网络的网络
+网络由若干结点（node）和连接这些节点的链路（link）组成。
+
+结点可以是计算机、集线器、交换机或路由器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Computer Network Learning Notes">
+<meta property="og:url" content="http://yoursite.com/2014/07/26/ComputerNetwork/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="1. 概述
+因特网的边缘部分和核心部分的作用，包含分组交换的概念。
+计算机网络的一些性能指标。
+计算机网络分层次的体系结构，包含协议和服务的概念。
+
+1.2 因特网概述1.2.1 网络的网络
+网络由若干结点（node）和连接这些节点的链路（link）组成。
+
+结点可以是计算机、集线器、交换机或路由器。">
+<meta property="og:updated_time" content="2017-10-21T16:07:34.674Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Computer Network Learning Notes">
+<meta name="twitter:description" content="1. 概述
+因特网的边缘部分和核心部分的作用，包含分组交换的概念。
+计算机网络的一些性能指标。
+计算机网络分层次的体系结构，包含协议和服务的概念。
+
+1.2 因特网概述1.2.1 网络的网络
+网络由若干结点（node）和连接这些节点的链路（link）组成。
+
+结点可以是计算机、集线器、交换机或路由器。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/07/26/ComputerNetwork/"/>
+
+  <title> Computer Network Learning Notes | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Computer Network Learning Notes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-07-26T00:00:00+08:00" content="2014-07-26">
+              2014-07-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Network/" itemprop="url" rel="index">
+                    <span itemprop="name">Network</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h1><ul>
+<li>因特网的<strong>边缘部分</strong>和<strong>核心部分</strong>的作用，包含<strong>分组交换</strong>的概念。</li>
+<li>计算机网络的一些<strong>性能指标</strong>。</li>
+<li>计算机网络<strong>分层次的体系结构</strong>，包含<strong>协议</strong>和<strong>服务</strong>的概念。</li>
+</ul>
+<h2 id="1-2-因特网概述"><a href="#1-2-因特网概述" class="headerlink" title="1.2 因特网概述"></a>1.2 因特网概述</h2><h3 id="1-2-1-网络的网络"><a href="#1-2-1-网络的网络" class="headerlink" title="1.2.1 网络的网络"></a>1.2.1 网络的网络</h3><blockquote>
+<p><strong>网络</strong>由若干<strong>结点（node）</strong>和连接这些节点的<strong>链路（link）</strong>组成。</p>
+</blockquote>
+<p>结点可以是计算机、集线器、交换机或路由器。</p>
+<a id="more"></a>
+<h3 id="1-2-2-因特网发展的三个阶段"><a href="#1-2-2-因特网发展的三个阶段" class="headerlink" title="1.2.2 因特网发展的三个阶段"></a>1.2.2 因特网发展的三个阶段</h3><blockquote>
+<p><strong>ISP</strong> 因特网服务提供者</p>
+<p><strong>IXP</strong> 互联网交换点</p>
+<p><strong>RFC文档</strong> request for comments</p>
+</blockquote>
+<h2 id="1-3-因特网的组成"><a href="#1-3-因特网的组成" class="headerlink" title="1.3 因特网的组成"></a>1.3 因特网的组成</h2><p>边缘部分、核心部分</p>
+<h3 id="1-3-1-因特网的边缘部分"><a href="#1-3-1-因特网的边缘部分" class="headerlink" title="1.3.1 因特网的边缘部分"></a>1.3.1 因特网的边缘部分</h3><p>C/S方式（客户-服务器方式）、P2P方式（对等方式）</p>
+<h3 id="1-3-2-因特网的核心部分"><a href="#1-3-2-因特网的核心部分" class="headerlink" title="1.3.2 因特网的核心部分"></a>1.3.2 因特网的核心部分</h3><p><strong>路由器（router）</strong>，路由器是实现<strong>分组交换</strong>的关键构件，其任务是转发收到的分组。</p>
+<h5 id="电路交换的特点"><a href="#电路交换的特点" class="headerlink" title="电路交换的特点"></a>电路交换的特点</h5><p>建立连接 -&gt; 通话 -&gt; 释放连接</p>
+<p><strong>特点</strong>：在通话的全部时间内，通话的两个用户始终占用端到端的通信资源。</p>
+<h5 id="分组交换的特点"><a href="#分组交换的特点" class="headerlink" title="分组交换的特点"></a>分组交换的特点</h5><p>分组交换采用<strong>存储转发</strong>技术。</p>
+<blockquote>
+<p><strong>分组（packet）</strong>又称为<strong>包</strong>，包含<strong>首部（header，又称为包头）</strong>与<strong>数据</strong>。各分组的数据部分的总和称为<strong>报文（message）</strong>。</p>
+</blockquote>
+<p>三种交换： 电路交换、报文交换、分组交换</p>
+<h2 id="1-6-计算机网络的性能"><a href="#1-6-计算机网络的性能" class="headerlink" title="1.6 计算机网络的性能"></a>1.6 计算机网络的性能</h2><h3 id="1-6-1-计算机网络的性能指标"><a href="#1-6-1-计算机网络的性能指标" class="headerlink" title="1.6.1 计算机网络的性能指标"></a>1.6.1 计算机网络的性能指标</h3><h5 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h5><h5 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h5><p>带宽的两种定义</p>
+<h5 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h5><h5 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h5><blockquote>
+<p>总时延 = 发送时延 + 传播时延 + 处理时延 + 排队时延</p>
+</blockquote>
+<h5 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h5><blockquote>
+<p>时延带宽积 = 传播时延 x 带宽</p>
+</blockquote>
+<h5 id="往返时间-RTT"><a href="#往返时间-RTT" class="headerlink" title="往返时间 RTT"></a>往返时间 RTT</h5><p>Round-Trip Time</p>
+<p><strong>往返时间带宽积</strong>的意义：当发送方连续发送数据时，即使能够收到对方的确认，但已经将许多比特发送到链路上了。（假如数据的接收方及时发现了差错，并告知发送方，使发送方立即停止发送，但这时发送方也已经发送出了一个往返时间带宽积数量的数据）</p>
+<h5 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h5><p><strong>信道利用率</strong>和<strong>网络利用率</strong></p>
+<blockquote>
+<p>D = D0 / (1-U)</p>
+</blockquote>
+<p>信道或网络利用率过高会产生非常大的时延。一些较大的主干网的ISP通常控制信道利用率不超过50%，如果超过了就要准备扩容。</p>
+<h2 id="1-7-计算机网络体系结构"><a href="#1-7-计算机网络体系结构" class="headerlink" title="1.7 计算机网络体系结构"></a>1.7 计算机网络体系结构</h2><h3 id="1-7-2-协议与划分层次"><a href="#1-7-2-协议与划分层次" class="headerlink" title="1.7.2 协议与划分层次"></a>1.7.2 协议与划分层次</h3><blockquote>
+<p><strong>协议</strong>：为进行网络中的数据交换而建立的规则、标准或约定成为<strong>网络协议</strong>，也可简称为<strong>协议</strong>。</p>
+</blockquote>
+<p><strong>协议</strong>主要由三个要素构成：</p>
+<ul>
+<li><strong>语法</strong>，即数据与控制信息的结构或格式；</li>
+<li><strong>语义</strong>，即需要发出何种控制信息，完成何种动作以及作出何种相应；</li>
+<li><strong>同步</strong>，即事件实现顺序的详细说明。</li>
+</ul>
+<blockquote>
+<p>计算机网络的体系结构就是这个计算机网络及其构件所应完成的功能的精确定义。</p>
+</blockquote>
+<h3 id="1-7-3-具有五层协议的体系结构"><a href="#1-7-3-具有五层协议的体系结构" class="headerlink" title="1.7.3 具有五层协议的体系结构"></a>1.7.3 具有五层协议的体系结构</h3><p><strong>OSI</strong>的七层协议体系结构；</p>
+<p><strong>TCP/IP</strong>是一个四层的体系结构：应用层、运输层（TCP或UDP）、网际层IP、网络接口层，从实质上讲，TCPIP只有最上面的三层，因为最下面的网络接口层基本上和一般的通信链路在功能上没有多大的差别。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">五层协议的体系结构：</div><div class="line">5. 应用层</div><div class="line">4. 运输层</div><div class="line">3. 网络层</div><div class="line">2. 数据链路层</div><div class="line">1. 物理层</div></pre></td></tr></table></figure>
+<h5 id="应用层（application-layer）"><a href="#应用层（application-layer）" class="headerlink" title="应用层（application layer）"></a>应用层（application layer）</h5><p>应用进程间通信和交互的规则。如HTTP,SMTP,FTP等。应用层交互的数据单元成为<strong>报文（message）</strong>。</p>
+<h5 id="运输层-transport-layer"><a href="#运输层-transport-layer" class="headerlink" title="运输层(transport layer)"></a>运输层(transport layer)</h5><p>主要负责向两个主机中进程间的通信提供通用的数据传输服务。因为同一台主机可以运行多个进程，运输层有<strong>复用</strong>和<strong>分用</strong>的功能。</p>
+<p>运输层主要使用以下两种协议：</p>
+<ul>
+<li><strong>传输控制协议TCP(Transmission Control Protocol)</strong>, 提供面向连接的、可靠的数据传输服务，其数据传输的单位是<strong>报文段（segment）</strong>。</li>
+<li><strong>用户数据报协议UDP（User Datagram Protocol）</strong>，提供无连接的、尽最大努力（best-effort）的数据传输服务（不保证数据传输的可靠性），其数据传输的单位是<strong>用户数据报</strong>。</li>
+</ul>
+<h5 id="网络层-network-layer"><a href="#网络层-network-layer" class="headerlink" title="网络层(network layer)"></a>网络层(network layer)</h5><p>网络层把运输层产生的报文段或用户数据报封装成<strong>分组</strong>或<strong>包</strong>进行发送。在TCP/IP体系中，由于网络层使用IP协议，因此分组也叫做<strong>IP数据报</strong>，或简称<strong>数据报（datagram）</strong>。<strong>分组</strong>和<strong>数据报</strong>可视为同义。</p>
+<p>网络层的另一个任务就是要选择合适的路由，使源主机运输层所传下来的分组能够通过网络中的路由器找到目的主机。</p>
+<h5 id="数据链路层（data-link-layer）"><a href="#数据链路层（data-link-layer）" class="headerlink" title="数据链路层（data link layer）"></a>数据链路层（data link layer）</h5><p>简称链路层。在两个相邻结点之间传送数据时，数据链路层将网络层交下来的IP数据报组装成<strong>帧（framing）</strong>，在两个相邻结点的链路上传送帧。每一帧包括数据和必要的<strong>控制信息</strong>（如同步信息、地址信息、差错控制等）。</p>
+<h5 id="物理层（physical-layer）"><a href="#物理层（physical-layer）" class="headerlink" title="物理层（physical layer）"></a>物理层（physical layer）</h5><p>物理层要考虑用多大的电压代表1或0，以及接收方如何识别出发送方所发送的比特。物理层还要确定连接电缆的插头应当有多少根引脚以及各条引脚如何连接等。至于具体的媒介，如双绞线、同轴电缆、光缆、无线信道等，并不属于物理层协议。物理媒介可以视为第0层。</p>
+<h3 id="1-7-4-实体、协议、服务和服务访问点"><a href="#1-7-4-实体、协议、服务和服务访问点" class="headerlink" title="1.7.4 实体、协议、服务和服务访问点"></a>1.7.4 实体、协议、服务和服务访问点</h3><p><strong>实体（entity）</strong> 表示任何可发送或接收信息的<strong>硬件</strong>或<strong>软件进程</strong>。</p>
+<p><strong>协议</strong>是两个或多个对等实体进行通信的规则的集合。</p>
+<p>在协议的控制下，两个对等实体间的通信使得奔曾能够向上一层提供服务。要实现本层协议，还需要使用下面一层所提供的服务。</p>
+<p>协议是水平的，服务是垂直的。</p>
+<blockquote>
+<p><strong>服务访问点SAP</strong>: 在同一系统中相邻两层的实体进行交互（即交换信息）的地方。</p>
+</blockquote>
+<h3 id="1-7-5-TCP-IP的体系结构"><a href="#1-7-5-TCP-IP的体系结构" class="headerlink" title="1.7.5 TCP/IP的体系结构"></a>1.7.5 TCP/IP的体系结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">主机</div><div class="line">4. 应用层</div><div class="line">3. 运输层</div><div class="line">2. 网际层</div><div class="line">1. 网络接口层</div><div class="line"></div><div class="line">路由器</div><div class="line">2. 网际层</div><div class="line">1. 网络接口层</div></pre></td></tr></table></figure>
+<h1 id="2-物理层"><a href="#2-物理层" class="headerlink" title="2. 物理层"></a>2. 物理层</h1><h2 id="2-2-数据通信的基础知识"><a href="#2-2-数据通信的基础知识" class="headerlink" title="2.2 数据通信的基础知识"></a>2.2 数据通信的基础知识</h2><h3 id="2-2-2-信道"><a href="#2-2-2-信道" class="headerlink" title="2.2.2 信道"></a>2.2.2 信道</h3><ul>
+<li>单向通信：又称单工通信</li>
+<li>双向交替通信：又称半双工通信</li>
+<li>双向同时通信：又称全双工通信</li>
+</ul>
+<p><strong>基带信号</strong>：来自信号源的信号；基带信号多包涵低频成分甚至直流成分，需要调制后再传输。</p>
+<p>调制两大类：</p>
+<ul>
+<li><strong>基带调制</strong>，又称编码</li>
+<li><strong>带通调制</strong>，使用载波（carrier），把基带信号的频率范围搬移到较高的频段，并转换为模拟信号，带通信号。</li>
+</ul>
+<h2 id="2-6-宽带接入技术"><a href="#2-6-宽带接入技术" class="headerlink" title="2.6 宽带接入技术"></a>2.6 宽带接入技术</h2><h3 id="2-6-1-ADSL技术"><a href="#2-6-1-ADSL技术" class="headerlink" title="2.6.1 ADSL技术"></a>2.6.1 ADSL技术</h3><p><strong>非对称数字用户线ADSL(Asymmetric Digital Subscriber Line)</strong>技术是用数字技术对现有的模拟电话用户线进行改造，使它能够承载宽带数字业务。由于用户在上网时主要时下行需求大于上行需求，ADSL中下行宽带要大于上行宽带，所以有“非对称”的说法。</p>
+<h1 id="3-数据链路层"><a href="#3-数据链路层" class="headerlink" title="3. 数据链路层"></a>3. 数据链路层</h1><p>数据链路层使用的信道主要有两种类型：</p>
+<ul>
+<li><strong>点对点信道</strong>，一对一的点对点通信方式。</li>
+<li><strong>广播信道</strong>，一对多的广播通信方式。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">网络层要讨论的问题是分组怎样从一个网络通过路由器转发到另一个网络。</div><div class="line">链路层关注的是分组怎样从一个主机传送到另一个主机（不经过路由器）。</div></pre></td></tr></table></figure>
+<blockquote>
+<p>本章最重要的内容是：</p>
+<ol>
+<li><strong>数据链路层</strong>的<strong>点对点信道</strong>和<strong>广播信道</strong>的特点，以及这两种信道所使用的协议（<strong>PPP</strong>协议以及<strong>CSMA/CD</strong>）的特点。</li>
+<li><strong>数据链路层</strong>的三个基本问题：<strong>封装成帧</strong>、<strong>透明传输</strong>和<strong>差错检测</strong>。</li>
+<li>以太网MAC层的硬件地址。</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CS-Base/" rel="tag">#CS Base</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/02/Fragment生命周期与重建/" rel="prev" title="Fragment生命周期与重建">
+                Fragment生命周期与重建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-概述"><span class="nav-number">1.</span> <span class="nav-text">1. 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-因特网概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.2 因特网概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-网络的网络"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.2.1 网络的网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-因特网发展的三个阶段"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2.2 因特网发展的三个阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-因特网的组成"><span class="nav-number">1.2.</span> <span class="nav-text">1.3 因特网的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-因特网的边缘部分"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.3.1 因特网的边缘部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-因特网的核心部分"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.3.2 因特网的核心部分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#电路交换的特点"><span class="nav-number">1.2.2.0.1.</span> <span class="nav-text">电路交换的特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分组交换的特点"><span class="nav-number">1.2.2.0.2.</span> <span class="nav-text">分组交换的特点</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-计算机网络的性能"><span class="nav-number">1.3.</span> <span class="nav-text">1.6 计算机网络的性能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-1-计算机网络的性能指标"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.6.1 计算机网络的性能指标</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#速率"><span class="nav-number">1.3.1.0.1.</span> <span class="nav-text">速率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#带宽"><span class="nav-number">1.3.1.0.2.</span> <span class="nav-text">带宽</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#吞吐量"><span class="nav-number">1.3.1.0.3.</span> <span class="nav-text">吞吐量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时延"><span class="nav-number">1.3.1.0.4.</span> <span class="nav-text">时延</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时延带宽积"><span class="nav-number">1.3.1.0.5.</span> <span class="nav-text">时延带宽积</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#往返时间-RTT"><span class="nav-number">1.3.1.0.6.</span> <span class="nav-text">往返时间 RTT</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#利用率"><span class="nav-number">1.3.1.0.7.</span> <span class="nav-text">利用率</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-计算机网络体系结构"><span class="nav-number">1.4.</span> <span class="nav-text">1.7 计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-2-协议与划分层次"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.7.2 协议与划分层次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-3-具有五层协议的体系结构"><span class="nav-number">1.4.2.</span> <span class="nav-text">1.7.3 具有五层协议的体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#应用层（application-layer）"><span class="nav-number">1.4.2.0.1.</span> <span class="nav-text">应用层（application layer）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运输层-transport-layer"><span class="nav-number">1.4.2.0.2.</span> <span class="nav-text">运输层(transport layer)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网络层-network-layer"><span class="nav-number">1.4.2.0.3.</span> <span class="nav-text">网络层(network layer)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据链路层（data-link-layer）"><span class="nav-number">1.4.2.0.4.</span> <span class="nav-text">数据链路层（data link layer）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#物理层（physical-layer）"><span class="nav-number">1.4.2.0.5.</span> <span class="nav-text">物理层（physical layer）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-4-实体、协议、服务和服务访问点"><span class="nav-number">1.4.3.</span> <span class="nav-text">1.7.4 实体、协议、服务和服务访问点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-5-TCP-IP的体系结构"><span class="nav-number">1.4.4.</span> <span class="nav-text">1.7.5 TCP/IP的体系结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-物理层"><span class="nav-number">2.</span> <span class="nav-text">2. 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-数据通信的基础知识"><span class="nav-number">2.1.</span> <span class="nav-text">2.2 数据通信的基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-信道"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.2.2 信道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-宽带接入技术"><span class="nav-number">2.2.</span> <span class="nav-text">2.6 宽带接入技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-1-ADSL技术"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.6.1 ADSL技术</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-数据链路层"><span class="nav-number">3.</span> <span class="nav-text">3. 数据链路层</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

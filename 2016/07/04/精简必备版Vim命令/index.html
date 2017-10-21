@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Tools," />
 
 
 
@@ -84,24 +84,52 @@
 
 
 
-<meta name="description" content="Fragment生命周期与重建
-FragementManager fm = activity.getFragmentManager();
-activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragment">
+<meta name="description" content="进入vi的命令
+vi filename :打开或新建文件，并将光标置于第一行首
+
+vi 关闭文件
+:w       //保存文件
+:q          //退出编辑器，如果文件已修改请使用下面的命令
+:q!        //退出编辑器，且不保存
+:wq         //退出编辑器，且保存文件
+
+移动光标类命令
+h ：光标左移一个字符
+l ：光标右移一个字符
+k或Ctrl+p：光标上移一行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fragment生命周期与重建">
-<meta property="og:url" content="http://yoursite.com/2016/07/02/Fragment生命周期与重建/index.html">
+<meta property="og:title" content="精简必备版Vim快捷键">
+<meta property="og:url" content="http://yoursite.com/2016/07/04/精简必备版Vim命令/index.html">
 <meta property="og:site_name" content="xianzhez notes">
-<meta property="og:description" content="Fragment生命周期与重建
-FragementManager fm = activity.getFragmentManager();
-activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragment">
-<meta property="og:image" content="https://developer.android.com/images/activity_fragment_lifecycle.png">
-<meta property="og:updated_time" content="2016-07-26T10:42:37.000Z">
+<meta property="og:description" content="进入vi的命令
+vi filename :打开或新建文件，并将光标置于第一行首
+
+vi 关闭文件
+:w       //保存文件
+:q          //退出编辑器，如果文件已修改请使用下面的命令
+:q!        //退出编辑器，且不保存
+:wq         //退出编辑器，且保存文件
+
+移动光标类命令
+h ：光标左移一个字符
+l ：光标右移一个字符
+k或Ctrl+p：光标上移一行">
+<meta property="og:updated_time" content="2016-07-27T12:58:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fragment生命周期与重建">
-<meta name="twitter:description" content="Fragment生命周期与重建
-FragementManager fm = activity.getFragmentManager();
-activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragment">
-<meta name="twitter:image" content="https://developer.android.com/images/activity_fragment_lifecycle.png">
+<meta name="twitter:title" content="精简必备版Vim快捷键">
+<meta name="twitter:description" content="进入vi的命令
+vi filename :打开或新建文件，并将光标置于第一行首
+
+vi 关闭文件
+:w       //保存文件
+:q          //退出编辑器，如果文件已修改请使用下面的命令
+:q!        //退出编辑器，且不保存
+:wq         //退出编辑器，且保存文件
+
+移动光标类命令
+h ：光标左移一个字符
+l ：光标右移一个字符
+k或Ctrl+p：光标上移一行">
 
 
 
@@ -122,9 +150,9 @@ activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragme
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/02/Fragment生命周期与重建/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/04/精简必备版Vim命令/"/>
 
-  <title> Fragment生命周期与重建 | xianzhez notes </title>
+  <title> 精简必备版Vim快捷键 | xianzhez notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -254,7 +282,7 @@ activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragme
             
             
               
-                Fragment生命周期与重建
+                精简必备版Vim快捷键
               
             
           </h1>
@@ -266,8 +294,8 @@ activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragme
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-02T00:00:00+08:00" content="2016-07-02">
-              2016-07-02
+            <time itemprop="dateCreated" datetime="2016-07-04T00:00:00+08:00" content="2016-07-04">
+              2016-07-04
             </time>
           </span>
 
@@ -280,8 +308,8 @@ activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragme
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Tips/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Tips</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -313,11 +341,56 @@ activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragme
       
 
       
-        <h1 id="Fragment生命周期与重建"><a href="#Fragment生命周期与重建" class="headerlink" title="Fragment生命周期与重建"></a>Fragment生命周期与重建</h1><p><img src="https://developer.android.com/images/activity_fragment_lifecycle.png" alt="Activity lifecycle and Fragment lifecycle"></p>
-<p>FragementManager fm = activity.getFragmentManager();</p>
-<p>activity -&gt; fragmentController -&gt; fragmentManager -&gt; fragment</p>
-<a id="more"></a>
-<p>所以，如果在activity的生命周期中有创建fragment的过程的话，应当先考虑从fragmentManager中find，如果find不到再去实例化。因为在activity被重建时，会重新执行activity的生命周期，如果没有去find，则会重新实例化，fragmentMananger中就会出现重复的对象。如果activity被频繁重建（如内存回收，configure变化）</p>
+        <h3 id="进入vi的命令"><a href="#进入vi的命令" class="headerlink" title="进入vi的命令"></a>进入vi的命令</h3><ul>
+<li>vi filename :打开或新建文件，并将光标置于第一行首</li>
+</ul>
+<h3 id="vi-关闭文件"><a href="#vi-关闭文件" class="headerlink" title="vi 关闭文件"></a>vi 关闭文件</h3><ul>
+<li>:w       //保存文件</li>
+<li>:q          //退出编辑器，如果文件已修改请使用下面的命令</li>
+<li>:q!        //退出编辑器，且不保存</li>
+<li>:wq         //退出编辑器，且保存文件</li>
+</ul>
+<h3 id="移动光标类命令"><a href="#移动光标类命令" class="headerlink" title="移动光标类命令"></a>移动光标类命令</h3><ul>
+<li>h ：光标左移一个字符</li>
+<li>l ：光标右移一个字符</li>
+<li>k或Ctrl+p：光标上移一行</li>
+<li><p>j或Ctrl+n ：光标下移一行</p>
+</li>
+<li><p>space：光标右移一个字符</p>
+</li>
+<li>Backspace：光标左移一个字符<a id="more"></a></li>
+<li>H ：光标移至屏幕顶行</li>
+<li>M ：光标移至屏幕中间行</li>
+<li>L ：光标移至屏幕最后行</li>
+<li>0：（注意是数字零）光标移至当前行首</li>
+<li><p>$：光标移至当前行尾</p>
+</li>
+<li><p>G            //跳至文件的底部</p>
+</li>
+</ul>
+<h3 id="屏幕翻滚类命令"><a href="#屏幕翻滚类命令" class="headerlink" title="屏幕翻滚类命令"></a>屏幕翻滚类命令</h3><ul>
+<li>Ctrl+u：向文件首翻半屏</li>
+<li>Ctrl+d：向文件尾翻半屏</li>
+<li>Ctrl+f：向文件尾翻一屏</li>
+<li>Ctrl＋b；向文件首翻一屏</li>
+</ul>
+<h3 id="插入文本类命令"><a href="#插入文本类命令" class="headerlink" title="插入文本类命令"></a>插入文本类命令</h3><ul>
+<li>i ：在光标前</li>
+</ul>
+<h3 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h3><ul>
+<li>dd       //删除当前行</li>
+<li>u        //撤销上一步操作</li>
+<li>do：删至行首</li>
+<li>d$：删至行尾</li>
+</ul>
+<h3 id="搜索及替换命令"><a href="#搜索及替换命令" class="headerlink" title="搜索及替换命令"></a>搜索及替换命令</h3><ul>
+<li>/pattern：从光标开始处向文件尾搜索pattern</li>
+<li><p>?pattern：从光标开始处向文件首搜索pattern</p>
+</li>
+<li><p>n：在同一方向重复上一次搜索命令</p>
+</li>
+<li>N：在反方向上重复上一次搜索命令</li>
+</ul>
 
       
     </div>
@@ -340,7 +413,7 @@ activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragme
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag">#Android</a>
+            <a href="/tags/Tools/" rel="tag">#Tools</a>
           
         </div>
       
@@ -349,16 +422,16 @@ activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragme
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/07/26/ComputerNetwork/" rel="next" title="Computer Network Learning Notes">
-                <i class="fa fa-chevron-left"></i> Computer Network Learning Notes
+              <a href="/2016/07/03/vim_shortcut/" rel="next" title="Vim Shortcut">
+                <i class="fa fa-chevron-left"></i> Vim Shortcut
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/03/vim_shortcut/" rel="prev" title="Vim Shortcut">
-                Vim Shortcut <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/26/Effective_Java/" rel="prev" title="Effective JAVA">
+                Effective JAVA <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,7 +546,7 @@ activity -&amp;gt; fragmentController -&amp;gt; fragmentManager -&amp;gt; fragme
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment生命周期与重建"><span class="nav-number">1.</span> <span class="nav-text">Fragment生命周期与重建</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#进入vi的命令"><span class="nav-number">1.</span> <span class="nav-text">进入vi的命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vi-关闭文件"><span class="nav-number">2.</span> <span class="nav-text">vi 关闭文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动光标类命令"><span class="nav-number">3.</span> <span class="nav-text">移动光标类命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕翻滚类命令"><span class="nav-number">4.</span> <span class="nav-text">屏幕翻滚类命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入文本类命令"><span class="nav-number">5.</span> <span class="nav-text">插入文本类命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除命令"><span class="nav-number">6.</span> <span class="nav-text">删除命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索及替换命令"><span class="nav-number">7.</span> <span class="nav-text">搜索及替换命令</span></a></li></ol></div>
             
           </div>
         </section>
