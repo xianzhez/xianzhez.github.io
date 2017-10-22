@@ -1,0 +1,720 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Tools," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#1. Groovy
+
+Groovy是一种动态语言。语言与Java相通，又像一种脚本语言。Groovy会先将Code编译成Java类字节码，然后通过JVM来执行。
+###搭建开发环境groovy
+###前提语法
+
+注释标记和Java一样，支持//或者/**/
+Groovy语句可以不用分号结尾
+Groovy支持动态类型，即定义变量的时候可以不指定类型。Groovy中，变量定义可以使用关键字def。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradle Learning">
+<meta property="og:url" content="http://yoursite.com/2016/08/20/Gradle/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="#1. Groovy
+
+Groovy是一种动态语言。语言与Java相通，又像一种脚本语言。Groovy会先将Code编译成Java类字节码，然后通过JVM来执行。
+###搭建开发环境groovy
+###前提语法
+
+注释标记和Java一样，支持//或者/**/
+Groovy语句可以不用分号结尾
+Groovy支持动态类型，即定义变量的时候可以不指定类型。Groovy中，变量定义可以使用关键字def。">
+<meta property="og:updated_time" content="2017-10-22T15:18:20.644Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gradle Learning">
+<meta name="twitter:description" content="#1. Groovy
+
+Groovy是一种动态语言。语言与Java相通，又像一种脚本语言。Groovy会先将Code编译成Java类字节码，然后通过JVM来执行。
+###搭建开发环境groovy
+###前提语法
+
+注释标记和Java一样，支持//或者/**/
+Groovy语句可以不用分号结尾
+Groovy支持动态类型，即定义变量的时候可以不指定类型。Groovy中，变量定义可以使用关键字def。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/20/Gradle/"/>
+
+  <title> Gradle Learning | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gradle Learning
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-20T00:00:00+08:00" content="2016-08-20">
+              2016-08-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>#<strong>1. Groovy</strong></p>
+</blockquote>
+<p>Groovy是一种动态语言。语言与Java相通，又像一种脚本语言。Groovy会先将Code编译成Java类字节码，然后通过JVM来执行。</p>
+<p>###搭建开发环境<br>groovy</p>
+<p>###前提语法</p>
+<ul>
+<li>注释标记和Java一样，支持<code>//</code>或者<code>/**/</code></li>
+<li>Groovy语句可以不用分号结尾</li>
+<li>Groovy支持动态类型，即<strong>定义变量的时候可以不指定类型</strong>。Groovy中，变量定义可以使用关键字<code>def</code>。<code>def</code>不是必须的，但是为了代码清晰，建议还是使用def关键字。</li>
+<li>函数定义时，参数的类型可以不指定。</li>
+<li><p>Groovy中函数的返回值也可以是无类型的。但必须使用<code>def</code>关键字。如果指定了函数返回类型，则可不必加<code>def</code>关键字来定义函数。无类型的函数的最后一行代码的执行结果就是本函数的返回值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">  //无类型的函数定义,必须使用 def 关键字 def nonReturnTypeFunc()&#123;last_line //最后一行代码的执行结果就是本函数的返回值 &#125;//如果指定了函数返回类型,则可不必加 def 关键字来定义函数 String getString()&#123;return &quot;I am a string&quot; &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>Groovy可以不使用return xxx来返回函数结果。则代码的最后一行的结果作为返回值。如果指定了函数返回类型，则应返回正确的类型。如果使用<code>def</code>设置为动态类型，就可以返回任何类型。</li>
+<li><p>Groovy对字符串的支持，充分吸收脚本语言特点。</p>
+<ul>
+<li><p>单引号<code>&#39;&#39;</code>中的内容严格对应Java中的String，不对$符号进行转义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">def singleQuote=&apos;I am $ dolloar&apos; //输出就是 I am $ dolloar</div></pre></td></tr></table></figure>
+</li>
+<li><p>双引号<code>&quot;&quot;</code>中的内容和脚本语言处理有点像，如果符号中有<code>$</code>号的话，则它会<code>$表达式</code>先求值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">def doubleQuoteWithoutDollar = &quot;I am one dollar&quot; //输出 I am one dollar</div><div class="line">def x = 1</div><div class="line">def doubleQuoteWithDollar = &quot;I am $x dolloar&quot; //输出 I am 1 dolloar</div></pre></td></tr></table></figure>
+</li>
+<li><p>三个引号<code>&#39;&#39;&#39;xxx&#39;&#39;&#39;</code>中的字符串支持随意换行，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def multiLines = &apos;&apos;&apos; begin</div><div class="line">	line 1</div><div class="line">line 2</div><div class="line">end &apos;&apos;&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Groovy中函数调用的时候还可以不加括号。虽然写代码的时候，对于函数调用可以不带括号，但是Groovy经常把属性和函数调用混淆，所以建议只有在常用Groovy API 调用时省略括号。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">println(&quot;test&quot;) ---&gt; println &quot;test&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Groovy中的数据类型"><a href="#Groovy中的数据类型" class="headerlink" title="Groovy中的数据类型"></a>Groovy中的数据类型</h3><p><strong>比较重要的几种：</strong></p>
+<ol>
+<li>Java中的基本数据类型</li>
+<li>Groovy中的容器类</li>
+<li>闭包（非常重要）</li>
+</ol>
+<p>根据 Groovy 的原则,如果一个类中有名为 xxyyzz 这样的属性(其实就是成员变量), Groovy 会自动为它添加 getXxyyzz 和 setXxyyzz 两个函数,用于获取和设置 xxyyzz 属性值。</p>
+<p>#####基本数据类型<br>Groovy中所有的事物都是对象。所<code>int</code>, <code>boolean</code>等Java中的基本数据类型，在Groovy Code中都对应于Java中包装类。</p>
+<p>#####容器类<br>容器类共三种，最重要的是了解它们的用法：</p>
+<ul>
+<li>List：链表，底层对应Java中的List接口，一般用ArrayList作为真正的实现类。</li>
+<li>Map：键值表，其底层对应Java中的LinkedHashMap。</li>
+<li>Range：范围，它其实就是List的一种扩展。</li>
+</ul>
+<p><strong><em>1. List类</em></strong></p>
+<p>List变量由<code>[]</code>定义，元素可以是任何对象如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">def aList = [5, ‘string’, true]</div></pre></td></tr></table></figure>
+<p>变量存取：可以直接通过索引存取，而且不用担心索引越界。如果索引超过当前链表长度，List会自动往该索引添加元素。</p>
+<p><strong><em>2. Map类</em></strong></p>
+<p>Map变量由<code>[:]</code>定义，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">def aMap = [&apos;key0&apos;:&apos;value1&apos;, &apos;key1&apos;:true]</div></pre></td></tr></table></figure>
+<p>定义时，<code>:</code>左边是key，右边是value。key必须是字符串，value可以是任何对象。key可以用<code>&#39;&#39;</code>或<code>&quot;&quot;</code>包起来，也可以不用引号包起来，但会被直接处理为相应的字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//key0, key1会被处理为字符串“key1”和“key2”</div><div class="line">def aNewMap = [key0:&quot;value&quot;, key1:true]</div></pre></td></tr></table></figure>
+<p>如果不适用引号包起来有时会与变量产生混淆，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//key1会被处理成“key0”，而不是“wo”</div><div class="line">def key0=&quot;wo&quot;def aConfusedMap=[key0:&quot;who am i?&quot;]</div></pre></td></tr></table></figure>
+<p>如果要适用变量表示的<code>“wo”</code>则需要适用<code>()</code>来达到目的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">def aConfusedMap=[(key1):&quot;who am i?&quot;]</div></pre></td></tr></table></figure>
+<p>Map元素的存取：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//这种表达方法好像 key 就是 aMap 的一个成员变量一样</div><div class="line">println aMap.keyName</div><div class="line"></div><div class="line">//这种表达方法更传统一点</div><div class="line">println aMap[&apos;keyName&apos;]</div><div class="line"></div><div class="line">//为 map 添加新元素aMap.anotherkey = &quot;i am map&quot;</div></pre></td></tr></table></figure>
+<p><strong><em>3. Range类</em></strong></p>
+<p>Range是Groovy对List的一种扩展，变量定义和大体的适用方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//Range 类型的变量由begin值+两个点+end值表示左边这个aRange包含1,2,3,4,5这5个值</div><div class="line">def aRange = 1..5 </div><div class="line"></div><div class="line">//如果不想包含最后一个元素,则可以写为如下形式，包含 1,2,3,4 这 4 个元素def aRangeWithoutEnd = 1..&lt;5 </div><div class="line">println aRange.fromprintln aRange.to</div><div class="line">```  </div><div class="line"></div><div class="line">#####闭包</div><div class="line">***1. 闭包概念***</div><div class="line"></div><div class="line">闭包（ Closure ），是Groovy中非常重要的一种概念。可以视为一种数据类型，它代表了一段可执行的代码（类似于回调，从C/C++的角度看，类似于函数指针）。</div><div class="line"></div><div class="line">定义格式有两种（有无`-&gt;`），闭包是一段可执行代码，需要`&#123;&#125;`包含起来</div></pre></td></tr></table></figure>
+<p>//包含 -&gt; 符号<br>def foo0 = {params -&gt; code}<br>//无-&gt;符号，纯code<br>def foo1 = {code}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">定义举例：</div></pre></td></tr></table></figure></p>
+<p>def aClosure = {<br>//这个箭头很关键。箭头前面是参数定义,箭头后面是代码<br>String param1, int param2 -&gt;<br>//这是代码,最后一句是返回值<br>println &quot;this is code&quot;<br>//也可以使用 return,和 Groovy 中普通函数一样<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">使用方法`闭包对象.call(参数)`或者`闭包对象(参数)`，举例：</div></pre></td></tr></table></figure></p>
+<p>//闭包对象.call(参数)<br>aClosure.call(&quot;this is string&quot;, 100)<br>//闭包对象(参数)<br>aClosure(&quot;this is string&quot;, 200)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">如果闭包没有定义参数，则隐含有一个参数，这个参数名字叫做`it`，和`this`的作用类似。`it`代表闭包的参数。如：</div></pre></td></tr></table></figure></p>
+<p>def greeting = { &quot;Hello, $it!&quot; }<br>assert greeting(&#39;Patrick&#39;) == &#39;Hello, Patrick!&#39; </p>
+<p>//等同于:<br>def greeting = { it -&gt; &quot;Hello, $it!&quot; }<br>assert greeting(&#39;Patrick&#39;) == &#39;Hello, Patrick!&#39;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">**但是，如果在闭包时使用了`-&gt;`，但未在其之前添加参数，则表示该闭包确实没有参数，也不含`it`参数！**</div></pre></td></tr></table></figure></p>
+<p>def noParamClosure = { -&gt; true}</p>
+<p>//此时如果，给该Closure传递参数则会报错！<br>noParamClosure(&quot;test&quot;)//Error！！！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">***2. Closure使用的注意点***</div><div class="line"></div><div class="line">* 1.省略圆括号</div><div class="line"></div><div class="line">闭包在Groovy中大量使用，很多类都定义了一些函数，这些函数最后一个参数都是一个闭包，如List的each函数：</div></pre></td></tr></table></figure></p>
+<p>public static <t> List<t> each(List<t> self, Closure closure)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在实际调用的时候，如果函数的最后一个参数是Closure，可以省略该函数的`()`。如：</div></pre></td></tr></table></figure></t></t></t></p>
+<p>//定义一个 List<br>def iamList = [1,2,3,4,5]<br>iamList.each{<br>    //省略了参数的()<br>    println it<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">以及：</div></pre></td></tr></table></figure></p>
+<p>def testClosure(int a, String b, Closure closure){<br>    //do something</p>
+<pre><code>//调用闭包
+closure()
+</code></pre><p>}</p>
+<p>//调用的时候，就可以省略()<br>testClosure 4, &quot;test&quot;, {<br>    println &quot;I am in closure&quot;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">这有时会产生一些困惑，尤其是在无参数的时候。</div><div class="line"></div><div class="line">* 2.如何确定Closure的参数</div><div class="line">如前面提到的`List`的`each`函数：</div></pre></td></tr></table></figure></p>
+<p>public static <t> List<t> each(List<t> self, Closure closure)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">调用方式：</div></pre></td></tr></table></figure></t></t></t></p>
+<p>def aList = [1,2,3,4,5]<br>//调用each函数，只要传入一个Closure就可以了<br>aList.each{<br>    println it<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Closure的调用要联系上下文，明确调用者对Closure的调用方式（传入的参数与返回的参数）来确定Closure的参数。</div><div class="line">所以，在使用时要熟悉API，查阅SDK。</div><div class="line"></div><div class="line">### 脚本类、文件I/O和XML操作</div><div class="line">**1.脚本中的import其他类**</div><div class="line"></div><div class="line">Groovy中可以Java那样写package，然后写类。</div><div class="line">如果不声明public/private等访问权限，Groovy中类及其比那辆默认都是public的。</div><div class="line">**2.脚本**</div><div class="line">使用编译命令得到class文件，然后再将class文件使用jd-gui反编译，得到java code</div></pre></td></tr></table></figure></p>
+<p>//path 为输出文件地址<br>groovyc -d path xxx.groovy<br>```<br>可以看到：</p>
+<ul>
+<li>xxx.groovy被转换为xxx类</li>
+<li>每一个脚本都会生成一个<code>static main</code>函数。这样，当我们<code>groovy xxx.groovy</code>的时候，其实就是Java去执行<code>main</code>函数。</li>
+<li><strong>脚本中的所有代码都会放到<code>run()</code>函数中。</strong></li>
+<li>如果脚本中定义了函数，则函数会被定义在xxx类中</li>
+</ul>
+<p><strong>3.脚本中的变量和作用域</strong></p>
+<p>直接在脚本中定义变量使用<code>def</code>或<code>具体类型</code>时，该变量会被实际定义为<code>run()</code>函数的局部变量，因此，在定义的方法中，是无法访问该变量的。可以去掉<code>def</code>或<code>具体类型</code>，此时该变量将在<code>run()</code>函数中被作为一个属性添加到test实例对象中，此时该脚本中定义的方法可以访问该变量。但在其他的类中是无法访问该变量的。</p>
+<p>如果真的将变量定义为类的属性，可以在变量前添加<code>@Field</code>标注，此时该变量将成为脚本类的成员变量，在其他地方都可以访问。</p>
+<p><strong>4. 文件I/O操作与XML操作</strong><br>这些操作很便捷，可以参考相关使用规则进行学习。</p>
+<blockquote>
+<p>#<strong>2. Gradle</strong></p>
+</blockquote>
+<p>###Gradle介绍<br>Gradle是一个工具，同时也是一个编程框架。使用这个工具可以完成app的编译打包等工作。</p>
+<p><strong>从API的角度来看待Gradle，就可以查阅SDK文档，进行编程的函数调用，而不是拘泥于记住参数配置。</strong></p>
+<p>###基本组件</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Tools/" rel="tag">#Tools</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/26/ADB/" rel="next" title="Android Debug Bridge">
+                <i class="fa fa-chevron-left"></i> Android Debug Bridge
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/03/设计模式/" rel="prev" title="Design Pattern">
+                Design Pattern <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Groovy中的数据类型"><span class="nav-number">1.</span> <span class="nav-text">Groovy中的数据类型</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

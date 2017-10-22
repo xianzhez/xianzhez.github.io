@@ -1,0 +1,1124 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reading notes,Web,JS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#Eloquent JavaScript
+
+#3 FUNCHTIONS
+函数体内可以嵌套函数。
+只有函数体才可以定义作用域，其它用{}定义的区域，都将作用于全局。
+函数变量可以被重新赋值。
+函数在作用域的任何地方都可以定义，并且在任何地方都可以使用，不会按照先后顺序执行。
+不要在条件语句以及循环语句中定义函数。
+递归调用会比循环引用的速度慢很多，应该避免递归。
+准则：
+
+
+The basic r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eloquent Javascript">
+<meta property="og:url" content="http://yoursite.com/2017/07/08/EloquentJavaScript/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="#Eloquent JavaScript
+
+#3 FUNCHTIONS
+函数体内可以嵌套函数。
+只有函数体才可以定义作用域，其它用{}定义的区域，都将作用于全局。
+函数变量可以被重新赋值。
+函数在作用域的任何地方都可以定义，并且在任何地方都可以使用，不会按照先后顺序执行。
+不要在条件语句以及循环语句中定义函数。
+递归调用会比循环引用的速度慢很多，应该避免递归。
+准则：
+
+
+The basic r">
+<meta property="og:updated_time" content="2017-10-22T15:39:36.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eloquent Javascript">
+<meta name="twitter:description" content="#Eloquent JavaScript
+
+#3 FUNCHTIONS
+函数体内可以嵌套函数。
+只有函数体才可以定义作用域，其它用{}定义的区域，都将作用于全局。
+函数变量可以被重新赋值。
+函数在作用域的任何地方都可以定义，并且在任何地方都可以使用，不会按照先后顺序执行。
+不要在条件语句以及循环语句中定义函数。
+递归调用会比循环引用的速度慢很多，应该避免递归。
+准则：
+
+
+The basic r">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/08/EloquentJavaScript/"/>
+
+  <title> Eloquent Javascript | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Eloquent Javascript
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-07-08T00:00:00+08:00" content="2017-07-08">
+              2017-07-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>#<strong>Eloquent JavaScript</strong></p>
+</blockquote>
+<p>#3 FUNCHTIONS</p>
+<p>函数体内可以嵌套函数。</p>
+<p>只有函数体才可以定义作用域，其它用<code>{}</code>定义的区域，都将作用于全局。</p>
+<p>函数变量可以被重新赋值。</p>
+<p>函数在作用域的任何地方都可以定义，并且在任何地方都可以使用，不会按照先后顺序执行。</p>
+<p>不要在条件语句以及循环语句中定义函数。</p>
+<p>递归调用会比循环引用的速度慢很多，应该避免递归。</p>
+<p><strong>准则：</strong></p>
+<ul>
+<li><blockquote>
+<p>The basic rule, which has been repeated by many programmers and with which I wholeheartedly agree, is to not worry about efficiency until you know for sure that the program is too slow.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>A useful principle is not to add cleverness unless you are absolutely sure you’re going to need it.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>A pure function is a specific kind of value-producing function that not only has no side effects but also doesn’t rely on side effects from other code.</p>
+<p>Still, there’s no need to feel bad when writing functions that are not pure or to wage a holy war to purge them from your code. Side effects are often useful. </p>
+</blockquote>
+</li>
+</ul>
+<a id="more"></a>
+<p>#4 Data Structures: Objects and Arrays</p>
+<p>###Data sets</p>
+<p>###Properties<br>Almost all JavaScript values have properties. The exceptions are <code>null</code> and <code>undefined</code>. If you try to access a property on one of these nonvalues, you get an error.</p>
+<p>The two most common ways to access properties in JavaScript are with a dot and with square brackets. Both <code>value.x</code> and <code>value[x]</code> access a property on value—but not necessarily the same property. The difference is in how x is interpreted. When using a dot, the part after the dot must be a valid variable name, and it directly names the property. When using square brackets, the expression between the brackets is evaluated to get the property name. <strong>Whereas <code>value.x</code> fetches the property of value named “x”, <code>value[x]</code> tries to evaluate the expression x and uses the result as the property name.</strong></p>
+<p>###Methods</p>
+<p>###Objects<br>Values of the type object are arbitrary collections of properties, and we can add or remove these properties as we please. One way to create an object is by using a curly brace &quot;<code>{}</code>&quot; notation.</p>
+<p>Inside the curly braces, we can give a list of properties separated by commas &quot;<code>,</code>&quot;. Each property is written as a name, followed by a colon &quot;<code>:</code>&quot;, followed by an expression that provides a value for the property. Spaces and line breaks are not significant. When an object spans multiple lines, indenting it like in the previous example improves readability. Properties whose names are <strong>not valid variable</strong> names or valid numbers have to be <strong>quoted</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var descriptions = &#123;</div><div class="line">  work: &quot;Went to work&quot;,</div><div class="line">  &quot;touched tree&quot;: &quot;Touched a tree&quot;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>It is possible to assign a value to a property expression with the = operator. This will <strong>replace</strong> the property’s value if it already existed or <strong>create</strong> a new property on the object if it didn’t.</p>
+<p>The <code>delete</code> operator cuts off a tentacle from such an octopus. It is a unary operator that, when applied to a property access expression, will remove the named property from the object. This is not a common thing to do, but it is possible.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var anObject = &#123;left: 1, right: 2&#125;;</div><div class="line">console.log(anObject.left);</div><div class="line">// → 1</div><div class="line">delete anObject.left;</div><div class="line">console.log(anObject.left);</div><div class="line">// → undefined</div><div class="line">console.log(&quot;left&quot; in anObject);</div><div class="line">// → false</div><div class="line">console.log(&quot;right&quot; in anObject);</div><div class="line">// → true</div></pre></td></tr></table></figure>
+<p>###Mutability</p>
+<p>###Objects as maps</p>
+<p>A better way is to use object properties named after the event types. We can use the square bracket access notation to create and read the properties and can use the <code>in</code> operator to test whether a given property exists.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var map = &#123;&#125;;</div><div class="line">function storePhi(event, phi) &#123;</div><div class="line">  map[event] = phi;</div><div class="line">&#125;</div><div class="line"></div><div class="line">storePhi(&quot;pizza&quot;, 0.069);</div><div class="line">storePhi(&quot;touched tree&quot;, -0.081);</div><div class="line">console.log(&quot;pizza&quot; in map);</div><div class="line">// → true</div><div class="line">console.log(map[&quot;touched tree&quot;]);</div><div class="line">// → -0.081</div></pre></td></tr></table></figure>
+<p>###Further arrayology</p>
+<ul>
+<li><code>push()</code></li>
+<li><code>pop()</code></li>
+<li><code>shift()</code></li>
+<li><code>unshift()</code></li>
+<li><code>indexOf()</code></li>
+<li><code>lastIndexOf()</code></li>
+<li><code>slice()</code></li>
+<li><code>concat()</code></li>
+</ul>
+<p>###Strings and their properties<br>We can read properties like length and toUpperCase from string values. But if you try to <strong>add</strong> a new property, <strong>it doesn’t stick</strong>.</p>
+<p>Values of type <code>string</code>, <code>number</code>, and <code>Boolean</code> are not objects, and though the language doesn’t complain if you try to set new properties on them, it doesn’t actually store those properties. The values are <code>immutable</code> and cannot be changed.</p>
+<ul>
+<li><code>slice()</code></li>
+<li><code>indexOf()</code></li>
+<li><code>trim()</code></li>
+<li><code>charAt()</code></li>
+<li><code>length</code></li>
+<li><code>[]</code></li>
+</ul>
+<p>###The arguments object<br>The <code>arguments</code> object has a <code>length</code> property that tells us the number of arguments that were really passed to the function. It also has a property for each argument, named 0, 1, 2, and so on.</p>
+<p>If that sounds a lot like an array to you, you’re right, it is a lot like an array. But this object, unfortunately, <strong>does not have any array methods</strong> (like <code>slice</code> or <code>indexOf</code>), so it is a little harder to use than a real array.</p>
+<p>###The Math object<br>As we’ve seen, Math is a grab-bag of number-related utility functions, such as <code>Math.max</code> (maximum), <code>Math.min</code> (minimum), and <code>Math.sqrt</code> (square root).</p>
+<p>Many languages will stop you, or at least warn you, when you are defining a <strong>variable</strong> with a name that is <strong>already taken</strong>. <strong>JavaScript does neither</strong>, so be careful.</p>
+<ul>
+<li><code>Math.floor()</code> rounds down to the nearest whole number.</li>
+<li><code>Math.ceil()</code> for “ceiling”, which rounds up to a whole number.</li>
+<li><code>Math.round()</code> to the nearest whole number.</li>
+</ul>
+<p>###The global object<br>The global scope, the space in which global variables live, can also be approached as an object in JavaScript. Each global variable is present as a property of this object. In browsers, the global scope object is stored in the <code>window</code> variable.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var myVar = 10;</div><div class="line">console.log(&quot;myVar&quot; in window);</div><div class="line">// → true</div><div class="line">console.log(window.myVar);</div><div class="line">// → 10</div></pre></td></tr></table></figure>
+<p>#5. Higher-Order Functions</p>
+<p>###Higher-order functions<br>Functions that operate on other functions, either by <strong>taking them as arguments</strong> or by <strong>returning them</strong>, are called <strong>higher-order functions</strong>. If you have already accepted the fact that functions are regular values, there is nothing particularly remarkable about the fact that such functions exist. The term comes from mathematics, where the distinction between functions and other values is taken more seriously.</p>
+<p>Higher-order functions allow us to <strong>abstract over actions, not just values</strong>. They come in several forms. For example, you can have functions that create new functions.</p>
+<p>And you can have functions that change other functions.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function noisy(f) &#123;</div><div class="line">  return function(arg) &#123;</div><div class="line">    console.log(&quot;calling with&quot;, arg);</div><div class="line">    var val = f(arg);</div><div class="line">    console.log(&quot;called with&quot;, arg, &quot;- got&quot;, val);</div><div class="line">    return val;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">noisy(Boolean)(0);</div><div class="line">// → calling with 0</div><div class="line">// → called with 0 - got false</div></pre></td></tr></table></figure>
+<p>You can even write functions that <strong>provide new types of control flow</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function unless(test, then) &#123;</div><div class="line">  if (!test) then();</div><div class="line">&#125;</div><div class="line">function repeat(times, body) &#123;</div><div class="line">  for (var i = 0; i &lt; times; i++) body(i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">repeat(3, function(n) &#123;</div><div class="line">  unless(n % 2, function() &#123;</div><div class="line">    console.log(n, &quot;is even&quot;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line">// → 0 is even</div><div class="line">// → 2 is even</div></pre></td></tr></table></figure>
+<p>###Passing along arguments<br><code>apply</code> method: You pass it an array (or array-like object) of arguments, and it will call the function with those arguments.</p>
+<p>###JSON<br>Stands for <strong>JavaScript Object Notation</strong>.<br>JavaScript gives us functions, <code>JSON.stringify</code> and <code>JSON.parse</code>, that convert data from and to this format. The first takes a JavaScript value and returns a JSON-encoded string. The second takes such a string and converts it to the value it encodes.</p>
+<p>###Filtering an array<br>Like forEach, filter is also a standard method on arrays. The example defined the function only in order to show what it does internally. From now on, we’ll use it like this instead:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(ancestry.filter(function(person) &#123;</div><div class="line">  return person.father == &quot;Carel Haverbeke&quot;;</div><div class="line">&#125;));</div><div class="line">// → [&#123;name: &quot;Carolus Haverbeke&quot;, …&#125;]</div></pre></td></tr></table></figure>
+<p>###Transforming with map</p>
+<p>###Summarizing with reduce</p>
+<p>The standard array method reduce, which of course corresponds to this function, has an added convenience. If your array contains at least one element, you are allowed to leave off the start argument. The method will take the first element of the array as its start value and start reducing at the second element.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(ancestry.reduce(function(min, cur) &#123;</div><div class="line">  if (cur.born &lt; min.born) return cur;</div><div class="line">  else return min;</div><div class="line">&#125;));</div><div class="line">// → &#123;name: &quot;Pauwels van Haverbeke&quot;, born: 1535, …&#125;</div></pre></td></tr></table></figure>
+<p>###Composability<br>This is <strong>fabulous</strong> for writing clear code. Unfortunately, this clarity comes at a <strong>cost</strong>.</p>
+<p>###Binding<br>The <code>bind</code> method, which all functions have, creates a new function that will call the original function but with some of the arguments already fixed.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var theSet = [&quot;Carel Haverbeke&quot;, &quot;Maria van Brussel&quot;,</div><div class="line">              &quot;Donald Duck&quot;];</div><div class="line">function isInSet(set, person) &#123;</div><div class="line">  return set.indexOf(person.name) &gt; -1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(ancestry.filter(function(person) &#123;</div><div class="line">  return isInSet(theSet, person);</div><div class="line">&#125;));</div><div class="line">// → [&#123;name: &quot;Maria van Brussel&quot;, …&#125;,</div><div class="line">//    &#123;name: &quot;Carel Haverbeke&quot;, …&#125;]</div><div class="line">console.log(ancestry.filter(isInSet.bind(null, theSet)));</div><div class="line">// → … same result</div></pre></td></tr></table></figure>
+<p>The call to bind returns a function that will call isInSet with theSet as first argument, followed by any remaining arguments given to the bound function.</p>
+<p>The first argument, where the example passes <code>null</code>, is used for <strong>method calls</strong>, similar to the first argument to <code>apply</code>.</p>
+<p>Functions have an <code>apply</code> method that can be used to call them with an array specifying their arguments. They also have a <code>bind</code> method, which is used to create a partially applied version of the function.</p>
+<p>#6. The Secret Life of Objects</p>
+<p>###Methods<br>Usually a method needs to do something with the object it was called on. When a function is called as a method—looked up as a property and immediately called, as in <code>object.method()</code>—the special variable <code>this</code> in its body will point to the object that it was called on.</p>
+<p>Recall that the <code>apply</code> and <code>bind</code> methods both take a first argument that can be used to simulate method calls. This <strong>first argument</strong> is in fact used to give a value to <code>this</code>.</p>
+<p>There is a method similar to <code>apply</code>, called <code>call</code>. It also calls the function it is a method of but takes its <strong>arguments normally</strong>, rather than as an array. Like <code>apply</code> and <code>bind</code>, call can be passed a specific <code>this</code> value.</p>
+<p>###Prototypes<br>In addition to their set of properties, almost all objects also have a <code>prototype</code>. A prototype is another object that is used <strong>as a fallback source of properties</strong>. When an object gets a request for a property that it does not have, its prototype will be searched for the property, then the prototype’s prototype, and so on.</p>
+<p>So who is the prototype of that empty object? It is the great ancestral prototype, the entity behind almost all objects, <code>Object.prototype</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(Object.getPrototypeOf(&#123;&#125;) ==</div><div class="line">            Object.prototype);</div><div class="line">// → true</div><div class="line">console.log(Object.getPrototypeOf(Object.prototype));</div><div class="line">// → null</div></pre></td></tr></table></figure>
+<p>The <code>Object.getPrototypeOf</code> function returns the prototype of an object.</p>
+<p>The prototype relations of JavaScript objects form a <strong>tree-shaped structure</strong>, and <strong>at the root of this structure</strong> sits <code>Object.prototype</code>. It provides a few methods that show up in all objects, such as <code>toString</code>, which converts an object to a string representation.</p>
+<p>Many objects don’t directly have Object.prototype as their prototype, but instead have another object, which provides its own default properties. <strong>Functions</strong> derive from <code>Function.prototype</code>, and <strong>arrays</strong> derive from <code>Array.prototype</code>.Such a prototype object will itself have a prototype, often <code>Object.prototype</code>, so that it still indirectly provides methods like toString.</p>
+<p>The Object.getPrototypeOf function obviously returns the prototype of an object. You can use <code>Object.create</code> to <strong>create an object with a specific prototype</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var protoRabbit = &#123;</div><div class="line">  speak: function(line) &#123;</div><div class="line">    console.log(&quot;The &quot; + this.type + &quot; rabbit says &apos;&quot; +</div><div class="line">                line + &quot;&apos;&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">var killerRabbit = Object.create(protoRabbit);</div><div class="line">killerRabbit.type = &quot;killer&quot;;</div><div class="line">killerRabbit.speak(&quot;SKREEEE!&quot;);</div><div class="line">// → The killer rabbit says &apos;SKREEEE!&apos;</div></pre></td></tr></table></figure>
+<p>###Constructors<br>A more convenient way to create objects that derive from some shared prototype is to use a constructor. <strong>In JavaScript, calling a function with the <code>new</code> keyword in front of it</strong> causes it to be treated as a constructor. The constructor will have its <code>this</code> variable bound to a fresh object, and unless it explicitly returns another object value, this new object will be returned from the call.</p>
+<p>An object created with <code>new</code> is said to be an <code>instance</code>of its constructor.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Rabbit(type) &#123;</div><div class="line">  this.type = type;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var killerRabbit = new Rabbit(&quot;killer&quot;);</div><div class="line">var blackRabbit = new Rabbit(&quot;black&quot;);</div><div class="line">console.log(blackRabbit.type);</div><div class="line">// → black</div></pre></td></tr></table></figure>
+<p>Constructors (in fact, <strong>all functions</strong>) automatically get a property named <code>prototype</code>, which by default holds a plain, empty object that derives from <code>Object.prototype</code>. Every instance created with this constructor will have this object as its prototype. So to add a speak method to rabbits created with the Rabbit constructor, we can simply do this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Rabbit.prototype.speak = function(line) &#123;</div><div class="line">  console.log(&quot;The &quot; + this.type + &quot; rabbit says &apos;&quot; +</div><div class="line">              line + &quot;&apos;&quot;);</div><div class="line">&#125;;</div><div class="line">blackRabbit.speak(&quot;Doom...&quot;);</div><div class="line">// → The black rabbit says &apos;Doom...&apos;</div></pre></td></tr></table></figure>
+<p>It is important to note the distinction between the way a prototype is associated with a constructor (through its <code>prototype</code> property) and the way objects have a prototype (which can be retrieved with <code>Object.getPrototypeOf</code>). <strong>The actual prototype of a constructor is <code>Function.prototype</code></strong> since constructors are functions. Its <code>prototype</code> property will be <strong>the prototype of instances created through it</strong> but is <strong>not its own prototype</strong>.</p>
+<p>###Overriding derived properties</p>
+<p>When you add a property to an object, whether it is present in the prototype or not, the property is added <strong>to the object itself</strong>, which will henceforth have it as its own property. <strong>If there is a property by the same name in the prototype, this property will no longer affect the object.</strong> The prototype itself is not changed.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Rabbit.prototype.teeth = &quot;small&quot;;</div><div class="line">console.log(killerRabbit.teeth);</div><div class="line">// → small</div><div class="line">killerRabbit.teeth = &quot;long, sharp, and bloody&quot;;</div><div class="line">console.log(killerRabbit.teeth);</div><div class="line">// → long, sharp, and bloody</div><div class="line">console.log(blackRabbit.teeth);</div><div class="line">// → small</div><div class="line">console.log(Rabbit.prototype.teeth);</div><div class="line">// → small</div></pre></td></tr></table></figure>
+<p>###Prototype interference<br>A prototype can be used at any time to add new properties and methods to all objects based on it.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var map = &#123;&#125;;</div><div class="line">function storePhi(event, phi) &#123;</div><div class="line">  map[event] = phi;</div><div class="line">&#125;</div><div class="line"></div><div class="line">storePhi(&quot;pizza&quot;, 0.069);</div><div class="line">storePhi(&quot;touched tree&quot;, -0.081);</div><div class="line"></div><div class="line">Object.prototype.nonsense = &quot;hi&quot;;</div><div class="line">for (var name in map)</div><div class="line">  console.log(name);</div><div class="line">// → pizza</div><div class="line">// → touched tree</div><div class="line">// → nonsense</div><div class="line">console.log(&quot;nonsense&quot; in map);</div><div class="line">// → true</div><div class="line">console.log(&quot;toString&quot; in map);</div><div class="line">// → true</div><div class="line"></div><div class="line">// Delete the problematic property again</div><div class="line">delete Object.prototype.nonsense;</div></pre></td></tr></table></figure>
+<p>That’s all <strong>wrong</strong>. There is no event called “nonsense” in our data set. And there definitely is no event called “toString”.</p>
+<p>Oddly, <code>toString</code> did not show up in the <code>for/in</code> loop, but the <code>in</code> operator did return <code>true</code> for it. This is because JavaScript distinguishes between <strong>enumerable</strong> and <strong>nonenumerable</strong> properties.</p>
+<p>All properties that we create by simply assigning to them are <strong>enumerable</strong>. The standard properties in <code>Object.prototype</code> are all <strong>nonenumerable</strong>, which is why they do not show up in such a <code>for/in</code> loop.</p>
+<p>It is possible to define our own nonenumerable properties by using the <code>Object.defineProperty</code> function, which allows us to control the type of property we are creating.<br><code>hasOwnProperty</code> will check more information that different from <code>in</code> operator.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty(Object.prototype, &quot;hiddenNonsense&quot;,&#123;enumerable: false, value: &quot;hi&quot;&#125;);</div><div class="line">for (var name in map)</div><div class="line">  console.log(name);</div><div class="line">// → pizza</div><div class="line">// → touched tree</div><div class="line">console.log(map.hiddenNonsense);</div><div class="line">// → hi</div><div class="line">console.log(&quot;hiddenNonsense&quot; in map);</div><div class="line">// → true</div><div class="line">console.log(map.hasOwnProperty(&quot;toString&quot;));</div><div class="line">console.log(map.hasOwnProperty(&quot;hiddenNonsense&quot;));</div><div class="line">// → false</div><div class="line">// → false</div></pre></td></tr></table></figure>
+<p>###Prototype-less objects</p>
+<p>We saw the Object.create function, which allows us to <strong>create an object with a specific prototype</strong>. You are allowed to <strong>pass null</strong> as the prototype to create a fresh object <strong>with no prototype</strong>. For objects like map, where the properties could be anything, this is exactly what we want.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var map = Object.create(null);</div><div class="line">map[&quot;pizza&quot;] = 0.069;</div><div class="line">console.log(&quot;toString&quot; in map);</div><div class="line">// → false</div><div class="line">console.log(&quot;pizza&quot; in map);</div><div class="line">// → true</div><div class="line">console.log(Object.getPrototypeOf(map));</div><div class="line">// → null</div></pre></td></tr></table></figure>
+<p>###Polymorphism</p>
+<p><strong>Method polymorphism.</strong> This is a simple instance of a powerful idea. When a piece of code is written to work with objects that have a certain interface—in this case, a toString method—any kind of object that happens to support this interface can be plugged into the code, and it will just work.</p>
+<p>###Getters and setters</p>
+<p>JavaScript provides a technique that gets us the best of both worlds. We can specify properties that, from the outside, <strong>look like normal properties but secretly have methods associated</strong> with them.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var pile = &#123;</div><div class="line">  elements: [&quot;eggshell&quot;, &quot;orange peel&quot;, &quot;worm&quot;],</div><div class="line">  get height() &#123;</div><div class="line">    return this.elements.length;</div><div class="line">  &#125;,</div><div class="line">  set height(value) &#123;</div><div class="line">    console.log(&quot;Ignoring attempt to set height to&quot;, value);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">console.log(pile.height);</div><div class="line">// → 3</div><div class="line">pile.height = 100;</div><div class="line">// → Ignoring attempt to set height to 100</div></pre></td></tr></table></figure>
+<p>In object literal, the <code>get</code> or <code>set</code> notation for properties allows you to specify a function to be run when the property is read or written. You can also add such a property to an existing object, for example a prototype, using the <code>Object.defineProperty</code> function (which we previously used to create nonenumerable properties).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty(TextCell.prototype, &quot;heightProp&quot;, &#123;</div><div class="line">  get: function() &#123; return this.text.length; &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var cell = new TextCell(&quot;no\nway&quot;);</div><div class="line">console.log(cell.heightProp);</div><div class="line">// → 2</div><div class="line">cell.heightProp = 100;</div><div class="line">console.log(cell.heightProp);</div><div class="line">// → 2</div></pre></td></tr></table></figure>
+<p>You can use a similar <code>set</code> property, in the object passed to <code>defineProperty</code>, to specify a setter method. When <strong>a getter but no setter</strong> is defined, writing to the property is simply <strong>ignored</strong>.</p>
+<p>###Inheritance</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function RTextCell(text) &#123;</div><div class="line">  TextCell.call(this, text);</div><div class="line">&#125;</div><div class="line">RTextCell.prototype = Object.create(TextCell.prototype);</div><div class="line">RTextCell.prototype.draw = function(width, height) &#123;</div><div class="line">  var result = [];</div><div class="line">  for (var i = 0; i &lt; height; i++) &#123;</div><div class="line">    var line = this.text[i] || &quot;&quot;;</div><div class="line">    result.push(repeat(&quot; &quot;, width - line.length) + line);</div><div class="line">  &#125;</div><div class="line">  return result;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>This pattern is called <code>inheritance</code>. It allows us to build slightly different data types from existing data types with relatively little work. <strong>Typically, the new constructor will call the old constructor</strong> (using the call method in order to be able to give it the new object as its this value). Once this constructor has been called, we can assume that all the fields that the old object type is supposed to contain have been added. We arrange for the constructor’s prototype to derive from the old prototype so that instances of this type will also have access to the properties in that prototype. Finally, we can override some of these properties by adding them to our new prototype.</p>
+<p><strong>Inheritance</strong> is a fundamental part of the object-oriented tradition, alongside <strong>encapsulation</strong> and <strong>polymorphism</strong>. But while the latter two are now generally regarded as wonderful ideas, inheritance is somewhat controversial.</p>
+<p>###The <code>instanceof</code> operator<br>It is occasionally useful to know whether an object was derived from a specific constructor. For this, JavaScript provides a binary operator called <code>instanceof</code>.</p>
+<p>The operator will see through inherited types. Almost every object is an instance of Object.</p>
+<p>#8. Bugs and Error Handling</p>
+<p>###Strict mode<br>JavaScript can be made a little more strict by enabling strict mode. This is done by putting the string <code>&quot;use strict&quot;</code> at the top of a file or a function body. Here’s an example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function canYouSpotTheProblem() &#123;</div><div class="line">  &quot;use strict&quot;;</div><div class="line">  for (counter = 0; counter &lt; 10; counter++)</div><div class="line">    console.log(&quot;Happy happy&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">canYouSpotTheProblem();</div><div class="line">// → ReferenceError: counter is not defined</div></pre></td></tr></table></figure>
+<p>Normally, when you forget to put <code>var</code> in front of your variable, as with <code>counter</code> in the example, JavaScript quietly creates a global variable and uses that. In strict mode, however, an error is reported instead. This is very helpful. It should be noted, though, that this doesn’t work when the variable in question already exists as a global variable, but only when assigning to it would have created it.</p>
+<p>Another change in strict mode is that the <code>this</code> binding holds the value undefined in functions that are not called as methods. When making such a call outside of strict mode, <strong><code>this</code> refers to the global scope object</strong>. So if you accidentally call a method or constructor incorrectly in strict mode, JavaScript will produce an error as soon as it tries to read something from <code>this</code>, rather than happily working with the global object, creating and reading global variables.</p>
+<p>In short, putting a <code>&quot;use strict&quot;</code> at the top of your program rarely hurts and might help you spot a problem.</p>
+<p>###Testing</p>
+<p>Writing tests like this tends to produce rather repetitive, awkward code. Fortunately, there exist pieces of software that help you build and run collections of tests (<code>test suites</code>) by providing a language (in the form of functions and methods) suited to expressing tests and by outputting informative information when a test fails. These are called <code>testing frameworks</code>.</p>
+<p>###Debugging<br>This is where you must resist the urge to start making random changes to the code. Instead, think. Analyze what is happening and come up with a theory of why it might be happening. Then, make additional observations to test this theory—or, if you don’t yet have a theory, make additional observations that might help you come up with one.</p>
+<p>An alternative to using <code>console.log</code> is to use the <strong>debugger</strong> capabilities of your browser. Modern browsers come with the ability to set a <strong>breakpoint</strong> on a specific line of your code. This will cause the execution of the program to pause every time the line with the breakpoint is reached and allow you to inspect the values of variables at that point. I won’t go into details here since debuggers differ from browser to browser, but look in your browser’s developer tools and search the Web for more information. Another way to set a breakpoint is to include <strong>a <code>debugger</code> statement</strong> (consisting of simply that keyword) in your program. If the developer tools of your browser are active, the program will pause whenever it reaches that statement, and you will be able to inspect its state.</p>
+<p>###Error propagation</p>
+<p>###Exceptions<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function promptDirection(question) &#123;</div><div class="line">  var result = prompt(question, &quot;&quot;);</div><div class="line">  if (result.toLowerCase() == &quot;left&quot;) return &quot;L&quot;;</div><div class="line">  if (result.toLowerCase() == &quot;right&quot;) return &quot;R&quot;;</div><div class="line">  throw new Error(&quot;Invalid direction: &quot; + result);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function look() &#123;</div><div class="line">  if (promptDirection(&quot;Which way?&quot;) == &quot;L&quot;)</div><div class="line">    return &quot;a house&quot;;</div><div class="line">  else</div><div class="line">    return &quot;two angry bears&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">try &#123;</div><div class="line">  console.log(&quot;You see&quot;, look());</div><div class="line">&#125; catch (error) &#123;</div><div class="line">  console.log(&quot;Something went wrong: &quot; + error);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>The <code>throw</code> keyword is used to raise an exception. Catching one is done by wrapping a piece of code in a <code>try</code> block, followed by the keyword <code>catch</code>. When the code in the <code>try</code> block causes an exception to be raised, the <code>catch</code> block is evaluated. The variable name (in parentheses) after catch will be bound to the exception value. After the catch block finishes—or if the try block finishes without problems—control proceeds beneath the entire <code>try/catch</code> statement.</p>
+<p>In this case, we used the <code>Error</code> constructor to create our exception value. This is a standard JavaScript constructor that creates an object with a <code>message</code> property. In modern JavaScript environments, instances of this constructor also gather information about the call stack that existed when the exception was created, a so-called <code>stack trace</code>. This information is stored in the <code>stack</code> property and can be helpful when trying to debug a problem: it tells us the precise function where the problem occurred and which other functions led up to the call that failed.</p>
+<p>###Cleaning up after exceptions (finally)<br>There is one more feature that try statements have. They may be followed by a finally block either instead of or in addition to a catch block. A <code>finally</code> block means “No matter what happens, run this code after trying to run the code in the try block”. If a function has to clean something up, the cleanup code should usually be put into a finally block.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function withContext(newContext, body) &#123;</div><div class="line">  var oldContext = context;</div><div class="line">  context = newContext;</div><div class="line">  try &#123;</div><div class="line">    return body();</div><div class="line">  &#125; finally &#123;</div><div class="line">    context = oldContext;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Even if we <strong>return directly</strong> from the <code>try</code> block, the <strong><code>finally</code> block will be run</strong>.</p>
+<p>###Selective catching<br>JavaScript (in a rather glaring omission) <strong>doesn’t</strong> provide direct support for <strong>selectively catching</strong> exceptions: <strong>either you catch them all or you don’t catch any</strong>. This makes it very easy to assume that the exception you get is the one you were thinking about when you wrote the catch block.</p>
+<p>So we want to catch a specific kind of exception. We can do this by <strong>checking in the catch block</strong> whether the exception we got is the one we are interested in and by <strong>rethrowing</strong> it otherwise.</p>
+<p>Rather, let’s <strong>define a new type of error</strong> and use <code>instanceof</code> to identify it.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function InputError(message) &#123;</div><div class="line">  this.message = message;</div><div class="line">  this.stack = (new Error()).stack;</div><div class="line">&#125;</div><div class="line">InputError.prototype = Object.create(Error.prototype);</div><div class="line">InputError.prototype.name = &quot;InputError&quot;;</div></pre></td></tr></table></figure>
+<p>###Assertions<br>Assertions are a tool to do basic sanity <strong>checking</strong> for programmer errors. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function AssertionFailed(message) &#123;</div><div class="line">  this.message = message;</div><div class="line">&#125;</div><div class="line">AssertionFailed.prototype = Object.create(Error.prototype);</div><div class="line"></div><div class="line">function assert(test, message) &#123;</div><div class="line">  if (!test)</div><div class="line">    throw new AssertionFailed(message);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function lastElement(array) &#123;</div><div class="line">  assert(array.length &gt; 0, &quot;empty array in lastElement&quot;);</div><div class="line">  return array[array.length - 1];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Assertions are a way to make sure mistakes cause failures at the point of the mistake, rather than silently producing nonsense values that may go on to cause trouble in an unrelated part of the system.</p>
+<p>#9. Regular Expressions</p>
+<p>###Creating a regular expression<br>A regular expression is a type of object. It can either be constructed with the RegExp constructor or written as a literal value by enclosing the pattern in forward slash (/) characters.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var re1 = new RegExp(&quot;abc&quot;);</div><div class="line">var re2 = /abc/;</div></pre></td></tr></table></figure>
+<p>When using the RegExp constructor, the pattern is written as a normal string, so the usual rules apply for backslashes.</p>
+<p>The second notation, where the pattern appears between slash characters, treats backslashes somewhat differently. First, since a forward slash ends the pattern, we need to put a backslash before any forward slash that we want to be part of the pattern. In addition, backslashes that aren’t part of special character codes (like \n) will be preserved, rather than ignored as they are in strings, and change the meaning of the pattern. Some characters, such as question marks and plus signs, have special meanings in regular expressions and must be preceded by a backslash if they are meant to represent the character itself.</p>
+<p>Knowing precisely what characters to backslash-escape when writing regular expressions requires you to know every character with a special meaning. For the time being, this may not be realistic, <strong>so when in doubt, just put a backslash before any character that is not a letter, number, or whitespace.</strong></p>
+<p>###Testing for matches</p>
+<p>Regular expression objects have a number of methods. The simplest one is <code>test</code>. If you pass it a string, it will return a <code>Boolean</code> telling you whether the string contains a match of the pattern in the expression.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(/abc/.test(&quot;abcde&quot;));</div><div class="line">// → true</div><div class="line">console.log(/abc/.test(&quot;abxde&quot;));</div><div class="line">// → false</div></pre></td></tr></table></figure>
+<p>###Matching a set of characters</p>
+<p>In a regular expression, putting a set of characters between square brackets makes that part of the expression match any of the characters between the brackets.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(/[0123456789]/.test(&quot;in 1992&quot;));</div><div class="line">// → true</div><div class="line">console.log(/[0-9]/.test(&quot;in 1992&quot;));</div><div class="line">// → true</div></pre></td></tr></table></figure>
+<p>Within square brackets, a dash (<code>-</code>) between two characters can be used to indicate a range of characters, where the ordering is determined by the character’s Unicode number. Characters 0 to 9 sit right next to each other in this ordering (codes 48 to 57), so [0-9] covers all of them and matches any digit.</p>
+<p>There are a number of common character groups that have their own built-in shortcuts. Digits are one of them: \d means the same thing as [0-9].</p>
+<ul>
+<li><code>\d</code>    Any digit character</li>
+<li><code>\w</code>    An alphanumeric character (“word character”)</li>
+<li><code>\s</code>    Any whitespace character (space, tab, newline, and similar)</li>
+<li><code>\D</code>    A character that is not a digit</li>
+<li><code>\W</code>    A nonalphanumeric character</li>
+<li><code>\S</code>    A nonwhitespace character</li>
+<li><code>.</code>    Any character except for newline</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var dateTime = /\d\d-\d\d-\d\d\d\d \d\d:\d\d/;</div><div class="line">console.log(dateTime.test(&quot;30-01-2003 15:20&quot;));</div><div class="line">// → true</div><div class="line">console.log(dateTime.test(&quot;30-jan-2003 15:20&quot;));</div><div class="line">// → false</div></pre></td></tr></table></figure>
+<p>To invert a set of characters—that is, to express that you want to match any character except the ones in the set you can write a caret (<code>^</code>) character after the opening bracket.</p>
+<p>###Repeating parts of a pattern</p>
+<p>When you put a plus sign (<code>+</code>) after something in a regular expression, it indicates that the element may be repeated more than once. Thus, <code>/\d+/</code> matches one or more digit characters.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(/&apos;\d+&apos;/.test(&quot;&apos;123&apos;&quot;));</div><div class="line">// → true</div><div class="line">console.log(/&apos;\d+&apos;/.test(&quot;&apos;&apos;&quot;));</div><div class="line">// → false</div><div class="line">console.log(/&apos;\d*&apos;/.test(&quot;&apos;123&apos;&quot;));</div><div class="line">// → true</div><div class="line">console.log(/&apos;\d*&apos;/.test(&quot;&apos;&apos;&quot;));</div><div class="line">// → true</div></pre></td></tr></table></figure>
+<p>The star (<code>*</code>) has a similar meaning <strong>but also allows the pattern to match zero times</strong>. Something with a star after it never prevents a pattern from matching—it’ll just match zero instances if it can’t find any suitable text to match.</p>
+<p>A question mark (<code>?</code>) makes a part of a pattern “optional”, meaning it may occur <strong>zero or one time</strong>. In the following example, the u character is allowed to occur, but the pattern also matches when it is missing.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var neighbor = /neighbou?r/;</div><div class="line">console.log(neighbor.test(&quot;neighbour&quot;));</div><div class="line">// → true</div><div class="line">console.log(neighbor.test(&quot;neighbor&quot;));</div><div class="line">// → true</div></pre></td></tr></table></figure>
+<p>Curly braces (<code>{}</code>) to indicate that a pattern should occur a precise number of times.Putting {4} after an element, for example, requires it to occur exactly four times. It is also possible to specify a range this way: <code>{2,4}</code> means the element must occur <strong>at least</strong> twice and <strong>at most</strong> four times. <code>{5,}</code> means five <strong>or more</strong> times.</p>
+<p>###Grouping subexpressions<br>To use an operator like <code>*</code> or <code>+</code> on more than one element at a time, you can use parentheses <code>()</code>. A part of a regular expression that is enclosed in parentheses counts as a single element as far as the operators following it are concerned.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var cartoonCrying = /boo+(hoo+)+/i;</div><div class="line">console.log(cartoonCrying.test(&quot;Boohoooohoohooo&quot;));</div><div class="line">// → true</div></pre></td></tr></table></figure>
+<p>The first and second + characters apply only to the <strong>second o in boo and hoo</strong>, respectively. The third + applies to the whole group (hoo+), matching one or more sequences like that.</p>
+<p>The <code>i</code> at the end of the expression in the previous example makes this regular expression <code>case insensitive</code>, allowing it to match the uppercase B in the input string, even though the pattern is itself all lowercase.</p>
+<p>###Matches and groups<br>The <code>test</code> method is the absolute simplest way to match a regular expression. It tells you only <strong>whether</strong> it matched and nothing else. Regular expressions also have an <code>exec</code> (execute) method that will <strong>return null</strong> if no match was found and <strong>return an object</strong> with information about the match otherwise.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var match = /\d+/.exec(&quot;one two 100&quot;);</div><div class="line">console.log(match);</div><div class="line">// → [&quot;100&quot;]</div><div class="line">console.log(match.index);</div><div class="line">// → 8</div></pre></td></tr></table></figure>
+<p>An object returned from <code>exec</code> has an <code>index</code> property that tells us <strong>where</strong> in the string the successful match begins. </p>
+<p>String values have a <code>match</code> method that behaves similarly.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(&quot;one two 100&quot;.match(/\d+/));</div><div class="line">// → [&quot;100&quot;]</div></pre></td></tr></table></figure>
+<p>When the regular expression contains subexpressions grouped with parentheses, the text that matched those groups will also show up in the array. The whole match is always the first element. The next element is the part matched by the first group (the one whose opening parenthesis comes first in the expression), then the second group, and so on.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var quotedText = /&apos;([^&apos;]*)&apos;/;</div><div class="line">console.log(quotedText.exec(&quot;she said &apos;hello&apos;&quot;));</div><div class="line">// → [&quot;&apos;hello&apos;&quot;, &quot;hello&quot;]</div></pre></td></tr></table></figure>
+<p>When a <strong>group</strong> does not end up being matched at all (for example, when followed by a question mark), its position in the output array will hold <strong>undefined</strong>. Similarly, when a group is matched <strong>multiple times</strong>, only the <strong>last match</strong> ends up in the array.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(/bad(ly)?/.exec(&quot;bad&quot;));</div><div class="line">// → [&quot;bad&quot;, undefined]</div><div class="line">console.log(/(\d)+/.exec(&quot;123&quot;));</div><div class="line">// → [&quot;123&quot;, &quot;3&quot;]</div></pre></td></tr></table></figure>
+<p>###The date type</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log(new Date());</div><div class="line">// → Wed Dec 04 2013 14:24:57 GMT+0100 (CET)</div><div class="line">console.log(new Date(2009, 11, 9));</div><div class="line">// → Wed Dec 09 2009 00:00:00 GMT+0100 (CET)</div><div class="line">console.log(new Date(2009, 11, 9, 12, 59, 59, 999));</div><div class="line">// → Wed Dec 09 2009 12:59:59 GMT+0100 (CET)</div></pre></td></tr></table></figure>
+<p>JavaScript uses a convention where <strong>month numbers start at zero</strong> (so December is 11), yet <strong>day numbers start at one</strong>. This is confusing and silly. Be careful.</p>
+<p>The last four arguments (hours, minutes, seconds, and milliseconds) are optional and taken to be <strong>zero</strong> when not given.</p>
+<p><strong>Timestamps</strong> are stored as the number of <strong>milliseconds</strong> since the start of <strong>1970</strong>, using <strong>negative numbers</strong> for times before 1970 (following a convention set by “Unix time”, which was invented around that time).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(new Date(2013, 11, 19).getTime());</div><div class="line">// → 1387407600000</div><div class="line">console.log(new Date(1387407600000));</div><div class="line">// → Thu Dec 19 2013 00:00:00 GMT+0100 (CET)</div></pre></td></tr></table></figure>
+<p>If you give the <code>Date</code> constructor a single argument, that argument is treated as such a <strong>millisecond</strong> count. You can get the current millisecond count by creating a new Date object and calling <code>getTime</code> on it but also by calling the <code>Date.now</code> function.</p>
+<p>Date objects provide methods like <code>getFullYear</code>, <code>getMonth</code>, <code>getDate</code>, <code>getHours</code>, <code>getMinutes</code>, and <code>getSeconds</code> to extract their components. There’s also <code>getYear</code>, which gives you a rather useless <strong>two-digit</strong> year value (such as <code>93</code> or <code>14</code>).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function findDate(string) &#123;</div><div class="line">  var dateTime = /(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)-(\d&#123;4&#125;)/;</div><div class="line">  var match = dateTime.exec(string);</div><div class="line">  return new Date(Number(match[3]),</div><div class="line">                  Number(match[2]) - 1,</div><div class="line">                  Number(match[1]));</div><div class="line">&#125;</div><div class="line">console.log(findDate(&quot;30-1-2003&quot;));</div><div class="line">// → Thu Jan 30 2003 00:00:00 GMT+0100 (CET)</div></pre></td></tr></table></figure>
+<p>###Word and string boundaries<br>If we want to enforce that the match must span the whole string, we can add the markers <code>^</code> and <code>$</code>. The caret matches the <strong>start</strong> of the input string, while the dollar sign matches the <strong>end</strong>. So, <code>/^\d+$/</code> matches a string consisting entirely of one or more digits, <code>/^!/</code> matches any string that starts with an exclamation mark, and <code>/x^/</code> <strong>does not match any string</strong> (there cannot be an x before the start of the string).</p>
+<p>If, on the other hand, we just want to make sure the date starts and ends on a word boundary, we can use the marker <code>\b</code>. A word boundary can be the start or end of the string or any point in the string that has a word character (as in <code>\w</code>) on one side and a nonword character on the other.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(/cat/.test(&quot;concatenate&quot;));</div><div class="line">// → true</div><div class="line">console.log(/\bcat\b/.test(&quot;concatenate&quot;));</div><div class="line">// → false</div></pre></td></tr></table></figure>
+<p>####Choice patterns</p>
+<p>The pipe character (<code>|</code>) denotes a choice between the pattern to its left and the pattern to its right. So I can say this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var animalCount = /\b\d+ (pig|cow|chicken)s?\b/;</div><div class="line">console.log(animalCount.test(&quot;15 pigs&quot;));</div><div class="line">// → true</div><div class="line">console.log(animalCount.test(&quot;15 pigchickens&quot;));</div><div class="line">// → false</div></pre></td></tr></table></figure></p>
+<p>###The mechanics of matching</p>
+<p>###Summary</p>
+<ul>
+<li>/abc/    A sequence of characters</li>
+<li>/[abc]/    Any character from a set of characters</li>
+<li>/[^abc]/    Any character not in a set of characters</li>
+<li>/[0-9]/    Any character in a range of characters</li>
+<li>/x+/    One or more occurrences of the pattern x</li>
+<li>/x+?/    One or more occurrences, nongreedy</li>
+<li>/x*/    Zero or more occurrences</li>
+<li>/x?/    Zero or one occurrence</li>
+</ul>
+<ul>
+<li>/x{2,4}/    Between two and four occurrences</li>
+<li>/(abc)/    A group</li>
+<li>/a|b|c/    Any one of several patterns</li>
+<li>/\d/    Any digit character</li>
+<li>/\w/    An alphanumeric character (“word character”)</li>
+<li>/\s/    Any whitespace character</li>
+<li>/./    Any character except newlines</li>
+<li>/\b/    A word boundary</li>
+<li>/^/    Start of input</li>
+<li>/$/    End of input</li>
+</ul>
+<p>#12. JavaScript and the Browser</p>
+<p>###Networks and the Internet</p>
+<p>Transmission Control Protocol (TCP).</p>
+<p>A TCP connection works as follows: one computer must be waiting, or listening, for other computers to start talking to it. To be able to listen for different kinds of communication at the same time on a single machine, each listener has a number (called a port) associated with it. Most protocols specify which port should be used by default. For example, when we want to send an email using the SMTP protocol, the machine through which we send it is expected to be listening on port 25.</p>
+<p>Another computer can then establish a connection by connecting to the target machine using the correct port number. If the target machine can be reached and is listening on that port, the connection is successfully created. The listening computer is called the <code>server</code>, and the connecting computer is called the <code>client</code>.</p>
+<p>###The web</p>
+<p>To add content to the Web, all you need to do is connect a machine to the Internet, and have it listen on <strong>port 80</strong>, using the Hypertext Transfer Protocol (HTTP). This protocol allows other computers to request documents over the network.</p>
+<p>Each document on the Web is named by a Uniform Resource Locator (URL), which looks something like this:</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> http://eloquentjavascript.net/12_browser.html</div><div class="line">|      |                      |               |</div><div class="line">protocol       server               path</div></pre></td></tr></table></figure>
+</blockquote>
+<p>###In the sandbox</p>
+<p>#13. The Document Object Model</p>
+<p>###Tree<br>We call a data structure a tree when it has a branching structure, has no cycles (a node may not contain itself, directly or indirectly), and has a single, well-defined “root”. In the case of the DOM, <code>document.documentElement</code>serves as the root.</p>
+<p>Each DOM node object has a <code>nodeType</code> property, which contains a <strong>numeric</strong> code that identifies the type of node. Regular elements have the value <code>1</code>, which is also defined as the constant property d<code>ocument.ELEMENT_NODE</code>. Text nodes, representing a section of text in the document, have the value <code>3</code> (<code>document.TEXT_NODE</code>). Comments have the value <code>8</code> (<code>document.COMMENT_NODE</code>).</p>
+<p>###Moving through the tree<br>The following recursive function scans a document for text nodes containing a given string and returns true when it has found one:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function talksAbout(node, string) &#123;</div><div class="line">  if (node.nodeType == document.ELEMENT_NODE) &#123;</div><div class="line">    for (var i = 0; i &lt; node.childNodes.length; i++) &#123;</div><div class="line">      if (talksAbout(node.childNodes[i], string))</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">    return false;</div><div class="line">  &#125; else if (node.nodeType == document.TEXT_NODE) &#123;</div><div class="line">    return node.nodeValue.indexOf(string) &gt; -1;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(talksAbout(document.body, &quot;book&quot;));</div><div class="line">// → true</div></pre></td></tr></table></figure>
+<p>The <code>nodeValue</code> property of a text node refers to the string of text that it represents.</p>
+<p>###Finding elements</p>
+<ul>
+<li><code>getElementsByTagName</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var link = document.body.getElementsByTagName(&quot;a&quot;)[0];</div><div class="line">console.log(link.href);</div></pre></td></tr></table></figure>
+<ul>
+<li><code>getElementById</code></li>
+</ul>
+<p>To find a specific single node, you can give it an <code>id</code> attribute and use <code>document.getElementById</code> instead.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;My ostrich Gertrude:&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;img id=&quot;gertrude&quot; src=&quot;img/ostrich.png&quot;&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"> var ostrich = document.getElementById(&quot;gertrude&quot;);</div><div class="line"> console.log(ostrich.src);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>getElementsByClassName</code></li>
+</ul>
+<p>A third, similar method is <code>getElementsByClassName</code>, which, like getElementsByTagName, searches through the contents of an element node and retrieves all elements that have the given string in their class attribute.</p>
+<p>###Changing the document<br>Element nodes have a number of methods that can be used to change their content. The <code>removeChild</code> method removes the given child node from the document. To add a child, we can use <code>appendChild</code>, which puts it at the end of the list of children, or <code>insertBefore</code>, which inserts the node given as the first argument before the node given as the second argument.</p>
+<p>A node can exist in the document in <strong>only one place</strong>. Thus, inserting paragraph “Three” in front of paragraph “One” will first remove it from the end of the document and then insert it at the front, resulting in “Three/One/Two”. All operations that insert a node somewhere will, as a side effect, cause it to be removed from its current position (if it has one).</p>
+<p>The <code>replaceChild</code> method is used to replace a child node with another one. It takes as arguments two nodes: <strong>a new node and the node to be replaced</strong>. The replaced node must be a child of the element the method is called on. Note that both <code>replaceChild</code> and <code>insertBefore</code> expect the new node as their first argument.</p>
+<p>###Creating nodes<br><code>document.createTextNode</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;The &lt;img src=&quot;img/cat.png&quot; alt=&quot;Cat&quot;&gt; in the</div><div class="line"> &lt;img src=&quot;img/hat.png&quot; alt=&quot;Hat&quot;&gt;.&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p&gt;&lt;button onclick=&quot;replaceImages()&quot;&gt;Replace&lt;/button&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"> function replaceImages() &#123;</div><div class="line">   var images = document.body.getElementsByTagName(&quot;img&quot;);</div><div class="line">   for (var i = images.length - 1; i &gt;= 0; i--) &#123;</div><div class="line">     var image = images[i];</div><div class="line">     if (image.alt) &#123;</div><div class="line">       var text = document.createTextNode(image.alt);</div><div class="line">       image.parentNode.replaceChild(text, image);</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p><code>document.createElement</code> method. This method takes a tag name and returns a new empty node of the given type.</p>
+<p>###Attributes<br><strong>HTML allows you to set any attribute you want on nodes.</strong> This can be useful because it allows you to store extra information in a document. If you make up your own attribute names, though, such attributes will not be present as a property on the element’s node. Instead, you’ll have to use the <code>getAttribute</code> and <code>setAttribute</code> methods to work with them.</p>
+<p>I recommended prefixing the names of such made-up attributes with <code>data-</code> to ensure they <strong>do not conflict</strong> with any other attributes.</p>
+<p>The <code>textContent</code> property is used to get all the text in the node and is then set to an empty string, which has the effect of emptying the node. We loop over all matches of the keyword expression, appending the text between them as regular text nodes, and the text matched (the keywords) as text nodes wrapped in <code>&lt;strong&gt;</code> (bold) elements.</p>
+<p>###Layout</p>
+<p>The size and position of an element can be accessed from JavaScript. The <code>offsetWidth</code> and <code>offsetHeight</code> properties give you the space the element takes up in pixels. A pixel is the basic unit of measurement in the browser and typically corresponds to the smallest dot that your screen can display. Similarly, <code>clientWidth</code> and <code>clientHeight</code> give you the size of the space <strong>inside the element, ignoring border width</strong>.</p>
+<p>The most effective way to find the precise position of an element on the screen is the <code>getBoundingClientRect</code> method. It returns an object with <code>top</code>, <code>bottom</code>, <code>left</code>, and <code>right</code> properties, indicating the pixel positions of the sides of the element relative to the top left of the screen. If you want them relative to the <strong>whole document</strong>, you must <strong>add the current scroll position</strong>, found under the global <code>pageXOffset</code> and <code>pageYOffset</code> variables.</p>
+<p>Laying out a document can be quite a lot of work. In the interest of speed, <strong>browser engines do not immediately re-layout a document every time it is changed but rather wait as long as they can.</strong> When a JavaScript program that changed the document <strong>finishes running</strong>, the browser will have to compute a new layout in order to display the changed document on the screen. When a program <strong>asks for the position or size</strong> of something by <strong>reading properties</strong> such as <code>offsetHeight</code> or calling <code>getBoundingClientRect</code>, providing correct information also requires computing a layout.</p>
+<p>###Styling</p>
+<p>###Cascading styles</p>
+<p>###Query selectors<br>The <code>querySelectorAll</code> method, which is defined both on the document object and on element nodes, takes <strong>a selector string</strong> and <strong>returns an array-like object</strong> containing all the elements that it matches.</p>
+<p>The <code>querySelector</code> method (without the All part) works in a similar way. This one is useful if you want a specific, single element. It will return <strong>only the first</strong> matching element or <strong>null</strong> if no elements match.</p>
+<p>###Positioning and animating</p>
+<p>The position style property influences layout in a powerful way. By default it has a value of static, meaning the element sits in its normal place in the document. When it is set to relative, the element still takes up space in the document, but now the top and left style properties can be used to move it relative to its normal place. When position is set to absolute, the element is removed from the normal document flow—that is, it no longer takes up space and may overlap with other elements. Also, its top and left properties can be used to absolutely position it relative to the top-left corner of the nearest enclosing element whose position property isn’t static, or relative to the document if no such enclosing element exists.</p>
+<p>We can use this to create an animation. The following document displays a picture of a cat that floats around in an ellipse:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;p style=&quot;text-align: center&quot;&gt;</div><div class="line"> &lt;img src=&quot;img/cat.png&quot; style=&quot;position: relative&quot;&gt;</div><div class="line">&lt;/p&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var cat = document.querySelector(&quot;img&quot;);</div><div class="line"> var angle = 0, lastTime = null;</div><div class="line"> function animate(time) &#123;</div><div class="line">   if (lastTime != null)</div><div class="line">     angle += (time - lastTime) * 0.001;</div><div class="line">   lastTime = time;</div><div class="line">   cat.style.top = (Math.sin(angle) * 20) + &quot;px&quot;;</div><div class="line">   cat.style.left = (Math.cos(angle) * 200) + &quot;px&quot;;</div><div class="line">   requestAnimationFrame(animate);</div><div class="line"> &#125;</div><div class="line"> requestAnimationFrame(animate);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>The script uses <code>requestAnimationFrame</code> to schedule the animate function to run whenever the browser is ready to repaint the screen. The <code>animate</code> function itself again calls <code>requestAnimationFrame</code> to schedule the next update. When the browser window (or tab) is active, this will cause updates to happen at a rate of about 60 per second, which tends to produce a good-looking animation.</p>
+<p>If we just updated the DOM in a loop, the page would <strong>freeze</strong> and nothing would show up on the screen. Browsers <strong>do not update their display while a JavaScript program is running</strong>, nor do they allow any interaction with the page. This is why we need <code>requestAnimationFrame</code>—it lets the browser know that we are done for now, and it can go ahead and do the things that browsers do, such as updating the screen and responding to user actions.</p>
+<p>#14. Handling Events</p>
+<p>###Event handlers</p>
+<p>A better mechanism is for the underlying system to give our code a chance to react to events as they occur. Browsers do this by allowing us to register functions as handlers for specific events.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Click this document to activate the handler.&lt;/p&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> addEventListener(&quot;click&quot;, function() &#123;</div><div class="line">   console.log(&quot;You clicked!&quot;);</div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>The addEventListener function registers its second argument to be called whenever the event described by its first argument occurs.</p>
+<p>###Events and DOM nodes</p>
+<p>Every DOM element has its own <code>addEventListener</code> method, which allows you to listen specifically on that element.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;button&gt;Click me&lt;/button&gt;</div><div class="line">&lt;p&gt;No handler here.&lt;/p&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var button = document.querySelector(&quot;button&quot;);</div><div class="line"> button.addEventListener(&quot;click&quot;, function() &#123;</div><div class="line">   console.log(&quot;Button clicked.&quot;);</div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Giving a node an <code>onclick</code> attribute has a similar effect. But a node has <strong>only one <code>onclick</code> attribute</strong>, so you can register only one handler per node that way. The <code>addEventListener</code> method allows you to <strong>add any number of handlers</strong>, so you <strong>can’t accidentally replace</strong> a handler that has already been registered.</p>
+<p>The <code>removeEventListener</code> method, called with arguments similar to as <code>addEventListener</code>, removes a handler.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;button&gt;Act-once button&lt;/button&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var button = document.querySelector(&quot;button&quot;);</div><div class="line"> function once() &#123;</div><div class="line">   console.log(&quot;Done.&quot;);</div><div class="line">   button.removeEventListener(&quot;click&quot;, once);</div><div class="line"> &#125;</div><div class="line"> button.addEventListener(&quot;click&quot;, once);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>To be able to unregister a handler function, we give it a name (such as once) so that we can pass it to both <code>addEventListener</code> and <code>removeEventListener</code>s.</p>
+<p>###Event objects</p>
+<p>Though we have ignored it in the previous examples, event handler functions are passed an argument: the <code>event</code> object. This object gives us <strong>additional information</strong> about the event. For example, if we want to know which mouse button was pressed, we can look at the event object’s which property.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;button&gt;Click me any way you want&lt;/button&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var button = document.querySelector(&quot;button&quot;);</div><div class="line"> button.addEventListener(&quot;mousedown&quot;, function(event) &#123;</div><div class="line">   if (event.which == 1)</div><div class="line">     console.log(&quot;Left button&quot;);</div><div class="line">   else if (event.which == 2)</div><div class="line">     console.log(&quot;Middle button&quot;);</div><div class="line">   else if (event.which == 3)</div><div class="line">     console.log(&quot;Right button&quot;);</div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>The information stored in an event object differs per type of event. We’ll discuss various types later in this chapter. The object’s type property always <strong>holds a string identifying the event</strong> (for example <code>&quot;click&quot;</code> or <code>&quot;mousedown&quot;</code>).</p>
+<p>###Propagation<br>Event handlers registered on nodes <strong>with children</strong> will <strong>also receive some events</strong> that happen in the children. If a button inside a paragraph is clicked, event handlers on the paragraph will also receive the click event.</p>
+<p>But if <strong>both</strong> the paragraph and the button <strong>have a handler</strong>, the more specific handler—the one on the button—gets to go first. The event is said to <strong>propagate outward</strong>, from the node where it happened to that node’s parent node and on to the root of the document. Finally, after all handlers registered on a specific node have had their turn, handlers registered on the whole window get a chance to respond to the event.</p>
+<p>At any point, an event handler <strong>can call the <code>stopPropagation</code> method on the event object to prevent handlers “further up”</strong> from receiving the event. This can be useful when, for example, you have a button inside another clickable element and you don’t want clicks on the button to activate the outer element’s click behavior.</p>
+<p>Most event objects have a <code>target</code> property that refers to the node where they <strong>originated</strong>. You can use this property to ensure that you’re not accidentally handling something that propagated up from a node you do not want to handle.</p>
+<p>###Default actions<br>Many events have a default action associated with them. If you click a link, you will be taken to the link’s target. If you press the down arrow, the browser will scroll the page down. If you right-click, you’ll get a context menu. And so on.</p>
+<p>For most types of events, the JavaScript event handlers are called <strong>before</strong> the default behavior is performed. If the handler <strong>doesn’t want the normal behavior to happen</strong>, typically because it has already taken care of handling the event, it can call the <code>preventDefault</code> method on the event object.</p>
+<p><strong>This can be used to implement your own keyboard shortcuts or context menu.</strong> It can also be used to obnoxiously interfere with the behavior that users expect. For example, here is a link that cannot be followed:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://developer.mozilla.org/&quot;&gt;MDN&lt;/a&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var link = document.querySelector(&quot;a&quot;);</div><div class="line"> link.addEventListener(&quot;click&quot;, function(event) &#123;</div><div class="line">   console.log(&quot;Nope.&quot;);</div><div class="line">   event.preventDefault();</div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Depending on the browser, some events can’t be intercepted. On Chrome, for example, keyboard shortcuts to close the current tab (<code>Ctrl-W</code> or <code>Command-W</code>) cannot be handled by JavaScript.</p>
+<blockquote>
+<p><strong>----------------- EVENTS --------------------</strong></p>
+</blockquote>
+<p>###Key events<br>When a key on the keyboard is pressed, your browser fires a <code>&quot;keydown&quot;</code> event. When it is released, a <code>&quot;keyup&quot;</code> event fires.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;This page turns violet when you hold the V key.&lt;/p&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> addEventListener(&quot;keydown&quot;, function(event) &#123;</div><div class="line">   if (event.keyCode == 86)</div><div class="line">     document.body.style.background = &quot;violet&quot;;</div><div class="line"> &#125;);</div><div class="line"> addEventListener(&quot;keyup&quot;, function(event) &#123;</div><div class="line">   if (event.keyCode == 86)</div><div class="line">     document.body.style.background = &quot;&quot;;</div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Despite its name, <code>&quot;keydown&quot;</code> fires <strong>not only</strong> when the key is physically <strong>pushed down</strong>. When a key is <strong>pressed</strong> and <strong>held</strong>, the event fires again every time the key <strong>repeats</strong>. </p>
+<p>The <code>keyCode</code> property of the event object. This is how you can <strong>identify which key</strong> is being pressed or released. Unfortunately, it’s <strong>not always obvious</strong> how to translate <strong>the numeric key code to an actual key</strong>.</p>
+<p>For letter and number keys, the associated key code will be the Unicode character code associated with the (<strong>uppercase</strong>) letter or number printed on the key. The <code>charCodeAt</code> method <strong>on strings</strong> gives us a way to find this code.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(&quot;Violet&quot;.charCodeAt(0));</div><div class="line">// → 86</div><div class="line">console.log(&quot;1&quot;.charCodeAt(0));</div><div class="line">// → 49</div></pre></td></tr></table></figure>
+<p>Other keys have less predictable key codes. <strong>The best way to find the codes you need</strong> is usually by experimenting—register a key event handler that <strong>logs</strong> the key codes it gets and press the key you are interested in.</p>
+<p>Modifier keys such as <strong>Shift</strong>, <strong>Ctrl</strong>, <strong>Alt</strong>, and <strong>Meta</strong> (Command on Mac) generate key events just like normal keys. But when looking for key combinations, you can also find out whether these keys are held down by looking at the <code>shiftKey</code>, <code>ctrlKey</code>, <code>altKey</code>, and <code>metaKey</code> properties of keyboard and mouse events.</p>
+<p>The <code>&quot;keydown&quot;</code> and <code>&quot;keyup&quot;</code> events give you information about the physical key that is being pressed. But what if you are interested in the actual text being typed? Getting that text from key codes is awkward. Instead, there exists another event, <code>&quot;keypress&quot;</code>, which <strong>fires right after <code>&quot;keydown&quot;</code> (and repeated along with &quot;keydown&quot; when the key is held)</strong> but only for keys that <strong>produce</strong> character input. </p>
+<p>The DOM node where a key event originates depends on the element that <strong>has focus when the key is pressed</strong>. Normal nodes cannot have focus (unless you give them a <code>tabindex</code> attribute), but things such as links, buttons, and form fields can. </p>
+<p>###Mouse clicks</p>
+<p>Pressing a mouse button also causes a number of events to fire. The <code>&quot;mousedown&quot;</code> and <code>&quot;mouseup&quot;</code> events are similar to <code>&quot;keydown&quot;</code> and <code>&quot;keyup&quot;</code> and fire when the button is pressed and released. These will happen on the DOM nodes that are immediately below the mouse pointer when the event occurs.</p>
+<p>After the <code>&quot;mouseup&quot;</code> event, a <code>&quot;click&quot;</code> event fires on the most specific node that contained both the press and the release of the button. For example, if I press down the mouse button on one paragraph and then move the pointer to another paragraph and release the button, the <code>&quot;click&quot;</code> event will happen on the element that <strong>contains both those paragraphs</strong>.</p>
+<p>If two clicks happen close together, a <code>&quot;dblclick&quot;</code> (double-click) event also fires, after the second click event.</p>
+<p>To get precise information about the place where a mouse event happened, you can look at its <code>pageX</code> and <code>pageY</code> properties, which <strong>contain the event’s coordinates</strong> (in pixels) <strong>relative to the top-left corner of the document.</strong></p>
+<p>The <code>clientX</code> and <code>clientY</code> properties are similar to <code>pageX</code> and <code>pageY</code> but relative to the part of the document that is currently scrolled into view. These can be useful when comparing mouse coordinates with the coordinates returned by <code>getBoundingClientRect</code>, which also <strong>returns viewport-relative coordinates</strong>.</p>
+<p>###Mouse motion<br>Every time the mouse pointer moves, a <code>&quot;mousemove&quot;</code> event fires. This event can be used to track the position of the mouse. A common situation in which this is useful is when implementing some form of <strong>mouse-dragging</strong> functionality.</p>
+<p>We must stop resizing the bar when the mouse button is released. Unfortunately, not all browsers give &quot;mousemove&quot; events a meaningful which property. There is a standard property called buttons, which provides similar information, but that is also not supported on all browsers. Fortunately, all major browsers support either buttons or which, so the buttonPressed function in the example first tries buttons, and falls back to which when that isn’t available.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Drag the bar to change its width:&lt;/p&gt;</div><div class="line">&lt;div style=&quot;background: orange; width: 60px; height: 20px&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var lastX; // Tracks the last observed mouse X position</div><div class="line"> var rect = document.querySelector(&quot;div&quot;);</div><div class="line"> rect.addEventListener(&quot;mousedown&quot;, function(event) &#123;</div><div class="line">   if (event.which == 1) &#123;</div><div class="line">     lastX = event.pageX;</div><div class="line">     addEventListener(&quot;mousemove&quot;, moved);</div><div class="line">     event.preventDefault(); // Prevent selection</div><div class="line">   &#125;</div><div class="line"> &#125;);</div><div class="line"></div><div class="line"> function buttonPressed(event) &#123;</div><div class="line">   if (event.buttons == null)</div><div class="line">     return event.which != 0;</div><div class="line">   else</div><div class="line">     return event.buttons != 0;</div><div class="line"> &#125;</div><div class="line"> function moved(event) &#123;</div><div class="line">   if (!buttonPressed(event)) &#123;</div><div class="line">     removeEventListener(&quot;mousemove&quot;, moved);</div><div class="line">   &#125; else &#123;</div><div class="line">     var dist = event.pageX - lastX;</div><div class="line">     var newWidth = Math.max(10, rect.offsetWidth + dist);</div><div class="line">     rect.style.width = newWidth + &quot;px&quot;;</div><div class="line">     lastX = event.pageX;</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>We must stop resizing the bar when the mouse button is released. Unfortunately, not all browsers give <code>&quot;mousemove&quot;</code> events a meaningful <code>which</code> property. There is a standard property called <code>buttons</code>, which provides similar information, but that is also not supported on all browsers. Fortunately, all major browsers support either buttons or which, so the <code>buttonPressed</code> function in the example first tries <code>buttons</code>, and falls back to <code>which</code> when that isn’t available.</p>
+<p>Whenever the mouse pointer <strong>enters or leaves a node</strong>, a <code>&quot;mouseover&quot;</code> or <code>&quot;mouseout&quot;</code> event fires. These two events can be used, among other things, to create <strong>hover</strong> effects, showing or styling something when the mouse is over a given element.</p>
+<p>Unfortunately, creating such an effect is not as simple as starting the effect on <code>&quot;mouseover&quot;</code> and ending it on <code>&quot;mouseout&quot;</code>. When the mouse moves from a node onto one of its children, <strong><code>&quot;mouseout&quot;</code> fires on the parent node</strong>, though the mouse did not actually leave the node’s extent. To make things worse, these events propagate just like other events, and thus you will also receive <code>&quot;mouseout&quot;</code> events when the mouse leaves one of the child nodes of the node on which the handler is registered.</p>
+<p><strong>To work around this problem</strong>, we can use the <code>relatedTarget</code> property of the event objects created for these events. It tells us, in the case of <code>&quot;mouseover&quot;</code>, what element the pointer <strong>was over before</strong> and, in the case of <code>&quot;mouseout&quot;</code>, what element <strong>it is going to</strong>. We want to change our hover effect only when the <code>relatedTarget</code> is outside of our target node. Only in that case does this event actually represent a crossing <strong>over</strong> from outside to inside the node (or the other way around).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Hover over this &lt;strong&gt;paragraph&lt;/strong&gt;.&lt;/p&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var para = document.querySelector(&quot;p&quot;);</div><div class="line"> function isInside(node, target) &#123;</div><div class="line">   for (; node != null; node = node.parentNode)</div><div class="line">     if (node == target) return true;</div><div class="line"> &#125;</div><div class="line"> para.addEventListener(&quot;mouseover&quot;, function(event) &#123;</div><div class="line">   if (!isInside(event.relatedTarget, para))</div><div class="line">     para.style.color = &quot;red&quot;;</div><div class="line"> &#125;);</div><div class="line"> para.addEventListener(&quot;mouseout&quot;, function(event) &#123;</div><div class="line">   if (!isInside(event.relatedTarget, para))</div><div class="line">     para.style.color = &quot;&quot;;</div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>I should add that a hover effect like this can be much more easily achieved using the CSS pseudoselector :hover, as the next example shows. But when your hover effect involves <strong>doing something more complicated</strong> than changing a style on the target node, you <strong>must use the trick with <code>&quot;mouseover&quot;</code> and <code>&quot;mouseout&quot;</code> events</strong>.</p>
+<p>###Scroll events</p>
+<p>Whenever an element is scrolled, a &quot;scroll&quot; event fires on it. This has various uses, such as knowing what the user is currently looking at (for disabling off-screen animations or sending spy reports to your evil headquarters) or showing some indication of progress (by highlighting part of a table of contents or showing a page number).</p>
+<p>The following example draws a progress bar in the top-right corner of the document and updates it to fill up as you scroll down:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line"> .progress &#123;</div><div class="line">   border: 1px solid blue;</div><div class="line">   width: 100px;</div><div class="line">   position: fixed;</div><div class="line">   top: 10px; right: 10px;</div><div class="line"> &#125;</div><div class="line"> .progress &gt; div &#123;</div><div class="line">   height: 12px;</div><div class="line">   background: blue;</div><div class="line">   width: 0%;</div><div class="line"> &#125;</div><div class="line"> body &#123;</div><div class="line">   height: 2000px;</div><div class="line"> &#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div class=&quot;progress&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;</div><div class="line">&lt;p&gt;Scroll me...&lt;/p&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var bar = document.querySelector(&quot;.progress div&quot;);</div><div class="line"> addEventListener(&quot;scroll&quot;, function() &#123;</div><div class="line">   var max = document.body.scrollHeight - innerHeight;</div><div class="line">   var percent = (pageYOffset / max) * 100;</div><div class="line">   bar.style.width = percent + &quot;%&quot;;</div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Giving an element a <code>position</code> of <code>fixed</code> acts much like an absolute position but also prevents it from scrolling along with the rest of the document. </p>
+<p>The <strong>global</strong> <code>innerHeight</code> variable gives us <strong>the height of the window</strong>.</p>
+<p>Calling <code>preventDefault</code> on a scroll event <strong>does not prevent</strong> the scrolling from happening. In fact, the event handler is called only after the scrolling takes place.</p>
+<p>###Focus events</p>
+<p>When an element <strong>gains focus</strong>, the browser fires a <code>&quot;focus&quot;</code> event on it. When it loses focus, a <code>&quot;blur&quot;</code> event fires.</p>
+<p>Unlike the events discussed earlier, these two events <strong>do not propagate</strong>. A handler on a <strong>parent element is not notified</strong> when a child element gains or loses focus.</p>
+<p>###Load event<br>When a page finishes loading, the <code>&quot;load&quot;</code> event fires <strong>on the window and the document body objects</strong>. This is often used to <strong>schedule initialization actions</strong> that require the whole document to have been built. Remember that the content of <script> tags is run immediately when the tag is encountered. This is often too soon, such as when the script needs to do something with parts of the document that appear after the <script> tag.</p>
+<p>Elements such as <strong>images and script tags</strong> that load an external file also have a <code>&quot;load&quot;</code> event that indicates the files they reference were loaded. Like the focus-related events, loading events <strong>do not propagate</strong>.</p>
+<p>When a page <strong>is closed or navigated away from</strong> (for example by following a link), a <code>&quot;beforeunload&quot;</code> event fires. The main use of this event is to <strong>prevent the user from accidentally losing work by closing a document</strong>. Preventing the page from unloading is not, as you might expect, done with the <code>preventDefault</code> method. Instead, it is done by returning a string from the handler. The string will be used in a dialog that asks the user if they want to stay on the page or leave it. This mechanism ensures that a user is able to leave the page, even if it is running a malicious script that would prefer to keep them there forever in order to force them to look at dodgy weight loss ads.</p>
+<p>###Script execution timeline<br>It is important to understand that even though events can fire at any time, <strong>no two scripts in a single document ever run at the same moment</strong>. If a script is already running, event handlers and pieces of code scheduled in other ways have to wait for their turn. </p>
+<p>The fact that JavaScript programs do only one thing at a time makes our lives easier. For cases where you really do want to <strong>do some time-consuming thing</strong> in the background without freezing the page, browsers provide something called <code>web workers</code>. A worker is an isolated JavaScript environment that <strong>runs alongside the main program</strong> for a document and can communicate with it only <strong>by sending and receiving messages</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var squareWorker = new Worker(&quot;code/squareworker.js&quot;);</div><div class="line">squareWorker.addEventListener(&quot;message&quot;, function(event) &#123;</div><div class="line">  console.log(&quot;The worker responded:&quot;, event.data);</div><div class="line">&#125;);</div><div class="line">squareWorker.postMessage(10);</div><div class="line">squareWorker.postMessage(24);</div></pre></td></tr></table></figure>
+<p>The <code>postMessage</code> function sends a message, which will cause a <code>&quot;message&quot;</code> event to fire in the receiver. The script that created the worker <strong>sends and receives messages</strong> through the <code>Worker</code> object, whereas the worker talks to the script that created it <strong>by sending and listening</strong> directly <strong>on its global scope</strong>—which is a <strong>new</strong> global scope, not shared with the original script.</p>
+<p>###Setting timers</p>
+<p>The <code>setTimeout</code> function is similar to <code>requestAnimationFrame</code>. It schedules another function to be called later. But instead of calling the function at the next redraw, it <strong>waits for a given amount of milliseconds</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> document.body.style.background = &quot;blue&quot;;</div><div class="line"> setTimeout(function() &#123;</div><div class="line">   document.body.style.background = &quot;yellow&quot;;</div><div class="line"> &#125;, 2000);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Sometimes you need to cancel a function you have scheduled. This is done by storing the value returned by <code>setTimeout</code> and calling <code>clearTimeout</code> on it.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var bombTimer = setTimeout(function() &#123;</div><div class="line">  console.log(&quot;BOOM!&quot;);</div><div class="line">&#125;, 500);</div><div class="line"></div><div class="line">if (Math.random() &lt; 0.5) &#123; // 50% chance</div><div class="line">  console.log(&quot;Defused.&quot;);</div><div class="line">  clearTimeout(bombTimer);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>The <code>cancelAnimationFrame</code> function works in the same way as <code>clearTimeout</code>—calling it on a value returned by <code>requestAnimationFrame</code> will cancel that frame (assuming it hasn’t already been called).</p>
+<p>A similar set of functions, <code>setInterval</code> and <code>clearInterval</code> are used to set timers that should repeat <strong>every X milliseconds</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var ticks = 0;</div><div class="line">var clock = setInterval(function() &#123;</div><div class="line">  console.log(&quot;tick&quot;, ticks++);</div><div class="line">  if (ticks == 10) &#123;</div><div class="line">    clearInterval(clock);</div><div class="line">    console.log(&quot;stop.&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;, 200);</div></pre></td></tr></table></figure>
+<p>###Debouncing<br>Some types of events have the potential to <strong>fire rapidly</strong>, many times in a row (the <code>&quot;mousemove&quot;</code> and <code>&quot;scroll&quot;</code> events, for example). </p>
+<p>If you do need to do something nontrivial in such a handler, you can use <code>setTimeout</code> to make sure you are not doing it too often. This is usually called <strong>debouncing</strong> the event. There are several slightly different approaches to this.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;textarea&gt;Type something here...&lt;/textarea&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  var textarea = document.querySelector(&quot;textarea&quot;);</div><div class="line">  var timeout;</div><div class="line">  textarea.addEventListener(&quot;keydown&quot;, function() &#123;</div><div class="line">    console.log(&quot;typing.&quot;);</div><div class="line">    clearTimeout(timeout);</div><div class="line">    timeout = setTimeout(function() &#123;</div><div class="line">      console.log(&quot;You stopped typing.&quot;);</div><div class="line">    &#125;, 500);</div><div class="line">  &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Giving an <strong>undefined</strong> value to <code>clearTimeout</code> or calling it on a timeout that has already fired has no effect. Thus, we don’t have to be careful about when to call it, and we simply do so for every event.</p>
+<p>We can use a slightly different pattern if we want to space responses so that they’re separated by at least a certain length of time but want to fire them during a series of events, not just afterward. For example, we might want to respond to <code>&quot;mousemove&quot;</code> events by showing the current coordinates of the mouse, but only <strong>every 250 milliseconds</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> function displayCoords(event) &#123;</div><div class="line">   document.body.textContent =</div><div class="line">     &quot;Mouse at &quot; + event.pageX + &quot;, &quot; + event.pageY;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> var scheduled = false, lastEvent;</div><div class="line"> addEventListener(&quot;mousemove&quot;, function(event) &#123;</div><div class="line">   lastEvent = event;</div><div class="line">   if (!scheduled) &#123;</div><div class="line">     scheduled = true;</div><div class="line">     setTimeout(function() &#123;</div><div class="line">       scheduled = false;</div><div class="line">       displayCoords(lastEvent);</div><div class="line">     &#125;, 250);</div><div class="line">   &#125;</div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>#HTTP</p>
+<p>###The protocol<br>If you type eloquentjavascript.net/17_http.html into your browser’s address bar, the browser first looks up the address of the server associated with eloquentjavascript.net and tries to open a TCP connection to it on port 80, the default port for HTTP traffic. If the server exists and accepts the connection, the browser sends something like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">GET /17_http.html HTTP/1.1</div><div class="line">Host: eloquentjavascript.net</div><div class="line">User-Agent: Your browser&apos;s name</div></pre></td></tr></table></figure>
+<p>Then the server responds, through that same connection:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div><div class="line">Content-Length: 65585</div><div class="line">Content-Type: text/html</div><div class="line">Last-Modified: Wed, 09 Apr 2014 10:48:09 GMT</div><div class="line"></div><div class="line"> &lt;!doctype html&gt;</div><div class="line">... the rest of the document</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET /17_http.html HTTP/1.1</div></pre></td></tr></table></figure>
+<p>The first word is the method of the request. <code>GET</code> means that we want to get the specified resource. Other common methods are <code>DELETE</code> to delete a resource, <code>PUT</code> to replace it, and <code>POST</code> to send information to it. Note that the server is not obliged to carry out every request it gets. If you walk up to a random website and tell it to DELETE its main page, it’ll probably refuse.</p>
+<p>The part after the method name is <strong>the path</strong> of the resource the request applies to. In the simplest case, a resource is simply a file on the server, but the protocol doesn’t require it to be. A resource may be anything that can be transferred as if it is a file. Many servers generate the responses they produce on the fly. For example, if you open twitter.com/marijnjh, the server looks in its database for a user named marijnjh, and if it finds one, it will generate a profile page for that user.</p>
+<p>After the resource path, the first line of the request mentions <code>HTTP/1.1</code> to indicate <strong>the version</strong> of the HTTP protocol it is using.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div></pre></td></tr></table></figure>
+<p>The server’s <strong>response</strong> will start with <strong>a version</strong> as well, followed by the <strong>status of the response</strong>, first as a <strong>three-digit status code</strong> and t<strong>hen as a human-readable string</strong>.</p>
+<p>Status codes starting with a <code>2</code> indicate that the request <strong>succeeded</strong>. Codes starting with <code>4</code> mean there was <strong>something wrong</strong> with the request. <code>404</code> is probably the most famous HTTP status code—it means that the resource that was requested could not be found. Codes that start with <code>5</code> mean an <strong>error happened on the server</strong> and the request is not to blame.</p>
+<p>The first line of <strong>a request or response</strong> may be <strong>followed by any number of headers</strong>. These are lines in the form <code>“name: value”</code> that specify extra information about the request or response. These headers were part of the example response:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Content-Length: 65585</div><div class="line">Content-Type: text/html</div><div class="line">Last-Modified: Wed, 09 Apr 2014 10:48:09 GMT</div></pre></td></tr></table></figure>
+<p>For the most part, <strong>a client or server decides</strong> which headers to include in a request or response, though a few headers are required. For example, the Host header, which specifies the hostname, should be included in a request because a server might be serving multiple hostnames on a single IP address, and without that header, the server won’t know which host the client is trying to talk to.</p>
+<p>After the headers, both requests and responses may include a blank line followed by a body, which contains the data being sent. <code>GET</code> and <code>DELETE</code> requests <strong>don’t send along any data</strong>, but <code>PUT</code> and <code>POST</code> requests do. Similarly, some response types, such as <strong>error responses</strong>, <strong>do not require a body</strong>.</p>
+<p>###Browsers and HTTP<br>A moderately complicated website can easily include anywhere from 10 to 200 resources. To be able to fetch those quickly, browsers will <strong>make several requests simultaneously</strong>, rather than waiting for the responses one at a time. Such documents are always <strong>fetched using <code>GET</code> requests</strong>.</p>
+<p>HTML pages may include forms, which allow the user to fill out information and send it to the server. This is an example of a form:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form method=&quot;GET&quot; action=&quot;example/message.html&quot;&gt;</div><div class="line"> &lt;p&gt;Name: &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;&lt;/p&gt;</div><div class="line"> &lt;p&gt;Message:&lt;br&gt;&lt;textarea name=&quot;message&quot;&gt;&lt;/textarea&gt;&lt;/p&gt;</div><div class="line"> &lt;p&gt;&lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;&lt;/p&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<p>This code describes a form with two fields: a small one asking for a name and a larger one to write a message in. When you click the Send button, the information in those fields will be <strong>encoded into a query string</strong>. When the <code>&lt;form&gt;</code> element’s method attribute is <code>GET</code> (or is omitted), that query string is tacked onto the action URL, and the browser makes a <code>GET</code> request to that URL.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET /example/message.html?name=Jean&amp;message=Yes%3F HTTP/1.1</div></pre></td></tr></table></figure>
+<p>The start of a query string is indicated <strong>by a question mark(<code>?</code>)</strong>. After that follow pairs of names and values, corresponding to the name attribute on the form field elements and the content of those elements, respectively. An ampersand character (<code>&amp;</code>) is used to <strong>separate the pairs</strong>.</p>
+<p>The actual message encoded in the previous URL is “<code>Yes?</code>”, even though the question mark is replaced by a strange code. Some characters in query strings must be escaped. The question mark, represented as <code>%3F</code>, is one of those. There seems to be an unwritten rule that every format needs its own way of escaping characters. This one, called URL encoding, <strong>uses a percent sign followed by two hexadecimal digits that encode the character code</strong>. In this case, <code>3F</code>, which is <code>63</code> in decimal notation, is the code of a question mark character. JavaScript provides the <code>encodeURIComponent</code> and <code>decodeURIComponent</code> functions to encode and decode this format.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(encodeURIComponent(&quot;Hello &amp; goodbye&quot;));</div><div class="line">// → Hello%20%26%20goodbye</div><div class="line">console.log(decodeURIComponent(&quot;Hello%20%26%20goodbye&quot;));</div><div class="line">// → Hello &amp; goodbye</div></pre></td></tr></table></figure>
+<p>If we change the method attribute of the HTML form in the example we saw earlier to <code>POST</code>, the HTTP request made to submit the form will use the POST method and put the query string in body of the request, rather than adding it to the URL.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">POST /example/message.html HTTP/1.1</div><div class="line">Content-length: 24</div><div class="line">Content-type: application/x-www-form-urlencoded</div><div class="line"></div><div class="line">name=Jean&amp;message=Yes%3F</div></pre></td></tr></table></figure>
+<p>###XMLHttpRequest<br>XMLHttpRequest is a de-facto standard interface.</p>
+<p>###Sending a request<br>To make a simple request, we create a request object with the <code>XMLHttpRequest</code> constructor and call its <code>open</code> and <code>send</code> methods.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var req = new XMLHttpRequest();</div><div class="line">req.open(&quot;GET&quot;, &quot;example/data.txt&quot;, false);</div><div class="line">req.send(null);</div><div class="line">console.log(req.responseText);</div><div class="line">// → This is the content of data.txt</div></pre></td></tr></table></figure>
+<p>The open method configures the request. In this case, we choose to make a GET request for the example/data.txt file.</p>
+<p>After opening the request, we can send it with the send method. The <strong>argument</strong> to send is <strong>the request body</strong>. For <code>GET</code> requests, we can pass <code>null</code>. If the third argument to open was <code>false</code>, send will <strong>return only after the response to our request was received</strong>. We can read the request object’s <code>responseText</code> property to get the response body.</p>
+<p>The other information included in the response can also be extracted from this object. The <code>status</code> code is accessible through the status property, and the human-readable status text is accessible through <code>statusText</code>. Headers can be read with <code>getResponseHeader</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var req = new XMLHttpRequest();</div><div class="line">req.open(&quot;GET&quot;, &quot;example/data.txt&quot;, false);</div><div class="line">req.send(null);</div><div class="line">console.log(req.status, req.statusText);</div><div class="line">// → 200 OK</div><div class="line">console.log(req.getResponseHeader(&quot;content-type&quot;));</div><div class="line">// → text/plain</div></pre></td></tr></table></figure>
+<p>Header names are <strong>case-insensitive</strong>. They are usually written with a capital letter at the start of each word, such as “Content-Type”, but “content-type” and “cOnTeNt-TyPe” refer to the same header.</p>
+<p>The browser will automatically add some request headers, such as “Host” and those needed for the server to figure out the size of the body. But you can <strong>add your own headers with the <code>setRequestHeader</code> method</strong>. This is needed only for advanced uses and requires the cooperation of the server you are talking to—a server is free to <strong>ignore headers</strong> it does not know how to handle.</p>
+<p>###Asynchronous Requests</p>
+<p>If we pass <code>true</code> as the <strong>third argument</strong> to open, the request is <strong>asynchronous</strong>. This means that when we call send, the only thing that happens right away is that the request is scheduled to be sent. Our program can continue, and the browser will take care of the sending and receiving of data in the background.</p>
+<p>For this, we must <strong>listen for the <code>&quot;load&quot;</code> event</strong> on the request object.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var req = new XMLHttpRequest();</div><div class="line">req.open(&quot;GET&quot;, &quot;example/data.txt&quot;, true);</div><div class="line">req.addEventListener(&quot;load&quot;, function() &#123;</div><div class="line">  console.log(&quot;Done:&quot;, req.status);</div><div class="line">&#125;);</div><div class="line">req.send(null);</div></pre></td></tr></table></figure>
+<p>###Fetching XML Data</p>
+<p>When the resource retrieved by an <code>XMLHttpRequest</code> object is an XML document, the object’s <code>responseXML</code> property will hold a parsed representation of this document. This representation works much like the DOM discussed in Chapter 13, except that it doesn’t have HTML-specific functionality like the style property. The object that <code>responseXML</code> holds corresponds to the <code>document</code> object. Its <code>documentElement</code> property refers to the outer tag of the XML document. In the following document (example/fruit.xml), that would be the <code>&lt;fruits&gt;</code> tag:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;fruits&gt;</div><div class="line"> &lt;fruit name=&quot;banana&quot; color=&quot;yellow&quot;/&gt;</div><div class="line"> &lt;fruit name=&quot;lemon&quot; color=&quot;yellow&quot;/&gt;</div><div class="line"> &lt;fruit name=&quot;cherry&quot; color=&quot;red&quot;/&gt;</div><div class="line">&lt;/fruits&gt;</div></pre></td></tr></table></figure>
+<p>We can retrieve such a file like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var req = new XMLHttpRequest();</div><div class="line">req.open(&quot;GET&quot;, &quot;example/fruit.xml&quot;, false);</div><div class="line">req.send(null);</div><div class="line">console.log(req.responseXML.querySelectorAll(&quot;fruit&quot;).length);</div><div class="line">// → 3</div></pre></td></tr></table></figure>
+<p>It is often a better idea to communicate using <strong>JSON</strong> data, which is easier to read and write, both for programs and for humans.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var req = new XMLHttpRequest();</div><div class="line">req.open(&quot;GET&quot;, &quot;example/fruit.json&quot;, false);</div><div class="line">req.send(null);</div><div class="line">console.log(JSON.parse(req.responseText));</div><div class="line">// → &#123;banana: &quot;yellow&quot;, lemon: &quot;yellow&quot;, cherry: &quot;red&quot;&#125;</div></pre></td></tr></table></figure>
+<p>###HTTP sandboxing<br>It is possible for websites to protect themselves against such attacks, but that requires effort, and many websites fail to do it. For this reason, <strong>browsers protect us by disallowing scripts to make HTTP requests to other domains</strong> (names such as themafia.org and mybank.com).</p>
+<p>This can be an annoying problem when building systems that want to access several domains for legitimate reasons. Fortunately, <strong>servers can include a header like this</strong> in their response to explicitly indicate to browsers that it is okay for the request to come from other domains:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: *</div></pre></td></tr></table></figure>
+<p>###Abstracting requests<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function getURL(url, callback) &#123;</div><div class="line">  var req = new XMLHttpRequest();</div><div class="line">  req.open(&quot;GET&quot;, url, true);</div><div class="line">  req.addEventListener(&quot;load&quot;, function() &#123;</div><div class="line">    if (req.status &lt; 400)</div><div class="line">      callback(req.responseText);</div><div class="line">    else</div><div class="line">      callback(null, new Error(&quot;Request failed: &quot; +</div><div class="line">                               req.statusText));</div><div class="line">  &#125;);</div><div class="line">  req.addEventListener(&quot;error&quot;, function() &#123;</div><div class="line">    callback(null, new Error(&quot;Network error&quot;));</div><div class="line">  &#125;);</div><div class="line">  req.send(null);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###Promises<br>There have been a lot of attempts to solve this with extra abstractions. One of the more successful ones is called <code>promises</code>. Promises wrap an asynchronous action in an object, which can be passed around and told to do certain things when the action finishes or fails. This interface is set to become part of the next version of the JavaScript language but can already be used as a library.</p>
+<p>To create a promise object, we call the <code>Promise</code> constructor, giving it a function that <strong>initializes the asynchronous action</strong>. The constructor calls that function, passing it <strong>two arguments</strong>, which are themselves functions. The <strong>first</strong> should be called <strong>when the action finishes successfully</strong>, and the <strong>second</strong> should be called <strong>when it fails</strong>.</p>
+<p>Once again, here is our wrapper for GET requests, this time returning a promise. We’ll simply call it get this time.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function get(url) &#123;</div><div class="line">  return new Promise(function(succeed, fail) &#123;</div><div class="line">    var req = new XMLHttpRequest();</div><div class="line">    req.open(&quot;GET&quot;, url, true);</div><div class="line">    req.addEventListener(&quot;load&quot;, function() &#123;</div><div class="line">      if (req.status &lt; 400)</div><div class="line">        succeed(req.responseText);</div><div class="line">      else</div><div class="line">        fail(new Error(&quot;Request failed: &quot; + req.statusText));</div><div class="line">    &#125;);</div><div class="line">    req.addEventListener(&quot;error&quot;, function() &#123;</div><div class="line">      fail(new Error(&quot;Network error&quot;));</div><div class="line">    &#125;);</div><div class="line">    req.send(null);</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Note that the interface to the function itself is now a lot simpler. You give it a URL, and it returns a promise. That promise acts as a handle to the request’s outcome. It has a <code>then</code> method that you can call with two functions: <strong>one to handle success and one to handle failure.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">get(&quot;example/data.txt&quot;).then(function(text) &#123;</div><div class="line">  console.log(&quot;data.txt: &quot; + text);</div><div class="line">&#125;, function(error) &#123;</div><div class="line">  console.log(&quot;Failed to fetch data.txt: &quot; + error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>###Security and HTTPS<br>The secure HTTP protocol, whose URLs start with <code>https://</code>, wraps HTTP traffic in a way that <strong>makes it harder to read and tamper with</strong>. First, the client verifies that the server is who it claims to be by requiring that server to prove that it has a cryptographic certificate issued by a certificate authority that the browser recognizes. Next, all data going over the connection is encrypted in a way that should prevent eavesdropping and tampering.</p>
+<p>#18. Forms and Form Fields</p>
+<p>###Fields<br>A lot of field types use the <code>&lt;input&gt;</code> tag. This tag’s type attribute is used to select the field’s style. These are some commonly used <code>&lt;input&gt;</code> types:</p>
+<ul>
+<li><strong>text</strong>    A single-line text field</li>
+<li><strong>password</strong>    Same as text but hides the text that is typed</li>
+<li><strong>checkbox</strong>    An on/off switch</li>
+<li><strong>radio</strong>    (Part of) a multiple-choice field</li>
+<li><strong>file</strong>    Allows the user to choose a file from their computer</li>
+</ul>
+<p>Whenever the value of a form field changes, it fires a <code>&quot;change&quot;</code> event.</p>
+<p>###Focus<br>Unlike most elements in an HTML document, form fields <strong>can get keyboard focus</strong>. When clicked—or activated in some other way—they become the currently active element, the main recipient of keyboard input.</p>
+<p>We can control focus from JavaScript with the <code>focus</code> and <code>blur</code> methods. The first moves focus to the DOM element it is called on, and the second removes focus. The value in <code>document.activeElement</code> corresponds to the currently focused element.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot;&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> document.querySelector(&quot;input&quot;).focus();</div><div class="line"> console.log(document.activeElement.tagName);</div><div class="line"> // → INPUT</div><div class="line"> document.querySelector(&quot;input&quot;).blur();</div><div class="line"> console.log(document.activeElement.tagName);</div><div class="line"> // → BODY</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>For some pages, the user is expected to want to interact with a form field immediately. JavaScript can be used to focus this field when the document is loaded, but HTML also provides the <code>autofocus</code> attribute, which produces the same effect but lets the browser know what we are trying to achieve. This makes it possible for the browser to disable the behavior when it is not appropriate, such as when the user has focused something else.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; autofocus&gt;</div></pre></td></tr></table></figure>
+<p>Browsers traditionally also allow the user to move the focus through the document by <strong>pressing the Tab key</strong>. We can influence the order in which elements receive focus with the <code>tabindex</code> attribute. The following example document will let focus jump from the text input to the OK button, rather than going through the help link first:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; tabindex=1&gt; &lt;a href=&quot;.&quot;&gt;(help)&lt;/a&gt;</div><div class="line">&lt;button onclick=&quot;console.log(&apos;ok&apos;)&quot; tabindex=2&gt;OK&lt;/button&gt;</div></pre></td></tr></table></figure>
+<p>By default, most types of HTML elements cannot be focused. But you can add a <code>tabindex</code> attribute to any element, which will make it focusable.</p>
+<p>###Disabled fields<br>All form fields can be disabled through their disabled attribute, which also exists as a property on the element’s DOM object.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;button&gt;I&apos;m all right&lt;/button&gt;</div><div class="line">&lt;button disabled&gt;I&apos;m out&lt;/button&gt;</div></pre></td></tr></table></figure>
+<p>Disabled fields cannot be focused or changed, and unlike active fields, they usually look gray and faded.</p>
+<p>###The form as a whole</p>
+<p>The name attribute of a form field determines the way its value will be identified when the form is submitted. It can also be used as a property name when accessing the form’s <code>elements</code> property, which acts both as an array-like object (<strong>accessible by <code>number</code></strong>) and a map (<strong>accessible by <code>name</code></strong>).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;example/submit.html&quot;&gt;</div><div class="line"> Name: &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;&lt;br&gt;</div><div class="line"> Password: &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br&gt;</div><div class="line"> &lt;button type=&quot;submit&quot;&gt;Log in&lt;/button&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var form = document.querySelector(&quot;form&quot;);</div><div class="line"> console.log(form.elements[1].type);</div><div class="line"> // → password</div><div class="line"> console.log(form.elements.password.type);</div><div class="line"> // → password</div><div class="line"> console.log(form.elements.name.form == form);</div><div class="line"> // → true</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>A button with a <code>type</code> attribute of <code>submit</code> will, when pressed, <strong>cause the form to be submitted</strong>. Pressing Enter when a form field is focused has the same effect.</p>
+<p>Submitting a form normally means that the browser navigates to the page indicated by the form’s <code>action</code> attribute, using either a <code>GET</code> or a <code>POST</code> request. But before that happens, <strong>a <code>&quot;submit&quot;</code> event is fired</strong>. This event can be handled by JavaScript, and the handler can prevent the default behavior by calling <code>preventDefault</code> on the event object.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;example/submit.html&quot;&gt;</div><div class="line"> Value: &lt;input type=&quot;text&quot; name=&quot;value&quot;&gt;</div><div class="line"> &lt;button type=&quot;submit&quot;&gt;Save&lt;/button&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;script&gt;</div><div class="line"> var form = document.querySelector(&quot;form&quot;);</div><div class="line"> form.addEventListener(&quot;submit&quot;, function(event) &#123;</div><div class="line">   console.log(&quot;Saving value&quot;, form.elements.value.value);</div><div class="line">   event.preventDefault();</div><div class="line"> &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Intercepting <code>&quot;submit&quot;</code> events in JavaScript has various uses. We can write code <strong>to verify that the values</strong> the user entered make sense and immediately show an error message instead of submitting the form when they don’t. Or we can disable the regular way of submitting the form entirely, as in the previous example, and have our program handle the input, possibly using <code>XMLHttpRequest</code> to send it over to a server without reloading the page.</p>
+<p>###Text fields<br>Fields created by <code>&lt;input&gt;</code> tags with a <code>type</code> of <code>text</code> or <code>password</code>, as well as <code>textarea</code> tags, share a common interface. Their DOM elements have a value property that holds their current content as a string value. Setting this property to another string changes the field’s content.</p>
+<p>The <code>selectionStart</code> and <code>selectionEnd</code> properties of text fields give us information about the cursor and selection in the text. </p>
+<p>The <code>replaceSelection</code> function replaces the currently selected part of a text field’s content with the given word and then moves the cursor after that word so that the user can continue typing.</p>
+<p>The <code>&quot;change&quot;</code> event for a text field does not fire every time something is typed. Rather, it fires when the field loses focus after its content was changed.</p>
+<p> To respond immediately to changes in a text field, you should register a handler for the <code>&quot;input&quot;</code> event instead, which fires for every time the user types a character, deletes text, or otherwise manipulates the field’s content.</p>
+<p>###Checkboxes and radio buttons<br>The <code>&lt;label&gt;</code> tag is used to associate a piece of text with an input field. Its <code>for</code> attribute should refer to the <code>id</code> of the field. Clicking the label will activate the field, which focuses it and toggles its value when it is a checkbox or radio button.</p>
+<p>A radio button is similar to a checkbox, but it’s implicitly linked to other radio buttons <strong>with the same <code>name</code> attribute</strong> so that only one of them can be active at any time.</p>
+<p>###Select fields<br>The appearance of a <code>&lt;select&gt;</code> tag is determined by the browser.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;select multiple&gt;</div><div class="line">  &lt;option&gt;Pancakes&lt;/option&gt;</div><div class="line">  &lt;option&gt;Pudding&lt;/option&gt;</div><div class="line">  &lt;option&gt;Ice cream&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<p>###File fields<br>File fields were originally designed as a way to upload files from the browser’s machine through a form. In modern browsers, they also provide a way to read such files from JavaScript programs. The field acts as a manner of gatekeeper. <strong>The script cannot simply start reading private files from the user’s computer</strong>, but if the user selects a file in such a field, the browser interprets that action to mean that the script may read the file.</p>
+<p>The files property of a file field element is an array-like object (again, not a real array) containing the files chosen in the field. It is initially empty. The reason there isn’t simply a file property is that file fields also support a <code>multiple</code> attribute, which makes it possible to <strong>select multiple files</strong> at the same time.</p>
+<p>###Storing data client-side<br>You can store string data in a way that survives page reloads by putting it in the <code>localStorage</code> object. This object allows you to file string values under names (also strings), as in this example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(&quot;username&quot;, &quot;marijn&quot;);</div><div class="line">console.log(localStorage.getItem(&quot;username&quot;));</div><div class="line">// → marijn</div><div class="line">localStorage.removeItem(&quot;username&quot;);</div></pre></td></tr></table></figure>
+<p>A value in <code>localStorage</code> sticks around until it is overwritten, it is removed with <code>removeItem</code>, or the user clears their local data.</p>
+<p>Sites <strong>from different domains get different storage compartments</strong>. That means data stored in <code>localStorage</code> <strong>by a given website can</strong>, in principle, only be read (and overwritten) by scripts on that same site.</p>
+<p>There is another object similar to <code>localStorage</code> called <code>sessionStorage</code>. The difference between the two is that the content of <code>sessionStorage</code> is <strong>forgotten at the end of each session</strong>, which for most browsers means whenever <strong>the browser is closed</strong>.</p>
+<p>#Node.js</p>
+<p><code>Node.js</code>, a program that allows you to apply your JavaScript skills outside of the browser. With it, you can build anything from simple command-line tools to dynamic HTTP servers.</p>
+<p>Background</p>
+</script></p>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reading-notes/" rel="tag">#Reading notes</a>
+          
+            <a href="/tags/Web/" rel="tag">#Web</a>
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/08/UIL_Universal_Image_Loader/" rel="next" title="Universal Image Loader">
+                <i class="fa fa-chevron-left"></i> Universal Image Loader
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/10/Android_tips/" rel="prev" title="Android Dev Tips">
+                Android Dev Tips <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

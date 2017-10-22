@@ -1,0 +1,681 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reading notes,Web,CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#CSS layout
+
+#Introduction to CSS Layout
+###The flowEach elements in the document alters the flow of text in various ways:
+
+Some elements can simply follow the text flow as if they were non-existent.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Layout">
+<meta property="og:url" content="http://yoursite.com/2016/05/18/CSS_layout/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="#CSS layout
+
+#Introduction to CSS Layout
+###The flowEach elements in the document alters the flow of text in various ways:
+
+Some elements can simply follow the text flow as if they were non-existent.">
+<meta property="og:updated_time" content="2017-10-22T15:40:39.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS Layout">
+<meta name="twitter:description" content="#CSS layout
+
+#Introduction to CSS Layout
+###The flowEach elements in the document alters the flow of text in various ways:
+
+Some elements can simply follow the text flow as if they were non-existent.">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/18/CSS_layout/"/>
+
+  <title> CSS Layout | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS Layout
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-18T00:00:00+08:00" content="2016-05-18">
+              2016-05-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>#CSS layout</p>
+</blockquote>
+<p>#Introduction to CSS Layout</p>
+<p>###The flow<br>Each elements in the document alters the flow of text in various ways:</p>
+<ul>
+<li>Some elements can simply follow the text flow as if they were non-existent.</li>
+<li>Some elements can force a line break at any point in the flow whether it has reached the edge of the document or not.</li>
+<li>Some elements can create a new text flow for their inner content independent from the main text flow.</li>
+</ul>
+<p>####Elements display categories</p>
+<p>The element behavior is defined using the property <code>display</code>. This property can take tons of values but let&#39;s focus on the four most important:</p>
+<ul>
+<li><strong>none</strong><br>This value completely removes the element from the flow, exactly as if the element and its content weren&#39;t there in the first place.</li>
+<li><strong>inline</strong><br>This value makes an element &quot;transparent&quot;: it flows with the text normally and its content is part of the global text flow.</li>
+<li><strong>block</strong><br>This value is for the element to break the text flow with a forced line break before and after it. Its content is no longer part of the global text flow and flows only within the constraints provided by the element box model.</li>
+<li><strong>inline-block</strong><br>This value makes the element somewhat in between inline and block type display: like inline boxes it flows with the text normally but, like block boxes, it&#39;s content is no longer part of the global text.</li>
+</ul>
+<a id="more"></a>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;p class=&quot;none&quot;&gt;</div><div class="line"> 1. I&apos;m a big black cat,</div><div class="line"> &lt;span&gt;walking under a ladder,&lt;/span&gt;</div><div class="line"> and I can see broken mirrors everywhere.</div><div class="line">&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class=&quot;inline&quot;&gt;</div><div class="line"> 2. I&apos;m a big black cat,</div><div class="line"> &lt;span&gt;walking under a ladder,&lt;/span&gt;</div><div class="line"> and I can see broken mirrors everywhere.</div><div class="line">&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class=&quot;block&quot;&gt;</div><div class="line"> 3. I&apos;m a big black cat,</div><div class="line"> &lt;span&gt;walking under a ladder,&lt;/span&gt;</div><div class="line"> and I can see broken mirrors everywhere.</div><div class="line">&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class=&quot;inline-block&quot;&gt;</div><div class="line"> 4. I&apos;m a big black cat,</div><div class="line"> &lt;span&gt;walking under a ladder,&lt;/span&gt;</div><div class="line"> and I can see broken mirrors everywhere.</div><div class="line">&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">span &#123;</div><div class="line">  width: 5em;</div><div class="line">  background: yellow;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.none span         &#123; display: none;         &#125;</div><div class="line">.inline span       &#123; display: inline;       &#125;</div><div class="line">.block span        &#123; display: block;        &#125;</div><div class="line">.inline-block span &#123; display: inline-block; &#125;</div></pre></td></tr></table></figure>
+<p>###Altering the flow</p>
+<p>####Text layout<br>CSS provides many properties to deal with simple text layout. Those properties are: <code>hyphens</code>, <code>text-align</code>, <code>text-align-last</code>, <code>text-indent</code>, <code>vertical-align</code>, <code>white-space</code>, <code>word-break</code>, and <code>word-wrap</code>.</p>
+<blockquote>
+<p>It&#39;s worth noting that the trick we used to compensate the <strong>negative text indentation</strong> is a very common trick. Any property that accepts a length also accepts negative values. By fiddling with negative values and compensating them with other properties,  it&#39;s possible to produce very clever effects on the layout, especially when it applies to properties of the box model.</p>
+</blockquote>
+<p>####Floating<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">XXX&#123;</div><div class="line">	float: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>####Positioning<br>If floating boxes are still part of the flow, another mechanism exists to perform some layouts by extracting boxes out of the flow: CSS Positioning. Positioning is acheived by defining a positioning context with the position property and then allows boxes to be positioned using <code>top</code>, <code>left</code>, <code>right</code>, and <code>bottom</code> properties.</p>
+<p>The position property can take on four different values:</p>
+<ul>
+<li><strong>static</strong><br>This is the default value for all elements: they are part of the flow and don&#39;t define any specific positioning context.</li>
+<li><strong>relative</strong><br>With this value, elements are still part of the flow, but they can be visually moved around their positions with top, left, right, and bottom. They also define a positioning context for their children elements.</li>
+<li><strong>absolute</strong><br>With this value, elements are pushed <strong>out of the flow</strong> and no longer influence it. The position of such blocks is defined by the top, left, right, and bottom properties. The 0,0 position point for the <strong>top/left</strong> corner of the box is the top/left corner of <strong>the closest parent element</strong> which defines a positionning context other than static. If there is no parent with a positioning context, then, the 0,0 position point for the top/left corner of the box is the top/left corner of the document.</li>
+<li><strong>fixed</strong><br>With this value, elements are pushed out of the flow and no longer influence it. The position of such blocks is define by the top, left, right, and bottom properties. The 0,0 position point for the top/left corner of the box is the top/left corner of <strong>the browser window</strong> viewport.</li>
+</ul>
+<p>Such positioned boxes can stack on top of each other. In that case, it&#39;s possible to change the stacking order by using the <code>z-index</code> property.</p>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;relative&quot;&gt;</div><div class="line">   &lt;div class=&quot;absolute-one&quot;&gt;</div><div class="line">       &lt;p&gt;Position:absolute&lt;/p&gt;&lt;/br&gt;</div><div class="line">       &lt;p&gt;Top Right&lt;/p&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line"></div><div class="line">   &lt;div class=&quot;absolute-two&quot;&gt;</div><div class="line">       &lt;p&gt;Position:absolute&lt;/p&gt;&lt;/br&gt;</div><div class="line">       &lt;p&gt;Bottom Centre&lt;/p&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line"></div><div class="line">   &lt;div class=&quot;absolute-three&quot;&gt;</div><div class="line">       &lt;p&gt;Position:static&lt;/p&gt;&lt;/br&gt;</div><div class="line">       &lt;p&gt;Where it falls&lt;/p&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  text-align:  centre;</div><div class="line">  color: #fff;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/* Setting the position to relative</div><div class="line">allows any child elements to be positioned </div><div class="line">anywhere, in relation to its container. */</div><div class="line"></div><div class="line">.relative &#123;</div><div class="line">  position: relative;</div><div class="line">  width: 95%;</div><div class="line">  margin: 0 auto;</div><div class="line">  height: 300px;</div><div class="line">  background-color: #fff;</div><div class="line">  border: 3px solid #ADD8E6;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Just some styles for text alignment /*</div><div class="line">.relative div &#123;</div><div class="line">  text-align: center;</div><div class="line">  padding: 5px;</div><div class="line">  display: block;</div><div class="line">  width: 125px;</div><div class="line">  height: 125px;</div><div class="line">  background-color: #ADD8E6;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* By setting this div to position absolute</div><div class="line">we can position this element anywhere in relation</div><div class="line">to the &apos;relative&apos; div /*</div><div class="line">.absolute-one &#123; </div><div class="line">   position: absolute;</div><div class="line">   top: 0;</div><div class="line">   right: 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Unlike the first div which was positioned at the</div><div class="line">top right corner of the container div. &apos;.absolute-two&apos; </div><div class="line">is positioned bottom centre. By setting both left and right</div><div class="line">to 0, along with margin:auto.</div><div class="line">.absolute-two &#123; </div><div class="line">   position: absolute;</div><div class="line">   bottom: 0;</div><div class="line">   right: 0;</div><div class="line">   left: 0;</div><div class="line">   margin: auto;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Where the div would fall naturally within it&apos;s container.</div><div class="line">This is also useful for returning elements from a floated </div><div class="line">position. E.g. on responsive styles. /*</div><div class="line">.absolute-three &#123; </div><div class="line">   position: static;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#Flexbox<br>Using <code>flexbox</code> can help you design compelling layouts in web applications that scale better from desktop to <strong>mobile</strong>. Put an end to floating <div> elements, absolute positioning, and JavaScript hacks, and start building horizontal and vertical flowing layouts in just a few lines of CSS.</div></p>
+<p>###Basics<br>You can make the elements inside any <div> flow with flexbox by <strong>setting the display property to <code>flex</code></strong> and then <strong>setting the flex-flow property</strong> to either <code>row</code>, if you want the elements to flow horizontally, or <code>column</code>, if you want the elements to flow vertically. If you are using <strong>a horizontal flexbox and want your content to wrap vertically</strong>, then also specify the <code>wrap</code> value.(<code>flex-flow: row wrap;</code>)</div></p>
+<p>Then, for each element that you want to be part of the flex flow, set the <code>flex</code> property. Generally you will want to use one of the three following values:</p>
+<ul>
+<li>If you want an element that only takes up its allocated width, like a button, use flex: <code>none</code> that expands to <code>0 0 auto</code>.</li>
+<li>If you want to explicitly size an element, use flex: <code>0 0 size</code>. For example: <code>flex 0 0 60px</code>.</li>
+<li>If you want an element that expands to fill space available, that is sharing space equally if there are multiple elements of this kind within the flow, use flex: <code>auto</code>. It expands to <code>1 1 auto</code>.</li>
+</ul>
+<p>###Centering an element inside a page</p>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;vertical-box&quot;&gt;</div><div class="line"> &lt;div class=&quot;spacer&quot;&gt;&lt;/div&gt;</div><div class="line"> &lt;div class=&quot;centered-element horizontal-box&quot;&gt;</div><div class="line">   &lt;div class=&quot;spacer&quot;&gt;&lt;/div&gt;</div><div class="line">   &lt;div class=&quot;centered-element&quot;&gt;Centered content&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;spacer&quot;&gt;&lt;/div&gt;</div><div class="line"> &lt;/div&gt;</div><div class="line"> &lt;div class=&quot;spacer&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.vertical-box &#123;</div><div class="line">  display: flex;</div><div class="line">  height: 400px;</div><div class="line">  width: 400px;</div><div class="line">  flex-flow: column;</div><div class="line">&#125;</div><div class="line">.horizontal-box &#123;</div><div class="line">  display: flex;</div><div class="line">  flex-flow: row;</div><div class="line">&#125;</div><div class="line">.spacer &#123;</div><div class="line">  flex: auto;</div><div class="line">  background-color: black;</div><div class="line">&#125;</div><div class="line">.centered-element &#123;</div><div class="line">  flex: none;</div><div class="line">  background-color: white;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Flowing a set of containers vertically</p>
+<p>Imagine that you have a page laid out with a <strong>header</strong> section, a <strong>content</strong> section, and a <strong>footer</strong>. The header and footer should have a fixed size, but the content should <strong>resize according to available space</strong>. This can be done by setting the content&#39;s flex property to <strong>auto</strong> and  flex property on the header, and the footer, to <strong>none</strong>.</p>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.vertical-box &#123;</div><div class="line">  display: flex;</div><div class="line">  height: 400px;</div><div class="line">  width: 400px;</div><div class="line">  flex-flow: column;</div><div class="line">&#125;</div><div class="line">.fixed-size &#123;</div><div class="line">  flex: none;</div><div class="line">  height: 30px;</div><div class="line">  background-color: black;</div><div class="line">  text-align: center;</div><div class="line">&#125;</div><div class="line">.flexible-size &#123;</div><div class="line">  flex: auto;</div><div class="line">  background-color: white;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;document&quot; class=&quot;vertical-box&quot;&gt;</div><div class="line"> &lt;div class=&quot;fixed-size&quot;&gt;&lt;button id=&quot;increase-size&quot;&gt;Increase container size&lt;/button&gt;&lt;/div&gt;</div><div class="line"> &lt;div id=&quot;flexible-content&quot; class=&quot;flexible-size&quot;&gt;&lt;/div&gt;</div><div class="line"> &lt;div class=&quot;fixed-size&quot;&gt;&lt;button id=&quot;decrease-size&quot;&gt;Decrease container size&lt;/button&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>JS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var height = 400;</div><div class="line">document.getElementById(&apos;increase-size&apos;).onclick=function() &#123;</div><div class="line">  height += 10;</div><div class="line">  if (height &gt; 500) height = 500; </div><div class="line">  document.getElementById(&apos;document&apos;).style.height = (height + &quot;px&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">document.getElementById(&apos;decrease-size&apos;).onclick=function() &#123;</div><div class="line">  height -= 10;</div><div class="line">  if (height &lt; 300) height = 300; </div><div class="line">  document.getElementById(&apos;document&apos;).style.height = (height + &quot;px&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Creating a collapsing horizontal container</p>
+<p>In some cases you might want to lay a set of information out horizontally where the screen size permits, but collapse the contents horizontally where it does not. This is quite straightforward with flexbox. You can do this by adding the <code>wrap</code> value to the <code>flex-flow</code> property.</p>
+<p>CSS:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.horizontal-container &#123;</div><div class="line">  display: flex;</div><div class="line">  width: 300px;</div><div class="line">  flex-flow: row wrap;</div><div class="line">&#125;</div><div class="line">.fixed-size &#123;</div><div class="line">  flex: none;</div><div class="line">  width: 100px;</div><div class="line">  background-color: black;</div><div class="line">  color: white;</div><div class="line">  text-align: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;container&quot; class=&quot;horizontal-container&quot;&gt;</div><div class="line"> &lt;div class=&quot;fixed-size&quot;&gt;Element 1&lt;/div&gt;</div><div class="line"> &lt;div class=&quot;fixed-size&quot;&gt;Element 2&lt;/div&gt;</div><div class="line"> &lt;div class=&quot;fixed-size&quot;&gt;Element 3&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;button id=&quot;increase-size&quot;&gt;Increase container size&lt;/button&gt;</div><div class="line">&lt;button id=&quot;decrease-size&quot;&gt;Decrease container size&lt;/button&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reading-notes/" rel="tag">#Reading notes</a>
+          
+            <a href="/tags/Web/" rel="tag">#Web</a>
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/15/HTML/" rel="next" title="HTML Basics">
+                <i class="fa fa-chevron-left"></i> HTML Basics
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/23/CSS/" rel="prev" title="CSS Basics">
+                CSS Basics <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,957 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reading notes,Web,JS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#JavaScript
+
+#1. JavaScript简介
+###1.2 JavaScript实现JavaScript的实现包括了三部分：
+
+核心（ECMAScript）
+文档对象模型（DOM）
+浏览器对象模型（BOM）
+
+#2. 在HTML中使用JavaScript
+###2.1 &amp;lt;script&amp;gt;元素HTML4.01中&amp;lt;script&amp;gt;的6个属性：
+
+async:可选。表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Professional JavaScript for Web Developers">
+<meta property="og:url" content="http://yoursite.com/2016/05/03/JavaScript高级程序设计/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="#JavaScript
+
+#1. JavaScript简介
+###1.2 JavaScript实现JavaScript的实现包括了三部分：
+
+核心（ECMAScript）
+文档对象模型（DOM）
+浏览器对象模型（BOM）
+
+#2. 在HTML中使用JavaScript
+###2.1 &amp;lt;script&amp;gt;元素HTML4.01中&amp;lt;script&amp;gt;的6个属性：
+
+async:可选。表">
+<meta property="og:updated_time" content="2017-10-22T15:46:22.549Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Professional JavaScript for Web Developers">
+<meta name="twitter:description" content="#JavaScript
+
+#1. JavaScript简介
+###1.2 JavaScript实现JavaScript的实现包括了三部分：
+
+核心（ECMAScript）
+文档对象模型（DOM）
+浏览器对象模型（BOM）
+
+#2. 在HTML中使用JavaScript
+###2.1 &amp;lt;script&amp;gt;元素HTML4.01中&amp;lt;script&amp;gt;的6个属性：
+
+async:可选。表">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/03/JavaScript高级程序设计/"/>
+
+  <title> Professional JavaScript for Web Developers | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Professional JavaScript for Web Developers
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-03T00:00:00+08:00" content="2016-05-03">
+              2016-05-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>#<strong>JavaScript</strong></p>
+</blockquote>
+<p>#1. JavaScript简介</p>
+<p>###1.2 JavaScript实现<br>JavaScript的实现包括了三部分：</p>
+<ul>
+<li>核心（ECMAScript）</li>
+<li>文档对象模型（DOM）</li>
+<li>浏览器对象模型（BOM）</li>
+</ul>
+<p>#2. 在HTML中使用JavaScript</p>
+<p>###2.1 <code>&lt;script&gt;</code>元素<br>HTML4.01中<code>&lt;script&gt;</code>的6个属性：</p>
+<ul>
+<li><p><code>async</code>:可选。表示应该立即下载脚本，但不应妨碍页面中的其他操作，比如下载其他资源或等待加载其他脚本。只对外部脚本文件有效。</p>
+</li>
+<li><p><code>charset</code>:可选。表示通过src属性指定的代码的字符集。由于大多数浏览器户忽略它的值，因此这个属性很少有人用。</p>
+</li>
+<li><p><code>defer</code>: 可选。表示脚本可以延迟到文档完全被解析和显示之后再执行。只对外部脚本文件有效。IE7及更早版本对嵌入脚本也支持这个属性。</p>
+</li>
+<li><p><code>language</code>：已废弃。原来用于表示编写代码使用的脚本语言（如JavaScript、JavaScript1.2或者VBScript）。大多数浏览器会忽略这个属性，因此也没有必要再使用了。</p>
+</li>
+<li><p><code>src</code>:可选。表示包含要执行代码的外部文件。</p>
+<a id="more"></a></li>
+<li><code>type</code>:可选。可以看成是language的替代属性；表示编写代码使用的脚本语言的内容类型（也称之为MIME类型）。虽然<code>text/javascript</code><br>和<code>text/ecmascript</code>都已经不被推荐使用，但人们一直以来使用的都还是<code>text/javascript</code>。实际上，服务器在传送JavaScript文件时使用的MIME类型通常是<code>application/x-javascript</code>，但在<code>type</code>中设置这个值却可能导致脚本被忽略。另外，在非IE浏览器中还可以使用以下值：<code>application/javascript</code>和<code>application/ecmascript</code>。考虑到约定俗成和最大限度的浏览器兼容性，目前<code>type</code>属性的值依旧是<code>text/javascript</code>。不过，这个属性并不是必须的，如果没有指定这个属性，则其默认值仍为<code>text/javascript</code>。</li>
+</ul>
+<p>使用<code>src</code>属性加载外部JavaScript文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;example.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>与解析嵌入式的JavaScript代码一样，在解析外部JavaScript文件（包括下载该文件）时，页面的处理也会暂时停止。</p>
+<p>包含<code>src</code>属性的<code>&lt;script&gt;</code>元素里不应该再包含额外的JavaScript代码。如果包含了嵌入的代码，则只会下载并执行外部脚本文件，嵌入的代码会被忽略。</p>
+<p>只要不存在<code>defer</code>和<code>async</code>属性，浏览器都会按照<code>&lt;script&gt;</code>元素在页面中出现的先后顺序对它们进行解析。</p>
+<p>#####2.1.2 延迟脚本<br>添加<code>defer=“defer”</code>属性，意味着告诉浏览器立即下载，但将脚本延迟至遇到<code>&lt;/html&gt;</code>之后，在<code>DOMContentLoaded</code>事件之前执行。当多个延迟脚本存在时，会按脚本出现的先后顺序执行。<br>但是，实际运行当中并不一定会如此。有些浏览器甚至会忽略掉这个属性。因此，建议还是将脚本放在<code>&lt;body&gt;</code>中的后面。</p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; defer=&quot;defer&quot; src=&quot;example.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>#####2.1.3 异步脚本<br><code>async</code>属性和<code>defer</code>属性相似，都用于改变处理脚本的行为，并且都是只适用于外部脚本文件，并告诉浏览器立即下载文件。但与<code>defer</code>不同的是，标记为async的脚本并不保证按照指定它们的先后顺序执行。因此，保证多个包含<code>async</code>属性的脚本之间互相没有依赖非常重要。</p>
+<p>指定<code>defer</code>属性的目的是不让页面等待两个脚本下载和执行，从而异步加载页面其他内容。为此，建议异步脚本不要在加载期间修改DOM。</p>
+<p>异步脚本一定会在页面的load事件前执行，但可能会在DOMContentLoaded事件触发之前或之后执行。</p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; async src=&quot;example.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>在XHTML文档中，async应该写为<code>async=&quot;async&quot;</code></p>
+<p>#####2.1.4 在XHTML中的用法’<br>使用CData片段来包含JavaScript片段以适应XHTML，否则部分字符会影响文件的解析。<br>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">&lt;!CDATA[</div><div class="line">	...JS code...</div><div class="line">]]&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>但有些浏览器不兼容XHTML,所以使用下面的方式把CDATA字段注释掉可以兼容所有的浏览器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">//&lt;!CDATA[</div><div class="line">	...JS code...</div><div class="line">//]]&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>但如果使用外部文件来写的话，XHTML和HTML是相同，不需要使用CDATA或注释来实现。</p>
+<p>###2.4 <code>&lt;noscript&gt;</code>元素</p>
+<p>#3. 基本概念</p>
+<p>###3.4 数据类型<br>6种数据类型：</p>
+<ul>
+<li>Undefined</li>
+<li>Null</li>
+<li>Boolean</li>
+<li>Number</li>
+<li>String</li>
+<li>Object</li>
+</ul>
+<p>使用<code>typeof</code>关键字，可以返回具体类型的字符串</p>
+<ul>
+<li>&quot;undefined&quot; 对未定义和未初始化的值操作，都会返回该值</li>
+<li>&quot;boolean&quot;</li>
+<li>&quot;string&quot;</li>
+<li>&quot;number&quot;</li>
+<li>&quot;object&quot; 对null做typeof，也会返回该值</li>
+<li>&quot;function&quot;</li>
+</ul>
+<blockquote>
+<p><code>N/A</code> 表示不使用，not applicable</p>
+<p><code>NaN</code> 表示非数值，not a number</p>
+</blockquote>
+<p>#####3.4.2 Undefined类型<br>未经初始化的值默认就会取得<code>undefined</code>，因此没有必要显示的声明为<code>undefined</code>。</p>
+<blockquote>
+<p>对未定义的变量使用typeof也会返回<code>undefined</code>， 但是对两种情形进行操作却导致不同的后果。如，进行alert操作，对未初始化的变量操作，会得到&quot;undefined&quot;，而对为定义的变量则会得到一个错误。</p>
+</blockquote>
+<p>#####3.4.3 Null类型<br><code>null</code>值表示一个空对象指针，因此在想要声明一个对象类型的变量时，可以使用<code>null</code>进行显示的初始化。</p>
+<p><code>undefined</code>派生自<code>null</code>，因此使用<code>==</code>进行两者判断时，得到的是<code>true</code>。但两者的作用是完全不同的。</p>
+<p>#####3.4.4 Boolean类型</p>
+<p>#####4.4.5 Number类型<br>在进行算术计算时，所有以8进制和十六进制表示的数值最终都将被转换成十进制数值。<br>八进制必须以0开头，后面如果超出了0-7范围的数字，则会被解析为十进制数，忽略掉开头的0。</p>
+<p><strong>八进制字面量在严格模式下是无效的，会导致引擎抛出错误。</strong></p>
+<ul>
+<li><p>浮点数值</p>
+<p>浮点数占用内存空间是整数值得2倍，在可能的地方都会被转换成整数值类型。它的最高精度为17位小数。</p>
+</li>
+</ul>
+<p><strong> 不要对浮点数值做判断，因为浮点数运算精度存在误差，会导致结果判断不准确。</strong></p>
+<ul>
+<li>数值范围</li>
+</ul>
+<p>ECMAScript表示的数值范围为<code>Number.MIN_VALUE</code> ~ <code>Number.MAX_VALUE</code>(5e-324 ~ 1.7976931348623157e+308)，超出该范围的会被转换成特殊的无穷值<code>-Infinity</code>和<code>Infinity</code>（负无穷和正无穷）。</p>
+<ul>
+<li>NaN</li>
+</ul>
+<p><strong>特点：</strong></p>
+<p><strong>任何涉及NaN的操作都会返回NaN；</strong></p>
+<p><strong>NaN与任何值都不相等，包括NaN本身。</strong></p>
+<p><code>isNaN()</code>函数可以用于判断是不是一个<code>NaN</code>类型，并可以判断一个变量是否可以转换成数值，如<code>isNaN(&quot;blue&quot;)</code>，则会返回<code>true</code>，即是一个NaN，不可转换成数值。</p>
+<p><code>isNaN()</code>用于一个对象时，会首先调用对象的<code>valueOf()</code>方法，用于判断是否可以转换成数值，如果不能则调用<code>toString()</code></p>
+<ul>
+<li>数值转换</li>
+</ul>
+<p>三个函数可以把非数值转换为数值：<code>Number()</code>、<code>parseInt()</code>和<code>parseFloat()</code></p>
+<blockquote>
+<p><strong>建议在使用<code>parseInt()</code>时，指明基数。以避免ES3和ES5之间的差别</strong>。</p>
+</blockquote>
+<p>#####3.4.6 String类型</p>
+<p><code>String</code>类型用于表示由零或多个16位Unicode字符组成的字符序列，即字符串。</p>
+<p><strong>字符字面量：</strong></p>
+<table>
+<thead>
+<tr>
+<th>\n</th>
+<th>换行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\t</td>
+<td>制表</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>进纸</td>
+</tr>
+<tr>
+<td>\</td>
+<td>斜杠</td>
+</tr>
+<tr>
+<td>\&#39;</td>
+<td>单引号(&#39;)，在用单引号表示的字符串中使用。如:<code>&#39;He said, \&#39;hey.\&#39;&#39;</code></td>
+</tr>
+<tr>
+<td>\&quot;</td>
+<td>双引号(“)，在用双引号表示的字符串中使用。如:<code>“He said, \“hey.\””</code></td>
+</tr>
+<tr>
+<td>\xnn</td>
+<td>以十六进制代码nn表示的一个字符（其中n为0-F）。例如，<code>\x41</code>表示A</td>
+</tr>
+<tr>
+<td>\unnnn</td>
+<td>以十六进制代码nnnn表示的一个Unicode字符（其中n为0~F）。例如，<code>\u03a3</code>表示希腊字母<code>Σ</code></td>
+</tr>
+</tbody>
+</table>
+<p>这些字符字面量可以出现在字符串中的任何位置，也可以单独出现，且只会作为一个字符被解析，即占用长度为1。</p>
+<p><code>null</code>和<code>undefined</code>值没有<code>toString()</code>方法。<br><code>String()</code>方法可以将包括<code>null</code>和<code>undefined</code>值在内的值转换为字符串。</p>
+<p>#####3.4.7 Object类型<br><code>new</code>关键字创建对象，Object类是所有类的基类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var o = new Object();</div></pre></td></tr></table></figure>
+<p>Object的每个实例都具有的属性和方法：</p>
+<ul>
+<li><code>constructor</code>：保存着用于创建当前对象的函数。</li>
+<li><code>hasOwnProperty(propertyName)</code>:用于检查给定的属性在当前对象实例中（而不是实例的原型中）是否存在。其中，作为参数的属性名(propertyName)必须以字符串形式指定（例如：<code>o.hasOwnProperty(&quot;name&quot;)</code>）。</li>
+<li><code>isPrototypeOf(object)</code>：用于检查对象是否是当前对象的原型。</li>
+<li><code>propertyIsEnumerable(propertyName)</code>：用于检查给定的属性是否能够使用<code>for-in</code>语句来枚举。与<code>hasOwnProperty()</code>方法一样，作为参数的属性名必须以字符串形式指定。</li>
+<li><code>toLocaleString()</code>：返回对象的字符串表示，该字符串与执行环境的地区对应。</li>
+<li><code>toString()</code>：返回对象的字符串表示。</li>
+<li><code>valueOf()</code>：返回对象的字符串、数值或布尔值表示。通常与<code>toString()</code>方法的返回值相同。</li>
+</ul>
+<p>###3.6 语句</p>
+<p>#####3.6.6 label语句<br>通常和循环语句结合使用，尤其是嵌套循环。</p>
+<p>#####3.6.8 with语句<br><code>with</code>语句的作用是将代码的作用域设置到一个特定的对象中。</p>
+<p><strong>严格模式下不允许使用<code>with</code>语句，否则将视为语法错误。</strong></p>
+<blockquote>
+<p>大量使用with语句会导致性能下降，同时也会给调试代码造成困难，因此在开发大型应用程序时，不建议使用<code>with</code>语句。</p>
+</blockquote>
+<p>###3.7 函数</p>
+<p>未指定返回值得函数，返回的是一个<code>undefined</code>类型。</p>
+<p>#####3.7.1 理解参数<br>ECMAScript函数不介意传递进来多少个参数，并且可以通过<code>arguments[n]</code>来访问传递进来的参数，<code>arguments</code>与数组类似，但不是<code>Array</code>的实例。</p>
+<p>命名的参数只提供遍历，但不是必须的。ECMAScript中，没函数签名，解析器不会验证命名参数。</p>
+<p>使用<code>arguments[n]</code>与参数名对该变量进行操作，所有改动都会是同步的，但两者访问的不是相同的内存空间，他们的内存空间是独立的，但他们的值会同步。</p>
+<p><strong>严格模式下对<code>arguments[n]</code>的操作是有一些限制的。</strong></p>
+<p>#####3.7.2 没有重载<br>因为没有签名，所以ECMAScript没有重载，函数名属于后定义的函数。</p>
+<p>#4. 变量、作用域和内存问题</p>
+<p>###4.2 执行环境及作用域<br>执行环境总共两种类型：</p>
+<ul>
+<li>全局</li>
+<li>局部（函数）</li>
+</ul>
+<p><code>变量对象</code>构成<code>作用域链</code>。</p>
+<p>####4.2.1 延长作用域链</p>
+<ul>
+<li><code>try-catch</code>语句的<code>catch</code>块：创建新的<code>变量对象</code>。</li>
+<li><code>with</code>语句：将指定的对象添加到作用域链中。</li>
+</ul>
+<p>####4.3.4 管理内存<br>将值设置为<code>null</code>来释放其引用，这个做法叫做<code>解除引用</code>。以便垃圾收集器下次运行时将其回收。</p>
+<p>#5. 引用类型<br><code>引用类型</code>是一种数据结构，也被成为<code>对象定义</code>。</p>
+<p>###5.1 Object类型<br>创建Object实例的两种方式：</p>
+<ul>
+<li><code>new</code>操作符</li>
+<li><code>对象字面量</code>表示法（JSON）</li>
+</ul>
+<p>表达式上下文（expression context）<br>语句上下文（statement context）</p>
+<p>对象属性的访问有两种方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">person[&apos;name&apos;];</div><div class="line">person.name;</div></pre></td></tr></table></figure>
+<p>###5.2 Array类型</p>
+<p>####5.2.1 检测数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xxx instanceof Array</div></pre></td></tr></table></figure></p>
+<p>这种方式适用于只有一个全局执行环境。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.isArray(xxx);</div></pre></td></tr></table></figure>
+<p>这种方式可以用于判断到底是不是数组，而不用在乎在哪个全局执行环境中。</p>
+<p>###5.5 Function类型<br>函数是对象。</p>
+<p>函数内部，有两个特殊的对象：<br><code>arguments</code>和<code>this</code>。</p>
+<p><code>arguments</code>拥有一个属性<code>callee</code>，指向拥有该<code>arguments</code>对象的函数。严格模式下访问会报错。</p>
+<p><code>this</code>引用的是函数执行的环境对象，全局作用域中<code>this</code>指向的是<code>window</code>。</p>
+<p>ES5中增加了<code>caller</code>属性，这个属性中保存着调用当前函数的函数的引用。也可以通过<code>arguments.callee.caller</code>来访问。</p>
+<p>####5.5.5 函数属性和方法<br>每个函数都包含两个属性：<code>length</code>和<code>prototype</code>。</p>
+<p><code>length</code>属性表示函数希望接收的<strong>命名参数</strong>的个数。</p>
+<p><code>prototype</code>上：</p>
+<p>每个函数都包含两个非继承而来的方法<code>apply()</code>和<code>call()</code>。两者的用途都是在特定的作用域中调用函数，实际上等于设置函数体内<code>this</code>的值。<code>apply()</code>接收第一个参数为对象，第二个参数为<code>Array实例</code>或<code>arguments</code>对象。<code>call()</code>接收第一个参数为对象，第二个为参数的枚举，一个个用<code>,</code>隔开的列举。两者作用相同。他们的真正强大之处在于能够扩充函数依赖以运行的作用域。</p>
+<p><code>bind()</code>方法用于创建一个函数的实例，其<code>this</code>值会被绑定到传给<code>bind()</code>函数的值。</p>
+<p>函数的<code>toLocaleString()</code>, <code>toString()</code>, <code>valueOf()</code>方法只返回函数的代码。实际上没有实质性作用，可用于调试代码。</p>
+<p>#6. 面向对象的程序设计</p>
+<blockquote>
+<p>ECMA-262对象的定义：无序属性的集合，其属性可以包含基本值、对象或者函数。</p>
+</blockquote>
+<p>###6.1 理解对象</p>
+<p>####6.1.1 属性类型<br>有两种属性：</p>
+<ul>
+<li>数据属性</li>
+<li>访问器属性</li>
+</ul>
+<p><strong>数据属性：</strong></p>
+<ul>
+<li>[[Configurable]]</li>
+<li>[[Enumerable]]</li>
+<li>[[Writable]]</li>
+<li>[[Value]]</li>
+</ul>
+<p>要修改默认属性必须使用ES5的<code>Object.definePropery()</code>方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var person = &#123;&#125;;</div><div class="line">Object.defineProperty(person, &quot;name&quot;,&#123;</div><div class="line">	writable: false,</div><div class="line">	value: &quot;Nicholas&quot;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>一旦把属性定义为不可配置的，就不能再把它变回可配置了。</p>
+<p><strong>访问器属性：</strong></p>
+<ul>
+<li>[[Configurable]]</li>
+<li>[[Enumerable]]</li>
+<li>[[Get]]</li>
+<li>[[Set]]</li>
+</ul>
+<p>访问器属性不能直接定义，必须使用<code>Object.definePropery()</code>方法。</p>
+<h4 id="6-1-3-读取属性的特性"><a href="#6-1-3-读取属性的特性" class="headerlink" title="6.1.3 读取属性的特性"></a>6.1.3 读取属性的特性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.getOwnPropertyDescriptor(obj, &apos;propertyName&apos;);</div></pre></td></tr></table></figure>
+<p>###6.2 创建对象</p>
+<p>####6.2.1工厂模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function createPerson(name, age, job)&#123;</div><div class="line">	var o = new Object();</div><div class="line">	o.name = name;</div><div class="line">	o.age = age;</div><div class="line">	o.job = job;</div><div class="line">	o.sayName = function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;;</div><div class="line">	return o;</div><div class="line">&#125;</div><div class="line">var person1 = createPerson(&quot;A&quot;, 29, &quot;Engineer&quot;);</div><div class="line">var person2 = createPerson(&quot;B&quot;, 28, &quot;Doctor&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="6-2-2-构造函数模式"><a href="#6-2-2-构造函数模式" class="headerlink" title="6.2.2 构造函数模式"></a>6.2.2 构造函数模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name, age, job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">	this.sayName = function()&#123;</div><div class="line">		alert(&quot;this.name&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&quot;A&quot;, 29, &quot;Engineer&quot;);</div></pre></td></tr></table></figure>
+<p>任何函数通过<code>new</code>操作符调用都可以作为构造函数。</p>
+<p><strong>构造函数的问题：</strong><br>使用构造函数的主要问题，每个方法都要在每个实例上重新创建一遍。当然，也可以讲函数定义在全局作用域当中，可以解决重复创建函数实例的问题，但这样就失去了封装的作用。这个问题可以用原型模式来解决。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Person.prototype.isPrototypeOf(person1);</div><div class="line">Object.getPrototypeOf(person1);</div></pre></td></tr></table></figure>
+<p><code>Person.prototype.isPrototypeOf(person1)</code>用于判断对象的原型是否一致。<br><code>Object.getPrototypeOf(person1)</code>是ES5中新增方法，这个方法返回<code>[[Prototype]]</code>的值。</p>
+<p><code>obj.hasOwnProperty()</code>方法可以检测一个属性是存在于实例中，还是存在于原型中。只在给定属性存在于对象实例中时，才会返回<code>true</code>。</p>
+<p><code>Object.keys(obj)</code>这个方法接收一个对象作为参数，返回一个包含所有可枚举属性的字符串数组，取得对象上所有可枚举的<code>实例属性</code>。<code>实例属性</code><strong>不包括</strong>原型上的属性。</p>
+<p><code>Object.getOwnPropertyNames(obj)</code>可以得到所有<code>实例属性</code>，无论它是否可以枚举，都可以获得。<code>实例属性</code><strong>不包括</strong>原型上的属性。</p>
+<p>也可以对<code>prototype</code>进行字面量赋值，用于批量定义原型属性，但<code>constructor</code>等属性也会被重定义，所以有些特殊的属性如果有必要需要特殊处理。</p>
+<p>原型对象的<strong>最大问题</strong>在于，如果原型属性的类型是引用类型，对引用类型的操作会直接发生在原型上，导致所有具有相同原型的对象会被同时修改。</p>
+<h4 id="6-2-4-组合使用构造函数模式和原型模式"><a href="#6-2-4-组合使用构造函数模式和原型模式" class="headerlink" title="6.2.4 组合使用构造函数模式和原型模式"></a>6.2.4 组合使用构造函数模式和原型模式</h4><p>创建自定义类型的最常见方式，就是组合使用<code>构造函数模式</code>与<code>原型模式</code>。构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。这种方式可以集两种模式之长。</p>
+<h4 id="6-2-5-动态原型模式"><a href="#6-2-5-动态原型模式" class="headerlink" title="6.2.5 动态原型模式"></a>6.2.5 动态原型模式</h4><p>在构造函数中为原型添加属性，但要注意，必须先判断属性是否存在，如果存在，则不再添加。因为，对原型的修改会立即生效，如果多次调用构造函数，不做判断的话会多次修改原型。</p>
+<h4 id="6-2-6-寄生-parasitic-构造函数模式"><a href="#6-2-6-寄生-parasitic-构造函数模式" class="headerlink" title="6.2.6 寄生(parasitic)构造函数模式"></a>6.2.6 寄生(parasitic)构造函数模式</h4><p>在构造函数中主动返回一个对象，慎用！该方式的主要用处在于可以在特殊的情况下用来为对象创建构造函数。</p>
+<h4 id="6-2-7-稳妥-durable-构造函数"><a href="#6-2-7-稳妥-durable-构造函数" class="headerlink" title="6.2.7 稳妥(durable)构造函数"></a>6.2.7 稳妥(durable)构造函数</h4><p>稳妥构造函数遵循与寄生构造函数类似的模式。两点不同的地方：一是新创建对象的实例方法不引用<code>this</code>；二是不使用<code>new</code>操作符调用构造函数。</p>
+<h3 id="6-3-继承"><a href="#6-3-继承" class="headerlink" title="6.3 继承"></a>6.3 继承</h3><p>OO有两种继承方式：实现继承和接口继承。接口继承只继承方法签名，而实现继承则继承实际的方法。JS中没有函数签名，所以只支持实现继承。实现继承主要是靠原型链来实现的。</p>
+<h4 id="6-3-1-原型链"><a href="#6-3-1-原型链" class="headerlink" title="6.3.1 原型链"></a>6.3.1 原型链</h4><p>让类型的<code>prototype</code>等于另一个类型的实例，即可实现继承，形成原型链。</p>
+<p><code>isPrototypeOf()</code>可以用来判断原型链上的类型。</p>
+<p>原型链继承的问题：</p>
+<ul>
+<li>原型属性是引用类型时带来的问题。</li>
+<li>在创建子类型实例时，不能向超类型的构造函数传递参数。</li>
+</ul>
+<p>由于存在这样的问题，在实践中，很少会单独使用原型链。</p>
+<h4 id="6-3-2-借用构造函数"><a href="#6-3-2-借用构造函数" class="headerlink" title="6.3.2 借用构造函数"></a>6.3.2 借用构造函数</h4><p>借用构造函数（constructor stealing）技术，即在子类型构造函数的内部调用超类型构造函数。（通过使用<code>apply()</code>和<code>call()</code>方法）</p>
+<p><strong>存在的问题</strong>：方法都在构造函数中定义，因此函数复用就无从谈起了。超类型的原型中定义的方法，对子类型是不可见的。所以也很少单独使用。</p>
+<h4 id="6-3-3-组合继承"><a href="#6-3-3-组合继承" class="headerlink" title="6.3.3 组合继承"></a>6.3.3 组合继承</h4><p>将原型链和借用构造函数技术组合到一块。使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承。</p>
+<p>融合二者的优点。</p>
+<p>问题：无论什么情况下，都会调用两次超类型构造函数：一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。（两次的调用，会导致在超类型构造函数中定义的属性有两组）</p>
+<h4 id="6-3-4-原型式继承"><a href="#6-3-4-原型式继承" class="headerlink" title="6.3.4 原型式继承"></a>6.3.4 原型式继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function object(o)&#123;</div><div class="line">	function F()&#123;&#125;</div><div class="line">	F.prototype = o;</div><div class="line">	return new F();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ES5中使用<code>Object.create()</code>方法规范化原型式继承，当只有一个参数时，<code>Object.create()</code>与<code>object()</code>的行为相同。<code>Object.create()</code>接收两个参数：一个座位新对象原型的对象，另一个为新对象定义额外属性的对象。</p>
+<p><code>Object.create()</code>第二个参数与<code>Object.defineProperties()</code>方法的第二个参数格式相同，每个属性都是通过自己的描述符定义的。</p>
+<h4 id="6-3-5-寄生式-parasitic-继承"><a href="#6-3-5-寄生式-parasitic-继承" class="headerlink" title="6.3.5 寄生式(parasitic)继承"></a>6.3.5 寄生式(parasitic)继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function createAnother(original)&#123;</div><div class="line">	var clone = object(original);</div><div class="line">	clone.sayHi = function()&#123;</div><div class="line">		alert(&quot;hi&quot;);</div><div class="line">	&#125;;</div><div class="line">	return clone;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="6-3-6-寄生组合式继承"><a href="#6-3-6-寄生组合式继承" class="headerlink" title="6.3.6 寄生组合式继承"></a>6.3.6 寄生组合式继承</h4><p>解决组合式继承两次调用超类型构造函数的问题。<br>寄生组合式继承，即通过借用构造函数来继承属性，通过原型链的混合形式来继承方法。其背后的基本思路：不必为了指定子类型的原型而调用超类型的构造函数，我们所需要的无非就是超类型原型的一个副本而已。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function inheriPrototype(subType, superType)&#123;</div><div class="line">	var prototype = object(superType.prototype);</div><div class="line">	prototype.constructor = subType;</div><div class="line">	subType.prototype = prototype;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这种方式只调用一次超类型的构造函数，并且因此避免了在子类型的原型上创建不必要的、多余的属性。与此同时，原型链还能保持不变；因此能够正常使用<code>instanceof</code>和<code>isPrototypeOf()</code>。这是引用类型最理想的继承范式。</p>
+<p>#7. 函数表达式</p>
+<p>###7.1 递归<br><code>arguments.callee()</code>是一个指向正在执行的函数的指针。<br>在递归时为了避免函数名被修改导致递归时发生错误，在递归函数内部应避免出现函数名，而使用<code>arguments.callee()</code>。但在严格模式下不允许访问。</p>
+<p>比较安全的递归调用可以使用<strong>命名函数表达式</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var factorial = (function f(num)&#123;</div><div class="line">	if(num &lt;= 1)&#123;</div><div class="line">		return 1;</div><div class="line">	&#125; else &#123;</div><div class="line">		return num * f(num - 1);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>###7.2 闭包<br><strong>匿名函数</strong>和<strong>闭包</strong>是不同的概念。闭包是指有权访问另一个函数作用域中的变量的函数。</p>
+<p>#10. DOM</p>
+<h3 id="10-1-节点层次"><a href="#10-1-节点层次" class="headerlink" title="10.1 节点层次"></a>10.1 节点层次</h3><h4 id="10-1-1-Node类型"><a href="#10-1-1-Node类型" class="headerlink" title="10.1.1 Node类型"></a>10.1.1 Node类型</h4><p>12种节点类型</p>
+<ol>
+<li>nodeName和nodeValue属性</li>
+<li>节点关系</li>
+<li>操作节点</li>
+</ol>
+<p>操作节点常用的方法：</p>
+<ul>
+<li><code>appendChild()</code></li>
+<li><code>insertBefore()</code></li>
+<li><code>replaceChild()</code></li>
+<li><code>removeChild()</code></li>
+</ul>
+<p>其它方法：</p>
+<ul>
+<li><code>cloneNode()</code> 接收<code>Boolean</code>参数，以判断是否深度复制，同时需要添加到其它节点中才会在文档有自己的位置。</li>
+<li><code>normalize()</code>,唯一作用就是处理文档树中<strong>异常的文本节点</strong>。</li>
+</ul>
+<h4 id="10-1-2-Document类型"><a href="#10-1-2-Document类型" class="headerlink" title="10.1.2 Document类型"></a>10.1.2 Document类型</h4><ul>
+<li><p><code>document.documentElement</code>始终指向<code>&lt;html&gt;</code>元素。</p>
+</li>
+<li><p><code>document.body</code>则直接指向<code>&lt;body&gt;</code>元素。</p>
+</li>
+<li><p><code>document.doctype</code>可以取得对<code>&lt;!DOCTYPE&gt;</code>的引用，但在不同的浏览器上对其支持差别很大。因而用处有限。</p>
+</li>
+</ul>
+<p>对于<code>HTMLDocument</code>的实例还具有一些标准Document没有的属性：</p>
+<ul>
+<li><code>document.title</code>可以取得<code>&lt;title&gt;</code>元素中的文本内容。</li>
+</ul>
+<p>与网页请求相关的3个属性：<code>URL</code>,<code>domain</code>,<code>referrer</code>。</p>
+<ul>
+<li><code>document.URL</code>包含完整的URL</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reading-notes/" rel="tag">#Reading notes</a>
+          
+            <a href="/tags/Web/" rel="tag">#Web</a>
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/02/App研发录/" rel="next" title="Senior Android Development">
+                <i class="fa fa-chevron-left"></i> Senior Android Development
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/JavaScript_Garden/" rel="prev" title="JavaSrcipt Garden">
+                JavaSrcipt Garden <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-3-读取属性的特性"><span class="nav-number">1.</span> <span class="nav-text">6.1.3 读取属性的特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-2-构造函数模式"><span class="nav-number">2.</span> <span class="nav-text">6.2.2 构造函数模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-4-组合使用构造函数模式和原型模式"><span class="nav-number">3.</span> <span class="nav-text">6.2.4 组合使用构造函数模式和原型模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-5-动态原型模式"><span class="nav-number">4.</span> <span class="nav-text">6.2.5 动态原型模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-6-寄生-parasitic-构造函数模式"><span class="nav-number">5.</span> <span class="nav-text">6.2.6 寄生(parasitic)构造函数模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-7-稳妥-durable-构造函数"><span class="nav-number">6.</span> <span class="nav-text">6.2.7 稳妥(durable)构造函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-继承"><span class="nav-number"></span> <span class="nav-text">6.3 继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-原型链"><span class="nav-number">1.</span> <span class="nav-text">6.3.1 原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-2-借用构造函数"><span class="nav-number">2.</span> <span class="nav-text">6.3.2 借用构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-3-组合继承"><span class="nav-number">3.</span> <span class="nav-text">6.3.3 组合继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-4-原型式继承"><span class="nav-number">4.</span> <span class="nav-text">6.3.4 原型式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-5-寄生式-parasitic-继承"><span class="nav-number">5.</span> <span class="nav-text">6.3.5 寄生式(parasitic)继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-6-寄生组合式继承"><span class="nav-number">6.</span> <span class="nav-text">6.3.6 寄生组合式继承</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-节点层次"><span class="nav-number"></span> <span class="nav-text">10.1 节点层次</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-1-Node类型"><span class="nav-number">1.</span> <span class="nav-text">10.1.1 Node类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-2-Document类型"><span class="nav-number">2.</span> <span class="nav-text">10.1.2 Document类型</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

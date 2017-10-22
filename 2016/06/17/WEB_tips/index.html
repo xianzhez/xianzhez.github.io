@@ -1,0 +1,685 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reading notes,Web,CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Tips
+#flex-box
+##Properties for the Parent(flex container)
+####1. displayThis defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct chil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web Tips">
+<meta property="og:url" content="http://yoursite.com/2016/06/17/WEB_tips/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="Tips
+#flex-box
+##Properties for the Parent(flex container)
+####1. displayThis defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct chil">
+<meta property="og:image" content="https://css-tricks.com/wp-content/uploads/2013/04/justify-content.svg">
+<meta property="og:image" content="https://www.w3.org/TR/css-flexbox-1/images/rel-vs-abs-flex.svg">
+<meta property="og:updated_time" content="2017-10-22T15:50:14.546Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web Tips">
+<meta name="twitter:description" content="Tips
+#flex-box
+##Properties for the Parent(flex container)
+####1. displayThis defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct chil">
+<meta name="twitter:image" content="https://css-tricks.com/wp-content/uploads/2013/04/justify-content.svg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/17/WEB_tips/"/>
+
+  <title> Web Tips | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Web Tips
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-17T00:00:00+08:00" content="2016-06-17">
+              2016-06-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1></blockquote>
+<p>#flex-box</p>
+<p>##Properties for the Parent(flex container)</p>
+<p>####1. display<br>This defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct children.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  display: flex; /* or inline-flex */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####2. flex-direction<br>This establishes the <strong>main-axis</strong>, thus defining the direction flex items are placed in the flex container. Flexbox is (aside from optional wrapping) a single-direction layout concept. Think of flex items as primarily laying out either in horizontal rows or vertical columns.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  flex-direction: row | row-reverse | column | column-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li><code>row</code> (default): left to right in ltr; right to left in rtl</li>
+<li><code>row-reverse</code>: right to left in ltr; left to right in rtl</li>
+<li><code>column</code>: same as row but top to bottom</li>
+<li><code>column-reverse</code>: same as row-reverse but bottom to top</li>
+</ul>
+<p>####3. flex-wrap<br>By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap as needed with this property. Direction also plays a role here, determining the direction new lines are stacked in.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container&#123;</div><div class="line">  flex-wrap: nowrap | wrap | wrap-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>nowrap</code> (default): single-line / left to right in ltr; right to left in rtl</li>
+<li><code>wrap</code>: multi-line / left to right in ltr; right to left in rtl</li>
+<li><code>wrap-reverse</code>: multi-line / right to left in ltr; left to right in rtl</li>
+</ul>
+<p>####4. flex-flow (Applies to: parent flex container element)</p>
+<p>This is a <strong>shorthand</strong> <code>flex-direction</code> and <code>flex-wrap properties</code>, which together define the flex container&#39;s main and cross axes. Default is row nowrap.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-flow: &lt;‘flex-direction’&gt; || &lt;‘flex-wrap’&gt;</div></pre></td></tr></table></figure>
+<p>####5. justify-content<br>This defines the <strong>alignment</strong> along the <strong>main axis</strong>. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  justify-content: flex-start | flex-end | center | space-between | space-around;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>flex-start</code> (default): items are packed toward the start line</li>
+<li><code>flex-end</code>: items are packed toward to end line</li>
+<li><code>center</code>: items are centered along the line</li>
+<li><code>space-between</code>: items are evenly distributed in the line; first item is on the start line, last item on the end line</li>
+<li><code>space-around</code>: items are evenly distributed in the line with equal space around them. Note that visually the spaces aren&#39;t equal, since all the items have equal space on both sides. The first item will have one unit of space against the container edge, but two units of space between the next item because that next item has its own spacing that applies.</li>
+</ul>
+<p><img src="https://css-tricks.com/wp-content/uploads/2013/04/justify-content.svg" alt="justify-content"></p>
+<p>####6. align-items<br>This defines the default behaviour for how flex items are laid out along the <strong>cross axis</strong> on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  align-items: flex-start | flex-end | center | baseline | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>flex-start</code>: cross-start margin edge of the items is placed on the cross-start line<br>flex-end: cross-end margin edge of the items is - placed on the cross-end line</li>
+<li><code>center</code>: items are centered in the cross-axis</li>
+<li><code>baseline</code>: items are aligned such as their baselines align</li>
+<li><code>stretch</code> (default): stretch to fill the container (still respect min-width/max-width)</li>
+</ul>
+<p>####7. align-content<br>This aligns a flex container&#39;s lines within when there is <strong>extra space</strong> in the <strong>cross-axis</strong>, similar to how justify-content aligns individual items within the main-axis.</p>
+<p><strong>Note</strong>: this property has no effect when there is only one line of flex items.</p>
+<ul>
+<li><code>flex-start</code>: lines packed to the start of the container</li>
+<li><code>flex-end</code>: lines packed to the end of the container</li>
+<li><code>center</code>: lines packed to the center of the container</li>
+<li><code>space-between</code>: lines evenly distributed; the first line is at the start of the container while the last one is at the end</li>
+<li><code>space-around</code>: lines evenly distributed with equal space around each line</li>
+<li><code>stretch</code> (default): lines stretch to take up the remaining space</li>
+</ul>
+<p>##Properties for the Children(flex items)</p>
+<p>####1. order<br>By default, flex items are laid out in the source order. However, the <code>order</code> property controls the order in which they appear in the flex container.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  order: &lt;integer&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####2. flex-grow<br>This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what <strong>amount of the available space</strong> inside the flex container the item should take up.</p>
+<p>If all items have <code>flex-grow</code> set to 1, the remaining space in the container will be distributed equally to all children. If one of the children a value of 2, the remaining space would take up twice as much space as the others (or it will try to, at least).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  flex-grow: &lt;number&gt;; /* default 0 */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####3. flex-shrink<br>This defines the ability for a flex item to shrink if necessary.</p>
+<blockquote>
+<p>Negative numbers are <strong>invalid</strong>.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  flex-shrink: &lt;number&gt;; /* default 1 */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####4. flex-basis<br>This defines the default size of an element before the remaining space is distributed. It can be a <strong>length</strong> (e.g. 20%, 5rem, etc.) or a <strong>keyword</strong>. The <code>auto</code> keyword means &quot;look at my width or height property&quot; (which was temporarily done by the main-size keyword until deprecated). The content keyword means &quot;size it based on the item&#39;s content&quot; - this keyword <strong>isn&#39;t well supported yet</strong>, so it&#39;s hard to test and harder to know what its brethren <code>max-content</code>, <code>min-content</code>, and <code>fit-content</code> do.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  flex-basis: &lt;length&gt; | auto; /* default auto */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>If set to 0, the extra space around content isn&#39;t factored in. If set to auto, the extra space is distributed based on its <code>flex-grow</code> value. See this graphic.<br><img src="https://www.w3.org/TR/css-flexbox-1/images/rel-vs-abs-flex.svg" alt="flex-basis"></p>
+<p>####5. flex<br>This is the shorthand for <code>flex-grow</code>, <code>flex-shrink</code>and <code>flex-basis</code> combined. The second and third parameters (flex-shrink and flex-basis) are optional. <strong>Default</strong> is <code>0 1 auto</code>.</p>
+<p><strong>It is recommended that you use this shorthand property</strong> rather than set the individual properties. The short hand sets the other values intelligently.</p>
+<p>####6. align-self<br>This allows the default <code>alignment</code> (or the one specified by <code>align-items</code>) to be overridden for individual flex items.</p>
+<p>Please see the <code>align-items</code> explanation to understand the available values.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.item &#123;</div><div class="line">  align-self: auto | flex-start | flex-end | center | baseline | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Note that <code>float</code>, <code>clear</code> and <code>vertical-align</code> have <strong>no effect</strong> on a flex item.</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reading-notes/" rel="tag">#Reading notes</a>
+          
+            <a href="/tags/Web/" rel="tag">#Web</a>
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/28/SCSS/" rel="next" title="SASS & SCSS">
+                <i class="fa fa-chevron-left"></i> SASS & SCSS
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/02/Fragment生命周期与重建/" rel="prev" title="Fragment生命周期与重建">
+                Fragment生命周期与重建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tips"><span class="nav-number">1.</span> <span class="nav-text">Tips</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

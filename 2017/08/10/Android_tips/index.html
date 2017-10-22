@@ -1,0 +1,830 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="onLongClick() 返回true时会自动震动
+
+
+getLocationInWindow 不算notification bar
+
+
+getLocationOnScreen 整个屏幕
+3.
+fillBefore是指动画结束时画面停留在此动画的第一帧; 默认值为true
+fillAfter是指动画结束是画面停留在此动画的最后一帧。默认值为false">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Dev Tips">
+<meta property="og:url" content="http://yoursite.com/2017/08/10/Android_tips/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="onLongClick() 返回true时会自动震动
+
+
+getLocationInWindow 不算notification bar
+
+
+getLocationOnScreen 整个屏幕
+3.
+fillBefore是指动画结束时画面停留在此动画的第一帧; 默认值为true
+fillAfter是指动画结束是画面停留在此动画的最后一帧。默认值为false">
+<meta property="og:updated_time" content="2017-10-22T15:10:22.148Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Dev Tips">
+<meta name="twitter:description" content="onLongClick() 返回true时会自动震动
+
+
+getLocationInWindow 不算notification bar
+
+
+getLocationOnScreen 整个屏幕
+3.
+fillBefore是指动画结束时画面停留在此动画的第一帧; 默认值为true
+fillAfter是指动画结束是画面停留在此动画的最后一帧。默认值为false">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/10/Android_tips/"/>
+
+  <title> Android Dev Tips | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android Dev Tips
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-08-10T00:00:00+08:00" content="2017-08-10">
+              2017-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>onLongClick() 返回true时会自动震动</li>
+</ol>
+<ol>
+<li><p>getLocationInWindow 不算notification bar</p>
+</li>
+</ol>
+<p>getLocationOnScreen 整个屏幕</p>
+<p>3.</p>
+<p>fillBefore是指动画结束时画面停留在此动画的第一帧; 默认值为true</p>
+<p>fillAfter是指动画结束是画面停留在此动画的最后一帧。默认值为false</p>
+<a id="more"></a>
+<p>1，FillEnable = false 时，FillBefore 和FillAfter的值将被忽略，此时FillEnable=Flase时和FillBefore =true且FillAfter=true，且FillEnabled=true等价，也就是开始结束都会被fill坑爹。。。</p>
+<p>2，FillEnable = true时，FillBefore = true，FillAfter = false</p>
+<p>只在第一帧fill</p>
+<p>3，FillEnable = true时，FillBefore = false，FillAfter=true</p>
+<p>只在最后一帧fill</p>
+<p>4，FillEnable = true时，FillBefore = false，FillAfter=false</p>
+<p>这个控制也比较坑爹，从变量名理解以为只要FillEnable=false就好，其它当FillEnable=false时又回到第1种情况太坑爹了。。</p>
+<p>4、</p>
+<p>在Manifest中的Activity里添加：android:windowSoftInputMode=&quot;adjustResize&quot;</p>
+<p>可以使得键盘输入时布局重新变化。</p>
+<p>5、</p>
+<p>测量显示区域，windowRect为去掉statusBar 和输入法的区域</p>
+<p>Rect windowRect = new Rect();<br>getWindow().getDecorView().getWindowVisibleDisplayFrame(windowRect);</p>
+<ol>
+<li>ListView.getChildAt(int) </li>
+</ol>
+<p>child是指所有可见的item（包括部分可见的，以及header和footer，可通过getHeaderCount来获取数量）</p>
+<ol>
+<li>点击返回按钮，调用顺序，在任何一处调用都可以拦截点击事件。</li>
+</ol>
+<p>在dispatchKeyEvent()中返回true，可以拦截点击事件，但仍然会被调用两次，另外两个函数不会被调用；</p>
+<p>在onKeyDown()中返回true，仍按以下顺序，但不会调用onBackPressed()；</p>
+<p>在onBackPressed()中返回true，仍按以下顺序，拦截点击事件。</p>
+<p>dispatchKeyEvent()  event.getKeyCode() = true<br>onKeyDown()  keyCode = true, event.getRepeatCount() = 0<br>dispatchKeyEvent()  event.getKeyCode() = true<br>onBackPressed() </p>
+<p>8、MotionEvent</p>
+<p><a href="http://stackoverflow.com/questions/15467255/getdowntime-and-geteventtime" target="_blank" rel="external">http://stackoverflow.com/questions/15467255/getdowntime-and-geteventtime</a></p>
+<p>event.getDownTime() 返回的是一系列事件发生时，第一次事件的事件（比如ACTION_DOWN）</p>
+<p>evnet.getEventTime() 返回的是当前事件发生的时间，也是一些列事件的最后一次事件的时间（比如ACITON_UP）</p>
+<p>9、</p>
+<p>重写dispatchKeyEventPreIme()可以在输入法之前拦截按键事件，尤其是back键</p>
+<p>dispatchKeyEventPreIme()<br>10、各种scroll</p>
+<p>scrollBy(int x, int y) x，y为两个方向上移动的距离，scroll之后会留下空白区域；</p>
+<p>smoothScrollBy(int dis, int duration) dis为移动距离，duration为移动距离的时间（毫秒），但如果设置时间不当，会导致移动距离未完成就结束scroll；</p>
+<p>smoothScrollByOffset(int offset) offset不是移动的距离，而是listview中的具体position</p>
+<p>smoothScrollToPositionFromTop(int postion, int offset) position为list中的具体一项，offset为指定项的位置在window左上角时，移动的距离；</p>
+<p>11、popupwindow setTouchInterceptor(new View.OnTouchListener()...)</p>
+<p>可以拦截touch事件，popupwindow会拦截到ACTION_OUTSIDE事件。</p>
+<p>12、 </p>
+<p>int containerViewId = getResources().getIdentifier(&quot;content&quot;, &quot;android.R.id&quot;, getPackageName());<br>int containerViewId = getResources().getIdentifier(&quot;rootView&quot;, &quot;id&quot;, getPackageName());<br>13、Drawable</p>
+<p>layer-list 设置drawable的层次结构</p>
+<p>level-list 设置drawable的状态，可以通过setDrawableLevel来改变状态以显示不同的效果</p>
+<p>14、改变window的进出场动画</p>
+<p>getWindow().setWindowAnimations(R.style.BMBWindowSlideInOutFromRight);</p>
+<p>15、改变View的层次，可以在动画显示时将View添加到层次较高的layer，防止Transition动画的遮挡。</p>
+<p>ViewGroup viewGroup  = (ViewGroup)getWindow().getDecorView();<br>viewGroup.getOverlay().add(btnDice);<br>viewGroup.getOverlay().add(btnSend);</p>
+<p>16、监听ACTION_DOWN, ACTION_UP事件并播放动画时，可以考虑使用handler来保证动画的播放，并防止UI线程被阻塞。尤其是在onTouchEvent()中，不适合做耗时过长的动作，否则会使得后面的Touch事件无法被捕捉到</p>
+<p>17、onMeasure()方法</p>
+<p>MeasureSpec.EXACTLY：match_parent , accurate</p>
+<p>MeasureSpec.AT_MOST：wrap_content</p>
+<p>计算完之后需要调用以下方法才能生效：</p>
+<p>setMeasuredDimension(mWidth, mHeight);</p>
+<p>18、解决scrollview和listview的冲突问题，可以重写onMeasure：</p>
+<pre><code>@Override  
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)  
+{  
+
+    /** 
+     * 解决ScrollView与ListView的嵌套问题 
+     */  
+    int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE &gt;&gt; 2,  MeasureSpec.AT_MOST);  
+
+    super.onMeasure(widthMeasureSpec, expandSpec);  
+} 
+</code></pre><p>19、配置发生变化时，保持大量数据时比较耗时，可以考虑使用fragment</p>
+<p>在运行时配置发生变化时，在Fragment中保存有状态的对象，并提供相应的getter和setter方法，在activity中调用用于get和set。（Fragment可以没有UI，仅作为保存对象使用）<br>a) 继承Fragment，声明引用指向你的有状态的对象<br>b) 当Fragment创建时调用setRetainInstance(boolean)<br>c) 把Fragment实例添加到Activity中<br>d) 当Activity重新启动后，使用FragmentManager对Fragment进行恢复</p>
+<p>不使用onSaveIntanceState()的原因：</p>
+<p>如果重新启动你的Activity需要恢复大量的数据，重新建立网络连接，或者执行其他的密集型操作，这样因为配置发生变化而完全重新启动可能会是一个慢的用户体验。并且，使用系统提供的onSaveIntanceState()的回调中，使用Bundle来完全恢复你Activity的状态是可能是不现实的（Bundle不是设计用来携带大量数据的（例如bitmap），并且Bundle中的数据必须能够被序列化和反序列化），这样会消耗大量的内存和导致配置变化缓慢。在这样的情况下，当你的Activity因为配置发生改变而重启，你可以通过保持一个Fragment来缓解重新启动带来的负担。这个Fragment可以包含你想要保持的有状态的对象的引用。</p>
+<p>20、fragment声明周期</p>
+<p>与activity声明周期比较   </p>
+<p>场景演示 : 切换到该Fragment<br>11-29 14:26:35.095: D/AppListFragment(7649): onAttach<br>11-29 14:26:35.095: D/AppListFragment(7649): onCreate<br>11-29 14:26:35.095: D/AppListFragment(7649): onCreateView<br>11-29 14:26:35.100: D/AppListFragment(7649): onActivityCreated<br>11-29 14:26:35.120: D/AppListFragment(7649): onStart<br>11-29 14:26:35.120: D/AppListFragment(7649): onResume<br>屏幕灭掉：<br>11-29 14:27:35.185: D/AppListFragment(7649): onPause<br>11-29 14:27:35.205: D/AppListFragment(7649): onSaveInstanceState<br>11-29 14:27:35.205: D/AppListFragment(7649): onStop</p>
+<p>屏幕解锁<br>11-29 14:33:13.240: D/AppListFragment(7649): onStart<br>11-29 14:33:13.275: D/AppListFragment(7649): onResume</p>
+<p>切换到其他Fragment:<br>11-29 14:33:33.655: D/AppListFragment(7649): onPause<br>11-29 14:33:33.655: D/AppListFragment(7649): onStop<br>11-29 14:33:33.660: D/AppListFragment(7649): onDestroyView</p>
+<p>切换回本身的Fragment:<br>11-29 14:33:55.820: D/AppListFragment(7649): onCreateView<br>11-29 14:33:55.825: D/AppListFragment(7649): onActivityCreated<br>11-29 14:33:55.825: D/AppListFragment(7649): onStart<br>11-29 14:33:55.825: D/AppListFragment(7649): onResume<br>回到桌面<br>11-29 14:34:26.590: D/AppListFragment(7649): onPause<br>11-29 14:34:26.880: D/AppListFragment(7649): onSaveInstanceState<br>11-29 14:34:26.880: D/AppListFragment(7649): onStop<br>回到应用<br>11-29 14:36:51.940: D/AppListFragment(7649): onStart<br>11-29 14:36:51.940: D/AppListFragment(7649): onResume</p>
+<p>退出应用<br>11-29 14:37:03.020: D/AppListFragment(7649): onPause<br>11-29 14:37:03.155: D/AppListFragment(7649): onStop<br>11-29 14:37:03.155: D/AppListFragment(7649): onDestroyView<br>11-29 14:37:03.165: D/AppListFragment(7649): onDestroy<br>11-29 14:37:03.165: D/AppListFragment(7649): onDetach</p>
+<p>21、配置发生变化，在menifest中进行属性设置，并在activity中自行对config的变化做适配（在onConfigChanged()方法中），就可以防止activity重建。</p>
+<p>22、自定义Dialog，显示在底部</p>
+<p>必须卸载onCreate里，利用window使其显示在屏幕下方，并且宽度占满屏幕。</p>
+<pre><code>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.dialog_complex_condition_picker);
+    ButterKnife.bind(this);
+    Window window = getWindow();
+    WindowManager.LayoutParams wlp = window.getAttributes();
+    wlp.gravity = Gravity.BOTTOM;
+    wlp.width = WindowManager.LayoutParams.MATCH_PARENT;
+    wlp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+    window.setAttributes(wlp);
+    initViews();
+}
+</code></pre><p>自定义的style</p>
+<pre><code>&lt;style name=&quot;ComplexConditionPickerDialog&quot;&gt;
+    &lt;item name=&quot;android:layout_width&quot;&gt;match_parent&lt;/item&gt;
+    &lt;item name=&quot;android:layout_height&quot;&gt;wrap_content&lt;/item&gt;
+    &lt;item name=&quot;android:windowFullscreen&quot;&gt;false&lt;/item&gt;
+    &lt;item name=&quot;android:windowIsTranslucent&quot;&gt;false&lt;/item&gt;
+    &lt;item name=&quot;android:windowFrame&quot;&gt;@null&lt;/item&gt;
+    &lt;item name=&quot;android:windowContentOverlay&quot;&gt;@null&lt;/item&gt;
+    &lt;item name=&quot;android:windowBackground&quot;&gt;@color/transparent&lt;/item&gt;
+    &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;
+    &lt;item name=&quot;android:windowIsFloating&quot;&gt;true&lt;/item&gt;
+    &lt;item name=&quot;android:backgroundDimEnabled&quot;&gt;true&lt;/item&gt;
+    &lt;item name=&quot;android:windowCloseOnTouchOutside&quot;&gt;true&lt;/item&gt;
+    &lt;!--&lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@style/AnimRewardDialog&lt;/item&gt;--&gt;
+&lt;/style&gt;
+</code></pre><p>23、解决Listview和ScrollView嵌套无法撑开的问题，可以重写onMeasure方法解决问题：</p>
+<pre><code>@Override
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE &gt;&gt; 2,
+            MeasureSpec.AT_MOST);
+    super.onMeasure(widthMeasureSpec, expandSpec);
+}
+</code></pre><p>24、EditText获得焦点时自动弹出软键盘的解决方法</p>
+<p>editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {<br>    @Override<br>    public void onFocusChange(View v, boolean hasFocus) {<br>        if (hasFocus) {<br>            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);<br>            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);<br>        }<br>    }<br>});</p>
+<p>25、Window和Display测试</p>
+<pre><code>private void testDisplay(String from){
+    BMBLogUtils.d(Config.LOGTAG, &quot; ======= TestDisplay &quot;+from+&quot;=======&quot;);
+    Window window = getWindow();
+    Display display = window.getWindowManager().getDefaultDisplay();
+    View decorView = window.getDecorView();
+    BMBLogUtils.d(Config.LOGTAG, &quot; TestDisplay window = &quot;+(window == null ? &quot;null&quot;:window)
+            +&quot;, display = &quot;+(display == null ? &quot;null&quot; : display)+&quot;, decorView = &quot;+(decorView == null ? &quot;null&quot; : decorView));
+    //1
+    Point outPoint = new Point();
+    display.getSize(outPoint);
+    BMBLogUtils.d(Config.LOGTAG, &quot;1. TestDisplay display.getSize(outPoint), outPoint = &quot;+outPoint.toString());
+    //2
+    Point realSize = new Point();
+    display.getRealSize(realSize);//API level 17
+    BMBLogUtils.d(Config.LOGTAG, &quot;2. TestDisplay display.getRealSize(realSize), realSize = &quot; + realSize.toString());
+    //3
+    Point smallPoint = new Point();
+    Point largePoint = new Point();
+    display.getCurrentSizeRange(smallPoint, largePoint);
+    BMBLogUtils.d(Config.LOGTAG, &quot;3. TestDisplay display.getCurrentSizeRange(smallPoint, largePoint), smallPoint = &quot;
+            + smallPoint.toString() + &quot;, largePoint = &quot; + largePoint.toString());
+    //4
+    Rect rectSize = new Rect();
+    display.getRectSize(rectSize);
+    BMBLogUtils.d(Config.LOGTAG, &quot;4. TestDisplay display.getRectSize(rectSize), rectSize = &quot; + rectSize.toString());
+    //5
+    DisplayMetrics displayMatrix = new DisplayMetrics();
+    display.getMetrics(displayMatrix);
+    BMBLogUtils.d(Config.LOGTAG, &quot;5. TestDisplay display.getMetrics(displayMatrix), displayMatrix = &quot; + displayMatrix.toString());
+    //6
+    DisplayMetrics realDisplayMatrix = new DisplayMetrics();
+    display.getRealMetrics(realDisplayMatrix);//API level 17
+    BMBLogUtils.d(Config.LOGTAG, &quot;6. TestDisplay display.getRealMetrics(realDisplayMatrix), realDisplayMatrix = &quot; + realDisplayMatrix.toString());
+    //7
+    WindowManager.LayoutParams windowParams = window.getAttributes();
+    BMBLogUtils.d(Config.LOGTAG, &quot;7. TestDisplay windowParams = window.getAttributes(), windowParams = &quot; + windowParams.toString());
+    //8
+    ViewGroup.LayoutParams decorViewParams = decorView.getLayoutParams();
+    if(decorViewParams == null){
+        BMBLogUtils.d(Config.LOGTAG, &quot;8. TestDisplay decorViewParams = decorView.getLayoutParams(), decorViewParams = &quot;+&quot;null&quot;);
+    }else{
+        BMBLogUtils.d(Config.LOGTAG, &quot;8. TestDisplay decorViewParams = decorView.getLayoutParams(), decorViewParams = VG.LayoutParams{height = &quot; + decorViewParams.height + &quot;, width = &quot; + decorViewParams.width + &quot;}&quot;);
+    }
+    //9
+    Rect visibleFrameRect = new Rect();
+    decorView.getWindowVisibleDisplayFrame(visibleFrameRect);
+    BMBLogUtils.d(Config.LOGTAG, &quot;9. TestDisplay visibleFrameRect = decorView.getWindowVisibleDisplayFrame(visibleFrameRect), visibleFrameRect = &quot; + visibleFrameRect.toString());
+    BMBLogUtils.d(Config.LOGTAG, &quot; ======================= END ======================&quot;);
+}
+</code></pre><p>D/XIANZHEZLOGTAG(20345):  ======= TestDisplay onCreate()=======<br>D/XIANZHEZLOGTAG(20345):  TestDisplay window = com.android.internal.policy.impl.PhoneWindow@42b0e868, display = Display id 0: DisplayInfo{&quot;内置屏幕&quot;, app 1080 x 1920, real 1080 x 1920, largest app 1794 x 1845, smallest app 1080 x 1005, 60.0 fps, rotation0, density 480 (442.451 x 443.345) dpi, layerStack 0, type BUILT_IN, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS}, DisplayMetrics{density=3.0, width=1080, height=1920, scaledDensity=3.0, xdpi=442.451, ydpi=443.345}, isValid=true, decorView = com.android.internal.policy.impl.PhoneWindow$DecorView{42b495a0 V.E..... R.....ID 0,0-0,0}<br>D/XIANZHEZLOGTAG(20345): 1. TestDisplay display.getSize(outPoint), outPoint = Point(1080, 1920)<br>D/XIANZHEZLOGTAG(20345): 2. TestDisplay display.getRealSize(realSize), realSize = Point(1080, 1920)<br>D/XIANZHEZLOGTAG(20345): 3. TestDisplay display.getCurrentSizeRange(smallPoint, largePoint), smallPoint = Point(1080, 1005), largePoint = Point(1794, 1845)<br>D/XIANZHEZLOGTAG(20345): 4. TestDisplay display.getRectSize(rectSize), rectSize = Rect(0, 0 - 1080, 1920)<br>D/XIANZHEZLOGTAG(20345): 5. TestDisplay display.getMetrics(displayMatrix), displayMatrix = DisplayMetrics{density=3.0, width=1080, height=1920, scaledDensity=3.0, xdpi=442.451, ydpi=443.345}<br>D/XIANZHEZLOGTAG(20345): 6. TestDisplay display.getRealMetrics(realDisplayMatrix), realDisplayMatrix = DisplayMetrics{density=3.0, width=1080, height=1920, scaledDensity=3.0, xdpi=442.451, ydpi=443.345}<br>D/XIANZHEZLOGTAG(20345): 7. TestDisplay windowParams = window.getAttributes(), windowParams = WM.LayoutParams{(0,0)(fillxfill) ty=2 fl=#810100 pfl=0x8 wanim=0x10302a1 meizuFlags=0x1 imeOffset=-1 splitActionBarHeight=0Meizu WM.LayoutParams [ flags=0x0] }<br>D/XIANZHEZLOGTAG(20345): 8. TestDisplay decorViewParams = decorView.getLayoutParams(), decorViewParams = null<br>D/XIANZHEZLOGTAG(20345): 9. TestDisplay visibleFrameRect = decorView.getWindowVisibleDisplayFrame(visibleFrameRect), visibleFrameRect = Rect(0, 0 - 1080, 1920)<br>D/XIANZHEZLOGTAG(20345):  ======================= END ======================<br>D/XIANZHEZLOGTAG(20345):  ======= TestDisplay onWindowFocusChanged=======<br>D/XIANZHEZLOGTAG(20345):  TestDisplay window = com.android.internal.policy.impl.PhoneWindow@42b0e868, display = Display id 0: DisplayInfo{&quot;内置屏幕&quot;, app 1080 x 1920, real 1080 x 1920, largest app 1794 x 1845, smallest app 1080 x 1005, 60.0 fps, rotation0, density 480 (442.451 x 443.345) dpi, layerStack 0, type BUILT_IN, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS}, DisplayMetrics{density=3.0, width=1080, height=1920, scaledDensity=3.0, xdpi=442.451, ydpi=443.345}, isValid=true, decorView = com.android.internal.policy.impl.PhoneWindow$DecorView{42b495a0 V.E..... R.....ID 0,0-1080,1776}<br>D/XIANZHEZLOGTAG(20345): 1. TestDisplay display.getSize(outPoint), outPoint = Point(1080, 1920)<br>D/XIANZHEZLOGTAG(20345): 2. TestDisplay display.getRealSize(realSize), realSize = Point(1080, 1920)<br>D/XIANZHEZLOGTAG(20345): 3. TestDisplay display.getCurrentSizeRange(smallPoint, largePoint), smallPoint = Point(1080, 1005), largePoint = Point(1794, 1845)<br>D/XIANZHEZLOGTAG(20345): 4. TestDisplay display.getRectSize(rectSize), rectSize = Rect(0, 0 - 1080, 1920)<br>D/XIANZHEZLOGTAG(20345): 5. TestDisplay display.getMetrics(displayMatrix), displayMatrix = DisplayMetrics{density=3.0, width=1080, height=1920, scaledDensity=3.0, xdpi=442.451, ydpi=443.345}<br>D/XIANZHEZLOGTAG(20345): 6. TestDisplay display.getRealMetrics(realDisplayMatrix), realDisplayMatrix = DisplayMetrics{density=3.0, width=1080, height=1920, scaledDensity=3.0, xdpi=442.451, ydpi=443.345}<br>D/XIANZHEZLOGTAG(20345): 7. TestDisplay windowParams = window.getAttributes(), windowParams = WM.LayoutParams{(0,0)(fillxfill) sim=#100 ty=1 fl=#1810100 pfl=0x8 wanim=0x10302a1 meizuFlags=0x1 imeOffset=-1 splitActionBarHeight=0Meizu WM.LayoutParams [ flags=0x0] }<br>D/XIANZHEZLOGTAG(20345): 8. TestDisplay decorViewParams = decorView.getLayoutParams(), decorViewParams = VG.LayoutParams{height = -1, width = -1}<br>D/XIANZHEZLOGTAG(20345): 9. TestDisplay visibleFrameRect = decorView.getWindowVisibleDisplayFrame(visibleFrameRect), visibleFrameRect = Rect(0, 75 - 1080, 1776)<br>D/XIANZHEZLOGTAG(20345):  ======================= END ======================</p>
+<p>26、hashCode()和equals()的关系</p>
+<p>hashCode()的返回值和equals()的关系如下：<br>•如果x.equals(y)返回“true”，那么x和y的hashCode()必须相等。<br>•如果x.equals(y)返回“false”，那么x和y的hashCode()有可能相等，也有可能不等。<br>equals()先要查null和是否是同一类型。查同一类型是为了避免出现ClassCastException这样的异常给丢出来。查 null是为了避免出现NullPointerException这样的异常给丢出来。</p>
+<p>27、layout animation</p>
+<p>分为5种</p>
+<p>LayoutTransition.APPEARING</p>
+<p>LayoutTransition.DISAPPEARING</p>
+<p>LayoutTransition.CHANGING</p>
+<p>LayoutTransition.CHANGE_APPEARING</p>
+<p>LayoutTransition.CHANGE_DISAPPEARING</p>
+<p>有些种类会有默认的动画，一旦使能layout animation会默认出现，如果不想出现默认的效果，需要手动设为null，如：</p>
+<p>lt.setAnimator(LayoutTransition.CHANGE_APPEARING, null);</p>
+<p>28、measure()</p>
+<p>在UI未渲染出来之前是无法直接getHeight(), getWidth()来获取高宽的，需要先measure(),然后getMeasuredHeight(), getMeasuredWidth()来获取高宽。在measure时的MeasureSpec很重要，应配合view的布局参数选择适当的Mode。</p>
+<p>可用于测量wrap_content的：</p>
+<p>View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);</p>
+<p>29、activity start时显示键盘，只需要在Manifest里为该Activity添加以下属性</p>
+<p>android:windowSoftInputMode=&quot;stateVisible&quot;</p>
+<p>30、获得activity content view：</p>
+<p>findViewById(android.R.id.content)</p>
+<p>31、当ImageView中加载图片与实际图片大小或者比例不一致时，应考虑使用以下属性来做适配：</p>
+<p>android:adjustViewBounds=&quot;true&quot;</p>
+<p>32、隐藏status bar，完全不显示：</p>
+<p>You can do it programatically:</p>
+<p>public class ActivityName extends Activity {<br>    @Override<br>    public void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        // remove title<br>        requestWindowFeature(Window.FEATURE_NO_TITLE);<br>        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,<br>            WindowManager.LayoutParams.FLAG_FULLSCREEN);<br>        setContentView(R.layout.main);<br>    }<br>}<br>Or you can do it via your AndroidManifest.xml file:</p>
+<activity android:name=".ActivityName" android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+
+
+<p>33、TouchEvent的分发</p>
+<p>View: </p>
+<p>1、dispatchTouchEvent<br>2、 setOnTouchListener的onTouch<br>3、onTouchEvent<br>ViewGroup:</p>
+<p>1、ViewGroup的dispatchTouchEvent<br>2、ViewGroup的onInterceptTouchEvent<br>3、child View的dispatchTouchEvent<br>4、child View的onTouchEvent </p>
+<p>34、</p>
+</activity>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/08/EloquentJavaScript/" rel="next" title="Eloquent Javascript">
+                <i class="fa fa-chevron-left"></i> Eloquent Javascript
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/28/Effective_Java/" rel="prev" title="Effective JAVA">
+                Effective JAVA <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

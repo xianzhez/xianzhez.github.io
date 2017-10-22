@@ -1,0 +1,633 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Tools,Writing," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="LaTex入门12345\documentclass&amp;#123;article&amp;#125;%这里是导言区\begin&amp;#123;document&amp;#125;Hello, world!\end&amp;#123;document&amp;#125;
+\documentclass{article}\documentclass{article} 中包含了一个控制序列（或称命令/标记）。
+
+所谓控制序列，是以反斜杠\开头">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Latex Learning">
+<meta property="og:url" content="http://yoursite.com/2015/05/19/latex/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="LaTex入门12345\documentclass&amp;#123;article&amp;#125;%这里是导言区\begin&amp;#123;document&amp;#125;Hello, world!\end&amp;#123;document&amp;#125;
+\documentclass{article}\documentclass{article} 中包含了一个控制序列（或称命令/标记）。
+
+所谓控制序列，是以反斜杠\开头">
+<meta property="og:updated_time" content="2017-10-22T15:21:35.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Latex Learning">
+<meta name="twitter:description" content="LaTex入门12345\documentclass&amp;#123;article&amp;#125;%这里是导言区\begin&amp;#123;document&amp;#125;Hello, world!\end&amp;#123;document&amp;#125;
+\documentclass{article}\documentclass{article} 中包含了一个控制序列（或称命令/标记）。
+
+所谓控制序列，是以反斜杠\开头">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/05/19/latex/"/>
+
+  <title> Latex Learning | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Latex Learning
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-19T00:00:00+08:00" content="2015-05-19">
+              2015-05-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Tools</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="LaTex"><a href="#LaTex" class="headerlink" title="LaTex"></a>LaTex</h1><h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">\documentclass&#123;article&#125;</div><div class="line">%这里是导言区</div><div class="line">\begin&#123;document&#125;</div><div class="line">Hello, world!</div><div class="line">\end&#123;document&#125;</div></pre></td></tr></table></figure>
+<h3 id="documentclass-article"><a href="#documentclass-article" class="headerlink" title="\documentclass{article}"></a>\documentclass{article}</h3><p><code>\documentclass{article}</code> 中包含了一个控制序列（或称命令/标记）。</p>
+<blockquote>
+<p>所谓控制序列，是以反斜杠<code>\</code>开头，以第一个空格或非字母 的字符结束的一串文字，他们并不被输出，但是他们会影响输出文档的效果。</p>
+</blockquote>
+<p>这里的控制序列是 documentclass，它后面紧跟着的 <code>{article}</code> 代表这个控制序列有一个必要的参数，该参数的值为 <code>article</code>。这个控制序列的作用，是调用名为 “article” 的文档类。</p>
+<a id="more"></a>
+<p><strong>请注意，TeX 对控制序列的大小写是敏感的</strong></p>
+<blockquote>
+<p>部分控制序列还有被方括号[]包括的可选参数。</p>
+<p>所谓文档类，即是 TeX 系统预设的（或是用户自定的）一些格式的集合。不同的文档类在输出效果上会有差别。</p>
+</blockquote>
+<h3 id=""><a href="#" class="headerlink" title="%"></a>%</h3><p>此处的第二行以 <code>%</code> 开头。在 TeX 风格的文档中，从 <code>%</code> 开始，到该行末尾的所有字符，都会被 TeX 系统无视，只作为供人类阅读的注释。除非在 <code>%</code> 前加上反斜杠来取消这一特性，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">今年的净利润为20\%, 比去年高。</div></pre></td></tr></table></figure>
+<p>此处 “%” 被当做正常的百分号处理，其后的文字也将被正常输出。</p>
+<h3 id="begin-end"><a href="#begin-end" class="headerlink" title="begin, end"></a>begin, end</h3><p>其后出现了控制序列 <code>begin</code>，这个控制序列总是与 <code>end</code> 成对出现。这两个控制序列以及他们中间的内容被称为「环境」；他们之后的第一个必要参数总是<strong>一致</strong>的，被称为<strong>环境名</strong>。</p>
+<p>只有在 <code>document</code> 环境中的内容，才会被正常输出到文档中去或是作为控制序列对文档产生影响。也就是说，在 <code>\end{document}</code> 之后插入任何内容都是无效的。</p>
+<p><code>\documentclass{article}</code> 与 <code>\begin{document}</code> 之间的部分被称为导言区。导言区中的控制序列，通常会影响到整个输出文档。</p>
+<blockquote>
+<p>比如，我们通常在导言区设置页面大小、页眉页脚样式、章节标题样式等等。</p>
+</blockquote>
+<h2 id="实现中英文混排"><a href="#实现中英文混排" class="headerlink" title="实现中英文混排"></a>实现中英文混排</h2><p>现在，XeTeX 原生支持 Unicode，并且可以方便地调用系统字体。可以说解决了困扰中国 TeX 使用者多年的大问题。至此，我们只需要使用几个简单的宏包，就能完成中文支持了。所谓宏包，就是一系列控制序列的合集。这些控制序列太常用，以至于人们会觉得每次将他们写在导言区太过繁琐，于是将他们打包放在同一个文件中，成为所谓的宏包（台湾方面称之为「巨集套件」）。<code>\usepackage{·}</code>可以用来调用宏包。</p>
+<h2 id="list-环境"><a href="#list-环境" class="headerlink" title="list 环境"></a>list 环境</h2><p>最有可定制性的当属 list 环境。以上的 enumerate， itemize，description 其本质上都是封装好的 list 环境。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">\begin&#123;list&#125;&#123;label&#125;&#123;spacing&#125;</div><div class="line"> \item First item</div><div class="line"> \item Second item</div><div class="line"> \end&#123;list&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">其中， label 的内容将会作为标签，放在一个单独的盒子里，出现在每一 item 之前。也可以通过 \item[label] 来实现。</div><div class="line"></div><div class="line">spacing 设定一些距离。通常为空，因为默认距离已经足够好了。</div></pre></td></tr></table></figure>
+<p>\topsep 列表顶部与之前内容的额外空白，不含 \baselineskip<br>\partopsep 如果列表之前是一个空行，列表顶部的额外空白<br>\itemsep 列表各项之间额外的垂直空白<br>\parsep 一个 item 中，如果分段，段落间额外空白<br>\leftmargin 列表与左边距之间的水平距离，值为非负<br>\rightmargin 列表与右边距之间的水平距离，值为非负<br>\itemindent 每一 item 第一行的缩进<br>\listparindent 每一 item 第一行之后各行的缩进<br>\labelsep 标签盒子与每一 item 第一行文本之间距离<br>\labelwidth 标签盒子的宽度；如果标签过长，这一宽度会自动变大，直到列表的第一行文本为止<br>\makelabel{label} 生成 \item[label] 命令所要求的标签<br>\usecounter{ctr} 使用列表项目计数器 ctr，初始值为 0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">一个例子</div></pre></td></tr></table></figure></p>
+<p>%    定义计数器<br>\newcounter{Lcount}<br>%   标签计数显示为罗马数字<br>\begin{list}{Item-\Roman{Lcount}}<br>%    使用计数器<br>  {\usecounter{Lcount}<br>%    左右对称<br>  \setlength{\rightmargin}{\leftmargin}}<br>%    开始<br>\item This is the first item<br>\item And this is the second item<br>\end{list}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">效果将是</div></pre></td></tr></table></figure></p>
+<p>Item-I  This is the first item<br>Item-II And this is the second item<br>```</p>
+<h2 id="排版"><a href="#排版" class="headerlink" title="排版"></a>排版</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>字体大小<br><code>\tiny\scriptsize\footnotesize\small\normalsize\large\Large\LARGE\huge\Huge</code></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tools/" rel="tag">#Tools</a>
+          
+            <a href="/tags/Writing/" rel="tag">#Writing</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/11/05/JVM/" rel="next" title="JVM Common">
+                <i class="fa fa-chevron-left"></i> JVM Common
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/13/Android开发艺术/" rel="prev" title="Android Development Art">
+                Android Development Art <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LaTex"><span class="nav-number">1.</span> <span class="nav-text">LaTex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门"><span class="nav-number">1.1.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#documentclass-article"><span class="nav-number">1.1.1.</span> <span class="nav-text">\documentclass{article}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.1.2.</span> <span class="nav-text">%</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#begin-end"><span class="nav-number">1.1.3.</span> <span class="nav-text">begin, end</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现中英文混排"><span class="nav-number">1.2.</span> <span class="nav-text">实现中英文混排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list-环境"><span class="nav-number">1.3.</span> <span class="nav-text">list 环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排版"><span class="nav-number">1.4.</span> <span class="nav-text">排版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字体"><span class="nav-number">1.4.1.</span> <span class="nav-text">字体</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

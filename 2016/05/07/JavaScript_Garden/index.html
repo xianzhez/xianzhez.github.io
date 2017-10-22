@@ -1,0 +1,781 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reading notes,Web,JS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#Objects
+###Object Usage and PropertiesEverything in JavaScript acts like an object, with the only two exceptions being null and undefined.
+####Accessing Properties
+The properties of an object can be">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaSrcipt Garden">
+<meta property="og:url" content="http://yoursite.com/2016/05/07/JavaScript_Garden/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="#Objects
+###Object Usage and PropertiesEverything in JavaScript acts like an object, with the only two exceptions being null and undefined.
+####Accessing Properties
+The properties of an object can be">
+<meta property="og:updated_time" content="2017-10-22T15:44:38.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaSrcipt Garden">
+<meta name="twitter:description" content="#Objects
+###Object Usage and PropertiesEverything in JavaScript acts like an object, with the only two exceptions being null and undefined.
+####Accessing Properties
+The properties of an object can be">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/07/JavaScript_Garden/"/>
+
+  <title> JavaSrcipt Garden | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaSrcipt Garden
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T00:00:00+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#Objects</p>
+<p>###Object Usage and Properties<br>Everything in JavaScript acts like an object, with the only two exceptions being <code>null</code> and <code>undefined</code>.</p>
+<p>####Accessing Properties</p>
+<p>The properties of an object can be accessed in two ways, via either the dot notation or the square bracket notation.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var foo = &#123;name: &apos;kitten&apos;&#125;</div><div class="line">foo.name; // kitten</div><div class="line">foo[&apos;name&apos;]; // kitten</div><div class="line"></div><div class="line">var get = &apos;name&apos;;</div><div class="line">foo[get]; // kitten</div><div class="line"></div><div class="line">foo.1234; // SyntaxError</div><div class="line">foo[&apos;1234&apos;]; // works</div></pre></td></tr></table></figure>
+<p>The notations work almost identically, with the only difference being that the square bracket notation allows for dynamic setting of properties and the use of property names that would otherwise lead to a syntax error.</p>
+<a id="more"></a>
+<p>###The Prototype</p>
+<blockquote>
+<p>Simply using <code>Bar.prototype = Foo.prototype</code> will result in both objects sharing the same prototype. Therefore, changes to either object&#39;s prototype will affect the prototype of the other as well, which in most cases is not the desired effect.</p>
+</blockquote>
+<p>###hasOwnProperty</p>
+<p>To check whether an object has a property defined on <strong>itself</strong> and <strong>not somewhere on its prototype chain</strong>, it is necessary to use the hasOwnProperty method which all objects inherit from Object.prototype.</p>
+<p><code>hasOwnProperty</code> is the only thing in JavaScript which deals with properties and <strong>does not traverse the prototype</strong> chain.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// Poisoning Object.prototype</div><div class="line">Object.prototype.bar = 1;</div><div class="line">var foo = &#123;goo: undefined&#125;;</div><div class="line"></div><div class="line">foo.bar; // 1</div><div class="line">&apos;bar&apos; in foo; // true</div><div class="line"></div><div class="line">foo.hasOwnProperty(&apos;bar&apos;); // false</div><div class="line">foo.hasOwnProperty(&apos;goo&apos;); // true</div></pre></td></tr></table></figure>
+<p>Using <code>hasOwnProperty</code> is the only reliable method to check for the existence of a property on an object. It is recommended that <code>hasOwnProperty</code> be used in many cases when iterating over object properties as described in the section on <code>for in</code> loops.</p>
+<p>#Functions</p>
+<p>###Function Declarations and Expressions</p>
+<p>####Named Function Expression</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = function bar() &#123;</div><div class="line">    bar(); // Works</div><div class="line">&#125;</div><div class="line">bar(); // ReferenceError</div></pre></td></tr></table></figure>
+<p>Here, bar is not available in the outer scope, since the function only gets assigned to foo; however, inside of bar, it is available. This is due to how name resolution in JavaScript works, the name of the function is always made available in the local scope of the function itself.</p>
+<p>###How <code>this</code> Works</p>
+<p> There are exactly <strong>five</strong> different ways in which the value of this can be bound in the language.</p>
+<blockquote>
+<p><strong>ES5 Note:</strong> In <strong>strict mode</strong>, the global case no longer exists. this will instead have the value of <code>undefined</code> in that case.</p>
+</blockquote>
+<p>####1. The Global Scope<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this;</div></pre></td></tr></table></figure></p>
+<p>When using this in global scope, it will simply refer to the global object.</p>
+<p>####2. Calling a Function</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo();</div></pre></td></tr></table></figure>
+<p>Here, this will again refer to the global object.</p>
+<p>####3. Calling a Method</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test.foo();</div></pre></td></tr></table></figure>
+<p>In this example, <code>this</code> will refer to <code>test</code>.</p>
+<p>####4. Calling a Constructor</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new foo();</div></pre></td></tr></table></figure>
+<p>A function call that is preceded by the <code>new</code> keyword acts as a constructor. Inside the function, <code>this</code> will refer to a newly created <code>Object</code>.</p>
+<p>####5. Explicit Setting of this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function foo(a, b, c) &#123;&#125;</div><div class="line"></div><div class="line">var bar = &#123;&#125;;</div><div class="line">foo.apply(bar, [1, 2, 3]); // array will expand to the below</div><div class="line">foo.call(bar, 1, 2, 3); // results in a = 1, b = 2, c = 3</div></pre></td></tr></table></figure>
+<p>When using the <code>call</code> or <code>apply</code> methods of <code>Function.prototype</code>, the value of <code>this</code> inside the called function gets explicitly set to the first argument of the corresponding function call.</p>
+<p>As a result, in the above example the method case does not apply, and this inside of foo <strong>will be set to bar</strong>.</p>
+<h4 id="Common-Pitfalls"><a href="#Common-Pitfalls" class="headerlink" title="Common Pitfalls"></a>Common Pitfalls</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Foo.method = function() &#123;</div><div class="line">    function test() &#123;</div><div class="line">        // this is set to the global object</div><div class="line">    &#125;</div><div class="line">    test();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>A common misconception is that this inside of test refers to Foo; while in fact, <strong>it does not</strong>.</p>
+<p>In order to gain access to <code>Foo</code> from within <code>test</code>, you can create a local variable inside of <code>method</code> that refers to <code>Foo</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Foo.method = function() &#123;</div><div class="line">    var self = this;</div><div class="line">    function test() &#123;</div><div class="line">        // Use self instead of this here</div><div class="line">    &#125;</div><div class="line">    test();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>As of ECMAScript 5 you can use the <code>bind</code> method combined with an anonymous function to achieve the same result.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Foo.method = function() &#123;</div><div class="line">    var test = function() &#123;</div><div class="line">        // this now refers to Foo</div><div class="line">    &#125;.bind(this);</div><div class="line">    test();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Assigning Methods<br>Another thing that does not work in JavaScript is function aliasing, which is assigning a method to a variable.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var test = someObject.methodTest;</div><div class="line">test();</div></pre></td></tr></table></figure>
+<p>Due to the first case, <code>test</code> now acts like a plain function call; therefore, <code>this</code> inside it <strong>will no longer refer to <code>someObject</code></strong>.</p>
+<p>###Closures and References<br>With closures, scopes <strong>always keep access to the outer scope</strong>, in which they were defined. Since the <strong>only scoping</strong> that JavaScript has is <strong>function scope</strong>, all functions, <strong>by default, act as closures</strong>.</p>
+<p>####Closures Inside Loops</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i &lt; 10; i++) &#123;</div><div class="line">    setTimeout(function() &#123;</div><div class="line">        console.log(i);  </div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>The above will not output the numbers 0 through 9, <strong>but will simply print the number <code>10</code> ten times</strong>.</p>
+<p>####Avoiding the Reference Problem</p>
+<p>In order to copy the value of the loop&#39;s index variable, it is best to use an anonymous wrapper.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i &lt; 10; i++) &#123;</div><div class="line">    (function(e) &#123;</div><div class="line">        setTimeout(function() &#123;</div><div class="line">            console.log(e);  </div><div class="line">        &#125;, 1000);</div><div class="line">    &#125;)(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i &lt; 10; i++) &#123;</div><div class="line">    setTimeout(console.log.bind(console, i), 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###The <code>arguments</code> Object<br>The <code>arguments</code> object <strong>is not an <code>Array</code></strong>. While it has some of the semantics of an array - namely the <code>length</code> property - it does not inherit from <code>Array.prototype</code> and is <strong>in fact an <code>Object</code></strong>.</p>
+<p>Due to this, it is not possible to use standard array methods like <code>push</code>, <code>pop</code> or <code>slice</code> on <code>arguments</code>. While <strong>iteration</strong> with a plain for loop <strong>works just fine</strong>, it is necessary to convert it to a real <code>Array</code> in order to use the standard Array methods on it.</p>
+<p>####Converting to an Array<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.prototype.slice.call(arguments);</div></pre></td></tr></table></figure></p>
+<p>Because this conversion is <strong>slow</strong>, it is not recommended to use it in performance-critical sections of code.</p>
+<p>#####Passing Arguments<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    bar.apply(null, arguments);</div><div class="line">&#125;</div><div class="line">function bar(a, b, c) &#123;</div><div class="line">    // do stuff here</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###Constructors<br>Any function call that is preceded by the <code>new</code> keyword acts as a constructor.</p>
+<p>If the function that was called has <strong>no explicit return</strong> statement, then it implicitly <strong>returns the value of <code>this</code></strong> - the new object.</p>
+<p>In case of an explicit return statement, the function returns the value specified by that statement, but <strong>only if the return value is an <code>Object</code></strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Car() &#123;</div><div class="line">    return &apos;ford&apos;;</div><div class="line">&#125;</div><div class="line">new Car(); // a new object, not &apos;ford&apos;</div><div class="line"></div><div class="line">function Person() &#123;</div><div class="line">    this.someValue = 2;</div><div class="line"></div><div class="line">    return &#123;</div><div class="line">        name: &apos;Charles&apos;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">new Person(); // the returned object (&#123;name:&apos;Charles&apos;&#125;), not including someValue</div></pre></td></tr></table></figure>
+<p>When the <code>new</code> keyword is omitted, the function will <strong>not</strong> return a new object.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function Pirate() &#123;</div><div class="line">    this.hasEyePatch = true; // gets set on the global object!</div><div class="line">&#125;</div><div class="line">var somePirate = Pirate(); // somePirate is undefined</div></pre></td></tr></table></figure>
+<p>####Creating New Objects via Factories</p>
+<p>It is often recommended to not use <code>new</code> because forgetting its use may lead to bugs.</p>
+<p>In order to create a new object, one should rather use a factory and construct a new object inside of that factory.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function CarFactory() &#123;</div><div class="line">    var car = &#123;&#125;;</div><div class="line">    car.owner = &apos;nobody&apos;;</div><div class="line"></div><div class="line">    var milesPerGallon = 2;</div><div class="line"></div><div class="line">    car.setOwner = function(newOwner) &#123;</div><div class="line">        this.owner = newOwner;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    car.getMPG = function() &#123;</div><div class="line">        return milesPerGallon;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return car;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Scopes and Namespaces<br>Although JavaScript deals fine with the syntax of two matching curly braces for blocks, it does <strong>not</strong> support block scope; hence, <strong>all that is left</strong> in the language is <strong>function scope</strong>.</p>
+<p>####The Bane of Global Variables<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// script A</div><div class="line">foo = &apos;42&apos;;</div><div class="line"></div><div class="line">// script B</div><div class="line">var foo = &apos;42&apos;</div></pre></td></tr></table></figure></p>
+<p>The above two scripts do not have the same effect. Script A defines a variable called <code>foo</code> in the global scope, and script B defines a <code>foo</code> in the current scope.</p>
+<p>####Local Variables<br>The only source for local variables in JavaScript are function parameters and variables declared via the <code>var</code> statement.</p>
+<p>####Hoisting<br>JavaScript <strong>hoists</strong> declarations. This means that both <code>var</code> statements and <code>function</code> declarations will be <strong>moved to the top</strong> of their enclosing scope.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">bar();</div><div class="line">var bar = function() &#123;&#125;;</div><div class="line">var someValue = 42;</div><div class="line"></div><div class="line">test();</div><div class="line">function test(data) &#123;</div><div class="line">    if (false) &#123;</div><div class="line">        goo = 1;</div><div class="line"></div><div class="line">    &#125; else &#123;</div><div class="line">        var goo = 2;</div><div class="line">    &#125;</div><div class="line">    for(var i = 0; i &lt; 100; i++) &#123;</div><div class="line">        var e = data[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>The above code gets transformed before execution starts. JavaScript moves the <code>var</code> statements, as well as <code>function</code> declarations, to the top of the nearest surrounding scope.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// var statements got moved here</div><div class="line">var bar, someValue; // default to &apos;undefined&apos;</div><div class="line"></div><div class="line">// the function declaration got moved up too</div><div class="line">function test(data) &#123;</div><div class="line">    var goo, i, e; // missing block scope moves these here</div><div class="line">    if (false) &#123;</div><div class="line">        goo = 1;</div><div class="line"></div><div class="line">    &#125; else &#123;</div><div class="line">        goo = 2;</div><div class="line">    &#125;</div><div class="line">    for(i = 0; i &lt; 100; i++) &#123;</div><div class="line">        e = data[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bar(); // fails with a TypeError since bar is still &apos;undefined&apos;</div><div class="line">someValue = 42; // assignments are not affected by hoisting</div><div class="line">bar = function() &#123;&#125;;</div><div class="line"></div><div class="line">test();</div></pre></td></tr></table></figure>
+<p>Missing block scoping will not only move <code>var</code> statements out of loops and their bodies, it will also make the results of certain if constructs non-intuitive.</p>
+<p>In the original code, although the if statement seemed to modify the global variable goo, <strong>it actually modifies the local variable</strong> - after hoisting has been applied.</p>
+<p>####Name Resolution Order!!!</p>
+<p>All scopes in JavaScript, including the global scope, have the special name <code>this</code>, defined in them, which refers to the current object.</p>
+<p>Function scopes also have the name <code>arguments</code>, defined in them, which contains the arguments that were passed to the function.</p>
+<p>For example, when trying to access a variable named <code>foo</code> inside the scope of a function, JavaScript will look up the name in the following order:</p>
+<ol>
+<li>In case there is a <code>var</code> <code>foo</code> statement in the current scope, use that.</li>
+<li>If one of the function parameters is named <code>foo</code>, use that.</li>
+<li>If the function itself is called <code>foo</code>, use that.</li>
+<li>Go to the next outer scope, and start with #1 again.</li>
+</ol>
+<h4 id="Namespaces"><a href="#Namespaces" class="headerlink" title="Namespaces"></a>Namespaces</h4><p>A common problem associated with having only one global namespace is the likelihood of running into problems where variable names clash. In JavaScript, this problem can easily be avoided with the help of <strong>anonymous wrappers</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line">    // a self contained &quot;namespace&quot;</div><div class="line"></div><div class="line">    window.foo = function() &#123;</div><div class="line">        // an exposed closure</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;)(); // execute the function immediately</div></pre></td></tr></table></figure>
+<p><strong>Unnamed functions</strong> are considered expressions; so in order to be callable, they <strong>must first be evaluated</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">( // evaluate the function inside the parentheses</div><div class="line">function() &#123;&#125;</div><div class="line">) // and return the function object</div><div class="line">() // call the result of the evaluation</div></pre></td></tr></table></figure>
+<p>There are other ways to evaluate and directly call the function expression which, while different in syntax, behave the same way.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// A few other styles for directly invoking the </div><div class="line">!function()&#123;&#125;()</div><div class="line">+function()&#123;&#125;()</div><div class="line">(function()&#123;&#125;());</div><div class="line">// and so on...</div></pre></td></tr></table></figure>
+<p>#Arrays</p>
+<p>###Array Iteration and Properties</p>
+<p>Although arrays in JavaScript are objects, there are no good reasons to use the <code>for in</code> loop. In fact, there are a number of good reasons against the use of <code>for in</code> on arrays.</p>
+<p>Because the <code>for in</code> loop enumerates all the properties that are on the prototype chain and because <strong>the only way to exclude those properties is to use <code>hasOwnProperty</code></strong>, it is already up to twenty times slower than a normal <code>for</code> loop.</p>
+<blockquote>
+<p>Note: JavaScript arrays are not associative arrays. JavaScript only has objects for mapping keys to values. And while associative arrays preserve order, objects do not.</p>
+</blockquote>
+<h4 id="Iteration"><a href="#Iteration" class="headerlink" title="Iteration"></a>Iteration</h4><p>In order to achieve the best performance when iterating over arrays, it is best to use the classic <code>for</code> loop.</p>
+<p><code>for</code> loop is better than <code>for in</code> loop in perfomance.</p>
+<h4 id="The-length-Property"><a href="#The-length-Property" class="headerlink" title="The length Property"></a>The <code>length</code> Property</h4><p>While the getter of the <code>length</code> property simply returns the number of elements that are contained in the array, the setter can be used to <strong>truncate</strong> the array.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arr = [1, 2, 3, 4, 5, 6];</div><div class="line">arr.length = 3;</div><div class="line">arr; // [1, 2, 3]</div><div class="line"></div><div class="line">arr.length = 6;</div><div class="line">arr.push(4);</div><div class="line">arr; // [1, 2, 3, undefined, undefined, undefined, 4]</div></pre></td></tr></table></figure>
+<h3 id="The-Array-Constructor"><a href="#The-Array-Constructor" class="headerlink" title="The Array Constructor"></a>The <code>Array</code> Constructor</h3><p>Since the <code>Array</code> <strong>constructor is ambiguous</strong> in how it deals with its parameters, it is highly <strong>recommended to use the array literal - <code>[]</code> notation</strong> - when creating new arrays.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3]; // Result: [1, 2, 3]</div><div class="line">new Array(1, 2, 3); // Result: [1, 2, 3]</div><div class="line"></div><div class="line">[3]; // Result: [3]</div><div class="line">new Array(3); // Result: []</div><div class="line">new Array(&apos;3&apos;) // Result: [&apos;3&apos;]</div></pre></td></tr></table></figure>
+<p>Being able to set the length of the array in advance is only useful in a few cases, like repeating a string, in which it avoids the use of a loop.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Array(count + 1).join(stringToRepeat);</div></pre></td></tr></table></figure>
+<p>#Types</p>
+<h3 id="Equality-and-Comparisons"><a href="#Equality-and-Comparisons" class="headerlink" title="Equality and Comparisons"></a>Equality and Comparisons</h3><p>JavaScript has <strong>two different ways</strong> of comparing the values of objects for equality.</p>
+<h4 id="The-Equality-Operator"><a href="#The-Equality-Operator" class="headerlink" title="The Equality Operator"></a>The Equality Operator</h4><p>The equality operator consists of two equal signs: <code>==</code></p>
+<p>JavaScript features <strong>weak typing</strong>. This means that the equality operator <strong>coerces</strong> types in order to compare them.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&quot;&quot;           ==   &quot;0&quot;           // false</div><div class="line">0            ==   &quot;&quot;            // true</div><div class="line">0            ==   &quot;0&quot;           // true</div><div class="line">false        ==   &quot;false&quot;       // false</div><div class="line">false        ==   &quot;0&quot;           // true</div><div class="line">false        ==   undefined     // false</div><div class="line">false        ==   null          // false</div><div class="line">null         ==   undefined     // true</div><div class="line">&quot; \t\r\n&quot;    ==   0             // true</div></pre></td></tr></table></figure>
+<p>The above table shows the results of the type coercion, and it is the main reason why the use of <code>==</code> is <strong>widely regarded as bad practice</strong>. It introduces hard-to-track-down bugs due to its complicated conversion rules.</p>
+<p>Additionally, there is also a <strong>performance impact</strong> when <strong>type coercion</strong> is in play; for example, <strong>a string has to be converted to a number before it can be compared to another number</strong>.</p>
+<h4 id="The-Strict-Equality-Operator"><a href="#The-Strict-Equality-Operator" class="headerlink" title="The Strict Equality Operator"></a>The Strict Equality Operator</h4><p>The strict equality operator consists of three equal signs: <code>===</code>.</p>
+<p>It works like the normal equality operator, except that strict equality operator does not perform type coercion between its operands.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&quot;&quot;           ===   &quot;0&quot;           // false</div><div class="line">0            ===   &quot;&quot;            // false</div><div class="line">0            ===   &quot;0&quot;           // false</div><div class="line">false        ===   &quot;false&quot;       // false</div><div class="line">false        ===   &quot;0&quot;           // false</div><div class="line">false        ===   undefined     // false</div><div class="line">false        ===   null          // false</div><div class="line">null         ===   undefined     // false</div><div class="line">&quot; \t\r\n&quot;    ===   0             // false</div></pre></td></tr></table></figure>
+<h4 id="Comparing-Objects"><a href="#Comparing-Objects" class="headerlink" title="Comparing Objects"></a>Comparing Objects</h4><p>While both <code>==</code> and <code>===</code> are called equality operators, they <strong>behave differentl</strong>y when at least one of their operands is an Object.</p>
+<h3 id="The-typeof-Operator"><a href="#The-typeof-Operator" class="headerlink" title="The typeof Operator"></a>The <code>typeof</code> Operator</h3><p>The <code>typeof</code> operator (together with <code>instanceof</code>) is probably <strong>the biggest design flaw</strong> of JavaScript, as it is almost completely broken.</p>
+<p>Although <code>instanceof</code> still has limited uses, <code>typeof</code> really <strong>has only one practical use case</strong>, which does not happen to be checking the type of an object.</p>
+<h4 id="The-JavaScript-Type-Table"><a href="#The-JavaScript-Type-Table" class="headerlink" title="The JavaScript Type Table"></a>The JavaScript Type Table</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Value               Class      Type</div><div class="line">-------------------------------------</div><div class="line">&quot;foo&quot;               String     string</div><div class="line">new String(&quot;foo&quot;)   String     object</div><div class="line">1.2                 Number     number</div><div class="line">new Number(1.2)     Number     object</div><div class="line">true                Boolean    boolean</div><div class="line">new Boolean(true)   Boolean    object</div><div class="line">new Date()          Date       object</div><div class="line">new Error()         Error      object</div><div class="line">[1,2,3]             Array      object</div><div class="line">new Array(1, 2, 3)  Array      object</div><div class="line">new Function(&quot;&quot;)    Function   function</div><div class="line">/abc/g              RegExp     object (function in Nitro/V8)</div><div class="line">new RegExp(&quot;meow&quot;)  RegExp     object (function in Nitro/V8)</div><div class="line">&#123;&#125;                  Object     object</div><div class="line">new Object()        Object     object</div></pre></td></tr></table></figure>
+<p>In the above table, Type refers to the value that the <code>typeof</code> operator returns. As can be clearly seen, this value is anything but consistent.</p>
+<p>The <strong>Class</strong> refers to the value of the internal <code>[[Class]]</code> property of an object.</p>
+<h4 id="The-Class-of-an-Object"><a href="#The-Class-of-an-Object" class="headerlink" title="The Class of an Object"></a>The Class of an Object</h4><p>The only way to determine an object&#39;s <code>[[Class]]</code> value is using <code>Object.prototype.toString</code>. It returns a string in the following format: <code>&#39;[object &#39; + valueOfClass + &#39;]&#39;</code>, e.g <code>[object String]</code> or <code>[object Array]</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function is(type, obj) &#123;</div><div class="line">    var clas = Object.prototype.toString.call(obj).slice(8, -1);</div><div class="line">    return obj !== undefined &amp;&amp; obj !== null &amp;&amp; clas === type;</div><div class="line">&#125;</div><div class="line"></div><div class="line">is(&apos;String&apos;, &apos;test&apos;); // true</div><div class="line">is(&apos;String&apos;, new String(&apos;test&apos;)); // true</div></pre></td></tr></table></figure>
+<h4 id="Testing-for-Undefined-Variables"><a href="#Testing-for-Undefined-Variables" class="headerlink" title="Testing for Undefined Variables"></a>Testing for Undefined Variables</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typeof foo !== &apos;undefined&apos;</div></pre></td></tr></table></figure>
+<p>The above will check <strong>whether foo was actually declared or not</strong>; just referencing it would result in a ReferenceError. This is <strong>the only thing <code>typeof</code> is actually useful</strong> for.</p>
+<h4 id="In-Conclusion"><a href="#In-Conclusion" class="headerlink" title="In Conclusion"></a>In Conclusion</h4><p>In order to check the type of an object, it is <strong>highly recommended to use</strong> <code>Object.prototype.toString</code> because this is <strong>the only reliable way</strong> of doing so. As shown in the above type table, some return values of typeof are not defined in the specification; thus, they can differ between implementations.</p>
+<p>###The instanceof Operator<br>The <code>instanceof</code> operator compares the constructors of its two operands. <strong>It is only useful when comparing custom made objects</strong>. Used on built-in types, it is nearly as useless as the <code>typeof</code> operator.</p>
+<h4 id="Comparing-Custom-Objects"><a href="#Comparing-Custom-Objects" class="headerlink" title="Comparing Custom Objects"></a>Comparing Custom Objects</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;&#125;</div><div class="line">function Bar() &#123;&#125;</div><div class="line">Bar.prototype = new Foo();</div><div class="line"></div><div class="line">new Bar() instanceof Bar; // true</div><div class="line">new Bar() instanceof Foo; // true</div><div class="line"></div><div class="line">// This just sets Bar.prototype to the function object Foo,</div><div class="line">// but not to an actual instance of Foo</div><div class="line">Bar.prototype = Foo;</div><div class="line">new Bar() instanceof Foo; // false</div></pre></td></tr></table></figure>
+<h4 id="Using-instanceof-with-Native-Types"><a href="#Using-instanceof-with-Native-Types" class="headerlink" title="Using instanceof with Native Types"></a>Using <code>instanceof</code> with Native Types</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">new String(&apos;foo&apos;) instanceof String; // true</div><div class="line">new String(&apos;foo&apos;) instanceof Object; // true</div><div class="line"></div><div class="line">&apos;foo&apos; instanceof String; // false</div><div class="line">&apos;foo&apos; instanceof Object; // false</div></pre></td></tr></table></figure>
+<h4 id="Using-instanceof-with-Native-Types-1"><a href="#Using-instanceof-with-Native-Types-1" class="headerlink" title="Using instanceof with Native Types"></a>Using instanceof with Native Types</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">new String(&apos;foo&apos;) instanceof String; // true</div><div class="line">new String(&apos;foo&apos;) instanceof Object; // true</div><div class="line"></div><div class="line">&apos;foo&apos; instanceof String; // false</div><div class="line">&apos;foo&apos; instanceof Object; // false</div></pre></td></tr></table></figure>
+<p>One important thing to note here is that <code>instanceof</code> does <strong>not work</strong> on objects that originate <strong>from different JavaScript contexts</strong> (e.g. different documents in a web browser), since their constructors will not be the exact same object.</p>
+<h4 id="In-Conclusion-1"><a href="#In-Conclusion-1" class="headerlink" title="In Conclusion"></a>In Conclusion</h4><p>The <code>instanceof</code> operator <strong>should only be used when dealing with custom made objects that originate from the same JavaScript context</strong>. Just like the <code>typeof</code> operator, every other use of it should be <strong>avoided</strong>.</p>
+<h4 id="Type-Casting"><a href="#Type-Casting" class="headerlink" title="Type Casting"></a>Type Casting</h4><p>JavaScript is <strong>a weakly typed language</strong>, so it will <strong>apply type coercion wherever possible</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// These are true</div><div class="line">new Number(10) == 10; // Number object is converted</div><div class="line">                      // to a number primitive via implicit call of</div><div class="line">                      // Number.prototype.valueOf method</div><div class="line"></div><div class="line">10 == &apos;10&apos;;           // Strings gets converted to Number</div><div class="line">10 == &apos;+10 &apos;;         // More string madness</div><div class="line">10 == &apos;010&apos;;          // And more </div><div class="line">isNaN(null) == false; // null converts to 0</div><div class="line">                      // which of course is not NaN</div><div class="line"></div><div class="line">// These are false</div><div class="line">10 == 010;</div><div class="line">10 == &apos;-10&apos;;</div></pre></td></tr></table></figure>
+<h4 id="Constructors-of-Built-In-Types"><a href="#Constructors-of-Built-In-Types" class="headerlink" title="Constructors of Built-In Types"></a>Constructors of Built-In Types</h4><p>The constructors of the built in types like <code>Number</code> and <code>String</code> behave differently when being used with the <code>new</code> keyword and without it.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">new Number(10) === 10;     // False, Object and Number</div><div class="line">Number(10) === 10;         // True, Number and Number</div><div class="line">new Number(10) + 0 === 10; // True, due to implicit conversion</div></pre></td></tr></table></figure>
+<h4 id="Casting-to-a-String"><a href="#Casting-to-a-String" class="headerlink" title="Casting to a String"></a>Casting to a String</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;&apos; + 10 === &apos;10&apos;; // true</div></pre></td></tr></table></figure>
+<h4 id="Casting-to-a-Number"><a href="#Casting-to-a-Number" class="headerlink" title="Casting to a Number"></a>Casting to a Number</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+&apos;10&apos; === 10; // true</div></pre></td></tr></table></figure>
+<h4 id="Casting-to-a-Boolean"><a href="#Casting-to-a-Boolean" class="headerlink" title="Casting to a Boolean"></a>Casting to a Boolean</h4><p>By using the <strong>not</strong> operator twice, a value can be converted to a boolean.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">!!&apos;foo&apos;;   // true</div><div class="line">!!&apos;&apos;;      // false</div><div class="line">!!&apos;0&apos;;     // true</div><div class="line">!!&apos;1&apos;;     // true</div><div class="line">!!&apos;-1&apos;     // true</div><div class="line">!!&#123;&#125;;      // true</div><div class="line">!!true;    // true</div></pre></td></tr></table></figure>
+<p>#Core</p>
+<h3 id="Why-Not-to-Use-eval"><a href="#Why-Not-to-Use-eval" class="headerlink" title="Why Not to Use eval"></a>Why Not to Use eval</h3><p>The <code>eval</code> function will execute a string of JavaScript code in the local scope.</p>
+<p><code>eval()</code>的参数是一个字符串。如果字符串表示了一个表达式，<code>eval()</code>会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么<code>eval()</code>会执行声明。不要调用<code>eval()</code>来为算数表达式求值； JavaScript 会自动为算数表达式求值。</p>
+<p>如果要将算数表达式构造成为一个字符串，你可以用<code>eval()</code>在随后对其求值。比如，你有一个变量 <code>x</code> ，你可以通过一个字符串表达式来对涉及<code>x</code>的表达式延迟求值，将 <code>&quot;3 * x + 2&quot;</code>，当作变量，通过在脚本中调用<code>eval()</code>，随后求值。</p>
+<p>如果参数不是字符串，<code>eval()</code>将会将参数原封不动的返回。</p>
+<p><code>eval</code> <strong>should never be used</strong>. Any code that makes use of it should be questioned in its workings, performance and security. If something requires <code>eval</code> in order to work, it should not be used in the first place. A better design should be used, that does not require the use of <code>eval</code>.</p>
+<h3 id="undefined-and-null"><a href="#undefined-and-null" class="headerlink" title="undefined and null"></a><code>undefined</code> and <code>null</code></h3><p>JavaScript has two distinct values for <strong>nothing</strong>, <code>null</code> and <code>undefined</code>, with the latter being more useful.</p>
+<h4 id="The-Value-undefined"><a href="#The-Value-undefined" class="headerlink" title="The Value undefined"></a>The Value undefined</h4><p><code>undefined</code> is a type with exactly one value: <code>undefined</code>.</p>
+<p>The language also defines a global variable that has the value of <code>undefined</code>; this variable is also called <code>undefined</code>. However, this variable is <strong>neither a constant</strong> <strong>nor a keyword</strong> of the language. This means that its value can be easily <strong>overwritten</strong>.</p>
+<p><strong>Here are some examples of when the value undefined is returned:</strong></p>
+<ul>
+<li>Accessing the (unmodified) global variable <code>undefined</code>.</li>
+<li>Accessing a declared but not yet initialized variable.</li>
+<li>Implicit returns of functions due to missing <code>return</code> statements.</li>
+<li><code>return</code> statements that do not explicitly return anything.</li>
+<li>Lookups of non-existent properties.</li>
+<li>Function parameters that do not have any explicit value passed.</li>
+<li>Anything that has been set to the value of <code>undefined</code>.</li>
+<li>Any expression in the form of <code>void(expression)</code></li>
+</ul>
+<h4 id="Uses-of-null"><a href="#Uses-of-null" class="headerlink" title="Uses of null"></a>Uses of null</h4><p>While <code>undefined</code> in the context of the JavaScript language is mostly used in the sense of a traditional <code>null</code>, the actual <code>null</code> (both a literal and a type) is more or less just another data type.</p>
+<p>It is used in some JavaScript internals (like declaring the end of the prototype chain by setting <code>Foo.prototype = null</code>), but in almost all cases, <strong>it can be replaced by <code>undefined</code></strong>.</p>
+<h3 id="The-delete-Operator"><a href="#The-delete-Operator" class="headerlink" title="The delete Operator"></a>The delete Operator</h3><p>In short, it&#39;s <strong>impossible to delete global variables</strong>, functions and some other stuff in JavaScript which have a <code>DontDelete</code> attribute set.</p>
+<h4 id="Global-code-and-Function-code"><a href="#Global-code-and-Function-code" class="headerlink" title="Global code and Function code"></a>Global code and Function code</h4><p>When a variable or a function is defined in a <strong>global</strong> or a <strong>function</strong> scope it is a property of either the Activation object or the Global object. Such properties have a set of attributes, one of which is <code>DontDelete</code>. <strong>Variable and function declarations in global and function code</strong> always create properties with <code>DontDelete</code>, and therefore cannot be deleted.</p>
+<h4 id="Function-arguments-and-built-ins"><a href="#Function-arguments-and-built-ins" class="headerlink" title="Function arguments and built-ins"></a>Function arguments and built-ins</h4><p>Functions&#39; normal arguments, <code>arguments</code> objects and <strong>built-in properties</strong> also have <code>DontDelete</code> set.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reading-notes/" rel="tag">#Reading notes</a>
+          
+            <a href="/tags/Web/" rel="tag">#Web</a>
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/03/JavaScript高级程序设计/" rel="next" title="Professional JavaScript for Web Developers">
+                <i class="fa fa-chevron-left"></i> Professional JavaScript for Web Developers
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/10/Style_CSS/" rel="prev" title="Style CSS">
+                Style CSS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Common-Pitfalls"><span class="nav-number">1.</span> <span class="nav-text">Common Pitfalls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Namespaces"><span class="nav-number">2.</span> <span class="nav-text">Namespaces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Iteration"><span class="nav-number">3.</span> <span class="nav-text">Iteration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-length-Property"><span class="nav-number">4.</span> <span class="nav-text">The length Property</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Array-Constructor"><span class="nav-number"></span> <span class="nav-text">The Array Constructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Equality-and-Comparisons"><span class="nav-number"></span> <span class="nav-text">Equality and Comparisons</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Equality-Operator"><span class="nav-number">1.</span> <span class="nav-text">The Equality Operator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Strict-Equality-Operator"><span class="nav-number">2.</span> <span class="nav-text">The Strict Equality Operator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparing-Objects"><span class="nav-number">3.</span> <span class="nav-text">Comparing Objects</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-typeof-Operator"><span class="nav-number"></span> <span class="nav-text">The typeof Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-JavaScript-Type-Table"><span class="nav-number">1.</span> <span class="nav-text">The JavaScript Type Table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Class-of-an-Object"><span class="nav-number">2.</span> <span class="nav-text">The Class of an Object</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Testing-for-Undefined-Variables"><span class="nav-number">3.</span> <span class="nav-text">Testing for Undefined Variables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#In-Conclusion"><span class="nav-number">4.</span> <span class="nav-text">In Conclusion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparing-Custom-Objects"><span class="nav-number">5.</span> <span class="nav-text">Comparing Custom Objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Using-instanceof-with-Native-Types"><span class="nav-number">6.</span> <span class="nav-text">Using instanceof with Native Types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Using-instanceof-with-Native-Types-1"><span class="nav-number">7.</span> <span class="nav-text">Using instanceof with Native Types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#In-Conclusion-1"><span class="nav-number">8.</span> <span class="nav-text">In Conclusion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-Casting"><span class="nav-number">9.</span> <span class="nav-text">Type Casting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constructors-of-Built-In-Types"><span class="nav-number">10.</span> <span class="nav-text">Constructors of Built-In Types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Casting-to-a-String"><span class="nav-number">11.</span> <span class="nav-text">Casting to a String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Casting-to-a-Number"><span class="nav-number">12.</span> <span class="nav-text">Casting to a Number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Casting-to-a-Boolean"><span class="nav-number">13.</span> <span class="nav-text">Casting to a Boolean</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-Not-to-Use-eval"><span class="nav-number"></span> <span class="nav-text">Why Not to Use eval</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined-and-null"><span class="nav-number"></span> <span class="nav-text">undefined and null</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Value-undefined"><span class="nav-number">1.</span> <span class="nav-text">The Value undefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Uses-of-null"><span class="nav-number">2.</span> <span class="nav-text">Uses of null</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-delete-Operator"><span class="nav-number"></span> <span class="nav-text">The delete Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Global-code-and-Function-code"><span class="nav-number">1.</span> <span class="nav-text">Global code and Function code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-arguments-and-built-ins"><span class="nav-number">2.</span> <span class="nav-text">Function arguments and built-ins</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

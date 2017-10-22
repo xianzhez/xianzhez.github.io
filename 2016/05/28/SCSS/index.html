@@ -1,0 +1,626 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reading notes,Web,CSS,SCSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="SASS &amp;amp; SCSS
+###VariablesWe can declare variables in our file that we can reuse throughout our document. This is common for colours and font stacks, and is probably one of the most handy uses of v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SASS & SCSS">
+<meta property="og:url" content="http://yoursite.com/2016/05/28/SCSS/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="SASS &amp;amp; SCSS
+###VariablesWe can declare variables in our file that we can reuse throughout our document. This is common for colours and font stacks, and is probably one of the most handy uses of v">
+<meta property="og:updated_time" content="2017-10-22T15:47:58.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SASS & SCSS">
+<meta name="twitter:description" content="SASS &amp;amp; SCSS
+###VariablesWe can declare variables in our file that we can reuse throughout our document. This is common for colours and font stacks, and is probably one of the most handy uses of v">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/28/SCSS/"/>
+
+  <title> SASS & SCSS | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SASS & SCSS
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-28T00:00:00+08:00" content="2016-05-28">
+              2016-05-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<h1 id="SASS-amp-SCSS"><a href="#SASS-amp-SCSS" class="headerlink" title="SASS &amp; SCSS"></a>SASS &amp; SCSS</h1></blockquote>
+<p>###Variables<br>We can declare variables in our file that we can reuse throughout our document. This is common for colours and font stacks, and is probably one of the most handy uses of variables off the bat. Here’s the SCSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$pad : 2em;</div><div class="line">$color-primary : rgb(40,40,40);</div><div class="line">$color-secondary : rgb(40,170,220);</div><div class="line"></div><div class="line">body &#123;</div><div class="line">  background-color: $color-primary;</div><div class="line">&#125;</div><div class="line"></div><div class="line">h1 &#123;</div><div class="line">  color: $color-secondary;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.container &#123;</div><div class="line">  padding: $pad;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>And here’s the compiled CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  background-color: #282828;</div><div class="line">&#125;</div><div class="line"></div><div class="line">h1 &#123;</div><div class="line">  color: #28aadc;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.container &#123;</div><div class="line">  padding: 2em;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>###Nesting<br>We can <strong>nest CSS selectors</strong>. This is both beautiful and dangerous, because it’s easy to get carried away with nesting, and end up with very long declarations. Learn it and master it. Nesting can become your best friend, but can also add load to your stylesheet. Let’s look at a classic example – a basic navigation list. Here’s our SCSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">nav &#123;</div><div class="line">  text-align: center;</div><div class="line">  ul &#123;</div><div class="line">    list-style: none;</div><div class="line">    margin: 0;</div><div class="line">    padding: 0;</div><div class="line">  &#125;</div><div class="line">  li &#123;</div><div class="line">    display: inline-block;</div><div class="line">  &#125;</div><div class="line">  a &#123;</div><div class="line">    display: block;</div><div class="line">    padding: 5px 10px;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>And this it what it looks like when compiled:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">nav &#123;</div><div class="line">  text-align: center;</div><div class="line">&#125;</div><div class="line">nav ul &#123;</div><div class="line">  list-style: none;</div><div class="line">  margin: 0;</div><div class="line">  padding: 0;</div><div class="line">&#125;</div><div class="line">nav li &#123;</div><div class="line">  display: inline-block;</div><div class="line">&#125;</div><div class="line">nav a &#123;</div><div class="line">  display: block;</div><div class="line">  padding: 5px 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Extend</p>
+<p>We can extend styles <strong>from other declarations</strong>. This is particularly useful when dealing with CSS grids, and you want to name your styles mathematically in your stylesheet, but keep it all good and semantic in your markup. Let’s look an example. Here’s our SCSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">// columns</div><div class="line">.col-1-3 &#123;</div><div class="line">  width: 33.33%;</div><div class="line">&#125;</div><div class="line">.col-2-3 &#123;</div><div class="line">  width: 66.66%;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// colours</div><div class="line">.blue &#123;</div><div class="line">  color: rgb(40,170,220);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// structure</div><div class="line">.primary-content &#123;</div><div class="line">  @extend .col-2-3;</div><div class="line">&#125;</div><div class="line">.secondary-content &#123;</div><div class="line">  @extend .col-2-3;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// text</div><div class="line">p.highlight &#123;</div><div class="line">  font-size: 3em;</div><div class="line">  @extend .blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>And here’s the compiled CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.col-1-3, .secondary-content &#123;</div><div class="line"> width: 33.33%;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.col-2-3, .primary-content &#123;</div><div class="line"> width: 66.66%;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.blue, p.highlight &#123;</div><div class="line"> color: #28aadc;</div><div class="line">&#125;</div><div class="line"></div><div class="line">p.highlight &#123;</div><div class="line"> font-size: 3em;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Import<br>We can <strong>split</strong> our CSS into smaller, more maintainable files, and import them into a master stylesheet. We can underscore these files to let Sass know not to compile them into CSS files. Rather, just drop the code into our master file. For example, if we had 3 separate stylesheets for a reset, grid work, and text styles, we would have _reset.scss, _grid.scss, and _text.scss, and our main style.scss would look like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@import &apos;reset&apos;;</div><div class="line">@import &apos;grid&apos;;</div><div class="line">@import &apos;text&apos;;</div><div class="line"></div><div class="line">body &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">h1 &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Mixins<br>Mixins are one of the true beauties of Sass. They allow us to <strong>create our own functions</strong> and pass in <strong>variables</strong>. This is particularly useful for properties that need <strong>vendor prefixing</strong>. I’ll snag the example from the Sass website, because it echoes the usage perfectly. Here’s some SCSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius($radius) &#123;</div><div class="line">  -webkit-border-radius: $radius;</div><div class="line">     -moz-border-radius: $radius;</div><div class="line">      -ms-border-radius: $radius;</div><div class="line">          border-radius: $radius;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.box &#123;</div><div class="line">  @include border-radius(10px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>And here’s our perfectly compiled CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.box &#123;</div><div class="line">  -webkit-border-radius: 10px;</div><div class="line">  -moz-border-radius: 10px;</div><div class="line">  -ms-border-radius: 10px;</div><div class="line">  border-radius: 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Wrap Up</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reading-notes/" rel="tag">#Reading notes</a>
+          
+            <a href="/tags/Web/" rel="tag">#Web</a>
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/SCSS/" rel="tag">#SCSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/23/CSS/" rel="next" title="CSS Basics">
+                <i class="fa fa-chevron-left"></i> CSS Basics
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/17/WEB_tips/" rel="prev" title="Web Tips">
+                Web Tips <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SASS-amp-SCSS"><span class="nav-number">1.</span> <span class="nav-text">SASS & SCSS</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

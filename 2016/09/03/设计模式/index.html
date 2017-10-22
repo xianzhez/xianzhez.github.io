@@ -1,0 +1,789 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CS Base," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Design Pattern1、简单工厂模式解决对象创建问题。（抽象工厂模式利用反射可以减少选择判断，从而减少需求增加时带来的变化）
+2、策略模式（Strategy）策略模式，定义算法家族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户。
+策略模式就是用来封装算法的，但在实践中，我们发现可以用它来封装几乎任何类型的规则，只要在分析过程中听到需要在不同时间应用不同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design Pattern">
+<meta property="og:url" content="http://yoursite.com/2016/09/03/设计模式/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="Design Pattern1、简单工厂模式解决对象创建问题。（抽象工厂模式利用反射可以减少选择判断，从而减少需求增加时带来的变化）
+2、策略模式（Strategy）策略模式，定义算法家族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户。
+策略模式就是用来封装算法的，但在实践中，我们发现可以用它来封装几乎任何类型的规则，只要在分析过程中听到需要在不同时间应用不同">
+<meta property="og:updated_time" content="2017-10-22T15:37:30.300Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Design Pattern">
+<meta name="twitter:description" content="Design Pattern1、简单工厂模式解决对象创建问题。（抽象工厂模式利用反射可以减少选择判断，从而减少需求增加时带来的变化）
+2、策略模式（Strategy）策略模式，定义算法家族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户。
+策略模式就是用来封装算法的，但在实践中，我们发现可以用它来封装几乎任何类型的规则，只要在分析过程中听到需要在不同时间应用不同">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/03/设计模式/"/>
+
+  <title> Design Pattern | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Design Pattern
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-03T00:00:00+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CS-Base/" itemprop="url" rel="index">
+                    <span itemprop="name">CS Base</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Design-Pattern"><a href="#Design-Pattern" class="headerlink" title="Design Pattern"></a>Design Pattern</h1><h1 id="1、简单工厂模式"><a href="#1、简单工厂模式" class="headerlink" title="1、简单工厂模式"></a>1、简单工厂模式</h1><p>解决对象创建问题。（抽象工厂模式利用反射可以减少选择判断，从而减少需求增加时带来的变化）</p>
+<h1 id="2、策略模式（Strategy）"><a href="#2、策略模式（Strategy）" class="headerlink" title="2、策略模式（Strategy）"></a>2、策略模式（Strategy）</h1><p>策略模式，定义算法家族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户。</p>
+<p>策略模式就是用来封装算法的，但在实践中，我们发现可以用它来封装几乎任何类型的规则，只要在分析过程中听到需要在不同时间应用不同的业务规则，就可以考虑使用策略模式处理这种变化的可能性。</p>
+<a id="more"></a>
+<h1 id="3、单一职责原则（SRP）"><a href="#3、单一职责原则（SRP）" class="headerlink" title="3、单一职责原则（SRP）"></a>3、单一职责原则（SRP）</h1><p>就一个类而言，应该仅有一个引起它变化的原因</p>
+<h1 id="4、开放-封闭原则（The-Open-Closed-Principle-CCP）"><a href="#4、开放-封闭原则（The-Open-Closed-Principle-CCP）" class="headerlink" title="4、开放-封闭原则（The Open-Closed Principle CCP）"></a>4、开放-封闭原则（The Open-Closed Principle CCP）</h1><p>软件实体（类、模块、函数等等）应该可以扩展，但不可以修改。两个特征：对于扩展是开放的，对于更改是封闭的。</p>
+<p>尽量通过扩展来满足新的需求，而不是去修改原有的代码。</p>
+<h1 id="5、依赖倒转原则"><a href="#5、依赖倒转原则" class="headerlink" title="5、依赖倒转原则"></a>5、依赖倒转原则</h1><p>A. 高层模块不应该依赖底层模块。两个都应该依赖抽象。</p>
+<p>B. 抽象不应该依赖细节，细节应该依赖于抽象。</p>
+<p>面向接口编程，不要对实现编程。</p>
+<p>强内聚、松耦合</p>
+<p>里氏代换原则（LSP）：子类型必须能够替代他们的父类型</p>
+<h1 id="6、装饰模式（Decorator）"><a href="#6、装饰模式（Decorator）" class="headerlink" title="6、装饰模式（Decorator）"></a>6、装饰模式（Decorator）</h1><p>装饰模式，动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。</p>
+<p>在需要给原有的类增加新的字段、新的方法和新的逻辑时，用装饰模式，把每个要装饰的功能放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。</p>
+<p>把类中的装饰功能从类中搬移去除，这样可以简化原有的类。有效地把类的核心职责和装饰功能区分开了。而且可以去除相关类中重复的装饰逻辑。</p>
+<p>结合穿衣的例子，给一个类按需添加不同的功能，而原来的类不需要知道装饰类的存在，添加功能的顺序也很重要。</p>
+<h1 id="7、代理模式（Proxy）"><a href="#7、代理模式（Proxy）" class="headerlink" title="7、代理模式（Proxy）"></a>7、代理模式（Proxy）</h1><p>代理模式，为其他对象提供一种代理以控制对这个对象的访问。</p>
+<p>应用场景：</p>
+<p>1.）远程代理，对象在不同的地址空间提供局部代表，这样可以隐藏一个对象存在于不同地址空间的事实。</p>
+<p>2.）虚拟代理，根据需要创建开销很大的对象。通过它来存放实例化需要很长时间的真实对象。（浏览器优化下载功能，提升网页加载体验）</p>
+<p>3.）安全代理，用来控制真实对象访问时的权限。（用于对象应该有不同的访问权限）</p>
+<p>4.）智能指引，当调用真实地对象时，代理处理另外一些事。（用代理处理一些附加的内务处理）</p>
+<h1 id="8、工厂方法模式（Factory-Method）"><a href="#8、工厂方法模式（Factory-Method）" class="headerlink" title="8、工厂方法模式（Factory Method）"></a>8、工厂方法模式（Factory Method）</h1><p>工厂方法模式，定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。</p>
+<p>区别于简单工厂模式。</p>
+<p>利用反射机制，避免修改客户端（使用者）的代码</p>
+<h1 id="9、原型模式（Prototype）"><a href="#9、原型模式（Prototype）" class="headerlink" title="9、原型模式（Prototype）"></a>9、原型模式（Prototype）</h1><p>原型模式，用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p>
+<p>原型模式其实就是从一个对象再创建另外一个可定制的对象，而且不需知道任何创建的细节。</p>
+<p>一般在初始化的信息不发生变化的情况下，克隆是最好的办法。这既吟唱了对象创建的细节，又对性能是大大地提高。</p>
+<p>不用重新初始化对象，而是动态地获取对象运行时的状态。</p>
+<p>Clone：</p>
+<p>浅表副本（MemberwiseClone，.NET）：创建当前对象的浅表副本。方法使创建一个新对象，然后将当前对象的非静态字段复制到该新对象。如果字段是值类型的，则对该字段执行逐位复制。如果字段是引用类型，则复制引用但不复制引用的对象；因此，原始对象及其副本引用同一对象。</p>
+<p>深复制：把引用对象的变量指向复制过的新对象，而不是原有的被引用的对象。应当心出现循环引用的问题，深入复制的层级要事先考虑。</p>
+<h1 id="10、模板方法模式（TemplateMethod）"><a href="#10、模板方法模式（TemplateMethod）" class="headerlink" title="10、模板方法模式（TemplateMethod）"></a>10、模板方法模式（TemplateMethod）</h1><p>模板方法模式，定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可冲定义该算法的某些特定步骤。</p>
+<p>当我们要完成在某一细节层次一致的一个过程或一系列步骤，但其个别步骤在更详细的乘此上的实现可能不同时，我们通常考虑用模板方法模式来处理。</p>
+<p>使用抽象类（AbstractClass）其实就是一种抽象模板。</p>
+<p>模板方法模式是通过把不变行为搬移到超类，去除子类中的重复代码来体现它的优势。提供了一个很好地代码复用平台。</p>
+<h1 id="11、迪米特法则（LoD）"><a href="#11、迪米特法则（LoD）" class="headerlink" title="11、迪米特法则（LoD）"></a>11、迪米特法则（LoD）</h1><p>如果两个类不必彼此直接通信，那么这两个类就不应当发生直接的相互作用。如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。</p>
+<p>首先强调的前提是：在类的结构设计上，每一个类都应当尽量降低成员的访问权限（一个包装好自己的private状态，不需要让别的类知道的字段或行为就不要公开）。</p>
+<p>根本思想：强调了类之间的松耦合。类之间的耦合越弱，越有利于复用，一个处在弱耦合的类被修改，不会对有关系的类造成波及。</p>
+<h1 id="12、外观模式（Facade）或门面模式"><a href="#12、外观模式（Facade）或门面模式" class="headerlink" title="12、外观模式（Facade）或门面模式"></a>12、外观模式（Facade）或门面模式</h1><p>外观模式，为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</p>
+<p>在设计初期阶段，应该要有意识的将不同的两个层分离（如三层架构：数据访问层、业务逻辑层、表示层），层与层之间建立外观Facade。</p>
+<p>在开发阶段，子系统往往因为不断地重构演化而变得越来越复杂，增加外观Facade可以提供一个简单地接口，减少他们之间的依赖。</p>
+<p>在维护一个遗留的大型系统时，可能这个系统已经非常难以维护和扩展了。为新系统开发一个外观Facade类，来提供设计粗糙或高度复杂的遗留代码的比较清晰简单地接口，让新系统与Facade对象交互，Facade与遗留代码交互所有复杂的工作。</p>
+<h1 id="13、建造者模式（Builder）或生成器模式-Android-Dialog-Builder"><a href="#13、建造者模式（Builder）或生成器模式-Android-Dialog-Builder" class="headerlink" title="13、建造者模式（Builder）或生成器模式 Android : Dialog.Builder"></a>13、建造者模式（Builder）或生成器模式 Android : Dialog.Builder</h1><p>建造者模式，将一个复杂对象的构建与它的表示分离，使得同样地构建过程可以创建不同的表示。</p>
+<p>建造者模式是在当创建复杂对象的算法应该独立于该对象的组成部分以及他们的装配方式时适用的模式。</p>
+<h1 id="14、观察者模式（Observer，-又叫发布-订阅（Publish-Subscribe）模式）Android-listener-observer"><a href="#14、观察者模式（Observer，-又叫发布-订阅（Publish-Subscribe）模式）Android-listener-observer" class="headerlink" title="14、观察者模式（Observer， 又叫发布-订阅（Publish/Subscribe）模式）Android :listener, observer"></a>14、观察者模式（Observer， 又叫发布-订阅（Publish/Subscribe）模式）Android :listener, observer</h1><p>观察者模式，定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己。</p>
+<p>应用场景：当一个对象的改变需要同时改变其他对象时，而且它不知道具体有多少对象有待改变。观察者模式作做的工作其实就是在接触耦合。让耦合的双方都依赖于抽象，而不是依赖具体。从而使得各自的变化都不会影响另一边。</p>
+<p>这是依赖倒转原则的典型体现。</p>
+<h1 id="15、抽象工厂模式（Abstract-Factory）"><a href="#15、抽象工厂模式（Abstract-Factory）" class="headerlink" title="15、抽象工厂模式（Abstract Factory）"></a>15、抽象工厂模式（Abstract Factory）</h1><p>抽象工厂模式，提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</p>
+<p>使用反射，配置文件，达到最小的修改。</p>
+<p>所有在简单工厂的地方，都可以考虑用反射技术去除switch或if，解除分支判断带来的耦合。</p>
+<h1 id="16、状态模式（State）"><a href="#16、状态模式（State）" class="headerlink" title="16、状态模式（State）"></a>16、状态模式（State）</h1><p>状态模式，当一个对象的内在状态改变时，允许改变其行为，这个对象看起来像是改变了其类。</p>
+<p>状态模式主要解决的是当控制一个对象状态转换的条件表达式过于复杂时的情况。把状态的判断逻辑转移到表示不同状态的一系列类当中，可以把复杂的判断逻辑简化。</p>
+<p>好处：将与特定状态相关的行为局部化，并且将不同状态的行为分割开来，消除庞大的条件分支语句</p>
+<h1 id="17、适配器模式（Adapter）Android-ListView-ArrayAdapter-BaseAdapter"><a href="#17、适配器模式（Adapter）Android-ListView-ArrayAdapter-BaseAdapter" class="headerlink" title="17、适配器模式（Adapter）Android : ListView ArrayAdapter BaseAdapter"></a>17、适配器模式（Adapter）Android : ListView ArrayAdapter BaseAdapter</h1><p>适配器模式，将一个类的借口转换成客户希望的另外一个接口。Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</p>
+<p>应用场景：需要的东西就在面前，但却不能使用，而短时间又无法改造它，于是我们就想办法适配它。系统的数据和行为都正确，但接口不符时，我们应该考虑用适配器，目的是使控制范围之外的一个原有对象与某个接口匹配。适配器模式主要应用于希望复用一些现存的类，但是接口又与复用环境要求不一致的情况。</p>
+<p>类适配器模式和对象适配器模式。</p>
+<p>类适配器模式通过多重继承对一个接口与另一个接口匹配。（很多语言，如JAVA不支持多重继承，所以用到的不多）</p>
+<p>对象适配器模式：</p>
+<p>使用一个已经存在的类，但如果它的接口，也就是它的方法和你的要求不同时应该考虑适配器模式。两个类所做的事情相同或相似，但是具有不同的接口时要使用它。客户代码可以统一调用同一接口就行了，这样可以更简单，更直接，更紧凑。</p>
+<h1 id="18、备忘录模式（Memento）"><a href="#18、备忘录模式（Memento）" class="headerlink" title="18、备忘录模式（Memento）"></a>18、备忘录模式（Memento）</h1><p>备忘录模式，在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象回复到原先保存的状态。</p>
+<p>Originator（发起人）：负责创建一个备忘录Memento，用以记录当前时刻它的内部状态，并可使用备忘录回复内部状态。Originator可根据需要决定Memento存储Originator的哪些内部状态。</p>
+<p>Memento（备忘录）：负责存储Originator对象的内部状态，并防止Originator以外的其他对象访问备忘录Memento。备忘录有两个接口，Caretaker只能看到备忘录的窄接口，它只能将备忘录传递给其他对象。Originator能够看到一个宽接口，允许它访问返回到先前状态所需的所有数据。</p>
+<p>Caretaker（管理者）：负责保存好备忘录Memento，不能对备忘录的内容进行操作或检查。</p>
+<p>使用clone方式来实现Memento的状态保存可能是更好的办法，但是如果是这样的话，使得我们相当于对上层应用开放了Originator的全部（public）接口，这对于保存备份有时候是不合适的Memento可以选择备份部分信息，而不是对象的全部信息的属性。</p>
+<p>应用场景：Memento模式比较适用于功能比较复杂的，但需要维护或记录属性历史的类，或者需要保存的属性只是众多属性中的一小部分时，Originator可以根据保存的Memento信息还原到前一状态。如果在某个系统中使用命令模式时，需要实现命令的撤销功能，那么命令模式可以使用备忘录模式来存储可撤销操作的状态。有时一些对象的内部信息必须保存在对象以外的地方，但是必须要由对象自己读取，这时，使用备忘录可以把复杂的对象内部信息对其他的对象屏蔽起来，从而可以恰当地保持封装的边界。最重要的作用：当角色的状态改变的时候，有可能这个状态无效，这时候就可以使用暂时存储起来的备忘录将状态复原。</p>
+<p>如果状态数据很大很多，在资源消耗上，备忘录对象会非常消耗内存，所以也不是用得越多越好。</p>
+<h1 id="19、组合模式（Composite）Android-View-ViewGroup"><a href="#19、组合模式（Composite）Android-View-ViewGroup" class="headerlink" title="19、组合模式（Composite）Android :View,ViewGroup"></a>19、组合模式（Composite）Android :View,ViewGroup</h1><p>组合模式，将对象组合成属性结构以表示“部分-整体”的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。</p>
+<p>循环嵌套的方式来实现层次结构以及复用。</p>
+<p>“透明方式”，在Component中声明所有用来管理子对象的方法，这样实现Component接口的所有子类都具备了相同的接口，这样的好处就是叶节点和枝节点对于外界没有区别，它们具备完全一致的行为接口。但问题也很明显，因为Leaf类本身不具备某些枝节点用于管理子节点的特殊方法的功能，所以实现它是没有意义的。使用“安全方式”，在Component接口中不去声明那些特殊方法，这样做就不会出现上述问题，但由于不透明，所以输液和树枝类将不具有相同的接口，客户端调用需要做相应地判断，带来了不便。</p>
+<p>应用场景：需求中是体现部分与整体层次的结构时，以及你希望用户可以忽略组合对象与单个对象的不同，统一地使用组合结构中的所有对象时，就应该考虑用组合模式了。</p>
+<h1 id="20、迭代器模式（Iterator）"><a href="#20、迭代器模式（Iterator）" class="headerlink" title="20、迭代器模式（Iterator）"></a>20、迭代器模式（Iterator）</h1><p>迭代器模式，提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露该对象的内部表示。</p>
+<p>应用场景：当你需要访问一个聚集对象，而且不管这些对象是什么都需要遍历的时候，你就应该考虑用迭代器模式。当需要对聚集有多重方式遍历时，可以考虑用迭代器模式。为遍历不同的聚集结构提供如开始、下一个、是否结束、当前哪一项等统一的接口。不过大部分语言已经将该模式集成在语言中，foreach语句。</p>
+<p>迭代器模式就是分离了集合对象的遍历行为，抽象出一个迭代器类来负责，这样既可以做到不暴露集合的内部结构，又可以让外部代码透明地访问集合内部的数据。</p>
+<h1 id="21、单例模式（Singleton）"><a href="#21、单例模式（Singleton）" class="headerlink" title="21、单例模式（Singleton）"></a>21、单例模式（Singleton）</h1><p>单例模式，保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+<p>通常我们可以让一个全局变量使得一个对象被访问，但它不能防止你实例化多个对象。一个最好的方法就是，让类自身负责保存它的唯一实例。这个类可以保证没有其他实例可以被创建，并且它可以提供一个访问该实例的方法。</p>
+<p>单例模式因为Singleton类封装它的唯一实例，这样它可以严格地控制客户怎样访问它以及合适访问它。简单地说就是对唯一实例的受控访问。</p>
+<p>所有类都有构造方法，不编码则系统默认生成空的构造方法，若有显式定义的构造方法，默认的构造方法就会失效。将构造方法设为private，则外部程序就不能用new来实例化它了。</p>
+<p>多线程情况：lock是确保当一个线程位于代码的临界区时，另一个线程不进入临界区。如果其他线程试图进入锁定的代码，则它将一直等待（即被阻止），知道该对象被释放。在单例模式中，locker也必须是static的。使用双重锁定（需要判断两次instance是否为空），来减少锁定，并保证线程安全。饿汉式（使用constant修饰）单例类，在加载时就实例化，需要预占内存空间；懒汉式是在需要时实例化类，需要双重锁定来保证线程安全。</p>
+<h1 id="22、桥接模式（Bridge）"><a href="#22、桥接模式（Bridge）" class="headerlink" title="22、桥接模式（Bridge）"></a>22、桥接模式（Bridge）</h1><p>桥接模式，将抽象部分与它的实现部分分离，使它们都可以独立地变化。</p>
+<p>什么叫抽象与它的实现分离，这并不是说，让抽象类与其派生类分离，因为这没有任何意义。实现指的是抽象类和它的派生类用来实现自己的对象。（如手机可以按照品牌分类，也可以按照功能来分类）核心意图就是把这些实现独立出来，让它们各自地变化。这就使得每种实现的变化不会影响其他实现，从而达到应对变化的目的。</p>
+<p>抽象部分与实现部分分离，是指实现系统可能有多角度分类，每一种分类都有可能变化，那么就把这种多角度分离出来让它们独立变化，减少他们之间的耦合。只要深入地理解了设计原则，很多设计模式其实就是原则的应用而已，或许在不知不觉中就在使用设计模式了。</p>
+<p>对象的继承关系式在编译时就定义好了，所以无法在运行时改变从父类继承的实现。子类的实现与它的父类有非常紧密的依赖关系，以至于父类实现中的任何变化必然会导致子类发生变化。当你需要复用子类时，如果继承下来的实现不适合解决新的问题，则父类必须重写或被其他更适合的类替换。这种依赖关系限制了灵活性并最终限制了复用性。</p>
+<p>合成/聚合复用原则(CARP)</p>
+<p>优先使用对象合成聚合，而不是类继承。</p>
+<p>聚合表示一种弱的“拥有关系”，体现的是A对象可以包含B对象，但B对象不是A对象的一部分；合成则是一种强的“拥有”关系，体现了严格地部分和整体的关系，部分和整体的生命周期一样。</p>
+<p>合成/聚合复用原则的好处是，有限使用对象的合成/聚合将有助于保持每个类被封装，并被击中在单个任务上。这样类和类继承层次会保持较小的规模，并且不太可能增长为不可控制的庞然大物。</p>
+<p>继承是一种强耦合的结构，父类变，子类就必须要变。“is-a”关系。</p>
+<h1 id="23、命令模式（Command）"><a href="#23、命令模式（Command）" class="headerlink" title="23、命令模式（Command）"></a>23、命令模式（Command）</h1><p>命令模式（Command），将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。</p>
+<p>让行为请求者与行为实现者松耦合。对请求排队或记录请求日志，以及支持可撤销的操作等行为。</p>
+<p>优点：第一，它能较容易地设计一个命令队列；第二，在需要的情况下，可以较容易地将命令记入日志；第三，允许接收请求的一方决定是否要否决请求。第四，可以容易地实现对请求的撤销和重做；第五，由于加进新的具体命令类不影响其他的类，因此增加新的具体命令很容易。最关键的优点：命令模式把请求一个操作的对象与知道怎么执行一个操作的对象分割开。</p>
+<p>敏杰开发员额告诉我们：不要为代码增加基于猜测的、实际不需要的功能。如果不清楚一个系统是否需要命令模式，一般就不要着急去实现它，事实上，在需要的时候通过重构实现这个模式并不困难，只有在真正需要如撤销/回复操作等功能时，把原来的代码重构为命令模式才有意义。</p>
+<h1 id="24、职责链模式（Chain-of-Responsibility）"><a href="#24、职责链模式（Chain-of-Responsibility）" class="headerlink" title="24、职责链模式（Chain of Responsibility）"></a>24、职责链模式（Chain of Responsibility）</h1><p>职责链模式，使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系。将这个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</p>
+<p>优点：当客户提交一个请求时，请求是沿着链传递直至有一个ConcreteHandler对象负责处理它。接收者和发送者没有对方的明确信息，且链中的对象自己也不知道链的结构，结果是职责链可简化对象的相互连接，它们仅需保持一个纸箱其后继者的引用，而不需保持它所有的候选接受者的引用。随时地增加或修改处理一个请求的结构。增强了给对象指派职责的灵活性。一个请求极有可能到了链的末端都得不到处理，或者因为没有正确配置而得不到处理。</p>
+<h1 id="25、中介者模式（Mediator）"><a href="#25、中介者模式（Mediator）" class="headerlink" title="25、中介者模式（Mediator）"></a>25、中介者模式（Mediator）</h1><p>中介者模式，用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，耳聪使其耦合松散，而且可以独立地改变他们之间的交互。</p>
+<p>尽管将一个系统分割成许多对象通常可以增加其复用性，但是对象间相互连接的激增又会降低其可复用性了。大量的连接使得一个对象不可能在没有其他对象的支持下工作，系统表现为一个不可分割的整体，所以，对系统的行为进行任何较大的改动就十分困难了。（迪米特法则）</p>
+<p>优缺点：中介者模式很容易在系统中应用，也很容在系统中误用。当系统出现了‘多对多’交互复杂的对象群时，不要急于使用中介者模式，而要先反思你的系统在设计上是不是合理。</p>
+<p>优点：Mediator的出现减少了各个Colleague的耦合，使得可以独立地改变和复用各个Colleague类和Mediator。由于把对象如何协作进行了抽象，将中介作为一个独立地概念并将其封装在一个对象中，这样关注的对象就从对象各自本身的行为转移到它们之间的交互上来，也就是站在一个更宏观的角度去看待系统。</p>
+<p>缺点：由于ConcreteMediator控制了集中化，于是就把交互复杂性变为了中介者的复杂性，这就使得中介者会变得比任何一个ConcreteColleague都复杂。</p>
+<p>中介者模式一般应用于一组对象以定义良好但是复杂的方式进行通信的场合，以及想定制一个分布在多个类中的行为，而又不想生成太多的子类的场合。</p>
+<h1 id="26、享元模式（Flyweight）"><a href="#26、享元模式（Flyweight）" class="headerlink" title="26、享元模式（Flyweight）"></a>26、享元模式（Flyweight）</h1><p>享元模式，运用共享技术有效地支持大量细粒度的对象。</p>
+<p>Flyweight类，它使所有具体享元类的超类或接口，通过这个接口，Flyweight可以接受并作用于外部状态。</p>
+<p>ConcreteFlyweight是继承Flyweight超类或实现Flyweight接口，并为内部增加存储空间。</p>
+<p>UnsharedConcreteFlyweight是指那些不需要共享的Flyweight子类。因为Flyweight接口共享成为可能，但它并不强制共享。</p>
+<p>FlyweightFactory，是一个享元工厂，用来创建并管理Flyweight对象。它主要用来确保合理地共享Flyweight，当用户请求是一个Flyweight时，FlyweightFactory对象提供一个已创建的实例或者创建一个（如果不存在的话）。</p>
+<p>内部状态与外部状态：在享元对象内部并且不会随环境改变而改变的共享部分，可以称为是享元对象的内部状态，而随环境改变而改变的、不可以共享的状态就是外部状态了。事实上，享元模式可以避免大量非常相似类的开销。在程序设计中，有时需要生成大量细粒度的类实例来表示数据。如果能发现这些实例除了几个参数外基本上都是相同的，有时就能够大幅度地减少需要实例化的类的数量。如果能把那些参数移到类实例的外面，在方法调用时传递进来，就可以通过共享大幅度地减少单个实例的数目。（享元模式Flyweight执行时所需的状态是有内部的也有可能有外部的，内部状态存储于ConcreteFlyweight对象之中，而外部对象则应该考虑由客户端对象存储或计算，当调用Flyweight对象的操作时，将该状态传递给它）</p>
+<p>应用场景：如果一个应用程序使用了大量的对象，而大量的这些对象造成了很大的存储开销时就应该考虑使用；还有就是对象的大多数状态可以外部状态，如果删除对象的外部状态，那么可以用相对较少的共享对象取代很多组对象，此时可以考虑使用享元模式。</p>
+<h1 id="27、解释器模式（Interpreter）：正则表达式等；"><a href="#27、解释器模式（Interpreter）：正则表达式等；" class="headerlink" title="27、解释器模式（Interpreter）：正则表达式等；"></a>27、解释器模式（Interpreter）：正则表达式等；</h1><p>解释器模式，给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。</p>
+<p>应用场景：解释器模式需要解决的是，如果一种特定类型的问题发生的频率足够高，那么可能就值得将该问题的各个实例表述为一个简单语言中的句子。这样就可以构建一个解释器，该解释器通过解释这些句子来解决该问题。</p>
+<p>AbstractExpression（抽象表达式），声明一个抽象的解释操作，这个接口为抽象语法树中所有的节点所共享。</p>
+<p>TerminalExpression（终结符表达式），实现与文法中的终结符相关联的解释操作。实现抽象表达式中所要求的接口，主要是一个interpriet()方法。文法中每一个终结符都有一个具体中介表达式与之相对应。</p>
+<p>NonterminalExpression（非终结符表达式），为文法中的非终结符实现解释操作。对文法中每一条规则R1、R2......Rn都需要一个具体的非终结符表达式类。通过实现抽象表达式的interpret()方法实现解释操作。解释操作以地柜方式调用R1、R2......Rn中各个符号的实例变量。</p>
+<p>Context，包含解释器之外的一些全局信息。</p>
+<p>客户端代码，构建表示该文法定义的语言中一个特定的句子的抽象语法树。调用解释操作。</p>
+<p>理解：解释器模式就是用“迷你语言”来表现程序要解决的问题，以迷你语言写成“迷你程序”来表现具体的问题。当有一个语言需要解释执行，并且你可将该语言中的句子表示为一个抽象语法树时，可使用解释器模式。</p>
+<p>优点：可以很容易地改变和扩展文法，因为该模式使用类来表示文法规则，你可使用继承来改变或扩展该文法。也比较容易实现文法，因为定义抽象语法树中各个节点的类的实现大体类似，这些类都易于直接编写。</p>
+<p>缺点：解释器模式的不足，解释器模式为文法中的每一条规则至少定义了一个类，因此包含许多规则的文法可能难以管理和维护。建议当文法非常复杂时，使用其他的技术如语法分析程序或编译器生成器来处理。</p>
+<h1 id="28、访问者模式（Vistor）"><a href="#28、访问者模式（Vistor）" class="headerlink" title="28、访问者模式（Vistor）"></a>28、访问者模式（Vistor）</h1><p>访问者模式，表示一个作用于某对象结构中的各元素的操作。它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</p>
+<p>双分派（Dispatch）技术，意味着得到执行的操作决定于请求的种类和两个接收者的类型。</p>
+<p>应用场景：访问者模式适用于数据结构相对稳定的系统。它把数据结构和作用于结构上的操作之间的耦合解脱开，使得操作集合可以相对自由地演化。</p>
+<p>访问者模式的目的是要把处理从数据结构分离出来。如果系统有比较稳定的数据结构，又有易于变化的算法，使用访问者模式就比较合适，因为访问者模式使得算法操作的增加变得容易。反之，如果数据结构经常变化，则不适合访问者模式。</p>
+<p>优点：增加新的操作很容易，因为增加新的操作就意味着增加一个新的访问者。访问者模式将有关的行为集中到一个访问者对象中。</p>
+<p>缺点：使增加新的数据结构变得困难。</p>
+<p>访问者模式使用的机会不太多，因为大部分情况下都需要数据结构的变化。</p>
+<h1 id="29、总结"><a href="#29、总结" class="headerlink" title="29、总结"></a>29、总结</h1><blockquote>
+<p>分类：创建型模式、结构型模式、行为型模式</p>
+</blockquote>
+<h2 id="创建型模式："><a href="#创建型模式：" class="headerlink" title="创建型模式："></a>创建型模式：</h2><ol>
+<li><p>抽象工厂：提供一个创建一系列或相关依赖对象的接口，而无需指定它们具体的类。</p>
+</li>
+<li><p>建造者：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+</li>
+<li><p>工厂方法：定义一个用于创建对象的接口，让子类决定实例化哪一个类，工厂模式使一个类的实例化延迟到其子类。</p>
+</li>
+<li><p>原型：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p>
+</li>
+<li><p>单例：保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+</li>
+</ol>
+<p>创建型模式隐藏了这些类的实例是如何被创建和放在一起，整个系统关于这些对象所知道的是由抽象类所定义的接口。这样，创建型模式在创建了什么、谁创建它、它使怎么被创建的，以及何时创建这些方面提供了很大的灵活性。建立相应数目的原型并克隆它们通常比每次用合适的状态手工实例化该类更方便一些。</p>
+<p>松耦合：内聚性描述的是一个例程内部组成部分之间相互联系的紧密程度。而耦合性描述的是一个例程与其他例程之间联系的紧密程度。软件开发的目标应该是创建这样的例程：内部完整，也就是高内聚，而与其他例程之间的联系则是小巧、直接、可见、灵活地，这就是松耦合。</p>
+<p>创建型模式抽象了实例化的过程。它们帮助一个系统独立于如何创建、组合和表示它的那些对象。创建型模式都会将关于该系统使用哪些具体的类的信息封装起来。允许客户用结构和功能差别很大的“产品”对象配置一个系统。配置可以是静态的，即在编译时指定，也可以是动态的，就是运行时再指定。</p>
+<p>通常设计是从工厂方法开始，当设计者发现需要更大的灵活性时，设计便会向其他创建型模式演化。当设计者在设计标准之间进行权衡的时候，了解多个创建型模式可以给设计者更多的选择余地。</p>
+<h2 id="结构型模式："><a href="#结构型模式：" class="headerlink" title="结构型模式："></a>结构型模式：</h2><ol>
+<li><p>适配器：将一个类的接口转换成客户希望的另外一个接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</p>
+</li>
+<li><p>桥接：将抽象部分与它的实现部分分离，使它们都可以独立地变化。</p>
+</li>
+<li><p>组合：将对象组合成树形结构以表示“部分-整体”的层次结构，组合模式使得用户对单个对象和组合对象的使用具有一致性。</p>
+</li>
+<li><p>装饰：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式相比生成子类更加灵活。</p>
+</li>
+<li><p>外观：为子系统中的一组接口提供一个一致的界面，外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</p>
+</li>
+<li><p>享元：为运用共享技术有效地支持大量细粒度的对象。</p>
+</li>
+<li><p>代理：为其他对象提供一种代理以控制对这个对象的访问。</p>
+</li>
+</ol>
+<p>想使用一个已经存在的类，而它的接口不符合要求，或者希望创建一个可以服用的类，该类可以与其他不相关的类或不可预见的类协同工作。让这些接口不同的类通过适配后，协同工作。</p>
+<h2 id="行为型模式："><a href="#行为型模式：" class="headerlink" title="行为型模式："></a>行为型模式：</h2><ol>
+<li><p>观察者：定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
+</li>
+<li><p>模板方法：定义一个操作的算法骨架，而将一些步骤延迟到子类中，模板方法使得子类可以不改变一个算法的结构即可定义该算法的某些特定步骤。</p>
+</li>
+<li><p>命令：将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；可以对请求排队或记录请求日志，以及支持可撤销的操作。</p>
+</li>
+<li><p>状态：允许一个对象在其内部状态改变时改变它的行为，让对象看起来似乎修改了它的类。</p>
+</li>
+<li><p>职责链：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</p>
+</li>
+</ol>
+<blockquote>
+<p>MVC：Model，View，Controller。MVC是多种模式的综合应用，应该算是一种架构模式，综合了观察者、组合、策略三种模式。</p>
+</blockquote>
+<ol>
+<li><p>解释器：给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。</p>
+</li>
+<li><p>中介者：用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变他们之间的交互。</p>
+</li>
+<li><p>访问者：表示一个作用于某对象结构中的各元素操作。它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</p>
+</li>
+<li><p>策略：定义一系列的算法，把它们一个个封装起来，并且使它们可以互相替换。本模式使得算法可独立于使用它的客户而变化。</p>
+</li>
+<li><p>备忘录：在不破坏封装性的前提下，补货一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。</p>
+</li>
+<li><p>迭代器：提供一种方法顺序访问一个聚合对象中各个元素，而又不需暴露该对象的内部表示。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CS-Base/" rel="tag">#CS Base</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/20/Gradle/" rel="next" title="Gradle Learning">
+                <i class="fa fa-chevron-left"></i> Gradle Learning
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/18/fresco/" rel="prev" title="Fresco Arch">
+                Fresco Arch <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Design-Pattern"><span class="nav-number">1.</span> <span class="nav-text">Design Pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1、简单工厂模式"><span class="nav-number">2.</span> <span class="nav-text">1、简单工厂模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、策略模式（Strategy）"><span class="nav-number">3.</span> <span class="nav-text">2、策略模式（Strategy）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、单一职责原则（SRP）"><span class="nav-number">4.</span> <span class="nav-text">3、单一职责原则（SRP）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4、开放-封闭原则（The-Open-Closed-Principle-CCP）"><span class="nav-number">5.</span> <span class="nav-text">4、开放-封闭原则（The Open-Closed Principle CCP）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5、依赖倒转原则"><span class="nav-number">6.</span> <span class="nav-text">5、依赖倒转原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6、装饰模式（Decorator）"><span class="nav-number">7.</span> <span class="nav-text">6、装饰模式（Decorator）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7、代理模式（Proxy）"><span class="nav-number">8.</span> <span class="nav-text">7、代理模式（Proxy）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8、工厂方法模式（Factory-Method）"><span class="nav-number">9.</span> <span class="nav-text">8、工厂方法模式（Factory Method）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9、原型模式（Prototype）"><span class="nav-number">10.</span> <span class="nav-text">9、原型模式（Prototype）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10、模板方法模式（TemplateMethod）"><span class="nav-number">11.</span> <span class="nav-text">10、模板方法模式（TemplateMethod）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11、迪米特法则（LoD）"><span class="nav-number">12.</span> <span class="nav-text">11、迪米特法则（LoD）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12、外观模式（Facade）或门面模式"><span class="nav-number">13.</span> <span class="nav-text">12、外观模式（Facade）或门面模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13、建造者模式（Builder）或生成器模式-Android-Dialog-Builder"><span class="nav-number">14.</span> <span class="nav-text">13、建造者模式（Builder）或生成器模式 Android : Dialog.Builder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14、观察者模式（Observer，-又叫发布-订阅（Publish-Subscribe）模式）Android-listener-observer"><span class="nav-number">15.</span> <span class="nav-text">14、观察者模式（Observer， 又叫发布-订阅（Publish/Subscribe）模式）Android :listener, observer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15、抽象工厂模式（Abstract-Factory）"><span class="nav-number">16.</span> <span class="nav-text">15、抽象工厂模式（Abstract Factory）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#16、状态模式（State）"><span class="nav-number">17.</span> <span class="nav-text">16、状态模式（State）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#17、适配器模式（Adapter）Android-ListView-ArrayAdapter-BaseAdapter"><span class="nav-number">18.</span> <span class="nav-text">17、适配器模式（Adapter）Android : ListView ArrayAdapter BaseAdapter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#18、备忘录模式（Memento）"><span class="nav-number">19.</span> <span class="nav-text">18、备忘录模式（Memento）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#19、组合模式（Composite）Android-View-ViewGroup"><span class="nav-number">20.</span> <span class="nav-text">19、组合模式（Composite）Android :View,ViewGroup</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20、迭代器模式（Iterator）"><span class="nav-number">21.</span> <span class="nav-text">20、迭代器模式（Iterator）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21、单例模式（Singleton）"><span class="nav-number">22.</span> <span class="nav-text">21、单例模式（Singleton）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#22、桥接模式（Bridge）"><span class="nav-number">23.</span> <span class="nav-text">22、桥接模式（Bridge）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#23、命令模式（Command）"><span class="nav-number">24.</span> <span class="nav-text">23、命令模式（Command）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#24、职责链模式（Chain-of-Responsibility）"><span class="nav-number">25.</span> <span class="nav-text">24、职责链模式（Chain of Responsibility）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#25、中介者模式（Mediator）"><span class="nav-number">26.</span> <span class="nav-text">25、中介者模式（Mediator）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#26、享元模式（Flyweight）"><span class="nav-number">27.</span> <span class="nav-text">26、享元模式（Flyweight）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#27、解释器模式（Interpreter）：正则表达式等；"><span class="nav-number">28.</span> <span class="nav-text">27、解释器模式（Interpreter）：正则表达式等；</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#28、访问者模式（Vistor）"><span class="nav-number">29.</span> <span class="nav-text">28、访问者模式（Vistor）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#29、总结"><span class="nav-number">30.</span> <span class="nav-text">29、总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建型模式："><span class="nav-number">30.1.</span> <span class="nav-text">创建型模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构型模式："><span class="nav-number">30.2.</span> <span class="nav-text">结构型模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行为型模式："><span class="nav-number">30.3.</span> <span class="nav-text">行为型模式：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

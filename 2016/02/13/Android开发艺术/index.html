@@ -1,0 +1,864 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Reading notes," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="第1章  Activity的生命周期和启动模式1. 正常情况下Activity的生命周期onCreate onStart onResume onPause onStop onDestroy
+两个Activity切换过程的生命周期
+ActivityA onPause()
+ActivityB onCreate()
+ActivityB onStart()
+ActivityB onResume()
+Act">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Development Art">
+<meta property="og:url" content="http://yoursite.com/2016/02/13/Android开发艺术/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="第1章  Activity的生命周期和启动模式1. 正常情况下Activity的生命周期onCreate onStart onResume onPause onStop onDestroy
+两个Activity切换过程的生命周期
+ActivityA onPause()
+ActivityB onCreate()
+ActivityB onStart()
+ActivityB onResume()
+Act">
+<meta property="og:updated_time" content="2017-10-22T15:11:00.153Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Development Art">
+<meta name="twitter:description" content="第1章  Activity的生命周期和启动模式1. 正常情况下Activity的生命周期onCreate onStart onResume onPause onStop onDestroy
+两个Activity切换过程的生命周期
+ActivityA onPause()
+ActivityB onCreate()
+ActivityB onStart()
+ActivityB onResume()
+Act">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/02/13/Android开发艺术/"/>
+
+  <title> Android Development Art | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android Development Art
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-02-13T00:00:00+08:00" content="2016-02-13">
+              2016-02-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第1章-Activity的生命周期和启动模式"><a href="#第1章-Activity的生命周期和启动模式" class="headerlink" title="第1章  Activity的生命周期和启动模式"></a>第1章  Activity的生命周期和启动模式</h1><h2 id="1-正常情况下Activity的生命周期"><a href="#1-正常情况下Activity的生命周期" class="headerlink" title="1. 正常情况下Activity的生命周期"></a>1. 正常情况下Activity的生命周期</h2><p>onCreate onStart onResume onPause onStop onDestroy</p>
+<p>两个Activity切换过程的生命周期</p>
+<p>ActivityA onPause()</p>
+<p>ActivityB onCreate()</p>
+<p>ActivityB onStart()</p>
+<p>ActivityB onResume()</p>
+<p>ActivityA onStop()</p>
+<h2 id="2-异常情况下Activity的生命周期"><a href="#2-异常情况下Activity的生命周期" class="headerlink" title="2. 异常情况下Activity的生命周期"></a>2. 异常情况下Activity的生命周期</h2><p>onSaveInstanceState在onStop之前，和onPause没有既定的时序关系。</p>
+<p>onRestoreInstanceState在onStart之后</p>
+<a id="more"></a>
+<p>每个View都有自己的onSaveInstanceState和onRestoreInstanceState，可以用来知道系统会自动保存的内容。</p>
+<p>Activity被终止-&gt;Activity调用onSaveInstanceState去保存数据-&gt;Activity委托Window去保存数据-&gt;Window再委托它上面的顶级容器去保存数据（ViewGroup，一般为DecorView）-&gt;顶层容器再去一一通知子元素来保存数据-&gt;数据保存过程完成</p>
+<p>正常启动时onCreate的参数savedInstanceState为空，在重建时不为空，而onRestoreInstanceState只有在被重建时才会被调用，所以参数一定不会为空。同样，正常启动、销毁过程中不会去调用onSaveInstanceState和onRestoreInstanceState两个方法。</p>
+<p>在AndroidManifest中为Activity添加configChanges选项，可以阻止Activity被重建，当configChanges里的属性变化时，会调用onConfigurationChanged方法，通过重写这个方法可以监听到config的变化（如键盘弹出、屏幕旋转等）</p>
+<h2 id="3-Activity的启动模式"><a href="#3-Activity的启动模式" class="headerlink" title="3. Activity的启动模式"></a>3. Activity的启动模式</h2><p>四种启动模式：</p>
+<p>（1）standard：标准模式</p>
+<p>在同一个Task中重复创建多个实例。</p>
+<p>非Activity的context（如Application Context）启动Activity时，在standard模式下需要添加FLAG_ACTIVITY_NEW_TASK，并实际上是以singleTask模式启动。</p>
+<p>（2）singleTop：栈顶复用模式（应常用）</p>
+<p>如果新的Activity A已在栈顶，Activity A不会被重建，onNewIntent方法会被调用，通过此方法可以取出请求信息。此Activity的onCreate、onStart不会被系统调用。如果新的Activity A不在栈顶，新Activity A会重建。</p>
+<p>（3）singleTask：栈内复用模式                                        </p>
+<p>Acitivity A想要的栈    不存在：    重新创建一个任务栈    </p>
+<p>存在：    实例存在：    把A调到栈顶并调用它的onNewIntent方法（默认会clear top，即A之上的activity会被全部销毁）</p>
+<p>实例不存在：    创建A，并把A压入栈中<br>（4）singleInstance：单例模式</p>
+<p>加强的singleTask，除了具有singleTask的所有特性外，此模式Activity只能单独地位于一个任务栈中。</p>
+<h2 id="4-TaskAffinity"><a href="#4-TaskAffinity" class="headerlink" title="4. TaskAffinity"></a>4. TaskAffinity</h2><p>主要和singleTask启动模式或者allowTaskReparenting属性配对使用。</p>
+<h2 id="5-Flag"><a href="#5-Flag" class="headerlink" title="5. Flag"></a>5. Flag</h2><h2 id="6-IntentFilter的匹配规则"><a href="#6-IntentFilter的匹配规则" class="headerlink" title="6. IntentFilter的匹配规则"></a>6. IntentFilter的匹配规则</h2><p><intent-filter>标签可包含多个<action>、<category>、<data>标签。</data></category></action></intent-filter></p>
+<p>一个activity含有多个filter时，只要匹配其中一个filter即可启动该activity。intent最多只有一个action，可能含有多个category。</p>
+<p>一个filter的三类标签如果存在都需要匹配才认为filter匹配成功</p>
+<p>匹配规则：</p>
+<p><action>:filter含有多个action时，intent只要匹配其中一个action则认为<action>标签匹配，如果intent不含action则认为不匹配。（与category有区别）</action></action></p>
+<p><category>:filter含有多个category时，intent中的所有category都要能在filter中找到对应的category，如果intent没有设置category，则认为category可以匹配（因为系统会自动添加android.intent.category.DEFAULT这个category，同时，为了能够匹配，我们的activity中需要手动添加这个category）。</category></p>
+<p><data>:匹配规则和action相似。data有两部分：mimeType和URI</data></p>
+<pre><code>URI的结构：&lt;scheme&gt;://&lt;host&gt;:&lt;port&gt;/[&lt;path&gt;|&lt;pathPrefix&gt;|&lt;pathPattern&gt;]
+
+例如：cotent://com.example.project:200/folder/subfolder/etc
+
+        http://www.baidu.com:80/search/info
+</code></pre><p>scheme    URI的模式，如http、file、content。如果没指定scheme，则整个URI的其他参数无效，即URI无效<br>host    URI的主机名，如果host未指定，则整个URI的其他参数无效，即URI无效<br>port    仅当URI中指定了scheme和host参数的时候port才有意义<br>path, </p>
+<p>pathPrefix,</p>
+<p>pathPattern</p>
+<p>path表示完整的路径信息；pathPattern也表示完整路径信息，它可以是一个正则表达式；pathPrefix表示路径的前缀信息。<br>要匹配<data>的mimeType，intent必须要指定scheme为file或者content必须要调用<intent>.setDataAndType方法，且不能分开调用。如：intent.setDataAndType(Uri.parse(&quot;file://abc&quot;,&quot;image/png&quot;))</intent></data></p>
+<p>同一个filter的多个<data>共同组成同一个<data>标签，如果重复，会产生覆盖</data></data></p>
+<p>隐式启动前可以判断activity是否存在的两种方法：</p>
+<p>（1）PackageManager的resolveActivity方法</p>
+<p>（2）Intent的resolveActivity方法</p>
+<p>如果找不到则会返回null。</p>
+<p>PackageManager还提供了queryIntentActivities方法，它会返回所有成功匹配的Activity信息，而不只是最佳匹配</p>
+<p>需要添加MATCH_DEFAULT_ONLY标志，否则会将不含android.intent.category.DEFAULT的activity返回，会导致启动失败。如果添加了这个标志位，返回结果不为null，则一定可以启动成功。（不加这个标志位，会有可能失败）</p>
+<h1 id="第2章-IPC机制"><a href="#第2章-IPC机制" class="headerlink" title="第2章 IPC机制"></a>第2章 IPC机制</h1><h1 id="第3章-View的事件体系"><a href="#第3章-View的事件体系" class="headerlink" title="第3章 View的事件体系"></a>第3章 View的事件体系</h1><h2 id="1-View的位置参数"><a href="#1-View的位置参数" class="headerlink" title="1. View的位置参数"></a>1. View的位置参数</h2><p>getLeft(),getTop(),getRight(),getBottom()得到的坐标是相对于父View的位置信息；</p>
+<p>x,y,translationX,translationY也都是相对于父View的左上角位置；</p>
+<p>x = left + translationX，translationX,translationY默认为0，View在移动过程中top，left表示的是原始左上角的位置信息，其值不会发生变化。</p>
+<h2 id="2-MotionEvent和TouchSlop"><a href="#2-MotionEvent和TouchSlop" class="headerlink" title="2. MotionEvent和TouchSlop"></a>2. MotionEvent和TouchSlop</h2><p>MotionEvent的getX/getY返回相对于当前View的左上角的x和y，getRawX/getRawY返回的是相对于屏幕左上角的x和y。</p>
+<p>TouchSlop指滑动的最小距离常量，可以通过ViewConfiguration.get(getContext()).getScaledTouchSlop()获得。该值在不同设备上可能会有不同。</p>
+<h2 id="3-VelocityTracker-GestureDetector和Scroller的使用"><a href="#3-VelocityTracker-GestureDetector和Scroller的使用" class="headerlink" title="3. VelocityTracker, GestureDetector和Scroller的使用"></a>3. VelocityTracker, GestureDetector和Scroller的使用</h2><h2 id="4-View滑动的方法"><a href="#4-View滑动的方法" class="headerlink" title="4.View滑动的方法"></a>4.View滑动的方法</h2><p>（1）使用scrollTo/scrollBy</p>
+<p>他们只改变View内容的位置，不改变View的位置。mSrollX的值总等于View左边缘和View内容左边缘在水平方向的距离，mSrollX可能为正也可能为负，当View左边缘在View内容左边缘的右边时，值为正，反之为负。mSrollY同理。</p>
+<p>（2）使用动画</p>
+<p>传统的动画方式</p>
+<p>（3）改变布局参数</p>
+<p>改变param的marginLeft等参数等，实现视觉上平移的效果。</p>
+<h2 id="5-View的事件分发机制"><a href="#5-View的事件分发机制" class="headerlink" title="5. View的事件分发机制"></a>5. View的事件分发机制</h2><p>dispatchTouchEvent</p>
+<p>onInterceptTouchEvent</p>
+<p>onTouchEvent</p>
+<p>调用范例：</p>
+<p>public boolean dispatchTouchEvent(MotionEvent ev) {<br>    boolean consume = false;<br>    if(onInterceptTouchEvent(ev)){<br>        consume = onTouchEvent(ev);<br>    } else {<br>        consume = child.dispatchTouchEvent(ev);<br>    }<br>    return consume;<br>}<br>Activity-&gt;Window-&gt;View</p>
+<p>优先级：</p>
+<p>onInterceptTouchEvent:OnTouchListener(onTouch)</p>
+<p>onTouchEvent: TouchDelegate(onTouchEvent), OnClickListener(onClick)</p>
+<p>一系列事件：ACTION_DOWN -- (N次)ACTION_MOVE -- ACTION_UP</p>
+<p>基类View没有onInterceptTouchEvent，如果没有事件传递进来则直接调用onTouchEvent</p>
+<p>一个事件序列只能被一个View拦截消耗，如果一个View一旦决定拦截，则一系列事件均由它来处理，并且它的onInterceptTouchEvent事件不会再被调用。</p>
+<p>ViewGroup默认不拦截任何事件，View的onTouchEvent默认都会消耗事件。</p>
+<h2 id="6-View事件分发原理解析"><a href="#6-View事件分发原理解析" class="headerlink" title="6. View事件分发原理解析"></a>6. View事件分发原理解析</h2><p>Window类是抽象类，具体实现类只有PhoneWindow。</p>
+<p>DecorView是setContentView的父View，是一个FrameLayout的子类。可通过下面的方法获得set的View：</p>
+<p>((ViewGroup)getWindow().getDecorView().findViewById(android.R.id.content)).getChildAt(0);</p>
+<h2 id="7-滑动冲突"><a href="#7-滑动冲突" class="headerlink" title="7. 滑动冲突"></a>7. 滑动冲突</h2><p>三种情形：</p>
+<p>（1）外部滑动方向和内部滑动方向不一致：根据x和y方向滑动距离区别，做不同的响应</p>
+<p>（2）外部滑动方向和内部滑动方向一致：根据实际业务需要做响应</p>
+<p>（3）上面两种情况的嵌套：是（1）和（2）的综合</p>
+<p>解决方案：</p>
+<p>外部拦截法和内部拦截法</p>
+<p>（1）外部拦截法：</p>
+<p>在父容器中解决滑动冲突，重写父容器的onInterceptTouchEvent方法，做相应的拦截。</p>
+<p>（2）内部拦截法：</p>
+<p>父容器不拦截任何事件，所有事件都传递给子元素。如果子元素需要此事件就直接消耗，否则就交由父容器进行处理。</p>
+<p>需要配合requestDisallowInterceptTouchEvent，重写子元素的dispatchTouchEvent和父容器的onInterceptTouchEvent</p>
+<h1 id="第4章-View的工作原理"><a href="#第4章-View的工作原理" class="headerlink" title="第4章 View的工作原理"></a>第4章 View的工作原理</h1><h2 id="1-View的三大流程"><a href="#1-View的三大流程" class="headerlink" title="1. View的三大流程"></a>1. View的三大流程</h2><p>ViewRoot是连接WindowManager和DecorView的纽带，实现类为ViewRootImpl。</p>
+<p>performTraversals    (ViewRoot, ViewRootImpl)    View<br>测量流程    performMeasure    measure    onMeasure    measure<br>布局流程    performLayout    layout    onLayout    layout<br>绘制流程    performDraw    draw    onDraw    draw<br>如果包含titleBar，DecorView则包含一个竖直方向的LinearLayout。</p>
+<p>MeasureSpec：子View的MeasureSpec由父View的MeasureSpec和本身的LayoutParam共同决定，一般UNSPECIFIED用不到，不需要关注。</p>
+<p>EXACTLY    AT_MOST    UNSPECIFIED<br>dp/px<br>EXACTLY</p>
+<p>childSize</p>
+<p>EXACTLY</p>
+<p>childSize</p>
+<p>EXACTLY</p>
+<p>childSize</p>
+<p>match_parent<br>EXACTLY</p>
+<p>parentSize</p>
+<p>AT_MOST</p>
+<p>parentSize</p>
+<p>UNSPECIFIED</p>
+<p>0</p>
+<p>wrap_content<br>AT_MOST</p>
+<p>parentSize</p>
+<p>AT_MOST</p>
+<p>parentSize</p>
+<p>UNSPECIFIED</p>
+<p>0</p>
+<p>measure ：测量，确定View的测量宽/高，</p>
+<p>layout：布局，确定View最终的宽/高</p>
+<p>draw：绘制，将View绘制到屏幕上</p>
+<p>自定义View时，需要重写onMeasure()方法，否则wrap_content的效果会和match_parent一样。</p>
+<h2 id="2-measure"><a href="#2-measure" class="headerlink" title="2. measure"></a>2. measure</h2><p>在onLayout方法中去获取View的测量宽/高或者最终宽/高。</p>
+<p>View的measure过程和Activity的生命周期方法不是同步执行的，所以在Activity的声明周期获得View的宽/高有可能导致获取结果不正确。可以通过以下四种方法获取：</p>
+<p>（1）Activity/View#onWindowFocusChanged</p>
+<p>（2）view.post(runnable)</p>
+<p>（3）ViewTreeObserver</p>
+<p>（4）view.measure(int widthMeasureSpec, int heightMeasureSpec)，较为复杂。</p>
+<h1 id="第5章-理解RemoteViews"><a href="#第5章-理解RemoteViews" class="headerlink" title="第5章 理解RemoteViews"></a>第5章 理解RemoteViews</h1><ol>
+<li><p>应用：</p>
+<p> 通知栏    NotificationManager</p>
+<p> 桌面小部件    AppWidgetProvider</p>
+</li>
+<li><p>PendingIntent</p>
+</li>
+<li><p>RemoteViews的单击事件</p>
+</li>
+</ol>
+<p>只支持发起PendingIntent，不支持onClickListener。</p>
+<p>setOnClickPendingIntent    （不能给ListView中的item通过此方式添加单击事件，开销过大，系统禁用）</p>
+<p>setPendingIntentTemplate</p>
+<p>setOnClickFillInIntent</p>
+<h1 id="第6章-Android的Drawable"><a href="#第6章-Android的Drawable" class="headerlink" title="第6章 Android的Drawable"></a>第6章 Android的Drawable</h1><ol>
+<li>Drawable</li>
+</ol>
+<p>常用作背景</p>
+<p>内部宽高：getIntrinsicWidth和getIntrinsicHeight可以获取到它们。</p>
+<p>但并不是所有Drawable都有宽高，图片类型有，但颜色组成的Drawable没有宽高的概念。</p>
+<p>level为0-10000。</p>
+<ol>
+<li>分类</li>
+</ol>
+<p>1.）BitmapDrawable:    <bitmap></bitmap></p>
+<p>2.）ShapeDrawable:    <shape>(实体类是GradientDrawable)</shape></p>
+<p>3.）LayerDrawable:    <layer-list></layer-list></p>
+<p>4.）StateListDrawable:    <selector></selector></p>
+<p>5.）LevelListDrawable:    <level-list> level有一个区间，切换不同的图片</level-list></p>
+<p>6.）TransitionDrawable:    <transition> </transition></p>
+<p>用于实现两个Drawable之间淡入淡出的效果，startTransition, reverseTransition</p>
+<p>7.）InsetDrawable:    <inset> 将其他drawable内嵌到自己当中，可以实现作为背景时，显示大小小于View实际</inset></p>
+<p>占用大小。通过LayerDrawable也可以实现这种效果。</p>
+<p>8.）ScaleDrawable:    <scale> 默认level为0，不显示，改变level会产生不同的效果</scale></p>
+<p>9.）ClipDrawable:    <clip> 受gravity和level的影响产生不同的效果</clip></p>
+<ol>
+<li>自定义Drawable</li>
+</ol>
+<p>getBounds可以获得Drawble的实际显示大小。</p>
+<h1 id="第7章-Android动画深入分析"><a href="#第7章-Android动画深入分析" class="headerlink" title="第7章 Android动画深入分析"></a>第7章 Android动画深入分析</h1><ol>
+<li>View动画</li>
+</ol>
+<p>平移动画（TranslationAnimation，translate）</p>
+<p>缩放动画（ScaleAnimation，scale）</p>
+<p>旋转动画（RotateAnimation，rotate）</p>
+<p>透明度动画（AlphaAnimation，alpha）</p>
+<p>自定义View动画：</p>
+<p>1.）继承Animation这个抽象类</p>
+<p>2.）重写initialize和applyTransformation方法</p>
+<p>3.）在initialize方法中做一些初始化工作</p>
+<p>4.）在applyTransformation中进行相应的矩阵变换（Matrix，使用Camera简化矩阵变换的过程）</p>
+<ol>
+<li><p>帧动画</p>
+</li>
+<li><p>属性动画</p>
+</li>
+</ol>
+<p>View动画的特殊使用场景：</p>
+<p>LayoutAnimation</p>
+<p>Activity的切换</p>
+<h1 id="第8章-理解Window和WindowManager"><a href="#第8章-理解Window和WindowManager" class="headerlink" title="第8章 理解Window和WindowManager"></a>第8章 理解Window和WindowManager</h1><ol>
+<li>Window是一个抽象类，它的具体实现是PhoneWindow</li>
+</ol>
+<p>Window的三种类型：</p>
+<p>1.） 应用Window    对应Activity {1~99}</p>
+<p>2.） 子Window    不能单独存在，它需要附属在特定的父Window之中（如Dialog）{1000~1999}</p>
+<p>3.）系统Window    需要声明权限才能创建的Window（如Toast和系统状态栏）{2000~2999}</p>
+<p>Window是分层的，每个Window都有对应的z-ordered，层级大的覆盖层级小的window上面，层级范围对应着WindowManager.LayoutParams的type参数。</p>
+<p>WindowManager继承ViewManager，提供常用的三种方法：</p>
+<p>1.）添加View</p>
+<p>2.）更新View</p>
+<p>3.）删除View</p>
+<p>实现拖动的方法：</p>
+<p>根据手指的位置来设定LayoutParams中的x和y的值即可改变Window的位置。首先给View设置onTouchListener，然后在onTouch方法中不断更新View的位置即可。</p>
+<p>public boolean onTouch(View v, MotionEvent event){<br>    int rawX = (int)event.getRawX();<br>    int rawY = (int)event.getRawY();<br>    switch(event.getAction()){<br>    case MotionEvent.ACTION_MOVE:{<br>        mLayoutParams.x = rawX;<br>        mLayoutParams.y = rawY;<br>        mWindowManager.updateViewLayout(mFloatingButton, mLayoutParams);<br>        break;<br>    }<br>    default:<br>        break;<br>    }<br>    return false;<br>}</p>
+<ol>
+<li>Window的内部机制</li>
+</ol>
+<p>无法直接访问Window，对Window的访问必须通过WindowManager。</p>
+<h1 id="第9章-四大组件的工作过程"><a href="#第9章-四大组件的工作过程" class="headerlink" title="第9章 四大组件的工作过程"></a>第9章 四大组件的工作过程</h1><p>四大组件的启动</p>
+<h1 id="第10章-Android的消息机制"><a href="#第10章-Android的消息机制" class="headerlink" title="第10章 Android的消息机制"></a>第10章 Android的消息机制</h1><ol>
+<li>ViewRootImpl对UI操作做了验证，保证只能在主线程中更新UI，ViewRootImpl的checkThread方法。</li>
+</ol>
+<p>不采用多线程的加锁机制更新UI的两个原因：</p>
+<p>1.）加锁机制会让UI访问的逻辑变得复杂</p>
+<p>2.）锁机制会降低UI访问的效率，因为锁机制会阻塞某些线程的执行。</p>
+<ol>
+<li>ThreadLocal的工作原理（Looper就是典型实例，Looper对象只在本线程有效）</li>
+</ol>
+<p>ThreadLocal是一个线程内部的数据存储类，通过它可以在指定的线程中存储数据，数据存储以后，只有在指定线程中可以获取到存储的数据。</p>
+<p>使用场景：</p>
+<pre><code>1.）一般来说，当某些数据是以线程为作用域并且不同线程具有不同的数据副本的时候，就可以考虑采用ThreadLocal。
+
+      对于Looper来说，如果不采用ThreadLocal，系统就必须提供一个全局的哈希表供Handler查找指定线程的Looper，就必须提供一个类似于LooperManager的类。
+
+2.）复杂逻辑下的对象传递，调用栈较为复杂的时候。
+</code></pre><p>ThreadLocal的内部最重要的几个方法：get()，set()，values.put()</p>
+<p>3.MessageQueue的工作原理</p>
+<p>MessageQueue的主要两个操作：</p>
+<p>1.）插入 enqueueMessage</p>
+<p>2.）读取 next：伴随着删除操作。无限循环，有新消息到来就返回这条消息，并从单链表中移除</p>
+<p>MessageQueue的内部实现是单链表数据结构，而不是队列。</p>
+<ol>
+<li>Looper的工作原理</li>
+</ol>
+<p>它会不停地从MessageQueue中查看是否有新消息，如果有新消息就会立刻处理，否则就一直阻塞在那里。</p>
+<p>Looper的退出：</p>
+<p>1.）quit()，直接退出</p>
+<p>2.）quitSafely()，设定一个退出标记，然后把消息队列中的已有消息处理完毕后才安全退出。</p>
+<p>Looper退出之后，通过Handler发送的消息会失败，send方法返回false。</p>
+<p>如果是在子线程手动创建Looper，则应该在所有事情完成以后调用quit方法来终止消息循环，否则这个子线程会一直处于等待状态，而如果推出Looper以后，这个子线程会立刻终止。</p>
+<p>prepare()方法是一个死循环，唯一跳出循环的方式是MessageQueue的next()方法返回了null，而next()只有在Looper被标记为退出状态时才会返回null，没有消息是next()会处于阻塞状态，所以looper也处于阻塞状态。</p>
+<ol>
+<li>Handler的工作原理</li>
+</ol>
+<p>除了常用的用法外，还可以实现Callback接口，然后创建Handler对象：</p>
+<p>public interface Callback{<br>    public boolean handleMessage(Message msg);<br>}<br>Handler mHandler = new Handler(callback);</p>
+<h1 id="第11章-Android的线程和线程池"><a href="#第11章-Android的线程和线程池" class="headerlink" title="第11章 Android的线程和线程池"></a>第11章 Android的线程和线程池</h1><p>AsyncTask 主要是为了方便开发者在子线程中更新UI</p>
+<p>IntentService 内部采用HandlerThread来执行任务，当任务执行完毕后IntentService会自动退出</p>
+<p>HandlerThread</p>
+<h1 id="第12章-Bitmap的加载和Cache"><a href="#第12章-Bitmap的加载和Cache" class="headerlink" title="第12章 Bitmap的加载和Cache"></a>第12章 Bitmap的加载和Cache</h1><p>三方面内容：</p>
+<p>1.）如何有效加载Bitmap</p>
+<p>2.）Android中常用的缓存策略，LruCache（用于内存缓存）和DiskLruCache（用于存储设备缓存）</p>
+<p>3.）优化列表的卡顿现象</p>
+<p>1.Bitmap的高效加载</p>
+<p>BitmapFactory的四类方法加载Bitmap对象：</p>
+<p>decodeFile，decodeResorce，decodeStream，decodeByteArray；（decodeFile，decodeResorce会间接调用decodeStream，四种方法最终都会在底层实现，对应native方法）</p>
+<p>通过BitmapFactory.Options可以按一定的采样率来加载缩小后的图片，降低内存占用，避免OOM。四种方法都支持BitmapFactory.Options作为参数。设置inSampleSize。</p>
+<p>使用BitmapFactory.Options需要四步：</p>
+<p>（1）将BitmapFactory.Options的inJustDecodeBounds参数设为true，并decodeXXX（）。用于测量原始宽高，但并不会真正进行解码工作。</p>
+<p>（2）从BitmapFactory.Options中获取图片的原始宽高信息，他们对应于outWidth和outHeight。</p>
+<p>（3）根据采样规则并结合目标View的所需大小计算出采样率inSampleSize.</p>
+<p>（4）将BitmapFactory.Options的inJustDecodeBounds参数设为false，然后调用decodeXXX()进行真正的加载工作。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Reading-notes/" rel="tag">#Reading notes</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/19/latex/" rel="next" title="Latex Learning">
+                <i class="fa fa-chevron-left"></i> Latex Learning
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/02/App研发录/" rel="prev" title="Senior Android Development">
+                Senior Android Development <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-Activity的生命周期和启动模式"><span class="nav-number">1.</span> <span class="nav-text">第1章  Activity的生命周期和启动模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-正常情况下Activity的生命周期"><span class="nav-number">1.1.</span> <span class="nav-text">1. 正常情况下Activity的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-异常情况下Activity的生命周期"><span class="nav-number">1.2.</span> <span class="nav-text">2. 异常情况下Activity的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Activity的启动模式"><span class="nav-number">1.3.</span> <span class="nav-text">3. Activity的启动模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-TaskAffinity"><span class="nav-number">1.4.</span> <span class="nav-text">4. TaskAffinity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Flag"><span class="nav-number">1.5.</span> <span class="nav-text">5. Flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-IntentFilter的匹配规则"><span class="nav-number">1.6.</span> <span class="nav-text">6. IntentFilter的匹配规则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-IPC机制"><span class="nav-number">2.</span> <span class="nav-text">第2章 IPC机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-View的事件体系"><span class="nav-number">3.</span> <span class="nav-text">第3章 View的事件体系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-View的位置参数"><span class="nav-number">3.1.</span> <span class="nav-text">1. View的位置参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-MotionEvent和TouchSlop"><span class="nav-number">3.2.</span> <span class="nav-text">2. MotionEvent和TouchSlop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-VelocityTracker-GestureDetector和Scroller的使用"><span class="nav-number">3.3.</span> <span class="nav-text">3. VelocityTracker, GestureDetector和Scroller的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-View滑动的方法"><span class="nav-number">3.4.</span> <span class="nav-text">4.View滑动的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-View的事件分发机制"><span class="nav-number">3.5.</span> <span class="nav-text">5. View的事件分发机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-View事件分发原理解析"><span class="nav-number">3.6.</span> <span class="nav-text">6. View事件分发原理解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-滑动冲突"><span class="nav-number">3.7.</span> <span class="nav-text">7. 滑动冲突</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第4章-View的工作原理"><span class="nav-number">4.</span> <span class="nav-text">第4章 View的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-View的三大流程"><span class="nav-number">4.1.</span> <span class="nav-text">1. View的三大流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-measure"><span class="nav-number">4.2.</span> <span class="nav-text">2. measure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第5章-理解RemoteViews"><span class="nav-number">5.</span> <span class="nav-text">第5章 理解RemoteViews</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第6章-Android的Drawable"><span class="nav-number">6.</span> <span class="nav-text">第6章 Android的Drawable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第7章-Android动画深入分析"><span class="nav-number">7.</span> <span class="nav-text">第7章 Android动画深入分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第8章-理解Window和WindowManager"><span class="nav-number">8.</span> <span class="nav-text">第8章 理解Window和WindowManager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第9章-四大组件的工作过程"><span class="nav-number">9.</span> <span class="nav-text">第9章 四大组件的工作过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第10章-Android的消息机制"><span class="nav-number">10.</span> <span class="nav-text">第10章 Android的消息机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第11章-Android的线程和线程池"><span class="nav-number">11.</span> <span class="nav-text">第11章 Android的线程和线程池</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第12章-Bitmap的加载和Cache"><span class="nav-number">12.</span> <span class="nav-text">第12章 Bitmap的加载和Cache</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

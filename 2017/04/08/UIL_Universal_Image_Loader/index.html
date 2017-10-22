@@ -1,0 +1,628 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Open source lib," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="UIL_Universal Image Loader1. SetupMaven dependency: 
+12345678&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;com.nostra13.universalimageloader&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;universal-image-loader&amp;lt;/arti">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Universal Image Loader">
+<meta property="og:url" content="http://yoursite.com/2017/04/08/UIL_Universal_Image_Loader/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="UIL_Universal Image Loader1. SetupMaven dependency: 
+12345678&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;com.nostra13.universalimageloader&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;universal-image-loader&amp;lt;/arti">
+<meta property="og:updated_time" content="2017-10-22T15:29:23.044Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Universal Image Loader">
+<meta name="twitter:description" content="UIL_Universal Image Loader1. SetupMaven dependency: 
+12345678&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;com.nostra13.universalimageloader&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;universal-image-loader&amp;lt;/arti">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/08/UIL_Universal_Image_Loader/"/>
+
+  <title> Universal Image Loader | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Universal Image Loader
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-04-08T00:00:00+08:00" content="2017-04-08">
+              2017-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="UIL-Universal-Image-Loader"><a href="#UIL-Universal-Image-Loader" class="headerlink" title="UIL_Universal Image Loader"></a>UIL_Universal Image Loader</h1><h2 id="1-Setup"><a href="#1-Setup" class="headerlink" title="1. Setup"></a>1. Setup</h2><p>Maven dependency: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;com.nostra13.universalimageloader&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;universal-image-loader&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.9.4&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">Gradle dependency: </div><div class="line">compile &apos;com.nostra13.universalimageloader:universal-image-loader:1.9.4&apos;</div></pre></td></tr></table></figure>
+<p>Manifest: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;manifest&gt;</div><div class="line">    &lt;!-- Include following permission if you load images from Internet --&gt;</div><div class="line">    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</div><div class="line">    &lt;!-- Include following permission if you want to cache images on SD card --&gt;</div><div class="line">    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;</div><div class="line">    ...</div><div class="line">&lt;/manifest&gt;</div><div class="line">Usage: </div><div class="line">public class MyActivity extends Activity &#123;</div><div class="line">    @Override</div><div class="line">    public void onCreate() &#123;</div><div class="line">        super.onCreate();</div><div class="line">        // Create global configuration and initialize ImageLoader with this config</div><div class="line">        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)</div><div class="line">            ...</div><div class="line">            .build();</div><div class="line">        ImageLoader.getInstance().init(config);</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="2-Configuration"><a href="#2-Configuration" class="headerlink" title="2. Configuration"></a>2. Configuration</h2><p>ImageLoaderConfiguration是全局的，只需要设置一次，可根据需要设置必要选项。 </p>
+<p>File cacheDir = StorageUtils.getCacheDirectory(context);<br>ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)<br>        .memoryCacheExtraOptions(480, 800) // default = device screen dimensions<br>        .diskCacheExtraOptions(480, 800, null)<br>        .taskExecutor(...)<br>        .taskExecutorForCachedImages(...)<br>        .threadPoolSize(3) // default<br>        .threadPriority(Thread.NORM_PRIORITY - 2) // default<br>        .tasksProcessingOrder(QueueProcessingType.FIFO) // default<br>        .denyCacheImageMultipleSizesInMemory()<br>        .memoryCache(new LruMemoryCache(2 <em> 1024 </em> 1024))<br>        .memoryCacheSize(2 <em> 1024 </em> 1024)<br>        .memoryCacheSizePercentage(13) // default<br>        .diskCache(new UnlimitedDiskCache(cacheDir)) // default<br>        .diskCacheSize(50 <em> 1024 </em> 1024)<br>        .diskCacheFileCount(100)<br>        .diskCacheFileNameGenerator(new HashCodeFileNameGenerator()) // default<br>        .imageDownloader(new BaseImageDownloader(context)) // default<br>        .imageDecoder(new BaseImageDecoder()) // default<br>        .defaultDisplayImageOptions(DisplayImageOptions.createSimple()) // default<br>        .writeDebugLogs()<br>        .build();</p>
+<h2 id="3-Display-Options"><a href="#3-Display-Options" class="headerlink" title="3. Display Options"></a>3. Display Options</h2><p>DisplayImageOptions是局部的，每一进行display的时候都可以不同，需要作为参数传给ImageLoader.displayImage(…)方法。但如果没有进行设置，会采用默认配置，ImageLoaderConfiguration.defaultDisplayImageOptions(…)。<br>DisplayImageOptions options = new DisplayImageOptions.Builder()<br>        .showImageOnLoading(R.drawable.ic_stub) // resource or drawable<br>        .showImageForEmptyUri(R.drawable.ic_empty) // resource or drawable<br>        .showImageOnFail(R.drawable.ic_error) // resource or drawable<br>        .resetViewBeforeLoading(false)  // default<br>        .delayBeforeLoading(1000)<br>        .cacheInMemory(false) // default<br>        .cacheOnDisk(false) // default<br>        .preProcessor(...)<br>        .postProcessor(...)<br>        .extraForDownloader(...)<br>        .considerExifParams(false) // default<br>        .imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2) // default<br>        .bitmapConfig(Bitmap.Config.ARGB_8888) // default<br>        .decodingOptions(...)<br>        .displayer(new SimpleBitmapDisplayer()) // default<br>        .handler(new Handler()) // default<br>        .build();</p>
+<h2 id="4-Usage"><a href="#4-Usage" class="headerlink" title="4. Usage"></a>4. Usage</h2><p>可以接受的URI示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&quot;http://site.com/image.png&quot; // from Web</div><div class="line">&quot;file:///mnt/sdcard/image.png&quot; // from SD card</div><div class="line">&quot;file:///mnt/sdcard/video.mp4&quot; // from SD card (video thumbnail)</div><div class="line">&quot;content://media/external/images/media/13&quot; // from content provider</div><div class="line">&quot;content://media/external/video/media/13&quot; // from content provider (video thumbnail)</div><div class="line">&quot;assets://image.png&quot; // from assets</div><div class="line">&quot;drawable://&quot; + R.drawable.img // from drawables (non-9patch images)</div></pre></td></tr></table></figure>
+<p>使用ImageLoader的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ImageLoader imageLoader = ImageLoader.getInstance();</div><div class="line">imageLoader.displayImage(imageUri, imageView);</div><div class="line">imageLoader.loadImage(imageUri, new SimpleImageLoadingListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) &#123;</div><div class="line">        // Do whatever you want with Bitmap</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">Bitmap bmp = imageLoader.loadImageSync(imageUri);</div></pre></td></tr></table></figure>
+<p>load图片，使图片大小变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ImageSize targetSize = new ImageSize(80, 50); // result Bitmap will be fit to this size</div><div class="line">imageLoader.loadImage(imageUri, targetSize, options, new SimpleImageLoadingListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) &#123;</div><div class="line">        // Do whatever you want with Bitmap</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ImageSize targetSize = new ImageSize(80, 50); // result Bitmap will be fit to this size</div><div class="line">Bitmap bmp = imageLoader.loadImageSync(imageUri, targetSize, options);</div></pre></td></tr></table></figure>
+<p>关注load过程的更多的细节</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">imageLoader.displayImage(imageUri, imageView, options, new ImageLoadingListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onLoadingStarted(String imageUri, View view) &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void onLoadingFailed(String imageUri, View view, FailReason failReason) &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void onLoadingCancelled(String imageUri, View view) &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;, new ImageLoadingProgressListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onProgressUpdate(String imageUri, View view, int current, int total) &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Load与Display流程 </p>
+<h2 id="5-Library-Map"><a href="#5-Library-Map" class="headerlink" title="5. Library Map"></a>5. Library Map</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line">ImageLoader |</div><div class="line">            | - init(ImageLoaderConfiguration)</div><div class="line">            | - isInited()</div><div class="line">            | - displayImage(...)</div><div class="line">            | - loadImage(...)</div><div class="line">            | - loadImageSync(...)</div><div class="line">            | - getMemoryCache()</div><div class="line">            | - clearMemoryCache()</div><div class="line">            | - getDiskCache()</div><div class="line">            | - clearDiskCache()</div><div class="line">            | - denyNetworkDownloads(boolean)</div><div class="line">            | - handleSlowNetwork(boolean)</div><div class="line">            | - setDefaultLoadingListener(...)</div><div class="line">            | - pause()</div><div class="line">            | - resume()</div><div class="line">            | - stop()</div><div class="line">            | - destroy()</div><div class="line">            | - getLoadingUriForView(ImageView)</div><div class="line">            | - cancelDisplayTask(ImageView)</div><div class="line"></div><div class="line">ImageAware |</div><div class="line">           | - getId()</div><div class="line">           | - getWidth()</div><div class="line">           | - getHeight()</div><div class="line">           | - getScaleType()</div><div class="line">           | - getWrappedView()</div><div class="line">           | - isCollected()</div><div class="line">           | - setImageDrawable(Drawable)</div><div class="line">           | - setImageBitmap(Bitmap)</div><div class="line"></div><div class="line">MemoryCacheUtil |</div><div class="line">                | - findCachedBitmapsForImageUri(...)</div><div class="line">                | - findCacheKeysForImageUri(...)</div><div class="line">                | - removeFromCache(...)</div><div class="line">DiskCacheUtil |</div><div class="line">                | - findInCache(...)</div><div class="line">                | - removeFromCache(...)</div><div class="line"></div><div class="line">StorageUtils |</div><div class="line">             | - getCacheDirectory(Context)</div><div class="line">             | - getIndividualCacheDirectory(Context)</div><div class="line">             | - getOwnCacheDirectory(Context, String)</div><div class="line"></div><div class="line">             </div><div class="line">ImageScaleType | NONE</div><div class="line">               | IN_SAMPLE_POWER_OF_2</div><div class="line">               | IN_SAMPLE_INT</div><div class="line">               | EXACTLY</div><div class="line">               | EXACTLY_STRETCHED</div><div class="line"></div><div class="line">QueueProcessingType | FIFO</div><div class="line">                    | LIFO</div><div class="line"></div><div class="line">FailReason.FailType | IO_ERROR</div><div class="line">                    | DECODING_ERROR</div><div class="line">                    | NETWORK_DENIED</div><div class="line">                    | OUT_OF_MEMORY</div><div class="line">                    | UNKNOWN</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">ImageLoadingListener |</div><div class="line">|                    | - onLoadingStarted(String, View)</div><div class="line">|                    | - onLoadingFailed(String, View, FailReason)</div><div class="line">|                    | - onLoadingComplete(String, View, Bitmap)</div><div class="line">|                    | - onLoadingCancelled(String, View)</div><div class="line">|---- SimpleImageLoadingListener</div><div class="line"></div><div class="line">ImageDownloader</div><div class="line">|---- BaseImageDownloader</div><div class="line">|---- NetworkDeniedImageDownloader</div><div class="line">|---- SlowNetworkImageDownloader</div><div class="line"></div><div class="line">ImageDecoder</div><div class="line">|---- BaseImageDecoder</div><div class="line"></div><div class="line">BitmapDisplayer</div><div class="line">|---- SimpleBitmapDisplayer</div><div class="line">|---- FadeInBitmapDisplayer</div><div class="line">|---- RoundedBitmapDisplayer</div><div class="line">|---- RoundedVignetteBitmapDisplayer</div><div class="line"></div><div class="line">DiskCache</div><div class="line">|---- BaseDiscCache</div><div class="line">      |---- UnlimitedDiscCache</div><div class="line">      |---- LruDiskCache</div><div class="line">      |---- LimitedAgeDiscCache</div><div class="line"></div><div class="line">MemoryCacheAware</div><div class="line">|---- BaseMemoryCache</div><div class="line">|     |---- WeakMemoryCache</div><div class="line">|     |---- LimitedMemoryCache</div><div class="line">|           |---- UsingFreqLimitedMemoryCache</div><div class="line">|           |---- LRULimitedMemoryCache</div><div class="line">|           |---- LargestLimitedMemoryCache</div><div class="line">|           |---- FIFOLimitedMemoryCache</div><div class="line">|---- LimitedAgeMemoryCache</div><div class="line">|---- LruMemoryCache</div><div class="line"></div><div class="line">FileNameGenerator</div><div class="line">|---- HashCodeFileNameGenerator</div><div class="line">|---- Md5FileNameGenerator</div><div class="line"></div><div class="line">PauseOnScrollListener</div></pre></td></tr></table></figure>
+<h2 id="6-基本信息"><a href="#6-基本信息" class="headerlink" title="6. 基本信息"></a>6. 基本信息</h2><p>(1.)  默认情况下，在memory或disk上的缓存为disable，需要在DisplayImageOptions中使能，也可以使用下面方法改变默认设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()</div><div class="line">        ...</div><div class="line">        .cacheInMemory(true)</div><div class="line">        .cacheOnDisk(true)</div><div class="line">        ...</div><div class="line">        .build();</div><div class="line">ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())</div><div class="line">        ...</div><div class="line">        .defaultDisplayImageOptions(defaultOptions)</div><div class="line">        ...</div><div class="line">        .build();</div><div class="line">ImageLoader.getInstance().init(config);</div></pre></td></tr></table></figure>
+<p>(2.)如果enable了disk cache，UIL会缓存在外部存储中，路径为<code>/sdcard/Android/data/[package_name]/cache</code>。如果外部存储不可用，则图片会被缓存在设备的文件系统中。需要在Manifest中添加外部存储的访问权限。<br>(3.)定义Image的大小，UIL会搜索已定义的参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Get actual measured width and height of ImageView</div><div class="line">Get android:layout_width and android:layout_height parameters</div><div class="line">Get android:maxWidth and/or android:maxHeight parameters</div><div class="line">Get maximum width and/or height parameters from configuration (memoryCacheExtraOptions(int, int) option)</div><div class="line">Get width and/or height of device screen</div></pre></td></tr></table></figure>
+<p>(4.)OutOfMemoryError 的处理<br>(5.)MemoryCache的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">ImageLoaderConfiguration.memoryCache(...)</div><div class="line"></div><div class="line">Cache using only strong references:</div><div class="line">    LruMemoryCache (Least recently used bitmap is deleted when cache size limit is exceeded) - Used by default</div><div class="line">Caches using weak and strong references:</div><div class="line">    UsingFreqLimitedMemoryCache (Least frequently used bitmap is deleted when cache size limit is exceeded)</div><div class="line">    LRULimitedMemoryCache (Least recently used bitmap is deleted when cache size limit is exceeded)</div><div class="line">    FIFOLimitedMemoryCache (FIFO rule is used for deletion when cache size limit is exceeded)</div><div class="line">    LargestLimitedMemoryCache (The largest bitmap is deleted when cache size limit is exceeded)</div><div class="line">    LimitedAgeMemoryCache (Decorator. Cached object is deleted when its age exceeds defined value)</div><div class="line">Cache using only weak references:</div><div class="line">    WeakMemoryCache (Unlimited cache)</div></pre></td></tr></table></figure>
+<p>(6.)DiskCache的配置ImageLoaderConfiguration.diskCache(…)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UnlimitedDiscCache (The fastest cache, doesn&apos;t limit cache size) - Used by default</div><div class="line">LruDiskCache (Cache limited by total cache size and/or by file count. If cache size exceeds specified limit then least-recently used file will be deleted)</div><div class="line">LimitedAgeDiscCache (Size-unlimited cache with limited files&apos; lifetime. If age of cached file exceeds defined limit then it will be deleted from cache.)</div></pre></td></tr></table></figure>
+<p>(7.)图片的显示风格，可以设置为圆角和褪色效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DisplayImageOptions.displayer(...)</div><div class="line">RoundedBitmapDisplayer (Displays bitmap with rounded corners)</div><div class="line">FadeInBitmapDisplayer (Displays image with &quot;fade in&quot; animation)</div></pre></td></tr></table></figure>
+<p>(8.)可以设置图片在scrolling时的效果，使用PauseOnScrollListener<br>(9.)在log中的url后面会后缀图片的大小<br>(10.)ImageLoader会始终保持宽高比</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Open-source-lib/" rel="tag">#Open source lib</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/18/fresco/" rel="next" title="Fresco Arch">
+                <i class="fa fa-chevron-left"></i> Fresco Arch
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/08/EloquentJavaScript/" rel="prev" title="Eloquent Javascript">
+                Eloquent Javascript <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UIL-Universal-Image-Loader"><span class="nav-number">1.</span> <span class="nav-text">UIL_Universal Image Loader</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Setup"><span class="nav-number">1.1.</span> <span class="nav-text">1. Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Configuration"><span class="nav-number">1.2.</span> <span class="nav-text">2. Configuration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Display-Options"><span class="nav-number">1.3.</span> <span class="nav-text">3. Display Options</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Usage"><span class="nav-number">1.4.</span> <span class="nav-text">4. Usage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Library-Map"><span class="nav-number">1.5.</span> <span class="nav-text">5. Library Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-基本信息"><span class="nav-number">1.6.</span> <span class="nav-text">6. 基本信息</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

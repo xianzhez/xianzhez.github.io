@@ -1,0 +1,757 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1. IntroductionA method’s signature consists of its name and the types of its formal parameters; the signature does not include the method’s return type.
+2. Creating and Destroying ObjectsItem 1: Cons">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective JAVA">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/Effective_Java/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="1. IntroductionA method’s signature consists of its name and the types of its formal parameters; the signature does not include the method’s return type.
+2. Creating and Destroying ObjectsItem 1: Cons">
+<meta property="og:updated_time" content="2017-10-22T16:07:58.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective JAVA">
+<meta name="twitter:description" content="1. IntroductionA method’s signature consists of its name and the types of its formal parameters; the signature does not include the method’s return type.
+2. Creating and Destroying ObjectsItem 1: Cons">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/28/Effective_Java/"/>
+
+  <title> Effective JAVA | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Effective JAVA
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-09-28T00:00:00+08:00" content="2017-09-28">
+              2017-09-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Reading/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>A method’s signature consists of its name and the types of its formal parameters; the signature does <strong>not include</strong> the method’s return type.</p>
+<h1 id="2-Creating-and-Destroying-Objects"><a href="#2-Creating-and-Destroying-Objects" class="headerlink" title="2. Creating and Destroying Objects"></a>2. Creating and Destroying Objects</h1><h3 id="Item-1-Consider-static-factory-methods-instead-of-constructors"><a href="#Item-1-Consider-static-factory-methods-instead-of-constructors" class="headerlink" title="Item 1: Consider static factory methods instead of constructors."></a>Item 1: Consider static factory methods instead of constructors.</h3><p><strong>Advantage</strong></p>
+<p>One advantage of static factory methods is that, unlike constructors, they have names.</p>
+<p>A second advantage of static factory methods is that, unlike constructors, they are not required to create a new object each time they’re invoked.</p>
+<p>A third advantage of static factory methods is that, unlike constructors, they can return an object of any subtype of their return type.</p>
+<p>A fourth advantage of static factory methods is that they reduce the verbosity of creating parameterized type instances.</p>
+<a id="more"></a>
+<p><strong>Disadvantage</strong></p>
+<p>The main disadvantage of providing only static factory methods is that classes without public or protected constructors cannot be subclassed.</p>
+<p>A second disadvantage of static factory methods is that they are not readily distinguishable from other static methods.</p>
+<h3 id="Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters"><a href="#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters" class="headerlink" title="Item 2: Consider a builder when faced with many constructor parameters"></a>Item 2: Consider a builder when faced with many constructor parameters</h3><p><strong>Telescoping constructor</strong>：the telescoping constructor pattern works, but it is hard to write client code when there are many parameters, and harder still to read it.</p>
+<p>A <strong>JavaBean</strong> may be in an inconsistent state partway through its construction. A related <strong>disadvantage</strong> is that the JavaBeans pattern precludes the possibility of making a class immutable.</p>
+<p>The <strong>Builder pattern</strong> is a good choice when designing classes whose constructors or static factories would have more than a handful of parameters</p>
+<h3 id="Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type"><a href="#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type" class="headerlink" title="Item 3: Enforce the singleton property with a private constructor or an enum type"></a>Item 3: Enforce the singleton property with a private constructor or an enum type</h3><p><strong>Disadvantage</strong> : Making a class a singleton can make it difficult to test its clients, as it’s impossible to substitute a mock implementation for a singleton unless it implements an interface that serves as its type.</p>
+<p>To make a singleton class that is implemented using either of the previous approaches <strong>serializable</strong>, it is not sufficient merely to add implements <code>Serializable</code> to its declaration. To maintain the singleton guarantee, you have to <strong>declare all</strong> instance <strong>fields</strong> <code>transient</code> and provide a <code>readResolve</code> method</p>
+<p>A <strong>single-element enum type</strong> is the <strong>best</strong> way to implement a singleton.</p>
+<pre><code>// Enum singleton - the preferred approach
+public enum Elvis {
+    INSTANCE;
+    public void leaveTheBuilding() { ... }
+}
+</code></pre><h3 id="Item-4-Enforce-noninstantialbility-with-a-private-constructor"><a href="#Item-4-Enforce-noninstantialbility-with-a-private-constructor" class="headerlink" title="Item 4: Enforce noninstantialbility with a private constructor"></a>Item 4: Enforce noninstantialbility with a private constructor</h3><p><strong>Attempting to enforce noninstantiability by making a class abstract does not work.</strong></p>
+<p>A class can be made noninstantiable by <strong>including a private constructor</strong>.</p>
+<p>   // Noninstantiable utility class<br>   public class UtilityClass {<br>       // Suppress default constructor for noninstantiability<br>       private UtilityClass() {<br>           throw new AssertionError();<br>    }<br>       ...  // Remainder omitted<br>   }</p>
+<p>As a side effect, this idiom also prevents the class from being subclassed. All constructors must invoke a superclass constructor, explicitly or implicitly, and a subclass would have no accessible superclass constructor to invoke.</p>
+<h3 id="Item-5-Avoid-creating-unnecessary-objects"><a href="#Item-5-Avoid-creating-unnecessary-objects" class="headerlink" title="Item 5: Avoid creating unnecessary objects"></a>Item 5: Avoid creating unnecessary objects</h3><p>String declaration.</p>
+<p>Prefer primitives to boxed primitives, and watch out for unintentional autoboxing.</p>
+<h3 id="Item-6-Eliminate-obsolete-object-reference"><a href="#Item-6-Eliminate-obsolete-object-reference" class="headerlink" title="Item 6: Eliminate obsolete object reference"></a>Item 6: Eliminate obsolete object reference</h3><p>If a stack <strong>grows and then shrinks</strong>, the objects that were popped off the stack will <strong>not be garbage collected</strong>, even if the program using the stack has no more references to them. This is because the stack main- tains obsolete references to these objects. An obsolete reference is simply a reference that will never be dereferenced again. In this case, any references outside of the “active portion” of the element array are <strong>obsolete</strong>. The active portion consists of the elements whose index is less than size.</p>
+<p><strong>Nulling out object references should be the exception rather than the norm.</strong> The best way to eliminate an obsolete reference is to <strong>let the variable</strong> that contained the reference fall <strong>out of scope</strong>. This occurs naturally if you define each variable in the narrowest possible scope </p>
+<p><strong>Whenever a class manages its own memory, the pro- grammer should be alert for memory leaks.</strong></p>
+<p><strong>Another common source of memory leaks is caches.</strong></p>
+<p>Remember that <code>WeakHashMap</code> is useful only if the desired lifetime of cache entries is determined by external references <strong>to the key, not the value.</strong></p>
+<p><strong>A third common source of memory leaks is listeners and other callbacks.</strong></p>
+<h3 id="Item-7-Avoid-finalizers"><a href="#Item-7-Avoid-finalizers" class="headerlink" title="Item 7: Avoid finalizers"></a>Item 7: Avoid finalizers</h3><p>Finalizers are unpredictable, often dangerous, and generally unnecessary.</p>
+<p>You should <strong>never do anything time-critical in a finalizer</strong>.</p>
+<p>The promptness with which finalizers are executed is primarily a function of the garbage collection <strong>algorithm</strong>, which <strong>varies widely from JVM implementation</strong> to JVM implementation. </p>
+<p>Not only does the language specification provide <strong>no guarantee that finalizers will get executed promptly</strong>; it provides <strong>no guarantee that they’ll get executed at all</strong>. It is entirely possible, even likely, that a program terminates <strong>without executing finalizers</strong> on some objects that are no longer reachable. As a consequence, you should <strong>never depend on a finalizer to update critical persistent state</strong>. </p>
+<p><strong>Solution:</strong></p>
+<p><strong>Just provide an explicit termination method</strong>, and require clients of the class to invoke this method on each instance when it is no longer needed.</p>
+<p>One detail worth mentioning is that the instance must keep track of whether it has been terminated: the explicit termination method must record in a private field that the object is no longer valid, and other methods must check this field and throw an <code>IllegalStateException</code> if they are called after the object has been terminated.</p>
+<blockquote>
+<p><strong>XIANZHEZ</strong>: This is why often counter some termination related problems especially in Bitmap, IO operation or some other circumstances on Android.</p>
+</blockquote>
+<p><strong>Good for</strong></p>
+<p>One is to act as a “<strong>safety net</strong>” <strong>in case the owner of an object forgets to call its explicit termination method.</strong> While there’s no guarantee that the finalizer will be invoked promptly, it may be better to free the resource late than never, in those (hopefully rare) cases when the client fails to call the explicit termination method. But the finalizer should log a warning if it finds that the resource has not been terminated, as this indicates a bug in the client code, which should be fixed.</p>
+<p>A second legitimate use of finalizers concerns objects with <strong>native peers</strong>. A native peer is a native object to which a normal object delegates via native meth- ods. Because a native peer is not a normal object, <strong>the garbage collector doesn’t know about it</strong> and <strong>can’t reclaim it</strong> when its Java peer is reclaimed. A finalizer is an appropriate vehicle for performing this task, assuming the native peer holds no critical resources. If the native peer holds resources that must be terminated promptly, the class should have an explicit termination method, as described above. </p>
+<p><strong>Important</strong></p>
+<p>It is important to note that “finalizer chaining” is not performed automatically. You should finalize the subclass in a try block and invoke the superclass finalizer in the corresponding finally block.</p>
+<p>// Manual finalizer chaining<br>@Override protected void finalize() throws Throwable {<br>       try {<br>           ... // Finalize subclass state<br>       } finally {<br>           super.finalize();<br>} }</p>
+<p>Use finalizer guardian (an instance of the anonymous class) to avoid forgetting call for <code>super.finalize()</code> method.</p>
+<p>   // Finalizer Guardian idiom<br>   public class Foo {<br>    // Sole purpose of this object is to finalize outer Foo object<br>    private final Object finalizerGuardian = new Object() {<br>         @Override protected void finalize() throws Throwable {<br>            ... // Finalize outer Foo object<br>         }<br>    };<br>      ...  // Remainder omitted<br>   }</p>
+<p>#3. Methods Common to All Objects</p>
+<h3 id="Item-8-Obey-the-general-contract-when-overriding-equals"><a href="#Item-8-Obey-the-general-contract-when-overriding-equals" class="headerlink" title="Item 8: Obey the general contract when overriding equals()"></a>Item 8: Obey the general contract when overriding equals()</h3><p><strong>Conditions not to override <code>equals()</code> method:</strong> </p>
+<ul>
+<li>Each instance of the class is inherently unique.</li>
+<li>You don’t care whether the class provides a “logical equality” test.</li>
+<li>A superclass has already overridden equals, and the superclass behavior is appropriate for this class. </li>
+<li>The class is private or package-private, and you are certain that its equals method will never be invoked.</li>
+</ul>
+<p>When a class has a notion of logical equality that differs from mere object identity, and a superclass has not already overridden equals to implement the desired behavior.</p>
+<p>Not only to find out whether they are logically equivalent, not whether they refer to the same object; it enables instances to serve as map keys or set elements with predictable, desirable behavior.</p>
+<p><strong>Contract:</strong></p>
+<ul>
+<li><strong>Reflexive</strong>: x.equals(x) must return true.</li>
+<li><strong>Symmetric</strong> : x.equals(y) must return true if and only if y.equals(x) returns true.</li>
+<li><strong>Transitive</strong>: if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) must return true.</li>
+<li><strong>Consistent</strong>: multiple invocations of x.equals(y) consistently return true or consistently return false.</li>
+<li><strong>“Non-nullity”</strong>: x.equals(null) must return false.</li>
+</ul>
+<p><strong>Recipe for a high-quality equals method:</strong></p>
+<ol>
+<li><p>Use the == operator to check if the argument is a reference to this object.</p>
+</li>
+<li><p>Use the instanceof operator to check if the argument has the correct type.</p>
+</li>
+<li><p>Cast the argument to the correct type.</p>
+</li>
+<li><p>For each “significant” field in the class, check if that field of the argument matches the corresponding field of this object. <strong>For primitive fields whose type is not float or double, use the <code>==</code> operator for comparisons</strong>; for object reference fields, invoke the equals method recursively; for float fields, use the <code>Float.compare</code> method; and for double fields, use <code>Double.compare</code>. The special treatment of float and double fields is <strong>made necessary by the existence of Float.NaN, -0.0f and the analogous double constants</strong>. For array fields, apply these guidelines to each element. </p>
+</li>
+<li><p>When you are finished writing your equals method, ask yourself three questions: Is it symmetric? Is it transitive? Is it consistent? </p>
+</li>
+</ol>
+<p><strong>Caveats</strong></p>
+<ul>
+<li>Always override hashCode when you override equals.</li>
+<li>Don’t try to be too clever.</li>
+<li>Don’t substitute another type for Object in the equals declaration.</li>
+</ul>
+<h3 id="Item-9-Always-override-hashCode-when-you-override-equals"><a href="#Item-9-Always-override-hashCode-when-you-override-equals" class="headerlink" title="Item 9: Always override hashCode when you override equals"></a>Item 9: Always override hashCode when you override equals</h3><p>The general contract for <code>Object.hashCode</code>:</p>
+<ul>
+<li>Whenever it is invoked on the same object more than once during an execu- tion of an application, <strong>the hashCode method must consistently return the same integer</strong>, provided no information used in equals comparisons on the object is modified. This integer need not remain consistent from one execu- tion of an application to another execution of the same application.</li>
+<li>If two objects are <strong>equal according to the equals (Object) method</strong>,then calling the hashCode method on each of the two objects <strong>must produce the same integer</strong> result.</li>
+<li>It is <strong>not required</strong> that if two objects are <strong>unequal according to the equals (Object) method</strong>, then calling the hashCode method <strong>on each of the two objects must produce distinct integer results</strong>. However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hash tables.</li>
+</ul>
+<p>If a class is <strong>immutable</strong> and the cost of computing the hash code is significant, you might consider <strong>caching the hash code in the object</strong> rather than recalculating it each time it is requested. If you believe that most objects of this type will be used as hash keys, then you should <strong>calculate the hash code when the instance is created</strong>. Otherwise, you might choose to lazily initialize it the first time hashCode is invoked</p>
+<h3 id="Item-10-Always-override-toString"><a href="#Item-10-Always-override-toString" class="headerlink" title="Item 10: Always override toString"></a>Item 10: Always override toString</h3><p>The toString contract goes on to say, “It is recommended that all subclasses override this method.”</p>
+<p>Whether or not you decide to specify the format, you should clearly docu- ment your intentions.</p>
+<h3 id="Item-11-Override-clone-judiciously"><a href="#Item-11-Override-clone-judiciously" class="headerlink" title="Item 11: Override clone judiciously"></a>Item 11: Override clone judiciously</h3><p>If a class implements <code>Cloneable</code>, Object’s clone method returns a field-by-field copy of the object; otherwise it throws <code>CloneNotSupportedException</code>. </p>
+<p>To recap, all classes that implement Cloneable should override clone with a public method whose return type is the class itself. This method should <strong>first call <code>super.clone</code> and then fix any fields</strong> that need to be fixed.</p>
+<p>The copy constructor approach and its static factory variant have many advantages over Cloneable/clone.</p>
+<p>Given all of the problems associated with Cloneable, it’s safe to say that <strong>other interfaces should not extend it</strong>, and that classes designed for inheritance (Item 17) should not implement it. Because of its many shortcomings, some expert programmers simply choose never to override the clone method and never to invoke it except, perhaps, to copy arrays. </p>
+<h3 id="Item-12-Consider-implementing-Comparable"><a href="#Item-12-Consider-implementing-Comparable" class="headerlink" title="Item 12: Consider implementing Comparable"></a>Item 12: Consider implementing Comparable</h3><p>Compares this object with the specified object for order. Returns <strong>a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.</strong> Throws ClassCastException if the specified object’s type prevents it from being compared to this object.</p>
+<p>It is strongly recommanded that the consistent of equals() and compareTo(). But it is not neccessary.</p>
+<h1 id="4-Classes-and-Interfaces"><a href="#4-Classes-and-Interfaces" class="headerlink" title="4. Classes and Interfaces"></a>4. Classes and Interfaces</h1><h3 id="Item-13-Minimize-the-accessibility-of-classes-and-members"><a href="#Item-13-Minimize-the-accessibility-of-classes-and-members" class="headerlink" title="Item 13: Minimize the accessibility of classes and members"></a>Item 13: Minimize the accessibility of classes and members</h3><p>The rule of thumb is simple: make each class or member as inaccessible as possible.</p>
+<p>For top-level (non-nested) classes and interfaces, there are only two possible access levels: <strong>package-private</strong> and <strong>public</strong>.</p>
+<p>If a package-private top-level class (or interface) is used by only one class, consider making the top-level class a private nested class of the sole class that uses it (Item 22). </p>
+<h3 id="Item-14-In-public-classes-use-accessor-methods-not-public-field"><a href="#Item-14-In-public-classes-use-accessor-methods-not-public-field" class="headerlink" title="Item 14: In public classes, use accessor methods, not public field"></a>Item 14: In public classes, use accessor methods, not public field</h3><p>In summary, <strong>public classes should never expose mutable fields</strong>. It is less harmful, though still questionable, for public classes to expose immutable fields. It is, however, <strong>sometimes desirable for package-private or private nested classes to expose fields</strong>, whether mutable or immutable.</p>
+<h3 id="Item-15-Minimize-mutability"><a href="#Item-15-Minimize-mutability" class="headerlink" title="Item 15: Minimize mutability"></a>Item 15: Minimize mutability</h3><p>To make a class immutable, follow these five rules:</p>
+<ol>
+<li>Don’t provide any methods that modify the object’s state.</li>
+<li>Ensure that the class can’t be extended.</li>
+<li>Make all fields final.</li>
+<li>Make all fields private.</li>
+<li>Ensure exclusive access to any mutable components.</li>
+</ol>
+<p>Immutable objects are simple. Immutable objects are inherently thread-safe; they require no synchronization.</p>
+<p>Not only can you share immutable objects, but you can share their internals.</p>
+<p>Immutable objects make great building blocks for other objects.</p>
+<p>The only real <strong>disadvantage</strong> of immutable classes is that they require a separate object for each distinct value.</p>
+<p>To guarantee immutability, a class must not permit itself to be subclassed. Typically this is done by making the class final, but there is another, more flexible way to do it. The alternative to making an immutable class final is to <strong>make all of its constructors private or package-private, and to add public static factories</strong> in place of the public constructors.</p>
+<p>Static factories have many other advantages over constructors, as discussed in Item 1. For example, suppose that you want to provide a means of creating a com- plex number based on its polar coordinates. This would be very messy using constructors because <strong>the natural constructor would have the same signature</strong> that we already used: Complex(double, double). With static factories it’s easy.</p>
+<p>One <strong>caveat</strong> should be added concerning serializability.</p>
+<p>If a class cannot be made immutable, limit its mutability as much as possible.</p>
+<p><strong>Don’t provide a “reinitialize” method</strong> that enables an object to be reused as if it had been constructed with a different initial state. Such methods generally provide little if any performance benefit at the expense of increased complexity.</p>
+<h3 id="Item-16-Favor-composition-over-inheritance"><a href="#Item-16-Favor-composition-over-inheritance" class="headerlink" title="Item 16: Favor composition over inheritance"></a>Item 16: Favor composition over inheritance</h3><p><strong>Instead of extending an existing class, give your new class a private field that references an instance of the existing class.</strong> This design is called composition because the existing class becomes a component of the new one. Each instance method in the new class invokes the corresponding method on the contained instance of the existing class and returns the results. This is known as forwarding, and the meth- ods in the new class are known as forwarding methods.</p>
+<p>Inheritance will also propagate the flaws which exsiting in super class to the sub class. Consider composition and forwarding when you want to hide these flaws.</p>
+<blockquote>
+<p>XIANZHEZ: Inheritance violates encapsulation.</p>
+<p>XIANZHEZ: Compositon and forwarding can be considered as <code>Decorator</code> pattern.</p>
+</blockquote>
+<h3 id="Item-17-Design-and-document-for-inheritance-or-else-prohibit-it"><a href="#Item-17-Design-and-document-for-inheritance-or-else-prohibit-it" class="headerlink" title="Item 17: Design and document for inheritance or else prohibit it"></a>Item 17: Design and document for inheritance or else prohibit it</h3><p>The class must document its self-use of overridable methods. For each public or protected method or constructor, the documentation must indicate which overridable methods the method or constructor invokes, in what sequence, and how the results of each invocation affect subsequent processing.</p>
+<p>The description begins with the phrase “This implementation.”</p>
+<p><strong>The only way to test a class designed for inheritance is to write subclasses.</strong> Experience shows that three subclasses are usually sufficient to test an extendable class.</p>
+<p>As of this writing, there is little in the way of tools or commenting conventions to separate ordinary API documentation from information of interest only to programmers implementing subclasses.</p>
+<p><strong>Constructors must not invoke overridable methods</strong>, directly or indirectly. The superclass constructor runs before the subclass constructor, so the overriding method in the subclass will get invoked before the subclass constructor has run. If the overriding method depends on any initialization performed by the subclass constructor, the method will not behave as expected.</p>
+<p><strong>Neither <code>clone</code> nor <code>readObject</code> may invoke an overridable method, directly or indirectly.</strong> If you decide to implement Serializable in a class designed for inheritance and the class has a readResolve or writeReplace method, you must make the readResolve or writeReplace method protected rather than private. If these methods are private, they will be silently ignored by subclasses. This is one more case where an implementation detail becomes part of a class’s API to permit inheritance.</p>
+<h3 id="Item-18-Prefer-interfaces-to-abstract-classes"><a href="#Item-18-Prefer-interfaces-to-abstract-classes" class="headerlink" title="Item 18: Prefer interfaces to abstract classes"></a>Item 18: Prefer interfaces to abstract classes</h3><p>You can combine the virtues of interfaces and abstract classes by providing an <strong>abstract skeletal implementation</strong> class to go with each nontrivial interface that you export.</p>
+<p>Once an interface is released and widely implemented, it is almost impossible to change.</p>
+<h3 id="Item-19-Use-interfaces-only-to-define-types"><a href="#Item-19-Use-interfaces-only-to-define-types" class="headerlink" title="Item 19: Use interfaces only to define types"></a>Item 19: Use interfaces only to define types</h3><p>The constant interface pattern is a poor use of interfaces.</p>
+<p>Export the constants with a noninstantiable utility class.</p>
+<p>In summary, interfaces should be used only to define types. They should not be used to export constants.</p>
+<h3 id="Item-20-Prefer-class-hierarchies-to-tagged-classes"><a href="#Item-20-Prefer-class-hierarchies-to-tagged-classes" class="headerlink" title="Item 20: Prefer class hierarchies to tagged classes"></a>Item 20: Prefer class hierarchies to tagged classes</h3><p>Tagged classes are verbose, error-prone, and inefficient.</p>
+<h3 id="Item-21-Use-function-objects-to-represent-strategies"><a href="#Item-21-Use-function-objects-to-represent-strategies" class="headerlink" title="Item 21: Use function objects to represent strategies"></a>Item 21: Use function objects to represent strategies</h3><p><code>Strategy</code> pattern.</p>
+<p>All instances of the class are functionally equivalent. Thus it should be a singleton to save on unnecessary object creation costs if it will be executed repeatedly.</p>
+<p>When a concrete strategy is used only once, it is typically declared and instantiated as an anonymous class. When a concrete strategy is designed for repeated use, it is generally implemented as a private static member class and exported in a public static final field whose type is the strategy interface.</p>
+<h3 id="Item-22-Favor-static-member-classes-over-nonstatic"><a href="#Item-22-Favor-static-member-classes-over-nonstatic" class="headerlink" title="Item 22: Favor static member classes over nonstatic"></a>Item 22: Favor static member classes over nonstatic</h3><p>A nested class should exist only to serve its enclosing class.</p>
+<p>There are four kinds of nested classes: </p>
+<ul>
+<li>static member classes</li>
+<li>nonstatic member classes</li>
+<li>anonymous classes</li>
+<li>local classes</li>
+</ul>
+<p>One common use of a <strong>static member</strong> class is as a public helper class, useful only in conjunction with its outer class.</p>
+<p>It is impossible to create an instance of a <strong>nonstatic member class</strong> without an enclosing instance.</p>
+<p>One common use of a <strong>nonstatic member class</strong> is to define an <code>Adapter</code> that allows an instance of the outer class to be viewed as an instance of some unrelated class.</p>
+<p><strong>If you declare a member class that does not require access to an enclosing instance, always put the <code>static</code> modifier in its declaration.</strong></p>
+<p>Storing this reference costs time and space, and can result in the enclosing instance being retained when it would otherwise be eligible for garbage collection.</p>
+<blockquote>
+<p><strong>XIANZHEZ</strong>: Nonstatic member class will keep the reference to enclosing class object, which wastes more space and time; if this nonstatic member class is accessible by outer objects, the invocation of its constructor looks very wired and the reference to this nonstatic member class object may result in memory leak, as the eclosing class is referred by the inner nonstatic class and not be eligible for garbage collection.</p>
+</blockquote>
+<p>There are many <strong>limitations</strong> on the applicability of <strong>anonymous classes</strong>. You can’t instantiate them except at the point they’re declared. You can’t perform instanceof tests or do anything else that requires you to name the class. You can’t declare an anonymous class to implement multiple interfaces, or to extend a class and implement an interface at the same time. Clients of an anonymous class can’t invoke any members except those it inherits from its supertype. Because anonymous classes occur in the midst of expressions, they must be kept short— about ten lines or fewer—or readability will suffer.</p>
+<p>One common use of <strong>anonymous classes</strong> is to <strong>create function objects on the fly</strong>. Another common use of anonymous classes is to <strong>create process objects</strong>, such as <code>Runnable</code>, <code>Thread</code>, or <code>TimerTask</code> instances. A third common use is <strong>within static factory methods</strong>.</p>
+<p>Local classes are the least frequently used of the four kinds of nested classes. A local class can be declared anywhere a local variable can be declared and obeys the same scoping rules.</p>
+<h1 id="5-Generics"><a href="#5-Generics" class="headerlink" title="5. Generics"></a>5. Generics</h1><h3 id="Item-23-Don-39-t-use-raw-types-in-new-code"><a href="#Item-23-Don-39-t-use-raw-types-in-new-code" class="headerlink" title="Item 23: Don&#39;t use raw types in new code"></a>Item 23: Don&#39;t use raw types in new code</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/10/Android_tips/" rel="next" title="Android Dev Tips">
+                <i class="fa fa-chevron-left"></i> Android Dev Tips
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Creating-and-Destroying-Objects"><span class="nav-number">2.</span> <span class="nav-text">2. Creating and Destroying Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-1-Consider-static-factory-methods-instead-of-constructors"><span class="nav-number">2.0.1.</span> <span class="nav-text">Item 1: Consider static factory methods instead of constructors.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters"><span class="nav-number">2.0.2.</span> <span class="nav-text">Item 2: Consider a builder when faced with many constructor parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type"><span class="nav-number">2.0.3.</span> <span class="nav-text">Item 3: Enforce the singleton property with a private constructor or an enum type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-4-Enforce-noninstantialbility-with-a-private-constructor"><span class="nav-number">2.0.4.</span> <span class="nav-text">Item 4: Enforce noninstantialbility with a private constructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-5-Avoid-creating-unnecessary-objects"><span class="nav-number">2.0.5.</span> <span class="nav-text">Item 5: Avoid creating unnecessary objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-6-Eliminate-obsolete-object-reference"><span class="nav-number">2.0.6.</span> <span class="nav-text">Item 6: Eliminate obsolete object reference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-7-Avoid-finalizers"><span class="nav-number">2.0.7.</span> <span class="nav-text">Item 7: Avoid finalizers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-8-Obey-the-general-contract-when-overriding-equals"><span class="nav-number">2.0.8.</span> <span class="nav-text">Item 8: Obey the general contract when overriding equals()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-9-Always-override-hashCode-when-you-override-equals"><span class="nav-number">2.0.9.</span> <span class="nav-text">Item 9: Always override hashCode when you override equals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-10-Always-override-toString"><span class="nav-number">2.0.10.</span> <span class="nav-text">Item 10: Always override toString</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-11-Override-clone-judiciously"><span class="nav-number">2.0.11.</span> <span class="nav-text">Item 11: Override clone judiciously</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-12-Consider-implementing-Comparable"><span class="nav-number">2.0.12.</span> <span class="nav-text">Item 12: Consider implementing Comparable</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Classes-and-Interfaces"><span class="nav-number">3.</span> <span class="nav-text">4. Classes and Interfaces</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-13-Minimize-the-accessibility-of-classes-and-members"><span class="nav-number">3.0.1.</span> <span class="nav-text">Item 13: Minimize the accessibility of classes and members</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-14-In-public-classes-use-accessor-methods-not-public-field"><span class="nav-number">3.0.2.</span> <span class="nav-text">Item 14: In public classes, use accessor methods, not public field</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-15-Minimize-mutability"><span class="nav-number">3.0.3.</span> <span class="nav-text">Item 15: Minimize mutability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-16-Favor-composition-over-inheritance"><span class="nav-number">3.0.4.</span> <span class="nav-text">Item 16: Favor composition over inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-17-Design-and-document-for-inheritance-or-else-prohibit-it"><span class="nav-number">3.0.5.</span> <span class="nav-text">Item 17: Design and document for inheritance or else prohibit it</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-18-Prefer-interfaces-to-abstract-classes"><span class="nav-number">3.0.6.</span> <span class="nav-text">Item 18: Prefer interfaces to abstract classes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-19-Use-interfaces-only-to-define-types"><span class="nav-number">3.0.7.</span> <span class="nav-text">Item 19: Use interfaces only to define types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-20-Prefer-class-hierarchies-to-tagged-classes"><span class="nav-number">3.0.8.</span> <span class="nav-text">Item 20: Prefer class hierarchies to tagged classes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-21-Use-function-objects-to-represent-strategies"><span class="nav-number">3.0.9.</span> <span class="nav-text">Item 21: Use function objects to represent strategies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-22-Favor-static-member-classes-over-nonstatic"><span class="nav-number">3.0.10.</span> <span class="nav-text">Item 22: Favor static member classes over nonstatic</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Generics"><span class="nav-number">4.</span> <span class="nav-text">5. Generics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-23-Don-39-t-use-raw-types-in-new-code"><span class="nav-number">4.0.1.</span> <span class="nav-text">Item 23: Don't use raw types in new code</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

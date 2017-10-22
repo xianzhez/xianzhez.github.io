@@ -1,0 +1,999 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reading notes,Web,CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#Introduction to CSS
+
+#How CSS works&amp;gt;
+####What is CSS?CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.
+####How does CSS affect HTML?A CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Basics">
+<meta property="og:url" content="http://yoursite.com/2016/05/23/CSS/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="#Introduction to CSS
+
+#How CSS works&amp;gt;
+####What is CSS?CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.
+####How does CSS affect HTML?A CSS">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/11781/rendering.svg">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/11943/css-box-model-standard.svg">
+<meta property="og:updated_time" content="2017-10-22T15:41:50.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS Basics">
+<meta name="twitter:description" content="#Introduction to CSS
+
+#How CSS works&amp;gt;
+####What is CSS?CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.
+####How does CSS affect HTML?A CSS">
+<meta name="twitter:image" content="https://mdn.mozillademos.org/files/11781/rendering.svg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/23/CSS/"/>
+
+  <title> CSS Basics | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS Basics
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-23T00:00:00+08:00" content="2016-05-23">
+              2016-05-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>#<strong>Introduction to CSS</strong></p>
+</blockquote>
+<p>#How CSS works<br>&gt;</p>
+<p>####What is CSS?<br>CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.</p>
+<p>####How does CSS affect HTML?<br>A CSS rule is formed from:</p>
+<ul>
+<li>A set of properties, which have values set to update how the HTML content is displayed, for example I want my element&#39;s width to be 50% of its parent element, and its background to be red.</li>
+<li>A selector, which selects the element(s) you want to apply the updated property values to. For example, I want to apply my CSS rule to all the paragraphs in my HTML document.</li>
+</ul>
+<p>####A quick CSS example<br>a stylesheet is applied to the HTML using a <link> element<br><a id="more"></a><br>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;My CSS experiment&lt;/title&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;h1&gt;Hello World!&lt;/h1&gt;</div><div class="line">    &lt;p&gt;This is my first CSS example&lt;/p&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">h1 &#123;</div><div class="line">  color: blue;</div><div class="line">  background-color: yellow;</div><div class="line">  border: 1px solid black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">p &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####How does CSS actually work?</p>
+<p><strong>2 steps:</strong></p>
+<ol>
+<li>The browser converts HTML and CSS into the DOM (Document Object Model). The DOM represents the document in the computer&#39;s memory. It combines the document&#39;s content with its style.</li>
+<li>The browser displays the contents of the DOM.</li>
+</ol>
+<p><img src="https://mdn.mozillademos.org/files/11781/rendering.svg" alt="Parse progress"></p>
+<p>####How to apply your CSS to your HTML<br>3 common ways to apply CSS to HTML</p>
+<ul>
+<li>External stylesheet(<strong>recommanded</strong>):</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;My CSS experiment&lt;/title&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;h1&gt;Hello World!&lt;/h1&gt;</div><div class="line">    &lt;p&gt;This is my first CSS example&lt;/p&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">h1 &#123;</div><div class="line">  color: blue;</div><div class="line">  background-color: yellow;</div><div class="line">  border: 1px solid black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">p &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Internal stylesheet</li>
+</ul>
+<p>全局有效？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;My CSS experiment&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">      h1 &#123;</div><div class="line">        color: blue;</div><div class="line">        background-color: yellow;</div><div class="line">        border: 1px solid black;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      p &#123;</div><div class="line">        color: red;</div><div class="line">      &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;h1&gt;Hello World!&lt;/h1&gt;</div><div class="line">    &lt;p&gt;This is my first CSS example&lt;/p&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>Inline styles(<strong>It is really bad for maintenance</strong>)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;My CSS experiment&lt;/title&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;h1 style=&quot;color: blue;background-color: yellow;border: 1px solid black;&quot;&gt;Hello World!&lt;/h1&gt;</div><div class="line">    &lt;p style=&quot;color:red;&quot;&gt;This is my first CSS example&lt;/p&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>后面两种方法会覆盖第一种方法的设置，第三种会覆盖第二种方法的设置。</p>
+<p>#CSS syntax</p>
+<p>####A touch of vocabulary<br>At its most basic level, CSS is consists of two building blocks:</p>
+<ul>
+<li>Properties: Human-readable identifiers that indicate which stylistic features (e.g. font, width, background color) you want to change.</li>
+<li>Values: Each specified property is given a value, which indicates how you want to change those stylistic features (e.g. what you want to change the font, width or background color to.)</li>
+</ul>
+<p>#####CSS Declarations<br>Both properties and values are case-sensitive in CSS</p>
+<p>There are more than <strong>300 different properties</strong> in CSS and nearly <strong>an infinite number of different values</strong>. Not all pairs of properties and values are allowed; each property has a specific list of valid values defined for it.</p>
+<blockquote>
+<p><strong>Important</strong>: If a property is unknown or if a value is not valid for a given property, the declaration is deemed invalid and is wholly ignored by the browser&#39;s CSS engine.</p>
+<p><strong>Important</strong>: In CSS (and other web standards), US spelling has been agreed on as the standard to stick to where uncertainly arises. For example, color (as seen in the above code) should always be spelt color. colour won&#39;t work.</p>
+</blockquote>
+<p>#####CSS Declaration blocks</p>
+<blockquote>
+<p><strong>Note</strong>: Blocks can sometimes can be nested; in such cases opening and closing braces must be nested logically, in the same fashion as the tags of nested HTML elements. The most common example you&#39;ll come across are @-rules, which are blocks beginning with an @ identifier like @media, @font-face, etc (See CSS Statements below).</p>
+<p><strong>Note</strong>: A declaration block may be empty — this is perfectly valid.</p>
+</blockquote>
+<p>#####CSS Rules<br><strong>Selectors</strong> can get very complicated — you can make a rule match multiple elements by including multiple selectors separated by <strong>commas</strong> (a group,) and selectors can be chained together, for example I want to select any element with a class of &quot;blah&quot;, but only if it is inside an article element, and only while it is being hovered by the mouse pointer. </p>
+<p>#####CSS statements<br>CSS Rules are the main building blocks of a style sheet — the most common block you&#39;ll see in CSS. But there are other types of block that you&#39;ll come across occasionally — CSS rules are one type of so-called CSS statements. The other types are as follows:</p>
+<ul>
+<li><p>At-rules are used in CSS to <strong>convery metadata, conditional information, or other descriptive information</strong>. They start with an at sign (@), followed by an identifier to say what kind of rule it is, then a syntax block of some kind, ending with a semi-colon (;). Each type of at-rule, defined by the identifier, will have its own internal syntax and semantics. Examples include:</p>
+<ul>
+<li>@charset and @import (metadata)</li>
+<li>@media or @document (conditional information, also called nested statements, see below.)</li>
+<li>@font-face (descriptive information)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@import &apos;custom.css&apos;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>Nested statements are a specific subset of at-rule, the syntax of which is a nested block of CSS rules that will only be applied to the document if a specific condition is matched:</p>
+<ul>
+<li>The @media at-rule content is applied only if the device which runs the browser matches the expressed condition;</li>
+<li>the @supports at-rule content is applied only if the browser actually support the tested feature;</li>
+<li>the @document at-rule content is applied only if the current page matches some conditions. </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@media (min-width: 801px) &#123;</div><div class="line">  body &#123;</div><div class="line">    margin: 0 auto;</div><div class="line">    width: 800px;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><strong>Important</strong>: Any statement which isn&#39;t a ruleset, an at-rule, or a nested statement is invalid and therefore ignored.</p>
+</blockquote>
+<p>####Beyond syntax: make CSS readable</p>
+<p>#####Shorthand<br>Some properties like font, background, padding, border, and margin are called shorthand properties — this is because they allow you to set several property values in a single line, saving time and making your code neater in the process.</p>
+<p>This can be used as :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/* in shorthand like padding and margin, the values are applied</div><div class="line">   in the order top, right, bottom, left. There are also other </div><div class="line">   shorthand types, for example two values, which set for example</div><div class="line">   the padding for top/bottom, then left/right */</div><div class="line">padding: 10px 15px 15px 5px</div></pre></td></tr></table></figure>
+<p>Does this same thing as all these:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">padding-top: 10px;</div><div class="line">padding-right: 15px;</div><div class="line">padding-bottom: 15px;</div><div class="line">padding-left: 5px;</div></pre></td></tr></table></figure>
+<p>#Selectors<br>In CSS, selectors are used to target the HTML elements on our web pages that we want to style. There are a wide variety of CSS selectors available, allowing for fine grained precision when selecting elelents to style.</p>
+<p>Selectors can be divided into the following <strong>categories</strong>:</p>
+<ul>
+<li><strong>Simple selectors</strong>: Match one or more elements based on <code>element type</code>, <code>class</code>, or <code>id</code>.</li>
+<li><strong>Attribute selectors</strong>: Match one or more elements based on their <code>attributes/attribute values</code>.</li>
+<li><strong>Pseudo-classes</strong>: Match one or more elements that exist <code>in a certain state</code>, such as an element that is being hovered over by the mouse pointer, or a checkbox that is currently disabled or checked, or an element that is the first child of its parent in the DOM tree.</li>
+<li><strong>Pseudo-elements</strong>: Match one or more parts of content that are <code>in a certain position in relation to an element</code>, for example the first word of each paragraph, or generated content appearing just before an element.</li>
+<li><strong>Combinators</strong>: These are not exactly selectors themselves, but ways of <code>combining two or more selectors</code> in useful ways for very specific selections. So for example, you could select only paragraphs that are direct descendants of divs, or paragraphs that come directly after headings.</li>
+</ul>
+<p>###Simple selectors</p>
+<p>####Type selectors aka element selectors<br>This selector is just a case-insensitive match between the selector name and a given HTML element name.</p>
+<p>####Class selectors<br>The class selector consists of a dot, <code>.</code>, followed by a class name. A class name is any value without spaces put <code>within an HTML class attribute</code>. It is up to you to choose a name for the class. It is also worth knowing that <code>multiple elements in a document can have the same class value</code> and <code>a single element can have multiple class names separated by white space</code>.</p>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li class=&quot;first done&quot;&gt;Create an HTML document&lt;/li&gt;</div><div class="line">  &lt;li class=&quot;second done&quot;&gt;Create a CSS style sheet&lt;/li&gt;</div><div class="line">  &lt;li class=&quot;third&quot;&gt;Link them all together&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/* The element with the class &quot;first&quot; is bolded */</div><div class="line">.first &#123;</div><div class="line">  font-weight: bold;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All the elements with the class &quot;done&quot; are strike through */</div><div class="line">.done &#123;</div><div class="line">  text-decoration: line-through;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####ID selectors<br>The ID selector consists of <code>a hash/pound symbol (#)</code>, followed by the ID name of a given element. Any element can have a unique ID name set with the <code>id attribute</code>. It is up to you what name you choose for the ID. <strong>It&#39;s the most efficient way to select a single element.</strong></p>
+<blockquote>
+<p><strong>Important</strong>: An ID name must be <strong>unique</strong> in the document. Behaviors regarding duplicated IDs are <strong>unpredictable</strong>, for example in some browsers only the first instance is counted, and the rest are ignored.</p>
+</blockquote>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;p id=&quot;polite&quot;&gt; — &quot;Good morning.&quot;&lt;/p&gt;</div><div class="line">&lt;p id=&quot;rude&quot;&gt; — &quot;Go away!&quot;&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#polite &#123;</div><div class="line">  font-family: cursive;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#rude &#123;</div><div class="line">  font-family: monospace;</div><div class="line">  text-transform: uppercase;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####Universal selector<br>The universal selector (*) is the ultimate joker. It allows selecting <code>all elements</code> in a page. As it is rarely useful to apply a style to every element on a page, it is often used <code>in combination with other selectors</code> (see Combinators below.)</p>
+<blockquote>
+<p><strong>Important</strong>: Careful when using the universal selector. As it applies to all elements, using it in large web pages can have a perceptible impact on <code>performance</code>: web pages can be displayed <code>slower</code> than expected. There are not many instances where you&#39;d want to use this selector.</p>
+</blockquote>
+<p>CSS(apply to all elements in this page):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">  padding: 5px;</div><div class="line">  border: 1px solid black;</div><div class="line">  background: rgba(255,0,0,0.25)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Attribute selectors</p>
+<p>Attribute selectors are a special kind of selector that will match elements based on their attributes and attribute values. Their generic syntax consists of square brackets (<code>[]</code>) containing an attribute name <code>followed by an optional condition</code> to match against the value of the attribute. Attribute selectors can be divided into <code>two categories</code> depending on the way they match attribute values: <code>Presence and value</code> attribute selectors and <code>Substring</code> value attribute selectors.</p>
+<p>####Presence and value attribute selectors<br>These attribute selectors try to match an exact attribute value:</p>
+<ul>
+<li><code>[attr]</code> : This selector will <strong>select all elements with the attribute attr</strong>, whatever its value.</li>
+<li><code>[attr=val]</code> : This selector will select all elements with the attribute attr, but <strong>only if its value is val</strong>.</li>
+<li><code>[attr~=val]</code>: This selector will select all elements with the attribute attr, but <strong>only if the value val is one of a space-separated list of values contained in attr&#39;s value</strong>, for example a single class in a space-separated list of classes.</li>
+</ul>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Ingredients for my recipe: &lt;i lang=&quot;fr-FR&quot;&gt;Poulet basquaise&lt;/i&gt;</div><div class="line"> &lt;ul&gt;</div><div class="line">  &lt;li data-quantity=&quot;1kg&quot; data-vegetable&gt;Tomatoes&lt;/li&gt;</div><div class="line">  &lt;li data-quantity=&quot;3&quot; data-vegetable&gt;Onions&lt;/li&gt;</div><div class="line">  &lt;li data-quantity=&quot;3&quot; data-vegetable&gt;Garlic&lt;/li&gt;</div><div class="line">  &lt;li data-quantity=&quot;700g&quot; data-vegetable=&quot;not spicy like chili&quot;&gt;Red pepper&lt;/li&gt;</div><div class="line">  &lt;li data-quantity=&quot;2kg&quot; data-meat&gt;Chicken&lt;/li&gt;</div><div class="line">  &lt;li data-quantity=&quot;optional 150g&quot; data-meat&gt;Bacon bits&lt;/li&gt;</div><div class="line">  &lt;li data-quantity=&quot;optional 10ml&quot; data-vegetable=&quot;liquid&quot;&gt;Olive oil&lt;/li&gt;</div><div class="line">  &lt;li data-quantity=&quot;25cl&quot; data-vegetable=&quot;liquid&quot;&gt;White wine&lt;/li&gt;</div><div class="line"> &lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">/* All elements with the attribute &quot;data-vegetable&quot;</div><div class="line">   are given green text */</div><div class="line">[data-vegetable] &#123;</div><div class="line">  color: green</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All elements with the attribute &quot;data-vegetable&quot;</div><div class="line">   with the exact value &quot;liquid&quot; are given a golden</div><div class="line">   background color */</div><div class="line">[data-vegetable=&quot;liquid&quot;] &#123;</div><div class="line">  background-color: goldenrod;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All elements with the attribute &quot;data-vegetable&quot;,</div><div class="line">   containing the value &quot;spicy&quot;, even among others,</div><div class="line">   are given a red background color */</div><div class="line">[data-vegetable~=&quot;spicy&quot;] &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####Substring value attribute selectors</p>
+<p>Attribute selectors in this class are also known as &quot;<code>RegExp-like selectors</code>&quot;, because they offer flexible matching in a similar fashion to regular expression (but to be clear, these selectors are not true regular expression):</p>
+<ul>
+<li><code>[attr|=val]</code> : This selector will select all elements with the attribute attr for which the value is <strong>exactly val or starts with <code>val-</code></strong> (careful, the <code>dash</code> here isn&#39;t a mistake, this is to handle language codes.)</li>
+<li><code>[attr^=val]</code> : This selector will select all elements with the attribute attr for which the value <strong>starts with val</strong>.</li>
+<li><code>[attr$=val]</code> : This selector will select all elements with the attribute attr for which the value <strong>ends with val</strong>.</li>
+<li><code>[attr*=val]</code> : This selector will select all elements with the attribute attr for which the value <strong>contains the string val</strong> (unlike [attr~=val], this selector doesn&#39;t treat spaces as value separators but as part of the attribute value.)</li>
+</ul>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">/* Classic usage for language selection */ </div><div class="line">[lang|=fr] &#123; </div><div class="line">	font-weight: bold; </div><div class="line">&#125; </div><div class="line">/* All elements with the attribute &quot;data-vegetable&quot; containing the value &quot;not spicy&quot; are turned back to green */ </div><div class="line">[data-vegetable*=&quot;not spicy&quot;] &#123; </div><div class="line">	color: green; </div><div class="line">&#125; </div><div class="line">/* All elements with the attribute &quot;data-quantity&quot;, for which the value ends with &quot;kg&quot; */ </div><div class="line">[data-quantity$=&quot;kg&quot;] &#123; </div><div class="line">	font-weight: bold; </div><div class="line">&#125; </div><div class="line">/* All elements with the attribute &quot;data-quantity&quot;, for which the value starts with &quot;optional&quot; */ </div><div class="line">[data-quantity^=&quot;optional&quot;] &#123; </div><div class="line">	opacity: 0.5; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Pseudo-classes</p>
+<p>A CSS pseudo-class is a keyword preceded by a colon (:) that is added on <code>to the end of selectors</code> to specify that you want to style the selected elements only when they are <code>in certain state</code>. For example you might to style an element only when it is being hovered over by the mouse pointer, or a checkbox when it is disabled or checked, or an element that is the first child of its parent in the DOM tree.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">:active</div><div class="line">:any</div><div class="line">:checked</div><div class="line">:default</div><div class="line">:dir()</div><div class="line">:disabled</div><div class="line">:empty</div><div class="line">:enabled</div><div class="line">:first</div><div class="line">:first-child</div><div class="line">:first-of-type</div><div class="line">:fullscreen</div><div class="line">:focus</div><div class="line">:hover</div><div class="line">:indeterminate</div><div class="line">:in-range</div><div class="line">:invalid</div><div class="line">:lang()</div><div class="line">:last-child</div><div class="line">:last-of-type</div><div class="line">:left</div><div class="line">:link</div><div class="line">:not()</div><div class="line">:nth-child()</div><div class="line">:nth-last-child()</div><div class="line">:nth-last-of-type()</div><div class="line">:nth-of-type()</div><div class="line">:only-child</div><div class="line">:only-of-type</div><div class="line">:optional</div><div class="line">:out-of-range</div><div class="line">:read-only</div><div class="line">:read-write</div><div class="line">:required</div><div class="line">:right</div><div class="line">:root</div><div class="line">:scope</div><div class="line">:target</div><div class="line">:valid</div><div class="line">:visited</div></pre></td></tr></table></figure>
+<p>####A pseudo-class example<br>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://developer.mozilla.org/&quot; target=&quot;_blank&quot;&gt;Mozilla Developer Network&lt;/a&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">/* These styles will style our link</div><div class="line">   in all states */</div><div class="line">a &#123;</div><div class="line">  color: blue;</div><div class="line">  font-weight: bold;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* We want visited links to be the same color</div><div class="line">   as non visited links */</div><div class="line">a:visited &#123;</div><div class="line">  color: blue;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* We highlight the link when it is</div><div class="line">   hovered (mouse), activated</div><div class="line">   or focused (keyboard) */</div><div class="line">a:hover,</div><div class="line">a:active,</div><div class="line">a:focus &#123;</div><div class="line">  color: darkred;</div><div class="line">  text-decoration: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Pseudo-elements<br>Pseudo-elements are very much like pseudo-classes, but they have differences. They are keywords — this time preceded by two colons (<code>::</code>) — that can be added to the end of selectors to select <code>a certain part of an element</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">::after</div><div class="line">::before</div><div class="line">::first-letter</div><div class="line">::first-line</div><div class="line">::selection</div><div class="line">::backdrop</div></pre></td></tr></table></figure>
+<p>####A pseudo-element example:</p>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line"> &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Glossary/CSS&quot;&gt;CSS&lt;/a&gt; defined in the MDN glossary.&lt;/li&gt;</div><div class="line"> &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Glossary/HTML&quot;&gt;HTML&lt;/a&gt; defined in the MDN glossary.&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/* All elements with an attribute &quot;href&quot;, which values</div><div class="line">   start with &quot;http&quot;, will be added an arrow after its</div><div class="line">   content (to indicate it&apos;s an external link) */</div><div class="line">   [href^=http] ::after &#123;</div><div class="line">  content: &apos;⤴&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Combinators<br>Using one selector at a time is useful, but can be inefficient in some situations. CSS selectors become evem more useful when you start <code>combining</code> them to perform fine-grained selections. CSS has several ways to select elements based on how they are related to one another. Those relationships are expressed with combinators as follows (A and B represent any selector seen above):</p>
+<table>
+<thead>
+<tr>
+<th>Combinators</th>
+<th>Select</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AB</td>
+<td>Any element matching both A and B at the same time.</td>
+</tr>
+<tr>
+<td>A B</td>
+<td>Any element matching B that is a descendant of an element matching A (that is: a child, or a child of a child, etc.)</td>
+</tr>
+<tr>
+<td>A &gt; B</td>
+<td>Any element matching B that is a direct child of an element matching A.</td>
+</tr>
+<tr>
+<td>A + B</td>
+<td>Any element matching B that is the next sibling of an element matching A (that is: the next child of the same parent.)</td>
+</tr>
+<tr>
+<td>A ~ B</td>
+<td>Any element matching B that is among the next sibling of an element matching A (that is: one of the next children of the same parent.)</td>
+</tr>
+</tbody>
+</table>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;table lang=&quot;en-US&quot; class=&quot;with-currency&quot;&gt;</div><div class="line"> &lt;thead&gt;</div><div class="line">   &lt;tr&gt;</div><div class="line">     &lt;th scope=&quot;col&quot;&gt;Product&lt;/th&gt;</div><div class="line">     &lt;th scope=&quot;col&quot;&gt;Qty.&lt;/th&gt;</div><div class="line">     &lt;th scope=&quot;col&quot;&gt;Price&lt;/th&gt;</div><div class="line">   &lt;/tr&gt;</div><div class="line"> &lt;/thead&gt;</div><div class="line"> &lt;tfoot&gt;</div><div class="line">   &lt;tr&gt;</div><div class="line">     &lt;th colspan=&quot;2&quot; scope=&quot;row&quot;&gt;Total:&lt;/th&gt;</div><div class="line">     &lt;td&gt;148.55&lt;/td&gt;</div><div class="line">   &lt;/tr&gt;</div><div class="line"> &lt;/tfoot&gt;</div><div class="line"> &lt;tbody&gt;</div><div class="line">   &lt;tr&gt;</div><div class="line">     &lt;td&gt;Lawnchair&lt;/td&gt;</div><div class="line">     &lt;td&gt;1&lt;/td&gt;</div><div class="line">     &lt;td&gt;137.00&lt;/td&gt;</div><div class="line">   &lt;/tr&gt;</div><div class="line">   &lt;tr&gt;</div><div class="line">     &lt;td&gt;Marshmallow rice bar&lt;/td&gt;</div><div class="line">     &lt;td&gt;2&lt;/td&gt;</div><div class="line">     &lt;td&gt;1.10&lt;/td&gt;</div><div class="line">   &lt;/tr&gt;</div><div class="line">   &lt;tr&gt;</div><div class="line">     &lt;td&gt;Book&lt;/td&gt;</div><div class="line">     &lt;td&gt;1&lt;/td&gt;</div><div class="line">     &lt;td&gt;10.45&lt;/td&gt;</div><div class="line">   &lt;/tr&gt;</div><div class="line"> &lt;/tbody&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">/* Basic table setup */</div><div class="line">table &#123;</div><div class="line">  font: 1em sans-serif;</div><div class="line">  border-collapse: collapse;</div><div class="line">  border-spacing: 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All &lt;td&gt;s within a &lt;table and all &lt;th&gt;s within a &lt;table&gt;</div><div class="line">   Comma is not a combinator, it just allows you to target</div><div class="line">   several selectors with the same CSS ruleset */</div><div class="line">table td, table th &#123;</div><div class="line">  border : 1px solid black;</div><div class="line">  padding: 0.5em 0.5em 0.4em;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All &lt;th&gt;s within &lt;thead&gt;s that are within &lt;table&gt;s */</div><div class="line">table thead th &#123;</div><div class="line">  color: white;</div><div class="line">  background: black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All &lt;td&gt;s preceded by another &lt;td&gt;,</div><div class="line">   within a &lt;tbody&gt;, within a &lt;table&gt; */</div><div class="line">table tbody td + td &#123;</div><div class="line">  text-align: center;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All &lt;td&gt;s that are a last child,</div><div class="line">   within a &lt;tbody&gt;, within a &lt;table&gt; */</div><div class="line">table tbody td:last-child &#123;</div><div class="line">  text-align: right</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All &lt;th&gt;s, within a &lt;tfoot&gt;s, within a &lt;table&gt; */</div><div class="line">table tfoot th &#123;</div><div class="line">  text-align: right;</div><div class="line">  border-top-width: 5px;</div><div class="line">  border-left: none;</div><div class="line">  border-bottom: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All &lt;td&gt;s preceded by a &lt;th&gt;, within a &lt;table&gt; */</div><div class="line">table th + td &#123;</div><div class="line">  text-align: right;</div><div class="line">  border-top-width: 5px;</div><div class="line">  color: white;</div><div class="line">  background: black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All pseudo-elements &quot;before&quot; &lt;td&gt;s that are a last child,</div><div class="line">   appearing within elements with a class of &quot;with-currency&quot; that</div><div class="line">   also have an attribute &quot;lang&quot; with the value &quot;en-US&quot; */</div><div class="line">.with-currency[lang=&quot;en-US&quot;] td:last-child::before &#123;</div><div class="line">  content: &apos;$&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* All pseudo-elements &quot;after&quot; &lt;td&gt;s that are a last child,</div><div class="line">   appearing within elements with the class &quot;with-currency&quot; that</div><div class="line">   also have an attribute &quot;lang&quot; with the value &quot;fr&quot; */</div><div class="line">.with-currency[lang=&quot;fr&quot;] td:last-child::after &#123;</div><div class="line">  content: &apos; €&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####Multiple selectors on one rule<br>You can write multiple selectors separated <strong>by commas</strong>, to apply the same to rule to multiple sets of selected elements at once.</p>
+<p>#CSS values and units<br>5 common used values:</p>
+<ul>
+<li><strong>Numeric values</strong>: Length values for specifying e.g. element width, border thickness, or font size, and unitless integers for specifying e.g. relative line width or number of times to run an animation.</li>
+<li><strong>Percentages</strong>: Can also be used to specify size or length — relative to a parent container&#39;s width or height for example, or the default font-size.</li>
+<li><strong>Colors</strong>: For specifying background colors, text colors, etc.</li>
+<li><strong>Coordinate positions</strong>: e.g. for specifying the position of a positioned element <code>relative to the top left</code> of the screen.</li>
+<li><strong>Functions</strong>: For specifying e.g. background images or background image <code>gradients</code>. </li>
+</ul>
+<p>###Numeric values</p>
+<p>####Length and size</p>
+<p>Other absolute units are as follows:</p>
+<ul>
+<li>mm, cm, in: Millimeters, centimeters, or inches.</li>
+<li>pt, pc: Points (1/72 of an inch) or picas (12 points.)</li>
+</ul>
+<p>There are also relative units, which are relative to the current element&#39;s font-size or viewport size:</p>
+<ul>
+<li><strong>em</strong>: 1em is the same as the font-size of the current element (more specifically, the width of a capital letter M.) The default base font-size given to web pages by web browsers before CSS styling is applied is <strong>16 pixels</strong>, which means the computed value of 1em is 16 pixels for an element by default. But beware — font sizes are inherited by elements from their parents, so if different font sizes have been set on parent elements, the pixel equivalent of an em can start to become complicated. Don&#39;t worry too much about this for now — we&#39;ll cover inheritance and font-sizing in more detail in later articles and modules. ems are the most common relative unit you&#39;ll use in web development.</li>
+<li><strong>ex, ch</strong>: Respectively these are the height of a lower case x, and the width of the number 0. These are not as commonly used or well-supported as ems.</li>
+<li><strong>rem</strong>: The rem (root em) works in exactly the same way as the em, except that <strong>it will always equal the size of the default base font-size</strong>; inherited font sizes will have no effect, so this sounds like a much better option than ems, although rems don&#39;t work in older versions of Internet Explorer (see more about cross-browser support in Debugging CSS.)</li>
+<li><strong>vw, vh</strong>: Respectively these are 1/100th of the width of the viewport, and 1/100th of the height of the viewport. Again, these are not as widely supported as ems.</li>
+</ul>
+<p>#####Unitless line height</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/*1.5倍行距，也可以加上单位，指定具体的数值*/</div><div class="line">p &#123;</div><div class="line">  line-height: 1.5;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#####Number of animations<br>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Hello&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">@keyframes rotate &#123;</div><div class="line">  0% &#123;</div><div class="line">    transform: rotate(0deg);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  100% &#123;</div><div class="line">    transform: rotate(360deg);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">p &#123;</div><div class="line">  color: red;</div><div class="line">  width: 100px;</div><div class="line">  font-size: 40px;</div><div class="line">  transform-origin: center;</div><div class="line">&#125;</div><div class="line"></div><div class="line">p:hover &#123;</div><div class="line">  animation-name: rotate;</div><div class="line">  animation-duration: 0.6s;</div><div class="line">  animation-timing-function: linear;</div><div class="line">  animation-iteration-count: 5;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Percentages<br>You can also use percentage values to specify most things that can be specified by specific numeric values. This allows us to create for example boxes whose width will always shift to be <strong>a certain percentage of their parent container&#39;s width</strong>. This can be compared to boxes that have their width set to a certain unit value (like px or ems), which will always stay the same length, even if their parent container&#39;s width changes.</p>
+<p>We&#39;ve also set the <strong>font-size</strong> to a percentage value: 200%. This works a bit differently to how you might expect, but it does make sense — again, this new sizing is relative to the <strong>parent&#39;s font-size</strong>, as it was with ems.</p>
+<p>###Colors</p>
+<p>####Keywords<br>There are around 165 different keywords available for use in modern web browsers</p>
+<p>####Hexadecimal values<br>The next ubiquitous color system is hexadecimal colors, or hex codes. Each hex value consists of <strong>a hash/pound symbol (#)</strong> followed by <strong>six</strong> hexadecimal numbers, each of which can take a value between 0 and f (which represents 16) — so 0123456789abcdef. Each pair of values represents one of the channels — red, green and blue — and allows us to specify any of the 256 available values for each (16 x 16 = 256.)  </p>
+<p>####RGB<br>The third scheme we&#39;ll talk about here is RGB. An RGB value is a function — rgb() — which is given three parameters that represent the red, green and blue channel values of the colors, in much the same way as hex values. The difference with RGB is that each channel is represented not by two hex digits, but <strong>by a decimal number between 0 and 255</strong>.</p>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;This paragraph has a red background&lt;/p&gt;</div><div class="line">&lt;p&gt;This paragraph has a blue background&lt;/p&gt;</div><div class="line">&lt;p&gt;This paragraph has a kind of pinky lilac background&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/* equivalent to the red keyword */</div><div class="line">p:nth-child(1) &#123;</div><div class="line">  background-color: rgb(255,0,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* equivalent to the blue keyword */</div><div class="line">p:nth-child(2) &#123;</div><div class="line">  background-color: rgb(0,0,255);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* has no exact keyword equivalent */</div><div class="line">p:nth-child(3) &#123;</div><div class="line">  background-color: rgb(224,176,255);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####HSL<br>Slightly less well supported than RGB is the HSL model (not on old versions of IE), which was implemented after much interest from designers — instead of red, green and blue values, the hsl() function accepts <code>hue</code>, <code>saturation</code>, and <code>lightness</code> values, which are used to distinguish between the 16.7 million colors, but in a different way:</p>
+<ul>
+<li><strong>hue</strong>: the base shade of the color. This takes a value between <strong>0 and 360</strong>, presenting the angles round a color wheel.</li>
+<li><strong>saturation</strong>: how saturated is the color? This takes a value from <strong>0-100%</strong>, where 0 is no color (it will appear as a shade of grey), and 100% is full color saturation</li>
+<li><strong>lightness</strong>: how light, or bright is the color? This takes a value from <strong>0-100%</strong>, where 0 is no light (it will appear completely black) and 100% is full light (it will appear completely white)</li>
+</ul>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/* equivalent to the red keyword */</div><div class="line">p:nth-child(1) &#123;</div><div class="line">  background-color: hsl(0,100%,50%);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* equivalent to the blue keyword */</div><div class="line">p:nth-child(2) &#123;</div><div class="line">  background-color: hsl(240,100%,50%);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* has no exact keyword equivalent */</div><div class="line">p:nth-child(3) &#123;</div><div class="line">  background-color: hsl(276,100%,85%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####RGBA and HSLA<br>RGB and HSL both have corresponding modes — RGBA and HSLA — that allow you to set not only what color you want to display, but also what transparency you want that color to have. Their corresponding functions take the same parameters, plus a fourth value in the <strong>range 0–1</strong> — which sets the transparency, or alpha channel.<strong> 0 is completely transparent, and 1 is completely opaque.</strong><br>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;This paragraph has a transparent red background&lt;/p&gt;</div><div class="line">&lt;p&gt;This paragraph has a transparent blue background&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  height: 50px;</div><div class="line">  width: 350px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Transparent red */</div><div class="line">p:nth-child(1) &#123;</div><div class="line">  background-color: rgba(255,0,0,0.5);</div><div class="line">  position: relative;</div><div class="line">  top: 30px;</div><div class="line">  left: 50px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Transparent blue */</div><div class="line">p:nth-child(2) &#123;</div><div class="line">  background-color: hsla(240,100%,50%,0.5);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####Opacity<br>There is another way to specify transparency via CSS — the <strong>opacity property</strong>. Instead of setting the transparency of a particular color, this sets the transparency of all selected elements and their children. Again, let&#39;s study an example so we can see the difference.</p>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/* Red with RGBA, only the background will be half transparent */</div><div class="line">p:nth-child(1) &#123;</div><div class="line">  background-color: rgba(255,0,0,0.5);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Red with opacity, the box will be all half transparent including the text in it*/</div><div class="line">p:nth-child(2) &#123;</div><div class="line">  background-color: rgb(255,0,0);</div><div class="line">  opacity: 0.5;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###Functions<br>already seen functions in action in the Colors section, with rgb(), hsl(), etc.:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">background-color: rgba(255,0,0,0.5);</div><div class="line">background-color: hsla(240,100%,50%,0.5);</div><div class="line"></div><div class="line">/* calculate the new position of an element after it has been rotated by 90 degress */</div><div class="line">transform: rotate(45deg);</div><div class="line">/* calculate the new position of an element after it has been moved across 50px and down 60px */</div><div class="line">transform: translate(50px, 60px);</div><div class="line">/* calculate the computed value of 90% of the current width minus 15px */</div><div class="line">width: calc(90%-15px);</div><div class="line">/* fetch an image from the network to be used as a background image */</div><div class="line">background-image: url(&apos;myimage.png&apos;);</div></pre></td></tr></table></figure>
+<p>anytime you see <strong>a name with brackets after it</strong>, containing one or more values separated by commas, you are dealing with a function.</p>
+<p>#Cascade and inheritance</p>
+<p>In a previous article, we got into the various CSS selectors. At some point in your work, you&#39;ll find yourself in the situation where multiple CSS rules will have selectors matching the same element. In such cases, <strong>which CSS rule &quot;wins&quot;</strong>, and ends up being the one that is finally applied to the element? This is controlled by a mechanism called the <strong>Cascade</strong>; this is also related to <strong>inheritance</strong> (elements will take some property values from <strong>their parents</strong>, but not others.) In this article we will define what the cascade is, what selector weight is, and how properties inherit from different rules.</p>
+<p>###The cascade(层叠)<br>these are listed in order of weight — earlier ones will overrule later ones：</p>
+<ol>
+<li>Importance</li>
+<li>Specificity</li>
+<li>Source order</li>
+</ol>
+<p>####Importance<br>In CSS, there is a special piece of syntax you can use to make sure that a certain rule will win over all overs: <code>!important</code>. Adding this to the end of a property value will give it superpowers.</p>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;p class=&quot;better&quot;&gt;This is a paragraph.&lt;/p&gt;</div><div class="line">&lt;p class=&quot;better&quot; id=&quot;winning&quot;&gt;One selector to rule them all!&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#winning &#123;</div><div class="line"> background-color: red;</div><div class="line"> border: 1px solid black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.better &#123;</div><div class="line"> background-color: gray;</div><div class="line"> border: none !important;</div><div class="line">&#125;</div><div class="line"></div><div class="line">p &#123;</div><div class="line"> background-color: blue;</div><div class="line"> color: white;</div><div class="line"> padding: 5px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Note</strong>: The only way to override this !important declaration would be to include another !important declaration of the same specificity, later in the source order.</p>
+</blockquote>
+<p>It is useful to know that <code>!important</code> exists so that you know what it is when you come across it in other people&#39;s code. <strong>BUT. We would advise you to never use it unless you absolutely have to.</strong> One situation in which you may have to use it is when you are working on a <strong>CMS</strong> where you can&#39;t edit the core CSS modules, and you really want to override a style that can&#39;t be overridden in any other way. But really, don&#39;t use it if you can avoid it. Because !important changes the way the cascade normally works, it can make debugging CSS problems really hard to work out, especially in a large stylesheet.</p>
+<p>Conflicting declarations will be applied in the following order, with later ones <strong>overriding earlier ones</strong>:</p>
+<ol>
+<li>Declarations in user agent style sheets (e.g. the browser&#39;s default styles, used when no other styling is set.)</li>
+<li>Normal declarations in user style sheets (custom styles set by a user to override web developer&#39;s styles.)</li>
+<li>Normal declarations in author style sheets (these are the styles set by us, the web developers!)</li>
+<li>Important declarations in author style sheets</li>
+<li>Important declarations in user style sheets</li>
+</ol>
+<p>####Specificity</p>
+<p>ID &gt; class &gt; element</p>
+<p>The amount of specificity a selector has is based on something called the selector weight. This has four different values, which can be thought of as thousands, hundreds, tens and ones — four single digits in four columns. The selector weight is calculated based on the selector types of its sub-parts:</p>
+<ol>
+<li>Thousands: One if the matching selector is <strong>inside a <code>&lt;style&gt;</code> element</strong> or the declaration is <strong>inside a style attribute</strong> (such declarations don&#39;t have selectors, so their specificity is always simply <strong>1000</strong>.) Otherwise 0.</li>
+<li>Hundreds: One for each <strong>ID selector</strong> contained inside the overall selector.</li>
+<li>Tens: One for each <strong>class selector</strong>, <strong>attribute selector</strong> or <strong>pseudo-class</strong> contained inside the overall selector.</li>
+<li>Ones: One for each <strong>element selector</strong> and <strong>pseudo-element</strong> contained inside the overall selector.</li>
+</ol>
+<blockquote>
+<p><strong>Note</strong>: Universal selector (*), combinators (+, &gt;, ~, &#39; &#39;) and negation pseudo-class (:not) have no effect on specificity.</p>
+</blockquote>
+<p>example:</p>
+<table>
+<thead>
+<tr>
+<th>Selector</th>
+<th>Thousands</th>
+<th>Hundreds</th>
+<th>Tens</th>
+<th>Ones</th>
+<th>Total specificity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0001</td>
+</tr>
+<tr>
+<td> #important</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0100</td>
+</tr>
+<tr>
+<td>h1 + p::first-letter</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>0003</td>
+</tr>
+<tr>
+<td>li &gt; a[href=*&quot;en-US&quot;] &gt; .inline-warning</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>0022</td>
+</tr>
+<tr>
+<td> #important div &gt; div &gt; a:hover, inside a <code>&lt;style&gt;</code> element</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>1113</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note</strong>: If multiple selectors have the same importance and specificity, which element wins is decided by which <strong>comes later</strong> in the Source order.</p>
+</blockquote>
+<p>####Source order</p>
+<p>###Inheritance<br>The idea is that some property values applied to an element will be <strong>inherited</strong> by that element&#39;s <strong>children</strong>, and <strong>some won&#39;t</strong>.</p>
+<ul>
+<li>For example, it makes sense for <code>font-family</code> and <code>color</code> to be inherited, as that makes it easy for you to set a site-wide base font by applying a font-family to the <code>&lt;html&gt;</code> element; you can then override the fonts on individual elements where needed. It would be really annoying to have to set the base font separately on every element.</li>
+<li>As another example, it makes sense for <code>margin</code>, <code>padding</code>, <code>border</code>, and <code>background-image</code> to <strong>NOT</strong> be inherited. Imagine the styling/layout mess that would occur if you set these properties on a container element and had them inherite inherited by every single child element, and then had to unset them all on each individual element!</li>
+</ul>
+<p>Which properties are inherited by default and which aren&#39;t is <strong>largely down to common sense</strong>. If you want to be sure however, you can consult the CSS Reference — each separate property page starts off with a summary table including various details about that element, including whether it is inherited or not.</p>
+<p>####Controlling inheritance<br>CSS provides three special values to handle inheritance:</p>
+<ul>
+<li><code>inherit</code> : This value sets the property value applied to a selected element to be the same as that of its parent element.</li>
+<li><code>initial</code> : This value sets the property value applied to a selected element to be the same as the value set for that element in the browser&#39;s default style sheet. If no value is set by the browser&#39;s default style sheet and the property is naturally inherited, then the property value is set to inherit instead.</li>
+<li><code>unset</code> : This value resets the property to its natural value, which means that if the property is naturally inherited it acts like inherit, otherwise it acts like initial.</li>
+</ul>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line"> &lt;li&gt;Default &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt; color&lt;/li&gt;</div><div class="line"> &lt;li class=&quot;inherit&quot;&gt;Inherit the &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt; color&lt;/li&gt;</div><div class="line"> &lt;li class=&quot;initial&quot;&gt;Reset the &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt; color&lt;/li&gt;</div><div class="line"> &lt;li class=&quot;unset&quot;&gt;Unset the &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt; color&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  color: green;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.inherit a &#123;</div><div class="line">  color: inherit;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.initial a &#123;</div><div class="line">  color: initial</div><div class="line">&#125;</div><div class="line"></div><div class="line">.unset a &#123;</div><div class="line">  color: unset;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#The box model</p>
+<p>###Box properties<br><img src="https://mdn.mozillademos.org/files/11943/css-box-model-standard.svg" alt="BOX MODEL"></p>
+<blockquote>
+<p><strong>Note</strong>: Margins have a specific behavior called <code>margin collapsing</code>: When two boxes touch against one another, the distance between them is the value of <strong>the largest of the two touching margins</strong>, and <strong>not their sum</strong>.</p>
+</blockquote>
+<p>###Active learning: playing with boxes</p>
+<p>###Advanced box manipulation</p>
+<p>####Overflow<br><code>overflow</code> property. It takes several possible values, but the most common are:</p>
+<ul>
+<li><code>auto</code>: If there is too much content, the overflowing content is hidden and scroll bars are shown to let the user scroll to see all the content.</li>
+<li><code>hidden</code>: If there is too much content, the overflowing content is hidden.</li>
+<li><code>visible</code>: If there is too much content, the overflowing content is <strong>shown outside</strong> of the box (this is usually the default behavior.)</li>
+</ul>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;p class=&quot;autoscroll&quot;&gt;</div><div class="line">  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="line">  Mauris tempus turpis id ante mollis dignissim. Nam sed</div><div class="line">  dolor non tortor lacinia lobortis id dapibus nunc. Praesent</div><div class="line">  iaculis tincidunt augue. Integer efficitur sem eget risus</div><div class="line">  cursus, ornare venenatis augue hendrerit. Praesent non elit</div><div class="line">  metus. Morbi vel sodales ligula.</div><div class="line">&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class=&quot;clipped&quot;&gt;</div><div class="line">  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="line">  Mauris tempus turpis id ante mollis dignissim. Nam sed</div><div class="line">  dolor non tortor lacinia lobortis id dapibus nunc. Praesent</div><div class="line">  iaculis tincidunt augue. Integer efficitur sem eget risus</div><div class="line">  cursus, ornare venenatis augue hendrerit. Praesent non elit</div><div class="line">  metus. Morbi vel sodales ligula.</div><div class="line">&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p class=&quot;default&quot;&gt;</div><div class="line">  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="line">  Mauris tempus turpis id ante mollis dignissim. Nam sed</div><div class="line">  dolor non tortor lacinia lobortis id dapibus nunc. Praesent</div><div class="line">  iaculis tincidunt augue. Integer efficitur sem eget risus</div><div class="line">  cursus, ornare venenatis augue hendrerit. Praesent non elit</div><div class="line">  metus. Morbi vel sodales ligula.</div><div class="line">&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  width  : 400px;</div><div class="line">  height : 2.5em;</div><div class="line">  padding: 1em 1em 1em 1em;</div><div class="line">  border : 1px solid black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.autoscroll &#123; overflow: auto;    &#125;</div><div class="line">.clipped    &#123; overflow: hidden;  &#125;</div><div class="line">.default    &#123; overflow: visible; &#125;</div></pre></td></tr></table></figure>
+<p>####Background clip<br>Box backgrounds are made up of colors and images, stacked on top of each other (background-color, background-image.) They are applied to a box and drawn under that box. By default, backgrounds extend to the outer edge of the border. This is often fine, but in some cases it can be annoying (what if you have a tiled background image that you want to only extend to the edge of the content?) This behaviour can be adjusted by setting the <code>background-clip</code> property on the box.</p>
+<p>HTML:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;default&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;padding-box&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;content-box&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">  width  : 60px;</div><div class="line">  height : 60px;</div><div class="line">  border : 20px solid rgba(0, 0, 0, 0.5);</div><div class="line">  padding: 20px;</div><div class="line">  margin : 20px 0;</div><div class="line"></div><div class="line">  background-size    : 140px;</div><div class="line">  background-position: center;</div><div class="line">  background-image   : url(&apos;https://mdn.mozillademos.org/files/11947/ff-logo.png&apos;);</div><div class="line">  background-color   : gold;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.default     &#123; background-clip: border-box;  &#125;</div><div class="line">.padding-box &#123; background-clip: padding-box; &#125;</div><div class="line">.content-box &#123; background-clip: content-box; &#125;</div></pre></td></tr></table></figure>
+<p>####Outline<br>Last but not least, the outline of a box is something that looks like a border but which is not part of the box model. It behaves like the border but is drawn on top of the box without changing the size of the box (to be specific, the outline is drawn outside the border box, inside the margin area.)</p>
+<p>###Types of CSS boxes</p>
+<p>The type of box applied to an element is specified by the <code>display</code> property. There are many different values available for display, but in this article we will focus on the three most common ones: block, inline, and inline-block.</p>
+<ul>
+<li>A <strong>block</strong> box is defined as a box that&#39;s stacked upon other boxes (i.e. content before and after the box appears on a separate line), and can have width and height set on it. The whole box model as described above applies to block boxes.</li>
+<li>An <strong>inline</strong> box is the opposite of a block box: it flows with the document&#39;s text (i.e. it will appear on the same line as surrounding text and other inline elements, and its content will break with the flow of the text, like lines of text in a paragraph.) <strong>Width and height settings have no effect on inline boxes;</strong> any padding, margin and border set on inline boxes will update the position of surrounding text, but will <strong>not affect the position</strong> of surrounding block boxes.</li>
+<li>An <strong>inline-block</strong> box is something in between the first two: It flows with surrounding text without creating line breaks before and after it like an inline box, but it <strong>can be sized using width and height</strong> and maintains its block <strong>integrity like a block box</strong> — it <strong>won&#39;t be broken across paragraph lines</strong> (in the below example the inline-box goes onto the 2nd line of text, as there is not enough space for it on the first line, and it won&#39;t break across two lines.)</li>
+</ul>
+<p>#Debugging CSS</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reading-notes/" rel="tag">#Reading notes</a>
+          
+            <a href="/tags/Web/" rel="tag">#Web</a>
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/18/CSS_layout/" rel="next" title="CSS Layout">
+                <i class="fa fa-chevron-left"></i> CSS Layout
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/28/SCSS/" rel="prev" title="SASS & SCSS">
+                SASS & SCSS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

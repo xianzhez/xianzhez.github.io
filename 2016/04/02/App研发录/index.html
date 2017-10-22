@@ -1,0 +1,944 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Reading notes," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="App研发录
+#1.重构
+1.1重新规划Android项目结构将业务与逻辑分离，建立包结构。
+###1.4 实体化编程
+#####1.4.1使用fastJSON或GSON坑：代码混淆时带来的混乱
+
+加了符号Annotation的实体属性，一使用就崩溃。
+当有泛型属性时，一使用就崩溃。
+
+12-keepattributes Signature		//避免混淆泛型-keepattributes *A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Senior Android Development">
+<meta property="og:url" content="http://yoursite.com/2016/04/02/App研发录/index.html">
+<meta property="og:site_name" content="xianzhez notes">
+<meta property="og:description" content="App研发录
+#1.重构
+1.1重新规划Android项目结构将业务与逻辑分离，建立包结构。
+###1.4 实体化编程
+#####1.4.1使用fastJSON或GSON坑：代码混淆时带来的混乱
+
+加了符号Annotation的实体属性，一使用就崩溃。
+当有泛型属性时，一使用就崩溃。
+
+12-keepattributes Signature		//避免混淆泛型-keepattributes *A">
+<meta property="og:updated_time" content="2017-10-22T15:11:37.687Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Senior Android Development">
+<meta name="twitter:description" content="App研发录
+#1.重构
+1.1重新规划Android项目结构将业务与逻辑分离，建立包结构。
+###1.4 实体化编程
+#####1.4.1使用fastJSON或GSON坑：代码混淆时带来的混乱
+
+加了符号Annotation的实体属性，一使用就崩溃。
+当有泛型属性时，一使用就崩溃。
+
+12-keepattributes Signature		//避免混淆泛型-keepattributes *A">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/04/02/App研发录/"/>
+
+  <title> Senior Android Development | xianzhez notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xianzhez notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Senior Android Development
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-02T00:00:00+08:00" content="2016-04-02">
+              2016-04-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<h1 id="App研发录"><a href="#App研发录" class="headerlink" title="App研发录"></a><strong>App研发录</strong></h1></blockquote>
+<p>#1.重构</p>
+<h3 id="1-1重新规划Android项目结构"><a href="#1-1重新规划Android项目结构" class="headerlink" title="1.1重新规划Android项目结构"></a>1.1重新规划Android项目结构</h3><p>将业务与逻辑分离，建立包结构。</p>
+<p>###1.4 实体化编程</p>
+<p>#####1.4.1使用fastJSON或GSON<br>坑：代码混淆时带来的混乱</p>
+<ol>
+<li>加了符号Annotation的实体属性，一使用就崩溃。</li>
+<li>当有泛型属性时，一使用就崩溃。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-keepattributes Signature		//避免混淆泛型</div><div class="line">-keepattributes *Annotation*	//不混淆注释</div></pre></td></tr></table></figure>
+<p>###1.5 Adapter模板</p>
+<p>使用ViewHolder机制</p>
+<a id="more"></a>
+<p>###1.6 类型安全转换函数<br>类型转换可能会带来的crash。<br>尤其是网络中json数据的转换，有可能为空，或者类型发生变化。<br>substring时，start和end与length之间的关系。</p>
+<p>#2. Android网络底层框架设计</p>
+<p>###2.1 网络底层封装</p>
+<p>####2.1.2 AsyncTask的优缺点<br>用AsyncTask封装网络请求</p>
+<ul>
+<li>缺点：屏蔽了线程池，无法取消已经发出的网络请求；所以，当快速在App页面之间跳转时，导致网络请求队列积压，造成堵塞和延时。</li>
+</ul>
+<p>###2.2 App数据缓存设计<br>根据实际需要对网络请求的数据进行缓存。<br>GET类型可以进行缓存，而POST为增删改数据，所以，不可以进行缓存。<br>直接写入文件缓存。</p>
+<p>###2.3 MockService</p>
+<p>###2.5 HTTP头<br>19700101 <code>long</code><br>GZIP压缩：在<code>HTTPRequest</code>的头中的<code>Accept-Encoding</code>字段添加<code>gzip</code>,同样，在解析<code>HTTPResponse</code>时，也要判断是否存在<code>gzip</code>，并做相应的解析。</p>
+<p>#3. Android经典场景设计</p>
+<p>###3.1 App图片缓存设计<br>UIL：在onDestroy()里手动清理内存缓存；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">imageLoader.clearMemoryCache();</div></pre></td></tr></table></figure>
+<p>###3.2对网络流量进行优化</p>
+<p>#####3.2.1通信层的优化</p>
+<ol>
+<li>MobileAPI接口返回的数据，要使用gzip进行压缩。</li>
+<li>APP与MoblieAPI之间的数据传递，通常都是遵守JSON协议的。JSON是XML格式的，并且以字符存在，所以存在压缩空间。ProtoBuffer传输协议，是二进制格式，在大数据量传输时有有时。</li>
+<li>避免频繁调用MobileAPI，可以一次获取数据的MobileAPI调用，尽量一次完成。</li>
+<li>MobileAPI使用的是HTTP无状态短连接。TCP协议是长连接，速度会更快。但server能支持的长连接个数不多，所以需要更多的服务器集成。</li>
+<li>要建立取消网络请求的机制。提供<code>cancelRequest()</code>方法，用于在页面跳转时，清空网络请求队列。</li>
+<li>增加重试机制。在请求失败时，进行3次重试；只对GET进行重试，POST不可以进行重试，以避免表单的重复提交。</li>
+</ol>
+<p>#####3.2.2图片策略优化<br>server提供根据要求返回不同分辨率的图片机制，并在不同的网络环境中请求不同质量的图片。</p>
+<p>###3.4 App与HTML5的交互<br>PhoneGap</p>
+<p>###3.5 消灭全局变量<br><strong>存在的问题：</strong>当内存不足的时候，系统会回收一部分闲置的资源，由于App被切换到后台，所以之前存放的全局变量很容易被回收，这时再切换到前台继续使用，在使用某个全局变量的时候，就会因为全局变量的值为空而崩溃。</p>
+<p>#4. Android命名规范和编码规范<br><strong>命名规范</strong></p>
+<p><strong>编码规范</strong></p>
+<p>小工具：checkstyle</p>
+<p>#5. Crash异常收集与统计</p>
+<p>收集：把Crash收集到本地数据库。<br>统计：对每天线上大量的Crash进行去重、分类</p>
+<p>5.1 异常收集</p>
+<p><code>UncaughtExceptionHandler</code></p>
+<p>第三方统计工具：腾讯Bugly</p>
+<p>###5.2异常收集与统计<br>数据分析类型：</p>
+<ol>
+<li><p>重复的Crash：</p>
+<ul>
+<li>不同设备在不同时间发出来的重复Crash。要检查是否只对某些机型或Android版本才会发生类似问题。</li>
+<li>不同设备在一个时间段发出来的重复Crash。要检查MobileAPI是否返回了脏数据而App没有使用try...catch...语句捕获到。</li>
+<li>相同设备在短时间内频繁发送重复Crash。可能是因为App没有做好本贵后的善后工作，导致在试图重启崩溃的Activity过程中发生了循环的Crash。这时需要去除重复数据。</li>
+</ul>
+</li>
+<li><p>每笔异常包含的数据信息：</p>
+<ul>
+<li>exception_name: Crash对应的异常名称。</li>
+<li><p>exception_stack:Crash的详细信息。</p>
+<p>exception_name只能作为Crash的参考标准，而产生Crash的真正原因，则隐藏在exception_stack中。</p>
+</li>
+</ul>
+</li>
+<li>exception_stack中的OutOfMemory，都是内存溢出导致的。但不包含OutOfMemory的异常，也是有可能是因为OOM导致的，例如ResourcesNotFoundException，有时就是因为OOM引起的。</li>
+<li>NullPointerException,要仔细观察后面的信息。</li>
+<li>窗体泄露这类问题，基本都是想关闭弹出框时，发现承载它的宿主已经不在。</li>
+<li>ListView和Adapter相关的Crash基本都发生在分页获取数据的场景，数据源发生了改变，却没有及时通知ListView和Adapter。</li>
+</ol>
+<p>#6. Crash异常分析</p>
+<p>###6.1 Java语法相关的异常</p>
+<p>#####6.1.10 不能随便使用asList<br><code>Arrays.asList()</code>的返回值类型为<code>java.util.Arrays$ArrayList</code>，而不是<code>ArrayList</code>；<code>Arrays$ArrayList</code>没有实现<code>add</code>和<code>remove</code>方法，所以在调用时就会报错，可以使用以下解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String str = &quot;1,2,3,4,5&quot;;</div><div class="line">List&lt;String&gt; list = Arrays.asList(str.split(&quot;,&quot;));</div><div class="line">List arrayList = new ArrayList(list);</div><div class="line">arrayList.remove(&quot;1&quot;);</div></pre></td></tr></table></figure>
+<p>#####6.1.12 NoClassDefFoundError<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//In class B, we declare:</div><div class="line">ClassA obj = new ClassA();</div></pre></td></tr></table></figure></p>
+<p>如果打包时，B和A分别位于不同的dex中，这是如果在A所在的dex中把A类删除了，那么在运行时执行到这句话时就会抛出<code>NoClassDefFoundError</code>的异常信息。</p>
+<p>插件化编程的时候会容易产生此类异常，因为要使用DexClassLoader。</p>
+<p>当使用第三方SDK时，也会有可能产生该类异常。</p>
+<p>###6.2 Activity相关的异常</p>
+<p>#####6.2.4 无法再非Activity的Context中启动Activity（不能启动BroadcastReceiver）<br>在service、application的Context中启动Activity时就会抛出此类异常，这是可以为<code>intent</code>添加flag,在新的task中启动，从而解决：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</div></pre></td></tr></table></figure></p>
+<p>#####6.2.5 startActivityForResult不能回传<br>异常中关键字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Failure delivering result ResultInfo&#123;who=null,request=0,result=-1&#125;</div></pre></td></tr></table></figure>
+<p>当在<code>onActivityResult()</code>中发生某些异常时，特别是和回传的值相关的操作，就会表现为此类异常，而实际上可能是空指针异常等。</p>
+<p>###6.3序列化相关的异常</p>
+<p>#####6.3.2序列化时未指定ClassLoader<br>当实现Parcelable的类中包含自定义的类时，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class MyClass implements Parcelable&#123;</div><div class="line">	...</div><div class="line">	//ClassA也实现了Parcelable接口</div><div class="line">	private ClassA a;</div><div class="line">	...</div><div class="line">	private MyClass(Parcel in)&#123;</div><div class="line">	...</div><div class="line">	a = in.readParcelable(null);//有可能会引发异常</div><div class="line">	...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>所以将有可能引发异常的代码修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a = in.readParcelable(ClassA.class.getClassLoader());</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>ClassLoader相关概念：</strong></p>
+<p>当ClassLoader为空时，系统会采取默认的ClassLoader。</p>
+<p>Android有两种不同的ClassLoader：framework ClassLoader和apk ClassLoader，其中framework ClassLoader知道怎么加载Android系统内部的类；apk ClassLoader知道怎么加载我们自己写的类，也知道怎么加载Android系统内部的类。</p>
+<p>在App刚启动时，默认ClassLoader是apk ClassLoader，但在系统内存不足应用被系统回收会再次启动，这个默认ClassLoader会变为framework ClassLoader，所以对于我们自己的类会报<code>ClassNotFoundException</code>。</p>
+<p>#####6.3.3 反序列化时发现类找不到：被ProGuard混淆导致的崩溃<br>在ProGuard文件中keep这个类。</p>
+</blockquote>
+<p>###6.4 列表相关的异常</p>
+<p>#####6.4.1 Adapter数据源变化但是没通知ListView</p>
+<p>#####6.4.2 ListView滚动时点击刷新按钮后崩溃</p>
+<p>###6.5 窗体相关的异常</p>
+<p>#####6.5.8 AlertDialog.resolveDialogTheme</p>
+<p>#####6.5.10 子线程不能修改UI<br>子线程不能修改UI，这句话不是绝对的，当在<code>onCreate</code>中使用了新的线程去操作UI控件时，有可能会正常运行，也有可能会产生错误。这是因为，对于线程的检查机制还没有起作用。查看源码，可以发现，对于线程的检查实在<code>viewRoot</code>的<code>requestLayout()</code>中去<code>checkThread</code>，而在<code>onCreate</code>中，可能还没有执行<code>requestLayout()</code>方法。</p>
+<p>如果需要在其它线程中修改UI，则可以使用<code>Handler</code>或者<code>Activity</code>的<code>runOnUiThread</code>或者使用<code>AsyncTask</code>。</p>
+<p>在线程中调用<code>Looper.prepare()</code>和<code>Looper.loop()</code>，可以用于解决<code>Dialog</code>和<code>Toast</code>相关的操作问题，但对于UI空间的操作，可能是无效的。</p>
+<p>###6.6资源相关的异常</p>
+<p>#####6.6.2 StackOverflowError<br>第一种原因，发生这种事情，主要是因为Layout布局文件结构嵌套层次太深。应尽量控制在5层以内。</p>
+<p>第二种原因，在App退出的时候，如果App中有多个线程，那么在退出App的时候可能不能完全关闭App，即使使用<code>finish</code>方法也做不到，必须使用System.exit(0)这样的语句才可以。这是因为<code>finish</code>方法只能退出当前Activity，但还可能有其他Activity未关闭，这些Activity中有没结束的线程，从而会有一些资源没有释放。</p>
+<p>无论哪种情况，最终都是由无限递归引起的。应避免这种情况的发生。</p>
+<p>#####6.6.3 UnsatisfiedLinkError<br>这是因为在特定平台上的so没有被加载到而引起的，应检查对应平台的so是否存在。</p>
+<p>#####6.6.7 TransactionTooLargeException<br>Binder最大通常限制为1MB，如果大于1MB的话，就会抛出TransactionTooLargeException的异常。</p>
+<p>避免传输过大的数据量，尤其是图片以及数据采集可能带来的大的数据量。</p>
+<p>###6.7 系统碎片化相关的异常</p>
+<p>#####6.7.2 RemoteViews<br>使用场景：</p>
+<ul>
+<li>AppWidget</li>
+<li>Notification</li>
+</ul>
+<p>#####6.7.8 DeadObjectException<br>当某对象已经被系统回收，我们却还在使用它，就会产生此类异常。</p>
+<blockquote>
+<p><strong>此类异常可能引起系统级错误，从而迫使Android重启，在未Root的机器上，可以达到重启Android设备的目的。</strong></p>
+</blockquote>
+<p>#####6.7.10 ViewFlipper引发的血案<br>在Activity中使用ViewFlipper控件，进行横竖屏切换操作时，就会发生这种异常。这是由于<code>onDetachedFromWindow()</code>在<code>onAttachedToWindow()</code>之前被调用所致。<br>解决方案是，重写ViewFlipper的<code>onDetachedFromWindow()</code>，对<code>super</code>的调用进行<code>try...catch...</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">protected void onDetachedFromWindow()&#123;</div><div class="line">	try&#123;</div><div class="line">		super.onDetachedFromWindow();</div><div class="line">	&#125;cathc(IllegalArgumentException e)&#123;</div><div class="line">		stopFlipping();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###6.10 其他情况的异常</p>
+<p>#####6.10.8 Monkey点击过快导致的崩溃<br>增加延迟函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public boolean isWindowLocked()&#123;</div><div class="line">	long current = SystemClock.elapsedRealtime();</div><div class="line">	if(current - mLastOnClickTime &gt; 500)&#123;</div><div class="line">		mLastOnClickTime = current;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">	return true;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public void onClick(View v)&#123;</div><div class="line">	if(isWindowLocked())&#123;</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	// real code</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#7. ProGuard技术</p>
+<p>###7.1 ProGuard简介<br>ProGuard是一个开源项目，在SourceForge上进行维护。</p>
+<p>ProGuard的四个功能：</p>
+<ol>
+<li>压缩（Shrink）：侦测并移除代码中无用的类、字段、方法、和特性（Attribute）。</li>
+<li>优化（Optimize）：对字节码进行优化，移除无用的指令。</li>
+<li>混淆（Obfuscate）：使用a、b、c、d这样简短而无意义的名称，对类、字段和方法进行重命名。</li>
+<li>预检（Preveirfy）：在Java平台上对处理后的代码进行预检。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DexGuard,可以专门用于做代码混淆，并且可以混淆字符串常量，ProGuard不会混淆字符串常量。</div></pre></td></tr></table></figure>
+<p><strong>使用了某一版本ProGuard后，尽量不要升级，以稳定为首。</strong></p>
+<p>#8. 持续集成</p>
+<p>###8.4 自动打包<br>搭建自动打包服务器，并提供定时打包以及手动打包页面，同时提供打包列表页，方便随时查看历史打包记录。方便测试人员测试。<br>选择合适的自动打包工具。</p>
+<p>###8.9 单元测试</p>
+<p>#9. APP竞品技术分析</p>
+<p>###9.1 竞品分析概述</p>
+<p>#####9.1.1 App竞品定义<br><strong>参考意义：</strong></p>
+<ul>
+<li><p>社区类和视频类App，他们的广告系统做得是最好的。</p>
+</li>
+<li><p>电商类（OTA 和O2O）App的产品详情页和订单填写页具有很好的参考价值。</p>
+</li>
+<li><p>活动运营做得最好的仍然是电商类App。</p>
+</li>
+<li><p>社交类App的聊天功能做得是最好的，尤其是高并发的架构实现。</p>
+</li>
+<li><p>新闻类App的推送的及时性和到达率是比较有价值的。 </p>
+</li>
+</ul>
+<p>拿来主义：拿来不等于生搬硬套，理解其用意，才能取长补短。</p>
+<p>###9.2 App安装包的结构</p>
+<p>#####9.2.1 Android安装包的结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── [-rwxr-xr-x]  AndroidManifest.xml</div><div class="line">├── [drwxr-xr-x]  META-INF</div><div class="line">├── [drwxr-xr-x]  assets</div><div class="line">├── [-rwxr-xr-x]  classes.dex</div><div class="line">├── [-rwxr-xr-x]  classes2.dex</div><div class="line">├── [drwxr-xr-x]  com</div><div class="line">├── [drwxr-xr-x]  data</div><div class="line">├── [drwxr-xr-x]  lib</div><div class="line">├── [-rwxr-xr-x]  messages.properties</div><div class="line">├── [drwxr-xr-x]  org</div><div class="line">├── [drwxr-xr-x]  res</div><div class="line">└── [-rwxr-xr-x]  resources.arsc</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>resources.arscz, 这个文件是编译后的二进制资源文件的索引，也就是apk文件的资源表（索引）。</p>
+</li>
+<li><p>lib目录下的子目录存放个各个ABI相关的so文件。</p>
+</li>
+<li><p>META-INF目录下存放的是签名信息，用来保证apk包的完整性和系统的安全。<strong>但这个目录下的文件却不会被签名，从而给力我们无限的想象空间。</strong></p>
+</li>
+<li><p>assets目录下面可以看到很多基础数据，以及一些本地会使用到的HTML、CSS和JavaScript文件。</p>
+</li>
+<li><p>res目录下的anim子目录很值得研究，这个目录存放app的所有动画效果。</p>
+</li>
+</ul>
+<blockquote>
+<p>res目录中的很多XML文件打开后是乱码，AndroidManifest.xml也是如此，那是因为打包的时候对XML文件进行了压缩，所以看到的往往是全角的字符和乱码，不便于查找到我们想要看的内容。有一款神器用于看到apk包中正常的内容，<code>AXMLPrinter2.jar</code>,它可以将apk中已经处理过的XML还原为可读格式。命令如下：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar AXMLPrinter2.jar AndroidManifest.xml</div></pre></td></tr></table></figure>
+<p>###9.3 竞品技术一：开启速度</p>
+<p><strong>流程：</strong><br>Splash广告 --&gt; 引导页 --&gt; 首页</p>
+<ol>
+<li>Splash广告，首先加载默认图，同时异步下载下一次将要显示的图片。下一次打开时，则直接显示上次下载的图，并同时去检查是否需要更新图片。</li>
+<li>引导页，建议不要超过4页。可做一些动画，建议使用gif，原生动画太费时费力。</li>
+<li>进入首页之前，可以引导用户选择一些城市或其它有价值的个别个人信息。</li>
+<li>App的首页设计，目前较为流行的做法是尽可能多的把产品放在首页。统计分析的结果是，首页的内容点击率较高。</li>
+</ol>
+<p><strong>还可以做的事情：</strong></p>
+<ol>
+<li>友盟打点统计，统计激活数。</li>
+<li>注册推送。</li>
+<li>如果是从消息推送点击进入的App，则要根据推送协议，跳转到具体的页面。</li>
+<li>初始化崩溃收集机制，如果上次崩溃时没有来得及发送崩溃信息，那么这次发送。</li>
+</ol>
+<p><strong>分析工具：</strong></p>
+<p>嗅探器：<strong>WireShark</strong></p>
+<p>###9.4 竞品技术二：HTML5打开速度</p>
+<p>#####9.4.1 把HTML5页面嵌入到Zip包中<br>使用WebView打开HTML5页面时，可使用以下方法加快打开速度：</p>
+<ul>
+<li>在app中较为频繁打开的页面，嵌入要打开的HTML5相关文件，把HTML5文件、图片、CSS和JS文件放进压缩包，嵌入到app包中。App每次启动的时候，启动一个线程异步把Zip包解压到本地目录下，然后每次从本地读取HTML5页面。</li>
+<li>为HTML5文件加入版本控制机制，每次加载之前，向server请求最新版本号并与本地做对比，如果HTML5有更新，则重新下载新的Zip包，并替换掉本地的数据。</li>
+<li>在每次App发版之前都要嵌入最新的Zip包，以防止App中的HTML5包太老，而需要每个打开app的人都去下载新的Zip包。</li>
+</ul>
+<p>#####9.4.2 Zip包的增量更新机制</p>
+<p>#####9.4.3 使用WebView预先加载HTML5并缓存到本地</p>
+<p>###9.5 竞品技术三：安装包的大小</p>
+<p>#####9.5.3 png和jpg的区别及使用场景<br>png有透明通道，而jpg没有，此外png是无损压缩的，而jpg是有损压缩的，所以png中存储的信息会很多，体积自然就大了。</p>
+<p>对于png，一般可以对其做硬件加速，所以对于同一张图，png虽然体积比jpg大，但是加载速度却要快一些。</p>
+<p>所以，在设备中，App包里的图推荐用png，从网络中下载的图考虑流量问题应使用jpg。</p>
+<p>但对于使用不会特别频繁，尺寸又特别大的图，也可以考虑使用jpg。</p>
+<p>Google发布的WebP，压缩率要高于jpg，可以使用，但在iOS中需要引入WebP解码器才能使用。</p>
+<p>iOS中，启动页的图片必须是png的，否则会通不过审核。</p>
+<p>#####9.5.9 字体文件的学问<br>字体是矢量的，所以将某些简单图案设计为字体可以有效的减小安装包体积。<br>可以使用下述网站将单色icon转换成字体文件：<code>http://icomoon.io</code>。或者使用FontLab这样的工具来制作。<br>然后将<code>ttf</code>文件放在<code>assets</code>目录下，将icon和十六进制编码的映射关系保存在drawable资源文件中，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;string name=&quot;font_icon_1_normal&quot;&gt;&amp;#xe606;&lt;/string&gt;</div></pre></td></tr></table></figure>
+<p>或者设计成Drawble对象，然后设置给ImageView这样的控件。</p>
+<p>###9.6 竞品技术四：性能优化</p>
+<p>#####9.6.1 App自动选取最佳服务器的策略<br>遍历配置文件中的服务器列表，多次测算同一个服务器的来回走路时间，取其平均，选择最佳服务器，同时，服务器可返回服务器处理能力参考值，以CPU占用率作为参考结合网络请求返回时间，进行服务器的选择与判断。</p>
+<p>#####9.6.2 使用TCP+Protobuf<br>区别于HTTP+JSON的连接方式。在一定程度上可以改善用户体验，但同时会增加服务器压力，所以也要做好切换回HTTP+JSON的机制，App端架构采用Build模式和策略模式以适应这两种机制的切换。</p>
+<p>###9.7 竞品技术五：数据采集工具</p>
+<p>#####9.7.2 打点统计<br>需要解决的两个问题：</p>
+<ul>
+<li>如何在发版前就能检查出漏打的和打错的点。</li>
+<li>如果在筏板后发现漏打的和打错的店，快速修复快速上线，而不必等新版本发布。</li>
+</ul>
+<p>打点的分类：</p>
+<ul>
+<li>页面打点</li>
+<li>事件打点</li>
+</ul>
+<p>#####9.7.3 ABTest<br>定义：对某一页面的UI样式修改或者数据呈现，使用两种方案测试效果，经数据采集比较后，确定使用哪一种方案。</p>
+<p>###9.8 竞品技术六：热修复<br>Android可以使用插件化编程，但比较费时费力，iOS不可以使用插件化编程。</p>
+<p>所以较为合适的方案是在Native和HTML5之间灵活的切换。</p>
+<p>#####9.8.2 使用脚本编程<br>在iOS中使用Lua进行编程。<br>Android中也有AndroLua开源项目、Dexposed等可以做热修复。</p>
+<p>###9.9 竞品技术七：曲径通幽</p>
+<p>#####9.9.1 一切皆可配置</p>
+<ol>
+<li>使用XML或JSON配置首页，防止因加载不到数据而没有入口。</li>
+<li>配置页面的公共行为，如：请求网络时是否需要显示进度条，进度条中是否有取消按钮，点击取消按钮后退到上一页还是停留在当前页面，请求错误时是否显示错误提示等。</li>
+</ol>
+<p>#####9.9.2 APP后门<br>用途：</p>
+<ul>
+<li>做一个能切换服务器的页面，在开发期间可以在测试环境和线上环境之间切换。</li>
+<li>测试某个页面请求了哪些网络请求，打印出调用这些接口时输入的参数和返回JSON数据。</li>
+<li>收集App崩溃信息，方便测试期间追踪错误来源。</li>
+<li>提供一个后门页面供HTML5团队进行调试。</li>
+<li>对APP进行流量统计。</li>
+<li>对APPP进行电池电量消耗测试。</li>
+</ul>
+<p>#####9.9.3 使用META-INF目录打渠道包<br>打包混淆签名等耗费时间过长，如果在AndroidManifest.xml中定义meta的方式来获取渠道名称，需要每次重新打包，如果打包数量过多，则耗费数小时时间。</p>
+<p>可以在META-INF目录下放置一个空文件，文件名则为渠道名，每次去读这个文件的名字即可。因为META-INF目录下文件的修改不需要重新签名，所以使用脚本批量操作就会很快。</p>
+<p>###9.11 竞品技术九：第三方SDK</p>
+<p>#####9.11.1 HTML5</p>
+<ul>
+<li>PhoneGap</li>
+<li>WebViewJavascriptBridge.js</li>
+<li>zepto.js</li>
+<li>CryptoJS</li>
+<li>mraid.js</li>
+</ul>
+<p>#####9.11.2 iOS</p>
+<p>#####9.11.3 Android</p>
+<ul>
+<li>aSmack XMPP协议的开源库</li>
+<li>EventBus </li>
+</ul>
+<p>#####9.11.4 others</p>
+<ul>
+<li>Pinyin4j 汉字转换为拼音</li>
+<li>Countly 统计分析平台</li>
+</ul>
+<p>#10. 项目管理决定了开发速度</p>
+<p>###10.1 团队建设：</p>
+<ul>
+<li>产品经理</li>
+<li>开发</li>
+<li>测试</li>
+</ul>
+<p>开发与测试的比例应大约在6：1</p>
+<p>#####10.1.1 测试团队的工作：</p>
+<ul>
+<li>召开测试用例评审会</li>
+<li>手动测试</li>
+<li>全功能回归测试</li>
+<li>探索性测试</li>
+<li>渠道包测试</li>
+<li>MobileAPI发布上线前的测试工作</li>
+<li>压力测试</li>
+<li>Monkey测试</li>
+<li>客户投诉回访</li>
+</ul>
+<p>#####10.1.3 开发人员<br>抱怨最多的：</p>
+<ul>
+<li>一句话的需求。</li>
+<li>开发过程中，产品需求频繁变动。</li>
+<li>产品经理搞不清楚业务逻辑，直到开发过程中才发现有问题。</li>
+<li>UI设计图、切图、标注图不到位。</li>
+</ul>
+<p>#####10.2 优化团队结构，让敏捷流程跑得更快</p>
+<p>#####10.3 App敏捷开发<br>Lua</p>
+<p>#####10.7 总结<br>团队管理：弱管理，有一个主题，自由发挥。</p>
+<p>项目管理：强管理，实时跟进项目进度，保证项目进度。</p>
+<blockquote>
+<h3 id="20个技术点"><a href="#20个技术点" class="headerlink" title="20个技术点"></a>20个技术点</h3></blockquote>
+<ol>
+<li>Activity相关。App应用开发，以Activity使用最多，涉及LaunchMode、onSaveInstanceState、生命周期等技术。</li>
+<li>Fragment相关技术。用的人不少，想明白咋回事的人不多。这里推荐一本书《Creating Dynamic UI with Android Fragments》.</li>
+<li>序列化技术。有Parcelable和Serializable两种。前者是基于Service的，后者是基于Bundle的，二者实现原理不同，但是达到的效果差不多。</li>
+<li>ImageLoader的原理和使用。类似的，还可以学习Facebook新近开源的Fresco，它对图片的处理会更好一些。</li>
+<li>fastJSON或GSON的使用。做App不会用实体自动匹配JSON，相当于白做。</li>
+<li>多线程相关。包括Handler、Looper、ExecutorService等。</li>
+<li>Adapter和ListView。这两个技术捆在一起，经常容易崩溃，尤其是分页的时候，要仔细研究深刻领会。</li>
+<li>用户Cookie设计。需要把登录机制彻底搞清楚，包括在HttpRequest头中夹带Cookie来进行用户身份验证的技术。</li>
+<li>网络请求封装。使用AsyncTask的网络底层封装，使用Handler+Runnable的网络底层封装。</li>
+<li>Android与HTML5的交互。包括Android调用HTML5的方法，以及HTML5调用Android的方法。</li>
+<li>代码混淆。没用过ProGuard，不知道keep相关语法，就还是初级水平。</li>
+<li>Android打包机制。涉及Android SDK中的若干命令。对Android打包过程做的每一件事都很清楚。进一步是Android多项目依赖的打包技术。Ant、Gradle或者Maven，掌握其中一种打包机制即可。</li>
+<li>线上Crash分析并修复。要具备分析Crash信息修复线上Crash的能力。</li>
+<li>内存泄露。包括内存优化、内存泄露的场景、MAT工具的使用。</li>
+<li>调试工具。包括DDMS、Eclipse或者Android Studio的调试功能。</li>
+<li>Monkey机制。Android开发人员如何对一款App进行Monkey测试。这算是附加技能吧。</li>
+<li>单元测试。这里指的是JUnit。对复杂的算法写过单元测试以保证其没有问题。</li>
+<li>GIT的高级功能。包括Stage、Rebase、Revert、Stash、Cherry Pick和Sub Module等概念。如果项目中使用的是SVN，那么要掌握SVN的版本管理策略。</li>
+<li>插件化编程。哪怕知道一点DexClassLoader的概念也好。这年头，没做过插件化编程，出门面试都不好意思说自己是做Android开发的。</li>
+<li>设计模式。对常见的设计模式如工厂、生成器、适配器、代理、策略模式耳熟能详。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Reading-notes/" rel="tag">#Reading notes</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/13/Android开发艺术/" rel="next" title="Android Development Art">
+                <i class="fa fa-chevron-left"></i> Android Development Art
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/03/JavaScript高级程序设计/" rel="prev" title="Professional JavaScript for Web Developers">
+                Professional JavaScript for Web Developers <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="xianzhez" />
+          <p class="site-author-name" itemprop="name">xianzhez</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#App研发录"><span class="nav-number">1.</span> <span class="nav-text">App研发录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1重新规划Android项目结构"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.1重新规划Android项目结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20个技术点"><span class="nav-number">1.0.2.</span> <span class="nav-text">20个技术点</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xianzhez</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
